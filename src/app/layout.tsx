@@ -4,8 +4,8 @@ import React from 'react';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
 export const metadata = {
-  title: 'Your App Title',
-  description: 'Your App Description',
+  title: 'PrimusNeo',
+  description: 'Council for Understanding Governance and Collaboration Through Emergent Technologies',
 };
 
 const RootLayout = ({ children }) => {
