@@ -1,7 +1,13 @@
 import React from 'react';
+import Image from 'next/image';
 import SplineScene from './_components/3d/SplineScene';
 import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from './_data/ecosystem';
+
+export const metadata = {
+  title: 'Federated Operational Infrastructure',
+  description: 'Coordinate specialized systems through shared interfaces. Connect real-time operational infrastructure, digital twins, and AI-assisted memory into a modular deployment architecture.',
+};
 
 const outcomes = [
   'Decision trails that survive team turnover',
@@ -123,12 +129,12 @@ const Home = () => {
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-2">
-              <img
+            <div className="relative aspect-video rounded-3xl border border-white/10 bg-white/[0.04] p-2">
+              <Image
                 src="/images/howwework.png"
-                loading="lazy"
                 alt="Collaborative governance workspace"
-                className="rounded-[1.25rem] shadow-2xl"
+                fill
+                className="rounded-[1.25rem] shadow-2xl object-cover p-2"
               />
             </div>
             <div>
@@ -155,8 +161,13 @@ const Home = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {ecosystemPartners.map((partner) => (
               <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07]">
-                <div className="mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
-                  <img src={partner.image} alt={`${partner.name} logo`} className="max-h-14 max-w-full rounded-xl object-contain" />
+                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  <Image 
+                    src={partner.image} 
+                    alt={`${partner.name} logo`} 
+                    fill
+                    className="rounded-xl object-contain p-2" 
+                  />
                 </div>
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
                 <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
@@ -166,6 +177,17 @@ const Home = () => {
           </div>
           <div className="mt-10">
             <PillList items={outcomePillars} />
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-20 bg-emerald-400/5 border-t border-emerald-400/10">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl font-bold text-white md:text-5xl mb-6">Ready to build the future of governed infrastructure?</h2>
+          <p className="text-xl text-gray-300 mb-10">Connect with us to learn how PrimusNeo can support your project, community, or asset fractionalization strategy.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <GradientButton href="/contact">Get started today</GradientButton>
+            <GradientButton href="/one-pager" variant="secondary">View the stack</GradientButton>
           </div>
         </div>
       </section>

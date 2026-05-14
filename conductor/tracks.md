@@ -4,7 +4,7 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Optimize landing pages for SEO and conversion**
+- [x] **Track: Optimize landing pages for SEO and conversion**
   *Link: [./tracks/optimize_landing_pages_20260514/](./tracks/optimize_landing_pages_20260514/)*
 - [ ] **Track: Implement AI-Powered News Engine with Sanity & OpenRouter**
   *Link: [./tracks/news_tool_sanity_20260514/](./tracks/news_tool_sanity_20260514/)*

@@ -1,7 +1,13 @@
+import Image from 'next/image';
 import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { partnerLogos } from '../_data/ecosystem';
 
-const capabilities = [
+export const metadata = {
+  title: 'AMP | Peer-to-Peer Spatial Coordination',
+  description: 'Art and Media Platform (AMP) for privacy-first, offline-capable spatial collaboration. Built on PLAN 3D, data channels, and community OS workflows.',
+};
+
+const AMPPage = () => {
   {
     title: 'Spatial OS',
     body: 'A full operating system for spatial collaboration: PLAN 3D interfaces, maps, data channels, community workspaces, and offline-capable peer-to-peer networking.',
@@ -77,12 +83,12 @@ const AMPPage = () => {
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-2">
-              <img
+            <div className="relative aspect-video rounded-3xl border border-white/10 bg-white/[0.04] p-2">
+              <Image
                 src={partnerLogos.ampArchitecture}
-                loading="lazy"
                 alt="AMP architecture diagram"
-                className="rounded-[1.25rem] shadow-2xl"
+                fill
+                className="rounded-[1.25rem] shadow-2xl object-contain p-2"
               />
             </div>
             <div>

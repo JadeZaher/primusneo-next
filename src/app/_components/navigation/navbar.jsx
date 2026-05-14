@@ -51,92 +51,100 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            {/* Platform Dropdown */}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="text-sm font-medium text-gray-300 transition hover:text-white">
-                Platform
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-1 p-4 bg-black">
-                  {platformItems.map((item) => (
-                    <li key={item.href}>
+        <div className="hidden md:flex items-center gap-6">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {/* Platform Dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm font-medium text-gray-300 transition hover:text-white">
+                  Platform
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-1 p-4 bg-black">
+                    {platformItems.map((item) => (
+                      <li key={item.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]"
+                          >
+                            <div className="text-sm font-semibold text-white">{item.label}</div>
+                            <p className="text-xs text-gray-400">{item.desc}</p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Capital Dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white">
+                  Capital
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[320px] gap-1 p-4">
+                    {capitalItems.map((item) => (
+                      <li key={item.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]"
+                          >
+                            <div className="text-sm font-semibold text-white">{item.label}</div>
+                            <p className="text-xs text-gray-400">{item.desc}</p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* About Dropdown */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white">
+                  About
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[280px] gap-1 p-4">
+                    <li>
                       <NavigationMenuLink asChild>
-                        <Link
-                          href={item.href}
-                          className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]"
-                        >
-                          <div className="text-sm font-semibold text-white">{item.label}</div>
-                          <p className="text-xs text-gray-400">{item.desc}</p>
+                        <Link href="/" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
+                          <div className="text-sm font-semibold text-white">Home</div>
+                          <p className="text-xs text-gray-400">Platform overview and mission</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            {/* Capital Dropdown */}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white">
-                Capital
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[320px] gap-1 p-4">
-                  {capitalItems.map((item) => (
-                    <li key={item.href}>
+                    <li>
                       <NavigationMenuLink asChild>
-                        <Link
-                          href={item.href}
-                          className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]"
-                        >
-                          <div className="text-sm font-semibold text-white">{item.label}</div>
-                          <p className="text-xs text-gray-400">{item.desc}</p>
+                        <Link href="/blog" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
+                          <div className="text-sm font-semibold text-white">Blog</div>
+                          <p className="text-xs text-gray-400">Updates and deep dives</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
-                  ))}
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href="/contact" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
+                          <div className="text-sm font-semibold text-white">Contact</div>
+                          <p className="text-xs text-gray-400">Get in touch with the team</p>
+                        </Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
 
-            {/* About Dropdown */}
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white">
-                About
-              </NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <ul className="grid w-[280px] gap-1 p-4">
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="/" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
-                        <div className="text-sm font-semibold text-white">Home</div>
-                        <p className="text-xs text-gray-400">Platform overview and mission</p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="/blog" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
-                        <div className="text-sm font-semibold text-white">Blog</div>
-                        <p className="text-xs text-gray-400">Updates and deep dives</p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                  <li>
-                    <NavigationMenuLink asChild>
-                      <Link href="/contact" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
-                        <div className="text-sm font-semibold text-white">Contact</div>
-                        <p className="text-xs text-gray-400">Get in touch with the team</p>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-                </ul>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+          <Link href="/contact">
+            <Button className="bg-emerald-400 text-black hover:bg-emerald-300 font-bold rounded-full px-5 h-9 text-sm">
+              Get Started
+            </Button>
+          </Link>
+        </div>
 
         {/* Mobile menu button */}
         <div className="md:hidden">
