@@ -43,7 +43,7 @@ const OasisPage = () => {
               OASIS is a mature, production-grade universal API that spans blockchain networks, cloud providers, storage systems, identity frameworks, and Web2/Web3 services. It gives PrimusNeo the interoperability backbone that makes multi-chain governance and cross-provider workflows practical.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <GradientButton href="/plan-systems">Plan Systems integration</GradientButton>
+              <GradientButton href="/amp">AMP integration</GradientButton>
               <GradientButton href="/one-pager" variant="secondary">Full stack</GradientButton>
             </div>
           </div>
@@ -111,7 +111,8 @@ const OasisPage = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="OASIS">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>
             <NumberedCard number="02" title="NEOS">Governance records, councils, contribution flows, and organizational state connected via OASIS.</NumberedCard>
-            <NumberedCard number="03" title="Plan Systems">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
+            <NumberedCard number="03" title="AMP">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
+            <NumberedCard number="04" title="Fractal Engine">Intelligence layer that uses OASIS for data routing and AMP for realtime spatial context.</NumberedCard>
           </div>
         </div>
       </section>

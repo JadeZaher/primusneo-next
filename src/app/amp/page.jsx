@@ -12,7 +12,7 @@ const capabilities = [
   },
   {
     title: 'Privacy-first architecture',
-    body: 'Encrypted storage, local-first data, user-controlled sharing, and off-grid capability make Plan Systems suitable for communities, cooperatives, and sensitive operational contexts.',
+    body: 'Encrypted storage, local-first data, user-controlled sharing, and off-grid capability make AMP suitable for communities, cooperatives, and sensitive operational contexts.',
   },
   {
     title: 'Accessible 2D/3D interfaces',
@@ -29,7 +29,7 @@ const workflows = [
   'Privacy-gated data rooms and archives',
 ];
 
-const PlanSystemsPage = () => {
+const AMPPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       <section className="relative overflow-hidden px-4 py-20 md:py-28">
@@ -37,12 +37,12 @@ const PlanSystemsPage = () => {
         <div className="absolute left-0 top-0 -z-10 h-[560px] w-[640px] rounded-full bg-emerald-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div>
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Plan Systems</div>
+            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">AMP</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              A mature spatial OS for peer-to-peer community coordination.
+              Art and Media Platform (AMP) for peer-to-peer coordination.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              Plan Systems has been building privacy-first, offline-capable spatial collaboration tools for years. Its PLAN 3D interface, data channels, swarm file sharing, and community OS workflows give PrimusNeo a proven foundation for spatial governance.
+              AMP has been building privacy-first, offline-capable spatial collaboration tools for years. Its PLAN 3D interface, data channels, swarm file sharing, and community OS workflows give PrimusNeo a proven foundation for spatial governance.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/oasis">OASIS Web4 integration</GradientButton>
@@ -52,7 +52,7 @@ const PlanSystemsPage = () => {
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
             <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Maturity</div>
             <p className="text-lg leading-8 text-gray-200">
-              Plan Systems is not a concept. It is a working spatial operating system with deployed community networks, field-tested peer-to-peer infrastructure, and years of development behind its architecture.
+              AMP is not a concept. It is a working spatial operating system with deployed community networks, field-tested peer-to-peer infrastructure, and years of development behind its architecture.
             </p>
             <div className="mt-7">
               <PillList items={['Spatial OS', 'P2P networking', 'Offline-first', 'PLAN 3D', 'Data channels', 'Community governance']} />
@@ -63,8 +63,8 @@ const PlanSystemsPage = () => {
 
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="Capabilities" title="What Plan Systems brings to PrimusNeo">
-            Plan Systems is the most mature spatial collaboration layer in the stack. Its capabilities are proven across community networks, field operations, and privacy-sensitive deployments.
+          <SectionHeader eyebrow="Capabilities" title="What AMP brings to PrimusNeo">
+            AMP is the most mature spatial collaboration layer in the stack. Its capabilities are proven across community networks, field operations, and privacy-sensitive deployments.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {capabilities.map((capability) => (
@@ -79,9 +79,9 @@ const PlanSystemsPage = () => {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-2">
               <img
-                src={partnerLogos.planArchitecture}
+                src={partnerLogos.ampArchitecture}
                 loading="lazy"
-                alt="Plan Systems architecture diagram"
+                alt="AMP architecture diagram"
                 className="rounded-[1.25rem] shadow-2xl"
               />
             </div>
@@ -91,7 +91,7 @@ const PlanSystemsPage = () => {
                 Privacy-first, offline-capable, community-owned
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Plan Systems contributes more than technology. It contributes a design philosophy: communities should own their spatial data, collaborate without cloud dependency, and interact through both 2D and 3D interfaces that respect local context.
+                AMP contributes more than technology. It contributes a design philosophy: communities should own their spatial data, collaborate without cloud dependency, and interact through both 2D and 3D interfaces that respect local context.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {workflows.map((item) => (
@@ -106,14 +106,53 @@ const PlanSystemsPage = () => {
       </section>
 
       <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Interoperability" title="The Hexon Standard">
+            AMP and Fractal Engine share a custom file format and registry ecosystem designed for operational spatial data.
+          </SectionHeader>
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
+              <h3 className="mb-4 text-2xl font-bold text-white">Hexon (v1.0.0) Archive</h3>
+              <p className="mb-6 leading-8 text-gray-300">
+                A specialized ZIP-based archive format that bundles spatial scenes, manifests, and content-addressed assets. This is the canonical bridge between AMP's realtime operations and Fractal Engine's historical analytics.
+              </p>
+              <ul className="space-y-3">
+                {['Content-addressed asset blobs (BLAKE3)', 'Signed manifests and registry URIs', 'Embedded schema and append-only logs', 'Cross-platform P2P distribution'].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-gray-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
+              <h3 className="mb-4 text-2xl font-bold text-white">Extension Ecosystem</h3>
+              <p className="mb-6 leading-8 text-gray-300">
+                A shared plugin architecture using WebAssembly (WASM) components and WIT interfaces. Developers can build reactive logic that works across the entire stack, from spatial UI to deep intelligence layers.
+              </p>
+              <ul className="space-y-3">
+                {['WASM Component Model (Wasmtime)', 'WIT interfaces (fractalengine:plugin@1.0.0)', 'Rhai-based scripting for rapid logic', 'Sandboxed, role-gated execution'].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-gray-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">
-          <SectionHeader eyebrow="Integration pattern" title="Where Plan Systems fits in the stack" className="mb-10">
-            Plan Systems provides the spatial OS layer that OASIS and NEOS services connect into.
+          <SectionHeader eyebrow="Integration pattern" title="Where AMP fits in the stack" className="mb-10">
+            AMP provides the spatial OS layer that OASIS and NEOS services connect into.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <NumberedCard number="01" title="Plan Systems">Spatial OS, PLAN 3D, channels, maps, p2p storage, community workspaces, and offline-first coordination.</NumberedCard>
+            <NumberedCard number="01" title="AMP">Spatial OS, PLAN 3D, channels, maps, p2p storage, community workspaces, and offline-first coordination.</NumberedCard>
             <NumberedCard number="02" title="OASIS">Identity, providers, holons, APIs, blockchain services, and cross-system interoperability.</NumberedCard>
             <NumberedCard number="03" title="NEOS + PrimusNeo">Governance records, councils, contribution flows, policies, and organizational state.</NumberedCard>
+            <NumberedCard number="04" title="Fractal Engine">Analytics and intelligence layer that ingests realtime data from AMP for historical warehousing and insight.</NumberedCard>
           </div>
         </div>
       </section>
@@ -121,4 +160,4 @@ const PlanSystemsPage = () => {
   );
 };
 
-export default PlanSystemsPage;
+export default AMPPage;

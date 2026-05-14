@@ -23,13 +23,13 @@ const Home = () => {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="max-w-4xl pt-10">
             <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
-              Governance for the next build cycle
+              Federated Operational Infrastructure
             </div>
             <h1 className="text-4xl font-bold leading-[0.95] tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              PrimusNeo turns ambitious ecosystems into self governing, investable, living systems.
+              An AI-assisted builder ecosystem for real-world environments.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-200 md:text-2xl">
-              We connect PrimusNeo governance, OmniOne's NEOS backend ecosystem, Plan Systems peer-to-peer spatial collaboration, OASIS Web4 interoperability, and Escherbridge software delivery into one practical platform for building the next generation of software solutions.
+              PrimusNeo coordinates specialized systems through shared interfaces. We connect real-time operational infrastructure, digital twins, agreement-based coordination, AI-assisted memory, crypto incentives, and peer-to-peer analytics into a modular deployment architecture.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/governance-platform">Governance platform</GradientButton>
@@ -40,10 +40,10 @@ const Home = () => {
           <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
             <div className="mb-5 text-sm uppercase tracking-[0.28em] text-emerald-300">The thesis</div>
             <p className="text-lg leading-8 text-gray-200">
-              Software is no longer just code. It is governance, capital, information, reputation, and community trust. PrimusNeo brings those layers into one coherent delivery model, helping create resilient self suffecient ecosystems, that can easy collaborate with others. We are the seed of the federation for the coming space age.
+              Most real-world infrastructure systems fail because data is fragmented and governance is disconnected. Instead of creating one monolithic platform, PrimusNeo creates one operational source of truth with many interoperable interfaces and deployment pathways.
             </p>
             <div className="mt-7 grid gap-3 text-sm text-gray-300 sm:grid-cols-2">
-              {['OmniOne / NEOS', 'Escherbridge', 'Digital twins', 'P2P asset data', 'Fractionalization', 'Regenerative systems'].map((item) => (
+              {['Digital twins', 'P2P analytics', 'Agreement coordination', 'AI organizational memory', 'Modular interoperability', 'Federated governance'].map((item) => (
                 <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
                   {item}
                 </div>
@@ -66,7 +66,7 @@ const Home = () => {
               The stack layers spatial interfaces, peer-to-peer data, digital twin analytics, and interoperable APIs so AI and people can act on shared situational awareness.
             </InsightCard>
             <InsightCard title="Ecosystems over silos">
-              Plan Systems, OASIS, Escherbridge, and OmniOne let PrimusNeo coordinate companies, nonprofits, cooperatives, local communities, developers, and asset owners without forcing one business model.
+              AMP, OASIS, and NEOS let PrimusNeo coordinate companies, nonprofits, cooperatives, local communities, developers, and asset owners without forcing one business model.
             </InsightCard>
           </div>
         </div>
@@ -78,10 +78,10 @@ const Home = () => {
             <div className="lg:sticky lg:top-24">
               <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Architecture</div>
               <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                Four platform layers for building the next thing
+                Four modular layers for federated infrastructure
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                The platform frames PrimusNeo around governance plus delivery: OmniOne and NEOS power backend governance; Plan Systems contributes spatial OS workflows; OASIS provides universal interoperability; Escherbridge handles architecture and implementation.
+                The platform frames PrimusNeo around governance plus operational delivery: NEOS powers backend governance; AMP contributes spatial OS workflows; OASIS provides universal interoperability; and Fractal Engine adds intelligence.
               </p>
             </div>
             <div className="grid gap-5">
@@ -101,20 +101,20 @@ const Home = () => {
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Operating model" title="From idea to governed ecosystem">
-            PrimusNeo can support the full arc: concept framing, NEOS-backed governance, technical architecture, community coordination, solution delivery, fractionalization strategy, and ongoing analytics.
+            PrimusNeo supports the full arc of federated infrastructure: concept framing, NEOS-backed governance, modular architecture, community coordination, fractionalization strategy, and ongoing analytics.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="Map the vision">
-              Convert an ambitious thesis into layers, stakeholders, requirements, risks, and measurable outcomes.
+              Convert an ambitious thesis into layers, stakeholders, requirements, and measurable outcomes.
             </NumberedCard>
             <NumberedCard number="02" title="Design governance">
-              Define councils, holons, decision rights, contribution rules, IP boundaries, disclosure practices, and funding paths with OmniOne / NEOS logic.
+              Define councils, holons, and contribution rules with NEOS logic.
             </NumberedCard>
             <NumberedCard number="03" title="Build the tooling">
-              Integrate Escherbridge delivery, Plan Systems, OASIS, dashboards, APIs, and existing software into usable workflows.
+              Integrate AMP, OASIS, dashboards, and existing software into usable workflows.
             </NumberedCard>
             <NumberedCard number="04" title="Operate and evolve">
-              Track decisions, assets, performance, community signals, and product roadmaps as a living intelligence layer.
+              Track performance and community signals as a living intelligence layer.
             </NumberedCard>
           </div>
         </div>

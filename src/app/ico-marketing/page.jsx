@@ -42,7 +42,7 @@ const participationTracks = [
     range: 'Institutional, partner, or major contributor role',
     content: `• All Development Steward benefits
 • Custom governance, reporting, and data-room workflows for a portfolio or community
-• Co-designed NEOS, OASIS, and Plan Systems integrations
+• Co-designed NEOS, OASIS, AMP, Escherbridge, and Fractal Engine integrations
 • Strategic support for capital design, legal coordination, partner onboarding, and operating agreements
 • Recognition as a long-term ecosystem participant where appropriate and compliant`,
   },
@@ -50,7 +50,7 @@ const participationTracks = [
 
 const allocationModel = [
   { title: 'Asset acquisition and development', percentage: '35%', note: 'Land, buildings, equipment, improvements, feasibility, and project reserves.' },
-  { title: 'Technology infrastructure', percentage: '20%', note: 'Plan Systems, OASIS, dashboards, APIs, hosting, data rooms, and automation.' },
+  { title: 'Technology infrastructure', percentage: '20%', note: 'AMP, OASIS, Escherbridge, Fractal Engine, dashboards, APIs, hosting, data rooms, and automation.' },
   { title: 'Governance and legal', percentage: '15%', note: 'NEOS configuration, operating agreements, disclosure, compliance, counsel, and risk controls.' },
   { title: 'Operations and stewardship', percentage: '15%', note: 'Property management, maintenance, community operations, training, and field coordination.' },
   { title: 'Liquidity and reserves', percentage: '10%', note: 'Stabilization reserves, redemption design where appropriate, and contingency planning.' },
@@ -70,9 +70,10 @@ const universalBenefits = [
   {
     title: 'Technology integration',
     features: [
-      'Plan Systems spatial OS workflows for maps, channels, training, and field coordination',
+      'AMP spatial OS workflows for maps, channels, training, and field coordination',
       'OASIS Web4 interoperability for identity, APIs, providers, avatars, holons, and Web2/Web3 bridges',
-      'Escherbridge implementation support for cloud, web, data, blockchain, analytics, and enterprise integrations',
+      'Escherbridge implementation support for cloud, web, data, blockchain, and enterprise integrations',
+      'Fractal Engine analytics, data warehousing, and intelligence solution for spatial and operational data',
     ],
   },
   {
@@ -212,7 +213,7 @@ const IcoMarketing = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="Structure">Define the asset, entity, rights, disclosures, roles, and participation requirements.</NumberedCard>
             <NumberedCard number="02" title="Instrument">Configure NEOS governance, OASIS interoperability, dashboards, QUSDC rails, and reporting flows.</NumberedCard>
-            <NumberedCard number="03" title="Twin">Plan Systems to connect spatial context, documents, media, telemetry, and field updates.</NumberedCard>
+            <NumberedCard number="03" title="Twin">AMP to connect spatial context, documents, media, telemetry, and field updates.</NumberedCard>
             <NumberedCard number="04" title="Operate">Track performance, proposals, distributions, maintenance, risks, and community decisions over time.</NumberedCard>
           </div>
         </div>

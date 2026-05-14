@@ -27,7 +27,8 @@ const operatingSystem = [
   'Legal and compliance data rooms',
   'Digital twin and asset evidence records',
   'OASIS identity, holons, APIs, and provider routing',
-  'Plan Systems spatial channels and offline-capable community workflows'
+  'AMP spatial channels and offline-capable community workflows',
+  'Fractal Engine analytics and intelligence'
 ];
 
 const GovernancePlatformPage = () => {
@@ -43,7 +44,7 @@ const GovernancePlatformPage = () => {
               A governance operating system for software solutions.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              PrimusNeo uses OmniOne’s NEOS governance ecosystem, Plan Systems spatial context, Plan Systems peer-to-peer community tooling, OASIS Web4 interoperability, and Escherbridge delivery to help ambitious projects become governable, fundable, and shippable.
+              PrimusNeo uses OmniOne’s NEOS governance ecosystem, AMP spatial context, AMP peer-to-peer community tooling, OASIS Web4 interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>
@@ -150,7 +151,7 @@ const GovernancePlatformPage = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="Discover">Map stakeholders, assets, incentives, risks, and technical constraints.</NumberedCard>
             <NumberedCard number="02" title="Constitute">Define councils, NEOS governance structures, policies, contribution rules, and disclosures.</NumberedCard>
-            <NumberedCard number="03" title="Integrate">Connect Plan Systems, OASIS, realtime intelligence, identity, APIs, and existing tools.</NumberedCard>
+            <NumberedCard number="03" title="Integrate">Connect AMP, OASIS, Escherbridge, Fractal Engine, realtime intelligence, identity, APIs, and existing tools.</NumberedCard>
             <NumberedCard number="04" title="Operate">Measure outcomes, build community, work with presence and insight using digital twins, govern proposals, and compound trust.</NumberedCard>
           </div>
         </div>
