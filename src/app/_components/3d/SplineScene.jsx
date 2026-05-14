@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react'
 import Spline from '@splinetool/react-spline';
 
-export default function SplineScene({ className }) {
+export default function SplineScene({ className, onLoad }) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -18,17 +18,19 @@ export default function SplineScene({ className }) {
   }, []);
 
   return (
-    <div className={`${className} relative w-full h-full min-h-[400px]`}>
+    <div className={`${className} relative w-full h-full min-h-[400px] touch-none overflow-hidden`}>
       <div className="absolute inset-0 gradient opacity-30 mix-blend-overlay pointer-events-none" />
       {isMobile ? (
         <Spline
           scene="https://prod.spline.design/8CfiV6v9LT7De-78/scene.splinecode"
           width={414}
           height={736}
+          onLoad={onLoad}
         />
       ) : (
         <Spline
           scene="https://prod.spline.design/reXWt-ggCDoEl04o/scene.splinecode"
+          onLoad={onLoad}
         />
       )}
     </div>

@@ -1,8 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import SplineScene from './_components/3d/SplineScene';
+import dynamic from 'next/dynamic';
 import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from './_data/ecosystem';
+import SplineLoading from './_components/3d/SplineLoading';
+
+const SplineScene = dynamic(() => import('./_components/3d/SplineScene'), {
+  ssr: false,
+  loading: () => <SplineLoading />,
+});
 
 export const metadata = {
   title: 'Federated Operational Infrastructure',

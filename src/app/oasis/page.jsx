@@ -8,7 +8,7 @@ const capabilities = [
   },
   {
     title: 'Identity and avatars',
-    body: 'Self-sovereign identity, reputation, holons, and avatar systems that work across applications. Users carry their identity, data, and relationships instead of recreating them in every silo.',
+    body: 'Self-sovereign identity, reputation, holons, and avatar systems that work across applications. Users carry their identity, data, and relationships instead of recreating them in every silo.',    
   },
   {
     title: 'Multi-chain and cross-provider',
@@ -104,7 +104,7 @@ const OasisPage = () => {
       </section>
 
       <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">   
           <SectionHeader eyebrow="Integration pattern" title="Where OASIS fits in the stack" className="mb-10">
             OASIS is the interoperability layer that connects every other piece — governance, spatial data, assets, identity, and applications — through a unified API.
           </SectionHeader>
