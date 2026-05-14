@@ -18,3 +18,17 @@ export interface Post extends SanityDocument {
   body: PortableTextBlock[];
   excerpt: string;
 }
+
+export interface News extends SanityDocument {
+  _type: "news";
+  title: string;
+  slug: {
+    current: string;
+  };
+  publishedAt: string;
+  sourceName?: string;
+  sourceUrl?: string;
+  body: PortableTextBlock[];
+  excerpt: string;
+  isAiGenerated: boolean;
+}

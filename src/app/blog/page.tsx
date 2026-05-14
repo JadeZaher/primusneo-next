@@ -1,54 +1,78 @@
 import Link from "next/link";
 import { client } from "@/lib/sanity/client";
-import { POSTS_QUERY } from "@/lib/sanity/queries";
+import { POSTS_QUERY, NEWS_QUERY } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
-import type { Post } from "@/lib/sanity/types";
+import type { Post, News } from "@/lib/sanity/types";
 
 const options = { next: { revalidate: 30 } };
 
 export default async function BlogPage() {
-  const posts = await client.fetch<Post[]>(POSTS_QUERY, {}, options);
+  const [posts, newsItems] = await Promise.all([
+    client.fetch<Post[]>(POSTS_QUERY, {}, options),
+    client.fetch<News[]>(NEWS_QUERY, {}, options)
+  ]);
+
+  // Combine and sort by date
+  const allItems = [
+    ...posts.map(p => ({ ...p, _kind: 'post' as const })),
+    ...newsItems.map(n => ({ ...n, _kind: 'news' as const }))
+  ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
   return (
     <main className="min-h-screen w-full p-8">
       <div className="mx-auto" style={{ width: '80vw' }}>
-        <h1 className="text-5xl font-bold mb-12 text-center text-glow">Follow what we are up to</h1>
-        {posts.length > 0 ? (
+        <h1 className="text-5xl font-bold mb-12 text-center text-glow">Intelligence & Updates</h1>
+        {allItems.length > 0 ? (
           <div className="space-y-8">
-            {posts.map((post) => {
-              const imageUrl = post.image
-                ? urlFor(post.image)?.width(400).height(300).url()
+            {allItems.map((item) => {
+              const isNews = item._kind === 'news';
+              const imageUrl = !isNews && item.image
+                ? urlFor(item.image)?.width(400).height(300).url()
                 : "/images/logo-primus-neo.png";
+              
+              const href = isNews ? `/news/${item.slug.current}` : `/blog/${item.slug.current}`;
 
               return (
                 <Link 
-                  href={`/blog/${post.slug.current}`}
-                  key={post._id}
+                  href={href}
+                  key={item._id}
                   className="group hover:no-underline block"
                 >
                   <article className="bg-black/50 rounded-xl overflow-hidden border border-border/40 transition-all duration-200 hover:border-border/80 hover:shadow-lg">
                     <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/3 relative">
+                      <div className="md:w-1/3 relative bg-zinc-900/50 flex items-center justify-center">
                         <img
                           src={imageUrl}
-                          alt={post.title}
-                          className="object-cover w-full h-full min-h-[250px] transition-transform duration-200 group-hover:scale-105"
+                          alt={item.title}
+                          className={`object-cover ${!isNews ? 'w-full h-full min-h-[250px]' : 'h-24 w-auto opacity-40'} transition-transform duration-200 group-hover:scale-105`}
                         />
                       </div>
                       <div className="md:w-2/3 p-8">
                         <div className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            {isNews && item.isAiGenerated && (
+                              <span className="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border border-emerald-500/20">
+                                AI Curated
+                              </span>
+                            )}
+                            <time className="text-sm text-muted-foreground block">
+                              {new Date(item.publishedAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              })}
+                            </time>
+                            {isNews && item.sourceName && (
+                              <span className="text-xs text-muted-foreground/60">
+                                via {item.sourceName}
+                              </span>
+                            )}
+                          </div>
                           <h2 className="text-2xl font-semibold group-hover:text-primary text-glow transition-colors">
-                            {post.title}
+                            {item.title}
                           </h2>
-                          <time className="text-sm text-muted-foreground block">
-                            {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </time>
-                          <p className="text-muted-foreground leading-relaxed">
-                            {post.excerpt}
+                          <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                            {item.excerpt}
                           </p>
                         </div>
                       </div>
@@ -59,7 +83,7 @@ export default async function BlogPage() {
             })}
           </div>
         ) : (
-          <p className="text-center text-muted-foreground">No posts found.</p>
+          <p className="text-center text-muted-foreground">No updates found.</p>
         )}
       </div>
     </main>
