@@ -39,7 +39,7 @@ const GovernancePlatformPage = () => {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
             <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Governance platform</div>
-            <h1 className="text-5xl font-black leading-tight tracking-tight text-white text-glow md:text-7xl">
+            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
               A governance operating system for software solutions.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
