@@ -1,221 +1,171 @@
 import React from 'react';
-import SplineScene from './_components/3d/SplineScene'  
+import SplineScene from './_components/3d/SplineScene';
+import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
+import { ecosystemPartners, outcomePillars, platformLayers } from './_data/ecosystem';
+
+const outcomes = [
+  'Decision trails that survive team turnover',
+  'Digital twins that connect assets, spaces, and analytics',
+  'Fractional ownership and contribution accounting models',
+  'Open and closed source project governance patterns',
+  'Interoperable APIs for existing enterprise and community tools',
+  'Spatial AI context for construction, land, logistics, and community systems',
+];
 
 const Home = () => {
   return (
-    <div className="bg-background text-foreground min-h-screen">
-      {/* Mission Section with Overlaid Hero */}
-      <section className="relative py-16 px-4">
-        {/* Reduced Hero Section with 3D Scene */}
-        <div className="absolute top-0 left-0 right-0 min-h-[90vh] overflow-hidden vite-grid hero-glow mb-10">
-          <div className="absolute inset-0">
-            <SplineScene className="w-full h-full mb-5" />
-          </div>
+    <div className="min-h-screen bg-black text-white">
+      <section className="relative isolate overflow-hidden px-4 py-20 md:py-28">
+        <div className="absolute inset-0 -z-20 min-h-[760px] vite-grid hero-glow opacity-80">
+          <SplineScene className="h-full w-full" />
         </div>
-        
-        
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="relative z-10 max-w-4xl mx-auto mb-16 pt-32">
-                  <div className="text-sm uppercase tracking-wider mb-4 bg-gradient-to-r text-glow bg-clip-text">
-                    Realising that we cannot wait
-                  </div>
-                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r text-glow bg-clip-text">
-                    Our Mission
-                  </h1>
-                  <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                    Information technology is entering a transformative era, fueled by the convergence of blockchain and AI technologies.
-                  </p>
-                  
-                </div>
-              <div className="text-lg text-muted-foreground space-y-4">
-                <p>
-                  Information technology is entering a transformative era, fueled by the convergence of blockchain and AI technologies with expanding distributed computational capacity.
-                </p>
-                <p>
-                  As we embark on a new parabolic phase of technical innovation and societal development, technology influences every aspect of society more than ever before.
-                </p>
-                <p>
-                  Our mission is to ensure this influence is positive and enduring. We are dedicated to honoring self-sovereign and regenerative principles, empowering individuals and communities to foster a thriving Earth.
-                </p>
-              </div>
+
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-4xl pt-10">
+            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
+              Governance for the next build cycle
             </div>
-            <div className="flex justify-center">
-              <div className="glass-effect rounded-lg p-1">
-                <img 
-                  src="/images/joshua-rivera-usmhPmT5sj0-unsplash.jpg" 
-                  loading="lazy" 
-                  alt="Mission" 
-                  className="rounded-lg shadow-2xl max-w-full h-auto"
-                />
-              </div>
+            <h1 className="text-4xl font-bold leading-[0.95] tracking-tight text-gray-200 text-glow-green md:text-5xl">
+              PrimusNeo turns ambitious ecosystems into self governing, investable, living systems.
+            </h1>
+            <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-200 md:text-2xl">
+              We connect PrimusNeo governance, OmniOne's NEOS backend ecosystem, Plan Systems peer-to-peer spatial collaboration, OASIS Web4 interoperability, and Escherbridge software delivery into one practical platform for building the next generation of software solutions.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <GradientButton href="/governance-platform">Governance platform</GradientButton>
+              <GradientButton href="/one-pager" variant="secondary">Explore the stack</GradientButton>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
+            <div className="mb-5 text-sm uppercase tracking-[0.28em] text-emerald-300">The thesis</div>
+            <p className="text-lg leading-8 text-gray-200">
+              Software is no longer just code. It is governance, capital, information, reputation, and community trust. PrimusNeo brings those layers into one coherent delivery model, helping create resilient self suffecient ecosystems, that can easy collaborate with others. We are the seed of the federation for the coming space age.
+            </p>
+            <div className="mt-7 grid gap-3 text-sm text-gray-300 sm:grid-cols-2">
+              {['OmniOne / NEOS', 'Escherbridge', 'Digital twins', 'P2P asset data', 'Fractionalization', 'Regenerative systems'].map((item) => (
+                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Frameworks Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-glow text-glow-green">
-                2 Frameworks <br />Infinite Possibilities
+      <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Mission" title="A council for software, sovereignty, and spatial intelligence">
+            PrimusNeo exists to make high-impact technology easier to steward. We focus on the human systems around software as much as the code itself: who decides, who contributes, who owns, who benefits, and how the system improves over time.
+          </SectionHeader>
+          <div className="grid gap-6 md:grid-cols-3">
+            <InsightCard title="Governance before scale">
+              With OmniOne and NEOS, we can define authority, review loops, contributor roles, holonic team structures, funding logic, and long-term stewardship before projects become too complex to manage.
+            </InsightCard>
+            <InsightCard title="Tools that create context">
+              The stack layers spatial interfaces, peer-to-peer data, digital twin analytics, and interoperable APIs so AI and people can act on shared situational awareness.
+            </InsightCard>
+            <InsightCard title="Ecosystems over silos">
+              Plan Systems, OASIS, Escherbridge, and OmniOne let PrimusNeo coordinate companies, nonprofits, cooperatives, local communities, developers, and asset owners without forcing one business model.
+            </InsightCard>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="lg:sticky lg:top-24">
+              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Architecture</div>
+              <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
+                Four platform layers for building the next thing
               </h2>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                The platform frames PrimusNeo around governance plus delivery: OmniOne and NEOS power backend governance; Plan Systems contributes spatial OS workflows; OASIS provides universal interoperability; Escherbridge handles architecture and implementation.
+              </p>
+            </div>
+            <div className="grid gap-5">
+              {platformLayers.map((layer) => (
+                <InsightCard key={layer.title} eyebrow={layer.eyebrow} title={layer.title}>
+                  <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200/80">{layer.partner}</p>
+                  {layer.body}
+                </InsightCard>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Removed Fractal Engine spotlight section */}
+
+      <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Operating model" title="From idea to governed ecosystem">
+            PrimusNeo can support the full arc: concept framing, NEOS-backed governance, technical architecture, community coordination, solution delivery, fractionalization strategy, and ongoing analytics.
+          </SectionHeader>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <NumberedCard number="01" title="Map the vision">
+              Convert an ambitious thesis into layers, stakeholders, requirements, risks, and measurable outcomes.
+            </NumberedCard>
+            <NumberedCard number="02" title="Design governance">
+              Define councils, holons, decision rights, contribution rules, IP boundaries, disclosure practices, and funding paths with OmniOne / NEOS logic.
+            </NumberedCard>
+            <NumberedCard number="03" title="Build the tooling">
+              Integrate Escherbridge delivery, Plan Systems, OASIS, dashboards, APIs, and existing software into usable workflows.
+            </NumberedCard>
+            <NumberedCard number="04" title="Operate and evolve">
+              Track decisions, assets, performance, community signals, and product roadmaps as a living intelligence layer.
+            </NumberedCard>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-2">
+              <img
+                src="/images/howwework.png"
+                loading="lazy"
+                alt="Collaborative governance workspace"
+                className="rounded-[1.25rem] shadow-2xl"
+              />
             </div>
             <div>
-              <p className="text-lg text-muted-foreground">
-                Empowering a next generation developer ecosystem for high value industries with the most impactful technologies of our times.
-                <br /><br />
-                3D - AR - VR- IOT - AI - Blockchain _ All In One Ecosystem _
+              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">What this enables</div>
+              <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
+                Better flow, clearer ownership, stronger delivery efficacy
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-gray-300">
+                The goal is not only to describe an exciting technology stack. It is to make the work easier to govern, fund, ship, evaluate, and explain. PrimusNeo becomes the connective layer between vision, capital, contributors, software, and real-world outcomes.
               </p>
-            </div>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Plan Systems */}
-            <div className="glass-effect rounded-lg p-8 border border-border/40">
-              <div className="mb-6">
-                <h4 className="text-glow text-sm uppercase tracking-wider mb-2">
-                  Our Spatial Integration Layer
-                </h4>
-                <img 
-                  src="/images/planheader.png" 
-                  loading="lazy" 
-                  alt="Plan Header" 
-                  className="w-full h-auto mb-4 rounded"
-                />
-                <p className="text-muted-foreground">Delivering on the promise of ambient technology</p>
-              </div>
-              <h2 className="text-2xl font-bold mb-6">Plan Systems /AMP SDK</h2>
-              <div className="space-y-4">
-                <div className="text-lg font-semibold">
-                  Bleeding Edge Tooling For RWA Visualization Management and Operation
-                </div>
-                <div className="text-muted-foreground">
-                  Plan Systems introduces the AMP SDK, a robust peer-to-peer data layer designed for a high-performance 3D rendering interface and editor built with Go, Dgraph, and Unity, featuring cross-platform and Unreal Engine support. It includes an expanding library of hundreds of assets created by Art Is Information, enabling users to transform real-world assets into a 3D environment while tracking changes in real time across a peer-to-peer network.
-                </div>
-              </div>
-            </div>
-
-            {/* OASIS WEB4 */}
-            <div className="glass-effect rounded-lg p-8 border border-border/40">
-              <div className="mb-6">
-                <h4 className="text-glow text-sm uppercase tracking-wider mb-2">
-                  Bridged To The Hyper social DApps of Holochain
-                </h4>
-                <img 
-                  src="/images/Entertheoasis.png" 
-                  loading="lazy" 
-                  alt="Enter the Oasis" 
-                  className="w-full h-auto mb-4 rounded"
-                />
-                <p className="text-muted-foreground">Enabled With a Ecosystem of APIs to plug in to your tooling</p>
-              </div>
-              <h2 className="text-2xl font-bold mb-6">OASIS WEB4</h2>
-              <div className="space-y-4">
-                <div className="text-lg font-semibold">
-                  Scalable Framework Providing Interoperability Across Web2 and Web3
-                </div>
-                <div className="text-muted-foreground">
-                  Featuring 8 incredible APIs with SSI, cross-chain AI, and metaverse utilities, and the ability to connect seamlessly to Holochain's P2P framework, The OASIS is designed to build powerful, scalable, self-sovereign applications spanning all of web2 and web3. Its extension, STAR, facilitates no/low code dApp creation, and the ability to create interoperable products due to a new Holonic data architecture.
-                </div>
+              <div className="mt-8">
+                <PillList items={outcomes} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 items-start mb-12">
-            <div>
-              <h2 className="text-4xl font-bold text-glow text-glow-green">The Result</h2>
-            </div>
-            <div className="text-lg text-muted-foreground">
-              By combining these 2 novel frameworks we are unlocking a massive distributed data layer that's been missing for in our internet's infrastructure as it maps to our physical world.
-              <br /><br />
-              We can realize the promise of ambient technology embedded seamlessly into the places we thrive while giving spatial and device level context to AI.
-            </div>
+      <section className="px-4 py-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Partners and channels" title="A growing network for regenerative technology delivery">
+            PrimusNeo collaborates with aligned builders across governance, software architecture, Web4 interoperability, spatial computing, peer-to-peer infrastructure, and community development.
+          </SectionHeader>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {ecosystemPartners.map((partner) => (
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07]">
+                <div className="mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  <img src={partner.image} alt={`${partner.name} logo`} className="max-h-14 max-w-full rounded-xl object-contain" />
+                </div>
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
+                <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
+                <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
+              </a>
+            ))}
           </div>
-          <div className="aspect-video glass-effect rounded-lg overflow-hidden border border-border/40">
-            <iframe 
-              src="https://cdn.embedly.com/widgets/media.html?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBeixw6Rvw2U&type=text%2Fhtml&schema=youtube&display_name=YouTube&src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FBeixw6Rvw2U%3Ffeature%3Doembed" 
-              className="w-full h-full"
-              scrolling="no" 
-              allowFullScreen 
-              title="The Spatial Web"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center">
-              <div className="glass-effect rounded-lg p-1">
-                <img 
-                  src="/images/howwework.png" 
-                  loading="lazy" 
-                  alt="How We Work" 
-                  className="rounded-lg shadow-2xl max-w-full h-auto"
-                />
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="text-green-400 text-sm uppercase tracking-wider">
-                Stewarding the new
-              </div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-glow text-glow-green">How we Work</h1>
-              <div className="text-lg text-muted-foreground space-y-4">
-                <p>
-                  PrimusNeo collaborates with aligned and ambitious businesses across various industries, providing commercial integrations of several next-generation software offerings with which we are affiliated.
-                </p>
-                <p>
-                  Our council-style model incorporates the expertise of different subject matter experts, creating a stable foundation for growth in any industry.
-                </p>
-                <p>
-                  The goal is to cultivate a self-aware and intelligent commons growth engine, utilizing our own tools and tracking key decisions throughout the process. By the end, we aim to offer a turnkey solution that all organizations can benefit from.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-glow text-glow-green">Our Partners So Far</h1>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="glass-effect p-6 rounded-lg border border-border/20 space-y-4">
-              <h3 className="text-xl font-semibold text-glow">
-                Quantum Street
-              </h3>
-              <p className="text-muted-foreground">
-                The premier advanced crypto-backed financial strategists of the modern era create financial products, funding pools, and cash flow for organizations by leveraging what the new digital landscape has to offer. Specializing in real-world asset (RWA) tokenization and offerings, they are leading the charge to enable these organizations to self-finance.
-              </p>
-            </div>
-            <div className="glass-effect p-6 rounded-lg border border-border/20 space-y-4">
-              <h3 className="text-xl font-semibold text-glow">
-                TieCity
-              </h3>
-              <p className="text-muted-foreground">
-                Leading Bastrop County in regenerative living solutions and real estate developments, we create spaces that promote belonging and community engagement by integrating emergent technologies into our efforts to cultivate thriving communities. We proudly showcase our first regenerative property in the heart of Texas.
-              </p>
-            </div>
-            <div className="glass-effect p-6 rounded-lg border border-border/20 space-y-4">
-              <h3 className="text-xl font-semibold text-glow">
-                Harrsoft Studio
-              </h3>
-              <p className="text-muted-foreground">
-                Harrsoft Studio is a collective of developers, designers, and creators from diverse disciplines, united in their mission to build the next generation of communities, foundations, and software ecosystems. We embrace an open and equitable model for ownership, guided by Colorado's groundbreaking Article 56 cooperative law.
-              </p>
-            </div>
+          <div className="mt-10">
+            <PillList items={outcomePillars} />
           </div>
         </div>
       </section>
