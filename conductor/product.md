@@ -10,12 +10,12 @@ The platform caters to a diverse audience:
 - **General Public**: Everyday users interested in exploring the fractal engine and engaging with the 3D oasis.
 
 ## Platform Objective
-The primary objective of the application is to serve as a **marketing front end, a dynamic news tool, and a hub for basic developer documentation**. It focuses on driving user acquisition for ICOs, keeping the community informed via news/blog posts, and providing necessary technical docs for developers and B2B partners.
+The primary objective of the application is to serve as a **marketing front end, an AI-driven dynamic news tool, and a Sanity-backed hub for developer documentation**. It focuses on driving user acquisition for ICOs, keeping the community informed via automated and curated news/blog posts, and providing a scalable, CMS-managed environment for technical docs.
 
 ## Key Features & Priorities
 The current development phase prioritizes:
-- **Marketing & SEO**: Optimizing landing pages for search engines and conversion (newsletter signups, contact forms).
-- **News Tool (Content)**: Enhancing the Sanity CMS integration to seamlessly manage and publish blog posts and platform news.
-- **Developer Documentation**: Setting up a structure for basic "dev docs" to explain the technical aspects of the platform (e.g., Fractal Engine, APIs).
-- **User Authentication**: Refining NextAuth integration to secure the governance platform and personalized user areas.
-- **Interactive 3D Elements**: Integrating and optimizing Spline 3D scenes and animations to create an immersive, high-performance user experience.
+- **Marketing & SEO**: Optimizing landing pages for search engines and conversion.
+- **AI-Powered News Engine**: Leveraging OpenRouter and cron jobs to automatically fetch tech news, generate insightful posts, and publish them via Sanity CMS.
+- **Sanity-Managed Dev Docs**: Implementing a documentation structure within Sanity CMS to manage technical overviews, API references, and system architecture.
+- **User Authentication**: Refining NextAuth integration for secure platform areas.
+- **Interactive 3D Elements**: Integrating immersive Spline 3D scenes.

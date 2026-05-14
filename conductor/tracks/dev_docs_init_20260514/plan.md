@@ -1,20 +1,22 @@
-# Implementation Plan: Initialize developer documentation
+# Implementation Plan: Build Sanity-Backed Developer Documentation
 
-## Phase 1: Documentation Scaffolding
-- [ ] Task: Choose a documentation strategy.
-    - [ ] Research MDX integration vs. Sanity-backed docs.
-    - [ ] Set up the chosen library/structure (e.g., `next-mdx-remote` or similar).
+## Phase 1: Sanity Schema for Documentation
+- [ ] Task: Design and implement documentation schemas.
+    - [ ] Create a `docArticle` schema with fields for title, slug, content (Portable Text), and category.
+    - [ ] Create a `docCategory` schema to organize articles into sections (e.g., "Getting Started", "API Reference").
+- [ ] Task: Configure Portable Text for technical content.
+    - [ ] Ensure the editor supports code blocks with language selection and image uploads.
+- [ ] Task: Conductor - User Manual Verification 'Phase 1: Sanity Schema for Documentation' (Protocol in workflow.md)
+
+## Phase 2: Documentation Frontend Scaffolding
 - [ ] Task: Create the base `/docs` route and layout.
-    - [ ] Implement a sidebar navigation for the documentation section.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Documentation Scaffolding' (Protocol in workflow.md)
+    - [ ] Implement a dynamic sidebar that fetches categories and articles from Sanity.
+- [ ] Task: Build the dynamic article page (`/docs/[slug]`).
+    - [ ] Fetch article content by slug and render using `PortableTextComponents.tsx`.
+    - [ ] Implement syntax highlighting for code blocks using a library like `prismjs` or `shiki`.
+- [ ] Task: Conductor - User Manual Verification 'Phase 2: Documentation Frontend Scaffolding' (Protocol in workflow.md)
 
-## Phase 2: Initial Core Documentation
-- [ ] Task: Draft the "System Architecture" document.
-- [ ] Task: Draft the "Fractal Engine Technical Overview" document.
-- [ ] Task: Draft a "Getting Started for Developers" guide.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Initial Core Documentation' (Protocol in workflow.md)
-
-## Phase 3: Navigation and Integration
-- [ ] Task: Add a link to "Docs" in the main navigation (if appropriate for the target audience).
-- [ ] Task: Ensure the documentation style matches the overall site aesthetic.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Navigation and Integration' (Protocol in workflow.md)
+## Phase 3: Navigation and Search Refinement
+- [ ] Task: Implement breadcrumbs and "Previous/Next" article links.
+- [ ] Task: (Optional) Implement a simple search functionality using Sanity's `GROQ` search across doc titles and content.
+- [ ] Task: Conductor - User Manual Verification 'Phase 3: Navigation and Search Refinement' (Protocol in workflow.md)

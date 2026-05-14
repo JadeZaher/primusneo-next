@@ -17,5 +17,8 @@
 - **Database:** **PostgreSQL**.
 - **ORM:** **Drizzle ORM** for typesafe database queries and schema management.
 
-## 5. Content Management
-- **CMS:** **Sanity CMS** for headless content management, integrated via `next-sanity`.
+## 5. Content Management & AI
+- **CMS:** **Sanity CMS** for headless content management (News, Dev Docs), integrated via `next-sanity`.
+- **AI Integration:** **OpenRouter API** for generating content using various LLMs.
+- **Automation:** **GitHub Actions** or **Vercel Cron** for scheduling news-fetching and generation tasks.
+- **Web Fetching:** Node.js-based fetching (e.g., `fetch` API, `cheerio` or `playwright` if needed for scraping).

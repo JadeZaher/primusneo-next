@@ -1,15 +1,16 @@
-# Specification: Initialize developer documentation
+# Specification: Build Sanity-Backed Developer Documentation
 
 ## Objective
-Establish a structured section within the application for developer documentation, focusing on technical overviews, API references, and system architecture for the PrimusNeo platform.
+Establish a centralized hub for developer documentation, managed entirely within Sanity CMS, to provide technical guides, API references, and architecture overviews for the PrimusNeo platform.
 
 ## Scope
-- Define the URL structure for documentation (e.g., `/docs` or `/dev-docs`).
-- Choose and implement a documentation rendering strategy (e.g., MDX, Sanity-backed content, or simple React components).
-- Create initial placeholder pages for "System Architecture", "API Reference", and "Fractal Engine Overview".
-- Ensure the documentation section is easily navigable and follows the product guidelines.
+- **Sanity Schema:** Create dedicated schemas for documentation categories, articles, and technical guides.
+- **CMS Management:** Enable content editors to easily manage complex technical content (code snippets, diagrams) within Sanity.
+- **Frontend Rendering:** Build a dedicated `/docs` section in the Next.js app that dynamically fetches and renders this content.
+- **Features:** Implement a sidebar for navigation, breadcrumbs, and syntax highlighting for code blocks.
+- **UX:** Ensure the documentation is easily searchable (via Sanity GROQ) and follows the product's UX guidelines.
 
 ## Out of Scope
-- Exhaustive documentation of every single code function.
-- Building a complex documentation search engine (unless using a library like Algolia DocSearch later).
-- External documentation hosting (keep it within the Next.js app).
+- Migrating massive amounts of existing legacy documentation.
+- Building a custom WYSIWYG editor (use Sanity's Portable Text).
+- PDF generation for documentation.

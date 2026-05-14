@@ -1,24 +1,24 @@
-# Implementation Plan: Enhance news tool with Sanity CMS
+# Implementation Plan: Implement AI-Powered News Engine with Sanity & OpenRouter
 
-## Phase 1: Schema Refinement and CMS Configuration
-- [ ] Task: Audit and refine Sanity schemas.
-    - [ ] Review `schemas/post.ts` for necessary fields (title, slug, mainImage, publishedAt, body).
-    - [ ] Add a "Category" or "Tag" schema and link it to posts.
-- [ ] Task: Verify Sanity Studio configuration.
-    - [ ] Run `npm run sanity:start` and verify the studio is functional.
-    - [ ] Ensure `sanity.config.ts` and `sanity.cli.ts` are correctly set up.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Schema Refinement and CMS Configuration' (Protocol in workflow.md)
+## Phase 1: AI Integration and Web Fetching Scaffolding
+- [ ] Task: Set up OpenRouter integration.
+    - [ ] Add `OPENROUTER_API_KEY` to environment variables.
+    - [ ] Implement a utility function to send prompts to OpenRouter models.
+- [ ] Task: Implement a basic web fetcher.
+    - [ ] Create a utility to fetch news from targeted tech sources (RSS or JSON APIs).
+    - [ ] Implement deduplication logic to avoid processing the same news twice.
+- [ ] Task: Conductor - User Manual Verification 'Phase 1: AI Integration and Web Fetching Scaffolding' (Protocol in workflow.md)
 
-## Phase 2: Frontend Integration and Styling
-- [ ] Task: Optimize the blog listing page (`src/app/blog/page.tsx`).
-    - [ ] Fetch posts using GROQ/Sanity client.
-    - [ ] Implement a clean, responsive layout for news summaries.
-- [ ] Task: Refine the individual post page (`src/app/blog/[slug]/page.tsx`).
-    - [ ] Ensure `PortableTextComponents.tsx` handles all block types correctly (images, links, code blocks).
-    - [ ] Style the post body for maximum readability.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Frontend Integration and Styling' (Protocol in workflow.md)
+## Phase 2: Automated Pipeline Implementation
+- [ ] Task: Design and implement the generation prompt.
+    - [ ] Refine the prompt to ensure AI-generated posts match the PrimusNeo brand voice.
+- [ ] Task: Implement the "Publish to Sanity" logic.
+    - [ ] Use the Sanity client to create `news` documents from the AI-generated content.
+- [ ] Task: Configure the Cron Job.
+    - [ ] Set up a GitHub Action or Vercel Cron to run the pipeline at specified intervals.
+- [ ] Task: Conductor - User Manual Verification 'Phase 2: Automated Pipeline Implementation' (Protocol in workflow.md)
 
-## Phase 3: Advanced News Features
-- [ ] Task: Implement category filtering on the blog page.
-- [ ] Task: Add a "Latest News" section to the marketing landing page.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Advanced News Features' (Protocol in workflow.md)
+## Phase 3: Frontend Update and Refinement
+- [ ] Task: Update the `news` listing and post pages to pull from the new/updated schema.
+- [ ] Task: Add an "AI-Generated" or "Auto-Curated" badge to these posts for transparency.
+- [ ] Task: Conductor - User Manual Verification 'Phase 3: Frontend Update and Refinement' (Protocol in workflow.md)
