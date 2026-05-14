@@ -1,15 +1,9 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { Button } from '../_components/ui/button';
 import { Home, Zap } from 'lucide-react';
-import SplineLoading from '../_components/3d/SplineLoading';
-
-const SplineScene = dynamic(() => import('../_components/3d/SplineScene'), {
-  ssr: false,
-  loading: () => <SplineLoading />,
-});
+import ExplorerScene from '../_components/3d/ExplorerScene';
 
 const SpatialExplorerPage = () => {
   const splineRef = useRef(null);
@@ -31,7 +25,7 @@ const SpatialExplorerPage = () => {
     <div className="relative h-screen w-full overflow-hidden bg-black text-white">
       {/* 3D Scene - Full Screen */}
       <div className="absolute inset-0 z-0">
-        <SplineScene className="h-full w-full" onLoad={onLoad} />
+        <ExplorerScene className="h-full w-full" onLoad={onLoad} />
       </div>
 
       {/* Overlay UI */}

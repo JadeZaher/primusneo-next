@@ -1,14 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from './_data/ecosystem';
-import SplineLoading from './_components/3d/SplineLoading';
-
-const SplineScene = dynamic(() => import('./_components/3d/SplineScene'), {
-  ssr: false,
-  loading: () => <SplineLoading />,
-});
+import HeroScene from './_components/3d/HeroScene';
 
 export const metadata = {
   title: 'Federated Operational Infrastructure',
@@ -29,7 +23,7 @@ const Home = () => {
     <div className="min-h-screen bg-black text-white">
       <section className="relative isolate overflow-hidden px-4 py-20 md:py-28">
         <div className="absolute inset-0 -z-20 min-h-[760px] vite-grid hero-glow opacity-80">
-          <SplineScene className="h-full w-full" />
+          <HeroScene className="h-full w-full" />
         </div>
 
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">

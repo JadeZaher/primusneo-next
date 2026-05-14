@@ -7,7 +7,7 @@ export const metadata = {
   description: 'Art and Media Platform (AMP) for privacy-first, offline-capable spatial collaboration. Built on PLAN 3D, data channels, and community OS workflows.',
 };
 
-const AMPPage = () => {
+const capabilities = [
   {
     title: 'Spatial OS',
     body: 'A full operating system for spatial collaboration: PLAN 3D interfaces, maps, data channels, community workspaces, and offline-capable peer-to-peer networking.',
