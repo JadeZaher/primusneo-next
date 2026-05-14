@@ -1,0 +1,25 @@
+{
+  "name": "primusneo",
+  "web": {
+    "service": {
+      "containerName": "primusneo-web",
+      "image": "primusneo:latest",
+      "ports": ["3000"],
+      "env": {
+        "RAILWAY_DATABASE_URL": "your-database-url"
+      }
+    }
+  },
+  "steps": [
+    {
+      "name": "build",
+      "command": "docker build -t primusneo .",
+      "dir": "."
+    },
+    {
+      "name": "push",
+      "command": "docker push primusneo",
+      "dir": "."
+    }
+  ]
+}

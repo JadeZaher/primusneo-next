@@ -1,0 +1,16 @@
+.git
+node_modules
+.env
+.env.local
+.env.example
+dist
+.next
+.next
+docker-compose*
+README.md
+.gitignore
+.vscode
+node_modules
+build
+*.md
+.DS_Store
