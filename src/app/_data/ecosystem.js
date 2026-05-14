@@ -41,7 +41,7 @@ export const ecosystemPartners = [
     href: 'https://escherbridge.com/',
     image: partnerLogos.escherbridge,
     role: 'Software architecture and development',
-    body: 'Escherbridge brings enterprise-grade architecture, TypeScript, React, .NET, Python, cloud, data engineering, Solana, Algorand, and fractional CTO capability. It replaces Harrsoft as the core technical delivery partner.',
+    body: 'Escherbridge brings enterprise-grade architecture, TypeScript, React, .NET, Python, cloud, data engineering, Solana, Algorand, and fractional CTO capability. The core technical delivery partner.',
   },
   {
     name: 'OASIS Web4',
