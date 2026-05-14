@@ -81,7 +81,7 @@ const Home = () => {
                 Four modular layers for federated infrastructure
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                The platform frames PrimusNeo around governance plus operational delivery: NEOS powers backend governance; AMP contributes spatial OS workflows; OASIS provides universal interoperability; and Fractal Engine adds intelligence.
+                The platform frames PrimusNeo around operational delivery plus governance: AMP contributes spatial OS workflows; NEOS powers backend governance; OASIS provides universal interoperability; and Fractal Engine adds intelligence.
               </p>
             </div>
             <div className="grid gap-5">

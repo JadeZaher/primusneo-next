@@ -15,8 +15,8 @@ import { Button } from '../ui/button';
 import { cn } from '../../../lib/utils';
 
 const platformItems = [
-  { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
   { href: '/amp', label: 'AMP', desc: 'Art and Media Platform' },
+  { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
   { href: '/oasis', label: 'OASIS Web4', desc: 'Universal interoperability fabric' },
   { href: '/fractal-engine', label: 'Fractal Engine', desc: 'Analytics and spatial intelligence' },
   { href: '/one-pager', label: 'Stack Overview', desc: 'The complete platform at a glance' },
@@ -166,8 +166,8 @@ const Navbar = () => {
           <div>
             <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300/60">Platform</div>
             <div className="space-y-1">
-              <MobileLink href="/governance-platform" onClick={closeMenu}>Governance Platform</MobileLink>
               <MobileLink href="/amp" onClick={closeMenu}>AMP</MobileLink>
+              <MobileLink href="/governance-platform" onClick={closeMenu}>Governance Platform</MobileLink>
               <MobileLink href="/oasis" onClick={closeMenu}>OASIS Web4</MobileLink>
               <MobileLink href="/fractal-engine" onClick={closeMenu}>Fractal Engine</MobileLink>
             </div>

@@ -10,15 +10,15 @@ export const partnerLogos = {
 export const platformLayers = [
   {
     eyebrow: 'Layer 01',
-    title: 'NEOS Governance',
-    partner: 'Backend governance ecosystem — OmniOne',
-    body: 'Council formation, decision rights, contribution accounting, project charters, and holonic organization via the NEOS ecosystem. A modular component for teams needing durable coordination.',
-  },
-  {
-    eyebrow: 'Layer 02',
     title: 'AMP (Art and Media Platform)',
     partner: 'Spatial OS and community networks',
     body: 'Offline-capable, privacy-oriented spatial collaboration, PLAN 3D interfaces, and community OS workflows. Can be integrated standalone or with the full stack.',
+  },
+  {
+    eyebrow: 'Layer 02',
+    title: 'NEOS Governance',
+    partner: 'Backend governance ecosystem — OmniOne',
+    body: 'Council formation, decision rights, contribution accounting, project charters, and holonic organization via the NEOS ecosystem. A modular component for teams needing durable coordination.',
   },
   {
     eyebrow: 'Layer 03',
@@ -36,18 +36,18 @@ export const platformLayers = [
 
 export const ecosystemPartners = [
   {
-    name: 'OmniOne / NEOS',
-    href: 'https://www.greenearthvision.org/omnione-1',
-    image: partnerLogos.omnione,
-    role: 'Governance and full-stack delivery',
-    body: 'OmniOne provides the NEOS governance ecosystem and can deliver complete solutions. Their E.T.H.O.S. methodology supports contribution-oriented organizations and regenerative communities.',
-  },
-  {
     name: 'AMP',
     href: 'https://plan-systems.org/',
     image: partnerLogos.ampArchitecture,
     role: 'Spatial OS and full-stack delivery',
     body: 'AMP contributes privacy-first spatial collaboration and full-stack delivery capability. Their tools provide the operational environment for peer-to-peer community networks.',
+  },
+  {
+    name: 'OmniOne / NEOS',
+    href: 'https://www.greenearthvision.org/omnione-1',
+    image: partnerLogos.omnione,
+    role: 'Governance and full-stack delivery',
+    body: 'OmniOne provides the NEOS governance ecosystem and can deliver complete solutions. Their E.T.H.O.S. methodology supports contribution-oriented organizations and regenerative communities.',
   },
   {
     name: 'OASIS Web4',
@@ -66,8 +66,8 @@ export const ecosystemPartners = [
 ];
 
 export const outcomePillars = [
-  'NEOS backend governance',
   'Spatial OS workflows',
+  'NEOS backend governance',
   'OASIS Web4 interoperability',
   'Hexon (v1.0.0) file standard',
   'WASM extension ecosystem',

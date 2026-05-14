@@ -21,13 +21,13 @@ const governanceFlows = [
 ];
 
 const operatingSystem = [
+  'AMP spatial channels and offline-capable community workflows',
   'Project charters and decision logs',
   'Council roles and responsibility maps',
   'Contribution, reputation, and reward accounting',
   'Legal and compliance data rooms',
   'Digital twin and asset evidence records',
   'OASIS identity, holons, APIs, and provider routing',
-  'AMP spatial channels and offline-capable community workflows',
   'Fractal Engine analytics and intelligence'
 ];
 
@@ -44,7 +44,7 @@ const GovernancePlatformPage = () => {
               A governance operating system for software solutions.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              PrimusNeo uses OmniOne’s NEOS governance ecosystem, AMP spatial context, AMP peer-to-peer community tooling, OASIS Web4 interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
+              PrimusNeo uses AMP spatial context, AMP peer-to-peer community tooling, OmniOne’s NEOS governance ecosystem, OASIS Web4 interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>

@@ -42,7 +42,7 @@ const participationTracks = [
     range: 'Institutional, partner, or major contributor role',
     content: `• All Development Steward benefits
 • Custom governance, reporting, and data-room workflows for a portfolio or community
-• Co-designed NEOS, OASIS, AMP, Escherbridge, and Fractal Engine integrations
+• Co-designed AMP, NEOS, OASIS, Escherbridge, and Fractal Engine integrations
 • Strategic support for capital design, legal coordination, partner onboarding, and operating agreements
 • Recognition as a long-term ecosystem participant where appropriate and compliant`,
   },

@@ -109,9 +109,9 @@ const OasisPage = () => {
             OASIS is the interoperability layer that connects every other piece — governance, spatial data, assets, identity, and applications — through a unified API.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <NumberedCard number="01" title="OASIS">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>
+            <NumberedCard number="01" title="AMP">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
             <NumberedCard number="02" title="NEOS">Governance records, councils, contribution flows, and organizational state connected via OASIS.</NumberedCard>
-            <NumberedCard number="03" title="AMP">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
+            <NumberedCard number="03" title="OASIS">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>
             <NumberedCard number="04" title="Fractal Engine">Intelligence layer that uses OASIS for data routing and AMP for realtime spatial context.</NumberedCard>
           </div>
         </div>
