@@ -54,11 +54,11 @@ const Navbar = () => {
           <NavigationMenuList>
             {/* Platform Dropdown */}
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white">
+              <NavigationMenuTrigger className="text-sm font-medium text-gray-300 transition hover:text-white">
                 Platform
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-1 p-4">
+                <ul className="grid w-[400px] gap-1 p-4 bg-black">
                   {platformItems.map((item) => (
                     <li key={item.href}>
                       <NavigationMenuLink asChild>
