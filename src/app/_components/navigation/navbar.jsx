@@ -18,7 +18,7 @@ const platformItems = [
   { href: '/amp', label: 'AMP', desc: 'Art and Media Platform' },
   { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
   { href: '/oasis', label: 'OASIS Web4', desc: 'Universal interoperability fabric' },
-  { href: '/3d-oasis', label: '3D Oasis', desc: 'Enter the immersive fractal intelligence layer' },
+  { href: '/spatial-explorer', label: 'Spatial Intelligence', desc: 'Interactive 3D fractal engine explorer' },
   { href: '/fractal-engine', label: 'Fractal Engine', desc: 'Analytics and spatial intelligence' },
   { href: '/one-pager', label: 'Stack Overview', desc: 'The complete platform at a glance' },
 ];
@@ -178,7 +178,7 @@ const Navbar = () => {
               <MobileLink href="/amp" onClick={closeMenu}>AMP</MobileLink>
               <MobileLink href="/governance-platform" onClick={closeMenu}>Governance Platform</MobileLink>
               <MobileLink href="/oasis" onClick={closeMenu}>OASIS Web4</MobileLink>
-              <MobileLink href="/3d-oasis" onClick={closeMenu}>3D Oasis</MobileLink>
+              <MobileLink href="/spatial-explorer" onClick={closeMenu}>Spatial Intelligence</MobileLink>
               <MobileLink href="/fractal-engine" onClick={closeMenu}>Fractal Engine</MobileLink>
             </div>
           </div>

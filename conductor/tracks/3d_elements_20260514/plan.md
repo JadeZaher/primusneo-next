@@ -1,11 +1,11 @@
 # Implementation Plan: Interactive 3D Elements
 
-## Phase 1: Oasis Page Implementation
-- [x] Task: Create the `/3d-oasis` page. [implemented: src/app/3d-oasis/page.jsx created, navbar updated.]
-    - [x] Set up `src/app/3d-oasis/page.jsx`.
+## Phase 1: Spatial Explorer Page Implementation
+- [x] Task: Create the `/spatial-explorer` page. [implemented: src/app/spatial-explorer/page.jsx created, navbar updated.]
+    - [x] Set up `src/app/spatial-explorer/page.jsx`.
     - [x] Integrate a full-screen Spline scene.
     - [x] Add a "Return Home" overlay button.
-- [x] Task: Conductor - User Manual Verification 'Phase 1: Oasis Page Implementation'
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Spatial Explorer Page Implementation'
 
 ## Phase 2: Performance and Asset Optimization
 - [x] Task: Implement lazy loading for 3D components. [implemented: next/dynamic with SplineLoading placeholder.]
@@ -16,7 +16,7 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 2: Performance and Asset Optimization'
 
 ## Phase 3: Interactivity and Polish
-- [x] Task: Implement React-to-Spline triggers. [implemented: splineRef and triggerPulse button added to 3d-oasis.]
+- [x] Task: Implement React-to-Spline triggers. [implemented: splineRef and triggerPulse button added to spatial-explorer.]
     - [x] Use the Spline API to trigger events from external UI.
-- [x] Task: Final polish and meta tags for the Oasis page. [done: 3d-oasis page metadata added.]
+- [x] Task: Final polish and meta tags for the Spatial Explorer page. [done: spatial-explorer page metadata added.]
 - [x] Task: Conductor - User Manual Verification 'Phase 3: Interactivity and Polish'

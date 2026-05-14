@@ -23,8 +23,6 @@ export default function SplineScene({ className, onLoad }) {
       {isMobile ? (
         <Spline
           scene="https://prod.spline.design/8CfiV6v9LT7De-78/scene.splinecode"
-          width={414}
-          height={736}
           onLoad={onLoad}
         />
       ) : (

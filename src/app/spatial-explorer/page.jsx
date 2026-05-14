@@ -11,7 +11,7 @@ const SplineScene = dynamic(() => import('../_components/3d/SplineScene'), {
   loading: () => <SplineLoading />,
 });
 
-const ThreeDOasisPage = () => {
+const SpatialExplorerPage = () => {
   const splineRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -38,10 +38,10 @@ const ThreeDOasisPage = () => {
       <div className="relative z-10 flex h-full flex-col items-center justify-between p-8 pointer-events-none">
         <div className="mt-8 text-center">
           <h1 className="text-4xl font-bold text-white text-glow-green opacity-80 md:text-6xl tracking-tighter">
-            THE OASIS
+            SPATIAL INTELLIGENCE
           </h1>
           <p className="mt-4 text-emerald-300/60 font-medium tracking-[0.5em] uppercase text-xs">
-            Fractal Intelligence Layer
+            Fractal Engine Operations
           </p>
         </div>
 
@@ -77,4 +77,4 @@ const ThreeDOasisPage = () => {
   );
 };
 
-export default ThreeDOasisPage;
+export default SpatialExplorerPage;
