@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+ENV SKIP_ENV_VALIDATION=true
 RUN npm run build
 
 # Stage 2: Production
