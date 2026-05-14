@@ -85,10 +85,10 @@ const AMPPage = () => {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="relative aspect-video rounded-3xl border border-white/10 bg-white/[0.04] p-2">
               <Image
-                src={partnerLogos.ampArchitecture}
-                alt="AMP architecture diagram"
+                src={partnerLogos.amp}
+                alt="PLAN Logo"
                 fill
-                className="rounded-[1.25rem] shadow-2xl object-contain p-2"
+                className="rounded-[1.25rem] shadow-2xl object-contain p-8"
               />
             </div>
             <div>

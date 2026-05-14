@@ -31,7 +31,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-black text-white min-h-screen vite-grid">
+    <div className="bg-black text-white min-h-screen vite-grid pt-24 pb-16 px-4">
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

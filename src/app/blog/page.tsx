@@ -19,7 +19,7 @@ export default async function BlogPage() {
   ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
   return (
-    <main className="min-h-screen w-full p-8">
+    <main className="min-h-screen w-full pt-32 pb-16 px-8">
       <div className="mx-auto" style={{ width: '80vw' }}>
         <h1 className="text-5xl font-bold mb-12 text-center text-glow">Intelligence & Updates</h1>
         {allItems.length > 0 ? (

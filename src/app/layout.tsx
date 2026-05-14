@@ -42,7 +42,7 @@ const RootLayout = ({ children }) => {
       <body>
       <div className="min-h-screen bg-black text-white font-switzer">
         <NavBar />
-        <main className="flex-1 pt-16">
+        <main className="flex-1">
         {children}
         </main>
         <Footer />

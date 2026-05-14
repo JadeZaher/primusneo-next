@@ -32,7 +32,7 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="container mx-auto min-h-screen max-w-4xl p-8">
+    <main className="container mx-auto min-h-screen max-w-4xl pt-32 pb-16 px-8">
       <Link 
         href="/blog" 
         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8"

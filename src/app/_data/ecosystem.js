@@ -2,6 +2,7 @@ export const partnerLogos = {
   escherbridge: '/images/partners/escherbridge-logo.svg',
   omnione: '/images/partners/omnione-logo.webp',
   oasis: '/images/partners/oasis-logo.png',
+  amp: 'https://www.plan-systems.org/wp-content/uploads/2020/08/PLAN_Logo_600px.png',
   ampArchitecture: '/images/partners/amp-architecture.jpg',
   ampNetwork: '/images/partners/amp-network.jpg',
   ampSpatialArchitecture: '/images/partners/amp-spatial-architecture.jpg',
@@ -38,7 +39,7 @@ export const ecosystemPartners = [
   {
     name: 'AMP',
     href: 'https://plan-systems.org/',
-    image: partnerLogos.ampArchitecture,
+    image: partnerLogos.amp,
     role: 'Spatial OS and full-stack delivery',
     body: 'AMP contributes privacy-first spatial collaboration and full-stack delivery capability. Their tools provide the operational environment for peer-to-peer community networks.',
   },
