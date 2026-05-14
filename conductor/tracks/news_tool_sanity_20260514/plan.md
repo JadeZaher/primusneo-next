@@ -1,11 +1,11 @@
 # Implementation Plan: Implement AI-Powered News Engine with Sanity & OpenRouter
 
 ## Phase 1: AI Integration and Web Fetching Scaffolding
-- [ ] Task: Set up OpenRouter integration.
-    - [ ] Add `OPENROUTER_API_KEY` to environment variables.
-    - [ ] Implement a utility function to send prompts to OpenRouter models.
-- [ ] Task: Implement a basic web fetcher.
-    - [ ] Create a utility to fetch news from targeted tech sources (RSS or JSON APIs).
+- [x] Task: Set up OpenRouter integration. [implemented: src/lib/openrouter.ts created, env vars registered.]
+    - [x] Add `OPENROUTER_API_KEY` to environment variables.
+    - [x] Implement a utility function to send prompts to OpenRouter models.
+- [~] Task: Implement a basic web fetcher. [implemented: src/lib/fetcher.ts created with RSS support.]
+    - [x] Create a utility to fetch news from targeted tech sources (RSS or JSON APIs).
     - [ ] Implement deduplication logic to avoid processing the same news twice.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: AI Integration and Web Fetching Scaffolding' (Protocol in workflow.md)
 
