@@ -12,5 +12,5 @@ This file tracks all major tracks for the project. Each track has its own detail
   *Link: [./tracks/news_tool_sanity_20260514/](./tracks/news_tool_sanity_20260514/)*
 - [x] **Track: Interactive 3D Elements**
   *Link: [./tracks/3d_elements_20260514/](./tracks/3d_elements_20260514/)*
-- [ ] **Track: Build Sanity-Backed Developer Documentation**
-  *Link: [./tracks/dev_docs_init_20260514/](./tracks/dev_docs_init_20260514/)*
+- [ ] **Track: Solution Verticals Deep Research & Copy**
+  *Link: [./tracks/verticals_deep_research_20260514/](./tracks/verticals_deep_research_20260514/)*
