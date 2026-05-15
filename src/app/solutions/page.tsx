@@ -346,7 +346,6 @@ export default function SolutionsPage() {
       <section className="px-4 py-40 border-t border-white/10 bg-gradient-to-b from-black to-emerald-950/20">
         <div className="mx-auto max-w-7xl relative">
           <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-            <div className="text-[20vw] font-black tracking-tighter text-emerald-500">OASIS</div>
           </div>
           
           <div className="relative text-center max-w-5xl mx-auto">
