@@ -317,13 +317,13 @@ export default function SolutionsPage() {
         <div className="mx-auto max-w-4xl text-center">
           <div className="text-sm font-bold uppercase tracking-[0.4em] text-emerald-500 mb-8">The Economic Shift</div>
           <h2 className="text-5xl font-bold text-white md:text-8xl tracking-tight mb-12">
-            Control the <br />
+            Sovereign <br />
             <span className="text-emerald-400">Coordination.</span>
           </h2>
           <p className="text-2xl text-gray-300 font-light leading-relaxed mb-16">
-            We don't just build software. We operate the alignment infrastructure. 
-            By owning the coordination layer, PrimusNeo captures value across 
-            deployment orchestration, governance frameworks, and ecosystem memory.
+            You make all the decisions. We establish just enough structure to 
+            ensure your operations are natively interoperable with other ecosystems—scaling 
+            impact while maintaining absolute autonomy.
           </p>
           <div className="grid gap-6 md:grid-cols-3">
             <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02]">
