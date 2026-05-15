@@ -85,7 +85,7 @@ const Navbar = () => {
                   Capital
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[320px] gap-1 p-4">
+                  <ul className="grid w-[320px] gap-1 p-4  bg-black">
                     {capitalItems.map((item) => (
                       <li key={item.href}>
                         <NavigationMenuLink asChild>
@@ -109,7 +109,7 @@ const Navbar = () => {
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[280px] gap-1 p-4">
+                  <ul className="grid w-[280px] gap-1 p-4  bg-black">
                     <li>
                       <NavigationMenuLink asChild>
                         <Link href="/" className="block rounded-xl px-4 py-3 transition hover:bg-white/[0.07]">
