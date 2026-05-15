@@ -7,60 +7,93 @@ export const metadata = {
 };
 
 const SupplyChainPage = () => {
+  const stats = [
+    { value: '6%', label: 'Full visibility rate (GEP)' },
+    { value: '8%', label: 'Revenue lost to disruption (World Bank)' },
+    { value: '$1T', label: 'Annual food waste toll (UNEP)' },
+    { value: '20%+', label: 'Inefficiency overhead (LogiNext)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The Visibility Gap',
+      description: 'Only 6% of businesses report having full end-to-end visibility into their supply chains, leading to massive blind spots and uncoordinated logistics.',
+      metric: '94%',
+      metricLabel: 'lack end-to-end visibility [GEP]'
+    },
+    {
+      title: 'Fragmentation & Waste',
+      description: 'Disruptions and poor coordination cost companies 8% of their annual revenue, contributing to a $1 trillion global food waste crisis.',
+      metric: '8%',
+      metricLabel: 'Avg. revenue loss [World Bank]'
+    },
+    {
+      title: 'Infrastructure Overhead',
+      description: 'In developing markets, logistics inefficiencies increase the final cost of goods by up to 20%, burdening both producers and consumers.',
+      metric: '15-20%',
+      metricLabel: 'Added cost of goods [LogiNext]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Real-Time Asset Tracking',
-      description: 'Monitor the movement and status of assets across global networks with content-addressed data and spatial OS integration.'
+      eyebrow: 'Visibility',
+      title: 'Spatial Logistics Tracking',
+      description: 'Bridge the visibility gap by tracking assets in high-fidelity 3D environments, ensuring real-time coordination across every node of the chain.'
     },
     {
-      title: 'Digital Twin Logistics',
-      description: 'Visualize warehouse operations, shipping routes, and inventory levels within a high-fidelity 3D environment.'
+      eyebrow: 'Coordination',
+      title: 'Governed Multi-Party Logic',
+      description: 'Automate handoffs and payments between independent logistics providers using NEOS-backed rules that reduce friction and fraud.'
     },
     {
-      title: 'Governed Coordination',
-      description: 'Streamline interactions between shippers, carriers, and port operators with immutable decision trails and automated agreements.'
+      eyebrow: 'Impact',
+      title: 'Waste Reduction Analytics',
+      description: 'Use the Fractal Engine to identify bottlenecks and spoilage risks, directly addressing the $1 trillion food waste crisis.'
     }
   ];
 
   const layers = [
     {
       title: 'AMP Spatial OS',
-      description: 'Coordinate field operations and track assets in real-time with offline-capable p2p networking.'
+      description: 'The foundation for real-time asset tracking and spatial coordination across global transit networks.'
     },
     {
-      title: 'OASIS Interoperability',
-      description: 'Bridge disparate logistics platforms and data silos through a unified Web4 fabric.'
+      title: 'NEOS Governance',
+      description: 'Programmatic contracts for multi-stakeholder logistics, from customs clearing to final mile delivery.'
     },
     {
-      title: 'NEOS Policies',
-      description: 'Manage access rights, operational protocols, and compliance records across multiple partners.'
+      title: 'OASIS Identity',
+      description: 'Verifiable credentials for carriers, drivers, and facility operators to ensure chain-of-custody integrity.'
     },
     {
       title: 'Fractal Engine',
-      description: 'Analyze supply chain velocity and identify bottlenecks through deep intelligence and historical data.'
+      description: 'Predictive analytics for inventory optimization and identifying structural logistics bottlenecks.'
     }
   ];
 
   const useCase = {
-    title: 'International Shipping Hub',
-    description: 'A major port operator uses PrimusNeo to coordinate vessel docking, cargo handling, and inland logistics across 20+ stakeholders.',
+    title: 'Governed Cold Chain Management',
+    description: 'A global food distributor uses PrimusNeo to track temperature-sensitive assets across 12 countries, coordinating 30+ independent carriers.',
     outcomes: [
-      '20% improvement in turnaround time',
-      'End-to-end transparency for cargo owners',
-      'Reduced document processing overhead',
-      'Real-time situational awareness for port staff'
+      'Replaced manual paperwork with immutable spatial trails',
+      'Real-time spoilage risk mitigation via Fractal Engine alerts',
+      'Verified chain-of-custody across all independent carriers',
+      'Automated settlement upon verified delivery signals'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Logistics"
-      title="Intelligence for global movement."
-      description="PrimusNeo connects physical assets with digital governance to create more resilient and transparent supply chains."
+      eyebrow="Supply Chain & Logistics"
+      title="Resolving the global visibility crisis."
+      description="Turn fragmented supply chains into coordinated networks with a unified layer for spatial tracking and governed multi-party logistics."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Streamline Your Supply Chain"
+      primaryCtaText="Optimize Your Chain"
     />
   );
 };

@@ -7,60 +7,93 @@ export const metadata = {
 };
 
 const SmartInfrastructurePage = () => {
+  const stats = [
+    { value: '$15T', label: 'Investment gap by 2040 (WEF)' },
+    { value: '$1T', label: 'Annual efficiency savings (World Bank)' },
+    { value: '3.5%', label: 'Global GDP required (Allianz)' },
+    { value: '50%+', label: 'Energy cost potential (ITU)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The $15 Trillion Funding Gap',
+      description: 'Current projections estimate a massive global shortfall in infrastructure investment, requiring a 3.5% allocation of global GDP annually to meet sustainability goals.',
+      metric: '$15T',
+      metricLabel: 'Projected shortfall by 2040 [WEF]'
+    },
+    {
+      title: 'Operational Inefficiency',
+      description: 'Aging systems and disconnected management lead to significant resource waste. Improving efficiency could save the global economy over $1 trillion per year.',
+      metric: '$1T',
+      metricLabel: 'Potential annual savings [World Bank]'
+    },
+    {
+      title: 'Aging Asset Management',
+      description: 'Municipalities struggle to extend the life of aging infrastructure due to a lack of predictive data, leading to reactive and costly maintenance cycles.',
+      metric: '50%+',
+      metricLabel: 'Energy cost potential [ITU]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Real-Time Telemetry',
-      description: 'Ingest and visualize data from thousands of IoT sensors within a high-fidelity 3D spatial environment.'
+      eyebrow: 'Efficiency',
+      title: 'Predictive Resource Optimization',
+      description: 'Leverage IoT telemetry and digital twins to reduce municipal energy consumption and water loss through automated, data-driven management.'
     },
     {
-      title: 'Automated Operations',
-      description: 'Trigger maintenance workflows and emergency responses based on real-time signals and AI-assisted logic.'
+      eyebrow: 'Capital',
+      title: 'Public-Private Coordination',
+      description: 'Bridge the funding gap by enabling transparent, governed private investment into public infrastructure projects with programmatic distribution models.'
     },
     {
-      title: 'Interoperable Standards',
-      description: 'Connect legacy industrial systems with modern Web3 infrastructure through OASIS and Fractal Engine.'
+      eyebrow: 'Stewardship',
+      title: 'Automated Asset Lifecycle',
+      description: 'Use the Fractal Engine to predict failures before they happen, extending the life of physical assets and reducing long-term maintenance costs.'
     }
   ];
 
   const layers = [
     {
       title: 'AMP Spatial OS',
-      description: 'The operating system for physical spaces, enabling real-time mapping and p2p data distribution.'
+      description: 'Real-time monitoring of utility grids, transportation networks, and urban environments via high-fidelity 3D maps.'
+    },
+    {
+      title: 'NEOS Governance',
+      description: 'Define transparent rules for public-private partnerships, usage fees, and maintenance fund allocations.'
+    },
+    {
+      title: 'OASIS Identity',
+      description: 'Secure identity and access management for critical infrastructure operators and maintenance teams.'
     },
     {
       title: 'Fractal Engine',
-      description: 'Intelligence layer that processes sensor data for predictive maintenance and operational insights.'
-    },
-    {
-      title: 'OASIS Providers',
-      description: 'Seamless integration with existing IoT gateways and enterprise data sources.'
-    },
-    {
-      title: 'NEOS Policies',
-      description: 'Governed access control and decision logic for critical infrastructure systems.'
+      description: 'Advanced analytics for predicting resource demand and optimizing city-wide infrastructure performance.'
     }
   ];
 
   const useCase = {
-    title: 'Smart Industrial Park',
-    description: 'An industrial operator uses PrimusNeo to monitor energy consumption and equipment health across a 500-acre facility.',
+    title: 'Smart Utility Grid Coordination',
+    description: 'A municipality integrates its water and energy grids into PrimusNeo to manage leak detection and peak-load balancing while coordinating private maintenance contractors.',
     outcomes: [
-      '15% reduction in energy waste',
-      'Zero downtime for critical machinery',
-      'Unified spatial view of all facility assets',
-      'Secure, role-gated access for maintenance crews'
+      'Reduced non-revenue water loss via AMP-integrated IoT sensors',
+      'Milestone-based contractor payments automated via NEOS',
+      'End-to-end transparency for public-private capital partners',
+      'Predictive maintenance cycles managed by the Fractal Engine'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Infrastructure"
-      title="Intelligence for the built environment."
-      description="PrimusNeo bridges the gap between physical sensors and digital governance, making infrastructure smarter and more resilient."
+      eyebrow="Smart Infrastructure"
+      title="Bridging the $15 trillion global investment gap."
+      description="Modernize aging infrastructure and optimize urban resources with a unified platform for spatial intelligence and governed coordination."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Optimize Your Infrastructure"
+      primaryCtaText="Consult on Infrastructure"
     />
   );
 };

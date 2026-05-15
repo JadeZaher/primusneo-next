@@ -7,25 +7,56 @@ export const metadata = {
 };
 
 const Web3GovernancePage = () => {
+  const stats = [
+    { value: '17%', label: 'Avg. voter turnout (Snapshot)' },
+    { value: '1%', label: 'Hold 90% of power (CoinLaw)' },
+    { value: '$90M', label: 'Losses to vulnerabilities (Immunefi)' },
+    { value: '13k+', label: 'Total global DAOs (DeepDAO)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The Participation Gap',
+      description: 'Decentralized governance suffers from chronic voter apathy, with turnout averaging just 17%. Low engagement leaves systems vulnerable to capture and stagnation.',
+      metric: '17%',
+      metricLabel: 'Average DAO participation [Snapshot]'
+    },
+    {
+      title: 'Governance Concentration',
+      description: 'In many major DAOs, less than 1% of token holders control 90% of the voting power, leading to "whale dominance" and a lack of true community representation.',
+      metric: '1%',
+      metricLabel: 'Control 90% of power [CoinLaw]'
+    },
+    {
+      title: 'Security Vulnerabilities',
+      description: 'Smart contract logic errors and governance manipulation led to over $90 million in losses in 2025, highlighting the need for layered security and delayed execution.',
+      metric: '$90M',
+      metricLabel: 'Lost to vulnerabilities [Immunefi]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Real-World Decision Trails',
-      description: 'Move beyond simple snapshot voting. Implement multi-layered governance with role-based authority and append-only decision logs.'
+      eyebrow: 'Engagement',
+      title: 'Quadratic & Delegated Voting',
+      description: 'Mitigate whale dominance with built-in quadratic voting and boost efficiency by up to 50% through secure, governed delegation models.'
     },
     {
-      title: 'Contribution Accounting',
-      description: 'Track and reward value creation across developers, community managers, and advisors with transparent, on-chain records.'
+      eyebrow: 'Security',
+      title: 'Layered Governance Safeguards',
+      description: 'Protect treasuries with delayed execution, flash-loan protection, and multi-signature policies that are programmatically enforced at the protocol level.'
     },
     {
-      title: 'Holonic Organization',
-      description: 'Scale complex ecosystems with nested governance structures (holons) that maintain autonomy while staying aligned with the core mission.'
+      eyebrow: 'Intelligence',
+      title: 'AI-Assisted Risk Monitoring',
+      description: 'Leverage the Fractal Engine to monitor governance health, detect malicious proposals in real-time, and assist in treasury allocation strategies.'
     }
   ];
 
   const layers = [
     {
       title: 'NEOS Framework',
-      description: 'The core engine for policies, councils, and decision-making logic tailored for decentralized entities.'
+      description: 'The core engine for defining complex voting rules, role-based permissions, and programmatic execution logic.'
     },
     {
       title: 'OASIS Identity',
@@ -37,30 +68,32 @@ const Web3GovernancePage = () => {
     },
     {
       title: 'Fractal Engine',
-      description: 'Analyze governance health, voting participation, and organizational velocity with deep intelligence.'
+      description: 'Deep analytics for monitoring governance participation trends, voting concentration, and treasury performance.'
     }
   ];
 
   const useCase = {
-    title: 'Global Protocol Ecosystem',
-    description: 'A major Web3 protocol uses PrimusNeo to manage its treasury allocation and contributor workstreams across three continents.',
+    title: 'High-Scale Protocol Governance',
+    description: 'A top-tier DeFi protocol uses PrimusNeo to transition to a more resilient governance model, implementing quadratic voting and automated risk monitoring.',
     outcomes: [
-      'Elimination of governance bottlenecks',
-      'Automated contributor reward distributions',
-      'Immutable audit trail for community transparency',
-      'Seamless coordination between core devs and community councils'
+      'Mitigated whale dominance through NEOS-native quadratic logic',
+      'Automated detection of governance manipulation signals',
+      'Secure delegation frameworks with programmatic accountability',
+      'Real-time treasury health analytics via Fractal Engine'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Governance"
-      title="The infrastructure for sovereign coordination."
-      description="PrimusNeo connects decentralized decision-making with operational delivery, enabling DAOs to govern real-world impact."
+      eyebrow="Web3 & DAO Governance"
+      title="The operating system for resilient decentralization."
+      description="Resolve the 17% participation crisis and mitigate governance concentration with a unified platform for secure, transparent, and delegated coordination."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Build Your Governance Model"
+      primaryCtaText="Secure Your DAO"
     />
   );
 };

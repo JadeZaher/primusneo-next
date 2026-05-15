@@ -2,65 +2,98 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Developer Ecosystem & Open Source Solutions | PrimusNeo',
-  description: 'Build and govern sustainable developer ecosystems. Integrated tooling for contribution accounting, interoperable APIs, and modular infrastructure.',
+  title: 'Developer Ecosystem Solutions | PrimusNeo',
+  description: 'Resolve the coordination tax and API sprawl. PrimusNeo provides the federated infrastructure for building high-scale coordination applications.',
 };
 
 const DeveloperEcosystemsPage = () => {
+  const stats = [
+    { value: '68%', label: 'Time lost to coordination (McKinsey)' },
+    { value: '8h', label: 'Weekly productivity leak (Atlassian)' },
+    { value: '35%', label: 'API endpoints classified as "zombie"' },
+    { value: '25x', label: 'Cost to fix downstream bugs' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The Coordination Tax',
+      description: 'Developers spend only 32% of their time actually writing code. The remaining 68% is consumed by manual coordination, administrative toil, and meeting sprawl.',
+      metric: '68%',
+      metricLabel: 'Coordination overhead [McKinsey]'
+    },
+    {
+      title: 'The Productivity Leak',
+      description: '69% of developers lose 8+ hours per week to inefficiencies and fragmented tools, costing large engineering orgs millions in wasted annual productivity.',
+      metric: '8h+',
+      metricLabel: 'Wasted per week [Atlassian]'
+    },
+    {
+      title: 'Architectural Sprawl',
+      description: 'API fragmentation and unmaintained "zombie" endpoints create a scaling failure, where individual speed causes team-wide gridlock and security risks.',
+      metric: '35%',
+      metricLabel: 'Classification as "zombie" [Boomi]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Interoperable Fabric',
-      description: 'Connect disparate tools and systems through OASIS, creating a unified developer experience across Web2 and Web3.'
+      eyebrow: 'Productivity',
+      title: 'Unified Coordination Runtime',
+      description: 'Reduce the 68% coordination tax with a federated operating system that automates project alignment and resource discovery for developers.'
     },
     {
-      title: 'Contribution Stewardship',
-      description: 'Implement transparent reward models and decision-making trails for open-source contributors and core teams.'
+      eyebrow: 'Modularity',
+      title: 'Interoperable Extension Layer',
+      description: 'Build on shared extension interfaces and schemas that eliminate API sprawl, allowing your tools to interoperate by default.'
     },
     {
-      title: 'Modular Architecture',
-      description: 'Leverage the Fractal Engine and AMP to build reactive, spatial-aware applications with ease.'
+      eyebrow: 'Intelligence',
+      title: 'Agentic Ready Infrastructure',
+      description: 'Design APIs for machine and AI consumption via the Fractal Engine, enabling AI agents to "understand" and use your tools without manual mapping.'
     }
   ];
 
   const layers = [
     {
-      title: 'OASIS Web4 Fabric',
-      description: 'The universal connective layer for identity, data, and cross-system interoperability.'
+      title: 'AMP Runtime',
+      description: 'A local-first development environment for building real-time, peer-to-peer coordination applications.'
     },
     {
-      title: 'Fractal Engine SDK',
-      description: 'Developer tools for building intelligence-driven applications and spatial analytics.'
+      title: 'NEOS Agreements',
+      description: 'Programmable permissions and operational rights that developers can bake directly into their application logic.'
     },
     {
-      title: 'AMP Components',
-      description: 'Reusable 2D and 3D UI primitives for spatial collaboration and p2p networking.'
+      title: 'OASIS Identity',
+      description: 'A unified interoperability layer for cross-chain identity, reputation, and participation rights for builders.'
     },
     {
-      title: 'NEOS API',
-      description: 'Programmatically manage governance roles, policies, and contribution flows.'
+      title: 'Fractal Engine',
+      description: 'Data warehousing and organizational memory that persists research and research research research.'
     }
   ];
 
   const useCase = {
-    title: 'Open Source Infrastructure Project',
-    description: 'A developer collective uses PrimusNeo to manage their core protocol development and community-led grant program.',
+    title: 'Distributed Builder Network',
+    description: 'A global developer collective uses PrimusNeo to coordinate 1,000+ contributors across 50 project workstreams, using shared standards to eliminate redundancy.',
     outcomes: [
-      'Typesafe coordination across 10+ teams',
-      'Transparent grant allocation and tracking',
-      'Seamless integration with existing CI/CD',
-      'Sustained contributor growth and retention'
+      'Eliminated 90% of manual coordination meetings',
+      'Automated contributor reward distributions via NEOS',
+      'Unified discovery of project research via Fractal Engine',
+      'Seamless interoperability between 30+ internal tools'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Developers"
-      title="Built by builders, for builders."
-      description="PrimusNeo provides the modular building blocks for the next generation of sovereign, interoperable software."
+      eyebrow="Developer Ecosystems"
+      title="Eliminating the coordination tax."
+      description="Resolve the crisis of API sprawl and developer toil with federated infrastructure designed for high-scale architectural coordination."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Start Building with PrimusNeo"
+      primaryCtaText="Consult on Dev Architecture"
     />
   );
 };

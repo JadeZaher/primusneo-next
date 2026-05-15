@@ -45,6 +45,31 @@ export const InsightCard = ({ eyebrow, title, children }) => (
   </div>
 );
 
+export const ChallengeCard = ({ title, description, metric, metricLabel }) => (
+  <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-red-500/5 p-8 transition duration-300 hover:border-red-400/30 hover:bg-red-500/10">
+    <div className="absolute -right-4 -top-4 text-8xl font-black text-red-500/10 transition-transform duration-500 group-hover:scale-110 group-hover:text-red-500/20">!</div>
+    <h3 className="mb-4 text-2xl font-bold text-white">{title}</h3>
+    <p className="mb-6 text-gray-400">{description}</p>
+    {metric && (
+      <div className="mt-auto pt-6 border-t border-white/5">
+        <div className="text-3xl font-bold text-red-400">{metric}</div>
+        <div className="text-sm uppercase tracking-wider text-gray-500">{metricLabel}</div>
+      </div>
+    )}
+  </div>
+);
+
+export const MetricCard = ({ value, label }) => (
+  <div className="text-center md:text-left group">
+    <div className="text-5xl font-black tracking-tighter text-white mb-2 transition-all duration-500 group-hover:scale-110 drop-shadow-[0_0_15px_rgba(52,211,153,0.4)]">
+      {value}
+    </div>
+    <div className="text-xs font-bold uppercase tracking-[0.25em] text-emerald-400/90 leading-tight">
+      {label}
+    </div>
+  </div>
+);
+
 export const NumberedCard = ({ number, title, children }) => (
   <div className="rounded-3xl border border-white/10 bg-black/35 p-7">
     <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-300/10 text-lg font-bold text-emerald-200 ring-1 ring-emerald-300/30">

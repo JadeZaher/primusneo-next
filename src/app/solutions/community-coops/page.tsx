@@ -2,65 +2,98 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Community Cooperative & Local Network Solutions | PrimusNeo',
-  description: 'Empower local communities and cooperatives with privacy-first coordination tools. Governed ownership, p2p communication, and collaborative asset management.',
+  title: 'Community & Cooperative Solutions | PrimusNeo',
+  description: 'Empower localized coordination and resolve governance resilience issues. PrimusNeo provides the federated infrastructure for sustainable communities and cooperatives.',
 };
 
 const CommunityCoopsPage = () => {
+  const stats = [
+    { value: '01', label: 'Active Operational Deployment (Tie Town)' },
+    { value: '42%', label: 'Skills lost during contributor attrition' },
+    { value: '$830B', label: 'Annual loss to governance breakdowns' },
+    { value: '200h', label: 'Average time to replace key contributors' }
+  ];
+
+  const challenges = [
+    {
+      title: 'Institutional Amnesia',
+      description: 'Up to 42% of specific skills and tacit knowledge disappear when key contributors leave without a formal transfer process, stalling project continuity.',
+      metric: '42%',
+      metricLabel: 'Skills lost at exit [Fullscale]'
+    },
+    {
+      title: 'Coordination Friction',
+      description: 'Media houses and creator collectives struggle to coordinate high-scale technical deployments without a unified operational layer, leading to lost velocity.',
+      metric: '68%',
+      metricLabel: 'Coordination Tax [McKinsey]'
+    },
+    {
+      title: 'The Succession Gap',
+      description: 'Lack of awareness and poor documentation make succession the #1 barrier to community coordination, with onboarding costs exceeding 200 hours per hire.',
+      metric: '200h',
+      metricLabel: 'Onboarding proficiency cost [USask]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Privacy-First Coordination',
-      description: 'Communicate and coordinate through offline-capable, p2p channels that respect community privacy and data sovereignty.'
+      eyebrow: 'Architecture',
+      title: 'Creator-Centric Infrastructure',
+      description: 'Empower media houses and creator collectives with local-first operational tools that prioritize platforming next-generation technologies.'
     },
     {
-      title: 'Governed Shared Ownership',
-      description: 'Manage community-owned assets—from land to equipment—with transparent participation rights and fair distribution models.'
+      eyebrow: 'Memory',
+      title: 'Operational Continuity',
+      description: 'Capture institutional knowledge and creator memory through the Fractal Engine, ensuring project velocity is maintained through contributor cycles.'
     },
     {
-      title: 'Collaborative Mapping',
-      description: 'Map local resources, requirements, and outcomes in a shared 3D spatial environment that anyone can contribute to.'
+      eyebrow: 'Platforming',
+      title: 'Unified Technology Stack',
+      description: 'Coordinate complex technical deployments across distributed builder networks using the shared standards of the PrimusNeo federation.'
     }
   ];
 
   const layers = [
     {
-      title: 'AMP Community OS',
-      description: 'The p2p operating system for community coordination, mapping, and private communication.'
+      title: 'AMP Spatial OS',
+      description: 'Real-time coordination for physical creator houses and decentralized media environments.'
     },
     {
-      title: 'NEOS Governance',
-      description: 'Simple, powerful governance for community councils, roles, and shared resource policies.'
+      title: 'NEOS Agreements',
+      description: 'Programmatic rules for role-based access, content rights, and community-led resource distribution.'
     },
     {
       title: 'OASIS Identity',
-      description: 'Sovereign identity for community members, enabling participation without centralized surveillance.'
+      description: 'Verifiable credentials for creators and builders, ensuring privacy and integrity in the media ecosystem.'
     },
     {
       title: 'Fractal Engine',
-      description: 'Track community health, asset performance, and shared milestones over time.'
+      description: 'The organizational memory layer that persists technical research and operational history.'
     }
   ];
 
   const useCase = {
-    title: 'Local Energy Cooperative',
-    description: 'A neighborhood uses PrimusNeo to manage their shared solar grid and coordinate maintenance through private p2p channels.',
+    title: 'Tie Town: Media & Creator House',
+    description: 'Based in McDade, Texas, Tie Town uses PrimusNeo as its operational foundation to platform next-generation technologies and coordinate creator workstreams.',
     outcomes: [
-      '100% community data sovereignty',
-      'Transparent tracking of shared energy use',
-      'Fair, community-led decision-making',
-      'Resilient coordination during internet outages'
+      'Active operational deployment in McDade, Texas',
+      'Unified coordination for high-scale media production',
+      'Verifiable contributor memory via Fractal Engine',
+      'Programmatic access control for creator facilities'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Community"
-      title="Technology for local sovereignty."
-      description="PrimusNeo provides the tools for communities to own their data, govern their assets, and coordinate their futures."
+      eyebrow="Community & Cooperatives"
+      title="Platforming the next generation."
+      description="From creator houses to decentralized media, PrimusNeo provides the federated infrastructure to coordinate high-impact technical ecosystems."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Start Your Community Network"
+      primaryCtaText="Consult on Creator Models"
     />
   );
 };

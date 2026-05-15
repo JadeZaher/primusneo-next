@@ -7,60 +7,93 @@ export const metadata = {
 };
 
 const PublicGovernancePage = () => {
+  const stats = [
+    { value: '31%', label: 'Efficiency gap in spending (IMF)' },
+    { value: '40%', label: 'Potential value-for-money gain (IMF)' },
+    { value: '1/3', label: 'Uncollected global waste (World Bank)' },
+    { value: '64%', label: 'Public trust median (OECD)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The Efficiency Gap',
+      description: 'Governments face a structural gap where up to 39% of public spending fails to translate into optimal outcomes due to rigid budget structures and administrative friction.',
+      metric: '31-39%',
+      metricLabel: 'of spending is inefficient [IMF]'
+    },
+    {
+      title: 'Value for Money Crisis',
+      description: 'Adopting best-in-class technical optimization and transparent decision-making could unlock up to 40% more value from existing public resources.',
+      metric: '40%',
+      metricLabel: 'Potential value gain [IMF]'
+    },
+    {
+      title: 'Erosion of Trust',
+      description: 'With median confidence in national governments hovering at 64%, there is an urgent need for verifiable transparency and citizen-led participation in resource allocation.',
+      metric: '64%',
+      metricLabel: 'Median confidence level [OECD]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Accountable Governance',
-      description: 'Implement transparent decision-making processes with append-only logs for public record-keeping and auditing.'
+      eyebrow: 'Accountability',
+      title: 'Programmatic Budgeting',
+      description: 'Replace rigid, opaque budget structures with NEOS-backed programmatic allocations that ensure funds are directed exactly where they are needed, with verifiable trails.'
     },
     {
-      title: 'Civic Infrastructure Twins',
-      description: 'Manage public assets—from parks to transit systems—within a collaborative 3D spatial operating system.'
+      eyebrow: 'Participation',
+      title: 'Citizen-Led Governance',
+      description: 'Empower communities with direct participation in local resource allocation through secure, governed voting and proposal systems.'
     },
     {
-      title: 'Citizen Engagement',
-      description: 'Empower residents to participate in local governance and resource allocation through secure, role-based participation flows.'
+      eyebrow: 'Optimization',
+      title: 'Frontier Efficiency Analytics',
+      description: 'Use the Fractal Engine to map "efficiency frontiers" and identify where public services can be technically optimized to achieve better outcomes.'
     }
   ];
 
   const layers = [
     {
-      title: 'NEOS Framework',
-      description: 'The engine for public policy, council roles, and transparent decision-making logic.'
+      title: 'AMP Spatial OS',
+      description: 'Visualize public assets and community needs in real-time, providing a unified spatial layer for municipal coordination.'
     },
     {
-      title: 'AMP Spatial OS',
-      description: 'Collaborative mapping and coordination tools for municipal operations and public planning.'
+      title: 'NEOS Governance',
+      description: 'The foundation for transparent public administration, defining the rules for role-based access and programmatic oversight.'
     },
     {
       title: 'OASIS Identity',
-      description: 'Secure, privacy-preserving identity for citizen participation and access to public services.'
+      description: 'Secure, privacy-preserving digital identity for citizens and public servants to ensure integrity in governance processes.'
     },
     {
       title: 'Fractal Engine',
-      description: 'Data warehousing and analytics for community health, asset utilization, and service delivery.'
+      description: 'Advanced analytics for public service optimization, from waste management routing to predictive health resource allocation.'
     }
   ];
 
   const useCase = {
-    title: 'Smart Municipality Pilot',
-    description: 'A city government uses PrimusNeo to manage its public works department and facilitate community-led budgeting for local improvements.',
+    title: 'Governed Participatory Budgeting',
+    description: 'A mid-sized city uses PrimusNeo to manage its infrastructure renewal budget, allowing 50,000+ citizens to propose and vote on projects with 100% transparency.',
     outcomes: [
-      'Increased citizen trust and participation',
-      'Real-time tracking of public asset maintenance',
-      'Transparent audit trail for public spending',
-      'Improved coordination between city departments'
+      'Fraud-resistant fund allocation via spatial verification',
+      'Direct citizen-to-project feedback loops through AMP',
+      'Programmatic fund distribution to verified local contractors',
+      'Publicly auditable budget trails powered by NEOS'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Public Sector"
-      title="Governing for the common good."
-      description="PrimusNeo provides the tools for accountable, efficient, and transparent public governance in a digital age."
+      eyebrow="Public Governance"
+      title="Restoring trust through technical transparency."
+      description="Close the 31% efficiency gap in public spending with a unified platform for governed resource allocation and verifiable citizen participation."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Modernize Public Governance"
+      primaryCtaText="Consult on Governance"
     />
   );
 };

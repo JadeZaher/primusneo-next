@@ -7,60 +7,93 @@ export const metadata = {
 };
 
 const RealEstatePage = () => {
+  const stats = [
+    { value: '$1.85T', label: 'Annual cost of bad data (Construction Week)' },
+    { value: '30%', label: 'Material waste on site (BigRentz)' },
+    { value: '40%', label: 'Global CO2 emissions (The NBS)' },
+    { value: '97%', label: 'Firms with <10 employees (Eolas)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'Extreme Fragmentation',
+      description: 'The industry is composed of millions of small players using disconnected tools. This lack of standardization makes scaling innovation nearly impossible.',
+      metric: '97%',
+      metricLabel: 'of firms have <10 staff [Eolas]'
+    },
+    {
+      title: 'Resource Inefficiency',
+      description: 'Current construction methods result in massive material waste and high carbon impact, with design-to-execution gaps leading to frequent budget overruns.',
+      metric: '30%',
+      metricLabel: 'of materials are wasted [BigRentz]'
+    },
+    {
+      title: 'The Productivity Gap',
+      description: 'While manufacturing productivity has grown by 90% since 2000, construction has remained stagnant at just 10% growth due to data silos.',
+      metric: '9x',
+      metricLabel: 'Manufacturing vs Construction [McKinsey]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Digital Twin Operations',
-      description: 'Connect live telemetry, BIM data, and spatial maps into a unified operational dashboard for property managers and developers.'
+      eyebrow: 'Operations',
+      title: 'Digital Twin Coordination',
+      description: 'Bridge the design-execution gap by connecting BIM data, live telemetry, and spatial maps into a unified operational dashboard.'
     },
     {
-      title: 'Fractionalized Capital',
-      description: 'Unlock liquidity and attract a global pool of participants through governed, asset-backed fractionalization models.'
+      eyebrow: 'Capital',
+      title: 'Governed Fractionalization',
+      description: 'Unlock liquidity in real-world assets through secure, asset-backed fractionalization models that allow for community-led participation.'
     },
     {
-      title: 'Lifecycle Governance',
-      description: 'Manage decisions from acquisition through construction and long-term stewardship with transparent, NEOS-backed decision trails.'
+      eyebrow: 'Management',
+      title: 'Lifecycle Transparency',
+      description: 'Replace manual data entry with automated, NEOS-backed decision trails that ensure accountability from acquisition to long-term stewardship.'
     }
   ];
 
   const layers = [
     {
       title: 'AMP Spatial OS',
-      description: 'Field-ready 3D maps and coordination channels for construction sites and community management.'
+      description: 'High-fidelity 3D maps and real-time coordination for construction sites and large-scale property management.'
     },
     {
       title: 'NEOS Governance',
-      description: 'Define roles, voting rights, and distribution policies for project-level stakeholders.'
+      description: 'Programmatic rules for voting, distributions, and role-based access across the entire asset lifecycle.'
     },
     {
-      title: 'OASIS Smart Assets',
-      description: 'Secure, interoperable identity and ownership records for property-backed units.'
+      title: 'OASIS Identity',
+      description: 'Secure, interoperable ownership records and identity verification for stakeholders and participants.'
     },
     {
       title: 'Fractal Engine',
-      description: 'Predictive analytics for occupancy, maintenance, and asset performance trends.'
+      description: 'Cross-layer analytics to predict maintenance needs, occupancy trends, and financial performance.'
     }
   ];
 
   const useCase = {
-    title: 'Urban Mixed-Use Development',
-    description: 'A developer uses PrimusNeo to manage a multi-phase project, coordinating 50+ contractors while offering fractional participation to the local community.',
+    title: 'Governed Urban Development',
+    description: 'A multi-phase mixed-use project uses PrimusNeo to coordinate 50+ contractors while offering governed fractional ownership to the local community.',
     outcomes: [
-      '30% reduction in operational fragmentation',
-      'Community-led governance for local amenities',
-      'Real-time transparency for project investors',
-      'Automated maintenance alerts via digital twin signals'
+      'Unified data layer bridging design and site teams',
+      'Programmatic community dividend distributions via NEOS',
+      'Eliminated data silos through AMP-native spatial coordination',
+      'Verifiable ESG reporting anchored in digital twin signals'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="Real Estate"
-      title="The operating system for modern property development."
-      description="From spatial intelligence to governed ownership, PrimusNeo provides the connective tissue for high-impact real-world assets."
+      eyebrow="Real Estate & Property"
+      title="The operating system for high-impact real-world assets."
+      description="Resolve the $1.8 trillion data fragmentation crisis in construction and real estate with a unified layer for spatial coordination and governed ownership."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Explore Real Estate Solutions"
+      primaryCtaText="Contact our RE Team"
     />
   );
 };

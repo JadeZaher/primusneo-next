@@ -2,67 +2,100 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'AI & Organizational Intelligence Solutions | PrimusNeo',
-  description: 'Scale your organization with AI-assisted memory and intelligence. Connect real-time operational data with powerful LLMs through the Fractal Engine and NEOS governance.',
+  title: 'AI & Spatial Intelligence Solutions | PrimusNeo',
+  description: 'Break through the $1B training barrier and resolve the data silo crisis. PrimusNeo provides the federated infrastructure for Large World Models and Physical AI.',
 };
 
-const AiIntelligencePage = () => {
+const AIIntelligencePage = () => {
+  const stats = [
+    { value: '4,300%', label: 'Training cost surge since 2020 (Visual Capitalist)' },
+    { value: '$1B', label: 'Expected 2027 training run (Anthropic)' },
+    { value: '68%', label: 'Organizations citing data silos (World Labs)' },
+    { value: '$60B', label: 'Geospatial AI Market 2025 (MarketsandMarkets)' }
+  ];
+
+  const challenges = [
+    {
+      title: 'The Training Barrier',
+      description: 'AI training costs have skyrocketed by over 4,300% since 2020, creating a massive barrier to entry for all but the largest frontier labs.',
+      metric: '4,300%',
+      metricLabel: 'Increase in development costs [Visual Capitalist]'
+    },
+    {
+      title: 'The Silo Crisis',
+      description: '68% of organizations cite data silos as their top concern. Spatial AI is uniquely fragmented across proprietary Lidar, Satellite, and IoT protocols.',
+      metric: '68%',
+      metricLabel: 'of orgs blocked by silos [World Labs]'
+    },
+    {
+      title: 'Computational Waste',
+      description: 'Centralized cloud dependencies force a massive "Coordination Tax" on data movement, slowing down real-time navigation and 3D reasoning.',
+      metric: '56%',
+      metricLabel: 'struggle with 1,000+ data sources [Harness]'
+    }
+  ];
+
   const features = [
     {
-      title: 'Organizational Memory',
-      description: 'Capture and index every decision, document, and operational signal into a searchable, AI-ready intelligence layer.'
+      eyebrow: 'Architecture',
+      title: 'Federated World Models',
+      description: 'Distribute the training and inference of Large World Models (LWMs) across a federated network of local-first nodes, reducing the $1B cost barrier.'
     },
     {
-      title: 'Governed AI Agents',
-      description: 'Deploy AI agents with role-based authority and clear policy boundaries defined within the NEOS framework.'
+      eyebrow: 'Intelligence',
+      title: 'Physical AI Reasoning',
+      description: 'Enable AI to reason about 3D physical space, depth, and movement through the Fractal Engine’s peer-to-peer analytics layer.'
     },
     {
-      title: 'Spatial Intelligence',
-      description: 'Ingest 3D data and environmental telemetry to provide AI with the spatial context needed for real-world operations.'
+      eyebrow: 'Resiliency',
+      title: 'Local-First Spatial Inference',
+      description: 'Move intelligence to the edge. Run complex spatial simulations and navigation logic locally, ensuring 100% uptime for autonomous systems.'
     }
   ];
 
   const layers = [
     {
+      title: 'AMP Runtime',
+      description: 'The operational foundation for real-time digital twins and high-fidelity 3D spatial environments.'
+    },
+    {
+      title: 'NEOS Agreements',
+      description: 'Define the rules for AI agency, data privacy, and permissioned access to sensitive spatial datasets.'
+    },
+    {
+      title: 'OASIS Rewards',
+      description: 'Incentivize data contributors and GPU providers through cryptographic participation and verifiable contribution tracking.'
+    },
+    {
       title: 'Fractal Engine',
-      description: 'The intelligence core that ingests, indexes, and analyzes multi-modal operational data.'
-    },
-    {
-      title: 'NEOS Policies',
-      description: 'Governed guardrails for AI behavior, data access, and decision-making authority.'
-    },
-    {
-      title: 'AMP Data Channels',
-      description: 'Real-time p2p data streams that feed the Fractal Engine for continuous learning.'
-    },
-    {
-      title: 'OASIS API Fabric',
-      description: 'Connect with various LLMs and external intelligence services through a unified, secure fabric.'
+      description: 'Cross-deployment organizational memory that allows AI agents to learn from federated real-world states.'
     }
   ];
 
   const useCase = {
-    title: 'Self-Improving Operational Hub',
-    description: 'A logistics company uses PrimusNeo to create an "institutional brain" that analyzes decade-long decision trails to optimize current routes.',
+    title: 'Autonomous Industrial Campus',
+    description: 'A logistics campus uses PrimusNeo to train a local spatial model for 500+ autonomous robots, coordinating movement without relying on centralized cloud latency.',
     outcomes: [
-      'Zero loss of institutional knowledge',
-      '25% faster decision-making cycles',
-      'AI-assisted risk identification in real-time',
-      'Governed access to sensitive operational memory'
+      'Eliminated "blind spot" data silos via AMP spatial OS',
+      '90% reduction in training costs through federated learning',
+      'Programmatic safety policies enforced via NEOS rules',
+      'Real-time situational awareness persisted in the Fractal Engine'
     ]
   };
 
   return (
     <SolutionTemplate 
-      eyebrow="AI Intelligence"
-      title="The brain for your operations."
-      description="PrimusNeo provides the infrastructure for AI that understands your organization, your history, and your physical context."
+      eyebrow="AI & Spatial Intelligence"
+      title="Moving from words to worlds."
+      description="Resolve the data silo crisis and break the $1B barrier with federated infrastructure for the next generation of Physical AI."
+      stats={stats}
+      challenges={challenges}
       features={features}
       layers={layers}
       useCase={useCase}
-      primaryCtaText="Build Your Organizational Brain"
+      primaryCtaText="Consult on Physical AI"
     />
   );
 };
 
-export default AiIntelligencePage;
+export default AIIntelligencePage;
