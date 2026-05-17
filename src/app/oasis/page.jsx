@@ -1,4 +1,4 @@
-import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { partnerLogos } from '../_data/ecosystem';
 
 const capabilities = [
@@ -29,12 +29,15 @@ const providers = [
 
 const OasisPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
       <section className="relative overflow-hidden px-4 py-20 md:py-28">
+        <DreadShape volume={1} id="06" className="absolute left-[5%] top-[10%] opacity-15" size={100} />
+        <DreadShape volume={5} id="02" className="absolute right-[5%] bottom-[15%] opacity-10 rotate-12" size={120} />
+
         <div className="absolute inset-0 -z-10 vite-grid opacity-50" />
         <div className="absolute right-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-cyan-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-          <div>
+          <div className="relative z-10">
             <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">OASIS Web4</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
               The universal interoperability fabric for Web4/Web5.
@@ -47,20 +50,22 @@ const OasisPage = () => {
               <GradientButton href="/one-pager" variant="secondary">Full stack</GradientButton>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
+            <DreadShape volume={1} id="19" className="absolute -right-6 -bottom-6 opacity-20 rotate-45" size={140} />
             <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Production ready</div>
             <p className="text-lg leading-8 text-gray-200">
               OASIS is already deployed with a live API, ecosystem of supported providers, identity system, holon architecture, and real-world integrations. It is the most mature interoperability layer in the PrimusNeo stack.
             </p>
-            <div className="mt-7">
+            <div className="mt-7 relative z-10">
               <PillList items={['Universal API', 'Multi-chain', 'Self-sovereign ID', 'Holons', 'Provider routing', 'Failover']} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative">
+        <DreadShape volume={5} id="07" className="absolute -left-10 top-0 opacity-10" size={160} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Capabilities" title="What OASIS brings to PrimusNeo">
             OASIS provides the most mature and production-ready piece of the stack. It has been operating as a live service with real provider integrations and a growing developer ecosystem.
           </SectionHeader>
@@ -72,8 +77,9 @@ const OasisPage = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={1} id="10" className="absolute -right-20 top-1/2 opacity-5 rotate-12" size={250} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-3">
               <img
@@ -104,11 +110,12 @@ const OasisPage = () => {
       </section>
 
       <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">   
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12 relative overflow-hidden">   
+          <DreadShape volume={1} id="15" className="absolute right-0 top-0 opacity-10" size={180} />
           <SectionHeader eyebrow="Integration pattern" title="Where OASIS fits in the stack" className="mb-10">
             OASIS is the interoperability layer that connects every other piece — governance, spatial data, assets, identity, and applications — through a unified API.
           </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             <NumberedCard number="01" title="AMP">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
             <NumberedCard number="02" title="NEOS">Governance records, councils, contribution flows, and organizational state connected via OASIS.</NumberedCard>
             <NumberedCard number="03" title="OASIS">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>

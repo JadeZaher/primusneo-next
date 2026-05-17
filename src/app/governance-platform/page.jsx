@@ -1,4 +1,5 @@
-import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import Image from 'next/image';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from '../_data/ecosystem';
 
 const governanceFlows = [
@@ -33,12 +34,15 @@ const operatingSystem = [
 
 const GovernancePlatformPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
       <section className="relative overflow-hidden px-4 py-20 md:py-28">
+        <DreadShape volume={1} id="03" className="absolute left-[5%] top-[10%] opacity-15 rotate-12" size={100} />
+        <DreadShape volume={5} id="11" className="absolute right-[8%] top-[15%] opacity-10" size={80} />
+
         <div className="absolute inset-0 -z-10 vite-grid opacity-50" />
-        <div className="absolute left-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute left-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-emerald-500/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-          <div>
+          <div className="relative z-10">
             <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Governance platform</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
               A governance operating system for software solutions.
@@ -51,24 +55,26 @@ const GovernancePlatformPage = () => {
               <GradientButton href="/fractionalization" variant="secondary">Fractionalization model</GradientButton>
             </div>
           </div>
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
+          <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
+            <DreadShape volume={1} id="17" className="absolute -right-6 -bottom-6 opacity-20" size={120} />
             <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Platform scope</div>
             <p className="text-lg leading-8 text-gray-200">
               Governance is the connective layer between strategy, software, communities, capital, and real-world assets. PrimusNeo makes that layer visible enough to manage and modular enough to integrate.
             </p>
-            <div className="mt-7">
+            <div className="mt-7 relative z-10">
               <PillList items={outcomePillars} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20">
+      <section className="px-4 py-20 relative">
+        <DreadShape volume={5} id="01" className="absolute -left-10 top-0 opacity-10 rotate-45" size={140} />
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Governance workbench" title="What the platform governs">
             The goal is not bureaucracy. The goal is clear authority, transparent contribution, practical accountability, and shared context across the people and systems doing the work.
           </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             {governanceFlows.map((flow) => (
               <InsightCard key={flow.title} title={flow.title}>{flow.body}</InsightCard>
             ))}
@@ -76,8 +82,9 @@ const GovernancePlatformPage = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={1} id="09" className="absolute -right-20 top-1/2 opacity-5 rotate-12" size={250} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div className="lg:sticky lg:top-24">
               <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Layer model</div>
@@ -101,8 +108,9 @@ const GovernancePlatformPage = () => {
       </section>
 
       <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12 relative overflow-hidden">
+          <DreadShape volume={5} id="14" className="absolute right-0 top-0 opacity-10" size={180} />
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center relative z-10">
             <div>
               <div className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Operating system contents</div>
               <h2 className="text-4xl font-bold text-white text-glow md:text-5xl">
@@ -114,7 +122,7 @@ const GovernancePlatformPage = () => {
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               {operatingSystem.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-black/35 p-4 text-gray-200">
+                <div key={item} className="rounded-2xl border border-white/10 bg-black/35 p-4 text-gray-200 text-sm">
                   {item}
                 </div>
               ))}
@@ -123,16 +131,22 @@ const GovernancePlatformPage = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative">
+        <DreadShape volume={1} id="12" className="absolute left-[20%] bottom-0 opacity-5" size={160} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Partner roles" title="Who powers the governance ecosystem">
             PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {ecosystemPartners.map((partner) => (
-              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:border-emerald-300/40 hover:bg-white/[0.07]">
-                <div className="mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
-                  <img src={partner.image} alt={`${partner.name} logo`} className="max-h-14 max-w-full rounded-xl object-contain" />
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07]">
+                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  <Image 
+                    src={partner.image} 
+                    alt={`${partner.name} logo`} 
+                    fill
+                    className="rounded-xl object-contain p-2" 
+                  />
                 </div>
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
                 <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
@@ -144,11 +158,12 @@ const GovernancePlatformPage = () => {
       </section>
 
       <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.045] p-8 md:p-12">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.045] p-8 md:p-12 relative overflow-hidden">
+          <DreadShape volume={1} id="01" className="absolute -right-10 -bottom-10 opacity-15 rotate-12" size={140} />
           <SectionHeader eyebrow="Launch sequence" title="How PrimusNeo takes a project from vision to governed delivery" className="mb-10">
             Every project can start small and grow into deeper governance, fractionalization, spatial intelligence, and interoperability as it proves traction.
           </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             <NumberedCard number="01" title="Discover">Map stakeholders, assets, incentives, risks, and technical constraints.</NumberedCard>
             <NumberedCard number="02" title="Constitute">Define councils, NEOS governance structures, policies, contribution rules, and disclosures.</NumberedCard>
             <NumberedCard number="03" title="Integrate">Connect AMP, OASIS, Escherbridge, Fractal Engine, realtime intelligence, identity, APIs, and existing tools.</NumberedCard>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionHeader, GradientButton, InsightCard, MetricCard } from '../_components/marketing';
+import { SectionHeader, GradientButton, InsightCard, MetricCard, DreadShape, ChallengeCard } from '../_components/marketing';
 
 export const metadata = {
   title: 'Industry Solutions | Federated Operational Infrastructure | PrimusNeo',
@@ -89,281 +89,194 @@ const solutions = [
   }
 ];
 
+const industryChallenges = [
+  {
+    title: 'The Data Crisis',
+    description: 'Bad data and fragmented systems cost the construction and real estate industry trillions. Digital twins remain disconnected from actual operations.',
+    metric: '$1.85T',
+    metricLabel: 'Annual Cost [Construction Week]'
+  },
+  {
+    title: 'The Investment Gap',
+    description: 'Global infrastructure faces a massive funding deficit. Capital stays on the sidelines because operational transparency is insufficient.',
+    metric: '$15T',
+    metricLabel: 'Funding Deficit [WEF]'
+  },
+  {
+    title: 'The Visibility Gap',
+    description: 'Most supply chains lack real-time visibility into multi-party operations, leading to systemic fragility and waste.',
+    metric: '94%',
+    metricLabel: 'Visibility Gap [GEP]'
+  },
+  {
+    title: 'The Governance Gap',
+    description: 'Public and private governance systems are failing to adapt to complex, high-speed operational requirements.',
+    metric: '31%',
+    metricLabel: 'Efficiency Gap [IMF]'
+  }
+];
+
 export default function SolutionsPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
       {/* Hero Section: Visionary Hook */}
       <section className="relative isolate overflow-hidden px-4 py-32 md:py-64 border-b border-white/5">
+        <DreadShape volume={1} id="01" className="absolute left-[5%] top-[20%] opacity-15 rotate-12" size={120} />
+        <DreadShape volume={5} id="04" className="absolute right-[10%] bottom-[20%] opacity-10 -rotate-12" size={100} />
+
         <div className="absolute inset-0 -z-10 vite-grid opacity-30" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-20">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/30 rounded-full blur-[128px] animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px] animate-pulse delay-700" />
         </div>
-        
-        <div className="mx-auto max-w-7xl text-center">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/5 px-4 py-1.5 text-sm font-semibold tracking-wide text-emerald-300">
+
+        <div className="mx-auto max-w-5xl text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-widest uppercase mb-8 animate-pulse">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
-            Proof Over Promises
+            Operational Reality Check
           </div>
-          <h1 className="text-6xl font-black leading-[1.05] tracking-tight text-white md:text-9xl mb-12">
-            The Federated <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300">Coordination Layer.</span>
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.85] mb-8 text-glow-white">
+            THE ERA OF <br />
+            <span className="text-red-500 drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] uppercase">Promises</span> <br />
+            <span className="text-white">IS OVER.</span>
           </h1>
-          <p className="mx-auto max-w-3xl text-2xl leading-relaxed text-gray-400 md:text-3xl font-light">
-            If it is not provable, it has no value. PrimusNeo is the operational fabric 
-            restoring truth to real-world infrastructure through federated intelligence.
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
+            Fragmented systems and disconnected governance are no longer sustainable. PrimusNeo provides the coordination layer for real-world operational ecosystems.
           </p>
-          <div className="mt-16 flex flex-col items-center justify-center gap-6 sm:flex-row">
-            <GradientButton href="/contact">Initiate Deployment</GradientButton>
-            <a href="#problem" className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-emerald-400 transition-colors">
-              The Problem Discovery ↓
-            </a>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            <GradientButton href="#challenges">View the Challenges</GradientButton>
+            <GradientButton href="/contact" variant="secondary">Partner With Us</GradientButton>
           </div>
         </div>
       </section>
 
-      {/* The Problem: Why Most Systems Fail */}
-      <section id="problem" className="px-4 py-32 bg-white/[0.01]">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-24 lg:grid-cols-2 lg:items-start">
-            <div className="sticky top-32">
-              <div className="text-sm font-bold uppercase tracking-[0.4em] text-red-500 mb-6">The Crisis</div>
-              <h2 className="text-5xl font-bold text-white leading-tight md:text-7xl">
-                Most infrastructure <br />
-                <span className="text-red-500/80">systems fail.</span>
-              </h2>
-              <p className="mt-8 text-xl text-gray-400 leading-relaxed max-w-xl">
-                From real estate to public governance, operational data is fragmented, 
-                institutional memory is lost, and permissions are opaque. 
-                Fragmentation isn't just a hurdle—it's a $1.8T coordination tax.
-              </p>
-              
-              <div className="mt-16 grid grid-cols-2 gap-12">
-                <MetricCard value="$1.85T" label="Annual cost of bad data [Construction Week]" />
-                <MetricCard value="31%" label="Public spending efficiency gap [IMF]" />
-              </div>
-            </div>
-            
-            <div className="grid gap-8">
-              <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
-                <h3 className="text-2xl font-bold text-white mb-4">Fragmented Operational Data</h3>
-                <p className="text-gray-400 leading-relaxed">Disconnected IoT systems and siloed analytics create a "blind spot" in real-world operations, making verification impossible.</p>
-              </div>
-              <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
-                <h3 className="text-2xl font-bold text-white mb-4">Governance-Operation Gap</h3>
-                <p className="text-gray-400 leading-relaxed">Decision-making happens in boardrooms while operations happen in the field. There is no automated bridge between the agreement and the action.</p>
-              </div>
-              <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02]">
-                <h3 className="text-2xl font-bold text-white mb-4">Monolithic SaaS Lock-in</h3>
-                <p className="text-gray-400 leading-relaxed">Centralized cloud dependencies prevent local-first resiliency and force organizations into rigid, non-interoperable stacks.</p>
-              </div>
-              <div className="p-8 rounded-3xl border border-white/5 bg-red-500/10">
-                <h3 className="text-2xl font-bold text-red-400 mb-4">The Result: Stagnation</h3>
-                <p className="text-gray-400 leading-relaxed">Infrastructure cannot interoperate. Developers rebuild redundant systems. Real-world state remains difficult to verify.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Solution: Federated Architecture */}
-      <section className="px-4 py-32 border-y border-white/5">
-        <div className="mx-auto max-w-7xl">
+      {/* Challenges Section */}
+      <section id="challenges" className="px-4 py-32 relative overflow-hidden border-b border-white/5">
+        <DreadShape volume={1} id="05" className="absolute -left-10 top-0 opacity-10 rotate-45" size={140} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader 
-            eyebrow="The Solution" 
-            title="Operational Specialty. Unified Coordination."
+            eyebrow="The Problem" 
+            title="Structural Fragmentation"
+            className="text-left mx-0 mb-20"
           >
-            PrimusNeo coordinates specialization without fragmentation. 
-            One operational source of truth. Many interoperable interfaces.
+            Before we talk about solutions, we must address the systemic failures in current infrastructure management.
           </SectionHeader>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-20">
-            <div className="group p-8 rounded-3xl border border-white/10 bg-black/50 transition-all hover:border-emerald-500/40">
-              <div className="text-3xl font-black text-emerald-500 mb-6">AMP</div>
-              <h4 className="text-xl font-bold text-white mb-4">Operational Runtime</h4>
-              <p className="text-gray-400">The local-first infrastructure for real-time digital twins and machine coordination.</p>
-            </div>
-            <div className="group p-8 rounded-3xl border border-white/10 bg-black/50 transition-all hover:border-emerald-500/40">
-              <div className="text-3xl font-black text-emerald-500 mb-6">NEOS</div>
-              <h4 className="text-xl font-bold text-white mb-4">Agreements & Permissions</h4>
-              <p className="text-gray-400">Programmatic governance that encodes consent and operational rights into every action.</p>
-            </div>
-            <div className="group p-8 rounded-3xl border border-white/10 bg-black/50 transition-all hover:border-emerald-500/40">
-              <div className="text-3xl font-black text-emerald-500 mb-6">OASIS</div>
-              <h4 className="text-xl font-bold text-white mb-4">Incentive Layer</h4>
-              <p className="text-gray-400">Cryptographic participation and contribution tracking to align ecosystem stakeholders.</p>
-            </div>
-            <div className="group p-8 rounded-3xl border border-white/10 bg-black/50 transition-all hover:border-emerald-500/40">
-              <div className="text-3xl font-black text-emerald-500 mb-6">FRACTAL</div>
-              <h4 className="text-xl font-bold text-white mb-4">P2P Analytics</h4>
-              <p className="text-gray-400">Peer-to-peer intelligence and organizational memory that persists across deployments.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Verticals Grid: High Conversion */}
-      <section className="px-4 py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-20">
-            <h2 className="text-5xl font-bold text-white md:text-7xl mb-8">Specialized <br />Deployments.</h2>
-            <p className="text-2xl text-gray-400 font-light max-w-3xl">
-              PrimusNeo resolves deep-rooted structural friction across ten critical sectors, 
-              providing the horizontal operating system for a world that works together.
-            </p>
-          </div>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((item) => (
-              <div key={item.id} className="group relative flex flex-col rounded-[2.5rem] border border-white/10 bg-white/[0.01] p-10 transition duration-500 hover:border-emerald-500/40 hover:bg-white/[0.04]">
-                <div className="mb-10">
-                  <div className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-400/80 mb-3 transition-colors group-hover:text-emerald-300">
-                    {item.metricLabel}
-                  </div>
-                  <div className="text-5xl font-black text-white/25 transition-all duration-700 group-hover:text-emerald-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(52,211,153,0.3)] origin-left">
-                    {item.metric}
-                  </div>
-                </div>
-                
-                <h3 className="text-3xl font-bold text-white mb-6 tracking-tight">{item.title}</h3>
-                <p className="text-lg text-gray-400 mb-10 leading-relaxed font-light">
-                  {item.description}
-                </p>
-                
-                <div className="mt-auto">
-                  <a 
-                    href={item.href} 
-                    className="inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-emerald-400 hover:text-white transition-all duration-300"
-                  >
-                    View Framework 
-                    <span className="h-px w-8 bg-emerald-500/50 group-hover:w-12 group-hover:bg-emerald-300 transition-all"></span>
-                  </a>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industryChallenges.map((challenge) => (
+              <ChallengeCard 
+                key={challenge.title}
+                title={challenge.title}
+                description={challenge.description}
+                metric={challenge.metric}
+                metricLabel={challenge.metricLabel}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Phase 1: Regenerative Focus */}
-      <section className="px-4 py-32 border-t border-white/5 bg-emerald-500/[0.02]">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-            <div>
-              <div className="text-sm font-bold uppercase tracking-[0.4em] text-emerald-500 mb-6">Market Phase 01</div>
-              <h2 className="text-5xl font-bold text-white leading-tight md:text-7xl mb-8">
-                The Proving Ground: <br />
-                <span className="text-emerald-400">Tie Town [TX].</span>
-              </h2>
-              <p className="text-xl text-gray-400 leading-relaxed mb-10">
-                We are validating the PrimusNeo architecture through our first active 
-                operational deployment: **Tie Town** in McDade, Texas. As a media 
-                and creator house, Tie Town demonstrates the power of federated 
-                coordination to platform the next generation of technologies.
-              </p>
-              <div className="grid grid-cols-2 gap-8">
-                <div className="text-center p-6 rounded-2xl border border-white/5 bg-black/50">
-                  <div className="text-4xl font-bold text-white mb-2 text-glow">01</div>
-                  <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Active Pilot</div>
+      {/* Solutions Grid */}
+      <section id="verticals" className="px-4 py-32 relative overflow-hidden">
+        <DreadShape volume={5} id="10" className="absolute -left-10 top-1/4 opacity-10" size={140} />
+        <div className="mx-auto max-w-7xl relative z-10">
+          <SectionHeader 
+            eyebrow="The Sectors" 
+            title="Industry-Specific Implementation"
+            className="text-left mx-0 mb-20"
+          >
+            We deploy the full stack—AMP, NEOS, OASIS, and Fractal Engine—to solve high-stakes coordination problems in these core industries.
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+            {solutions.map((solution) => (
+              <a 
+                key={solution.id} 
+                href={solution.href}
+                className="group relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-8 md:p-12 transition-all duration-500 hover:bg-white/[0.04] hover:border-emerald-500/30 hover:-translate-y-1"
+              >
+                <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                   <div className="w-12 h-12 rounded-full border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                   </div>
                 </div>
-                <div className="text-center p-6 rounded-2xl border border-white/5 bg-black/50">
-                  <div className="text-4xl font-bold text-white mb-2 text-glow">TX</div>
-                  <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Deployment Location</div>
+
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="mb-8">
+                    <div className="text-4xl md:text-6xl font-black text-white group-hover:text-emerald-400 transition-colors duration-500 tracking-tighter mb-4">
+                      {solution.metric}
+                    </div>
+                    <div className="text-xs font-bold uppercase tracking-[0.3em] text-emerald-500/60">
+                      {solution.metricLabel}
+                    </div>
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                    {solution.title}
+                  </h3>
+                  <p className="text-lg text-gray-400 leading-relaxed mb-8 max-w-md">
+                    {solution.description}
+                  </p>
+                  
+                  <div className="mt-auto flex items-center gap-4">
+                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 group-hover:underline">View Strategy</span>
+                    <div className="h-px flex-grow bg-white/10 group-hover:bg-emerald-500/20 transition-colors" />
+                  </div>
                 </div>
-              </div>
+
+                {/* Decorative Background Element */}
+                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-emerald-500/5 rounded-full blur-[64px] group-hover:bg-emerald-500/10 transition-colors duration-700" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Proof Section: Case Studies/Efficacy */}
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={1} id="12" className="absolute -right-20 top-1/2 opacity-5" size={250} />
+        <div className="mx-auto max-w-7xl relative z-10">
+          <SectionHeader eyebrow="The Proof" title="Real-World Coordination at Scale">
+            PrimusNeo is currently being deployed across specialized builder pilots, validating the interoperability of our core stack.
+          </SectionHeader>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Active Pilot</h4>
+              <h3 className="text-2xl font-bold mb-4">Builders Commons</h3>
+              <p className="text-gray-400 leading-relaxed">The flagship proving ground for federated spatial OS and NEOS governance logic in a high-growth builder environment.</p>
             </div>
-            <div className="rounded-[3rem] border border-white/10 bg-white/[0.03] p-12 overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] -z-10" />
-              <h3 className="text-2xl font-bold text-white mb-6">The Reference Architecture</h3>
-              <ul className="space-y-6">
-                <li className="flex gap-4">
-                  <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">Verified Operational Intelligence</div>
-                    <p className="text-sm text-gray-400 mt-1">Proof of capability through real-world deployment pilots.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">Replicable Deployment Templates</div>
-                    <p className="text-sm text-gray-400 mt-1">Blueprints for scaling federated coordination to industry levels.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4">
-                  <div className="h-6 w-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-white">Ecosystem Contributor Network</div>
-                    <p className="text-sm text-gray-400 mt-1">Coordinating specialized working groups via shared standards.</p>
-                  </div>
-                </li>
-              </ul>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Infrastructure</h4>
+              <h3 className="text-2xl font-bold mb-4">Regenerative Campuses</h3>
+              <p className="text-gray-400 leading-relaxed">Coordinating off-grid energy, water, and community assets through shared digital twin telemetry and local-first AI.</p>
+            </div>
+            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Capital</h4>
+              <h3 className="text-2xl font-bold mb-4">Fractal Portfolios</h3>
+              <p className="text-gray-400 leading-relaxed">Enabling institutional-grade transparency for distributed physical assets through governed historical archives.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Value Capture: Why PrimusNeo? */}
-      <section className="px-4 py-32 border-t border-white/5">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="text-sm font-bold uppercase tracking-[0.4em] text-emerald-500 mb-8">The Economic Shift</div>
-          <h2 className="text-5xl font-bold text-white md:text-8xl tracking-tight mb-12">
-            Sovereign <br />
-            <span className="text-emerald-400">Coordination.</span>
+      {/* CTA Section */}
+      <section className="px-4 py-32 bg-emerald-500/5 relative overflow-hidden">
+        <DreadShape volume={5} id="18" className="absolute left-0 top-0 opacity-10" size={200} />
+        <DreadShape volume={1} id="15" className="absolute right-0 bottom-0 opacity-10" size={250} />
+        <div className="mx-auto max-w-4xl text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 text-glow-white">
+            DEPLOY THE <span className="text-emerald-400">STACK</span>
           </h2>
-          <p className="text-2xl text-gray-300 font-light leading-relaxed mb-16">
-            You make all the decisions. We establish just enough structure to 
-            ensure your operations are natively interoperable with other ecosystems—scaling 
-            impact while maintaining absolute autonomy.
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Whether you are building a smart city, a decentralized supply chain, or a regenerative community, PrimusNeo provides the coordination backbone you need.
           </p>
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02]">
-              <div className="text-lg font-bold text-white mb-2">Setup & Onboarding</div>
-              <p className="text-sm text-gray-500">Monetizing deployment origination and strategic alignment.</p>
-            </div>
-            <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02]">
-              <div className="text-lg font-bold text-white mb-2">Coordination Retainers</div>
-              <p className="text-sm text-gray-500">Capturing recurring value from ecosystem maintenance.</p>
-            </div>
-            <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02]">
-              <div className="text-lg font-bold text-white mb-2">Ecosystem Licensing</div>
-              <p className="text-sm text-gray-500">Scaling through federated participation and revenue sharing.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA: High Impact */}
-      <section className="px-4 py-40 border-t border-white/10 bg-gradient-to-b from-black to-emerald-950/20">
-        <div className="mx-auto max-w-7xl relative">
-          <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-          </div>
-          
-          <div className="relative text-center max-w-5xl mx-auto">
-            <h2 className="text-6xl font-black text-white md:text-9xl mb-12 leading-[0.9]">
-              The era of <br />
-              <span className="text-emerald-400 italic">promises</span> is over.
-            </h2>
-            <p className="text-2xl text-gray-300 mb-20 font-light leading-relaxed">
-              Join the federated operational ecosystem. Build infrastructure that is 
-              provable, interoperable, and resilient.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-8">
-              <GradientButton href="/contact">Initiate Deployment Consultation</GradientButton>
-              <GradientButton href="/one-pager" variant="secondary">Examine Reference Architecture</GradientButton>
-            </div>
-            <p className="mt-16 text-sm font-bold uppercase tracking-[0.4em] text-emerald-500/50">
-              Federated operational infrastructure for the 21st century.
-            </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <GradientButton href="/contact">Request Integration</GradientButton>
+            <GradientButton href="/one-pager" variant="secondary">Download Specs</GradientButton>
           </div>
         </div>
       </section>

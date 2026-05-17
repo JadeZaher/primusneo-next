@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
-import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import Image from 'next/image';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { ecosystemPartners, platformLayers } from '../_data/ecosystem';
 
 const productOfferings = [
@@ -49,8 +50,11 @@ const OnePager = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
       <section className="relative overflow-hidden px-4 py-20 md:py-28">
+        <DreadShape volume={5} id="05" className="absolute left-[5%] top-[10%] opacity-10" size={100} />
+        <DreadShape volume={1} id="08" className="absolute right-[5%] bottom-[10%] opacity-10 rotate-12" size={120} />
+
         <div className="absolute inset-0 -z-10 vite-grid opacity-50" />
         <div className="absolute left-1/2 top-0 -z-10 h-[520px] w-[720px] -translate-x-1/2 rounded-full bg-emerald-400/10 blur-3xl" />
         <div className="mx-auto max-w-7xl">
@@ -68,7 +72,8 @@ const OnePager = () => {
                 <GradientButton href="/fractionalization" variant="secondary">Fractionalization model</GradientButton>
               </div>
             </div>
-            <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
+              <DreadShape volume={5} id="12" className="absolute -right-4 -top-4 opacity-20" size={80} />
               <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">The Problem</div>
               <p className="text-lg leading-8 text-gray-200">
                 Most real-world infrastructure systems fail because operational data is fragmented, governance is disconnected from operations, contributors lack coordination, and institutional memory is lost.
@@ -81,7 +86,20 @@ const OnePager = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
+      <div className="mx-auto max-w-5xl px-4">
+        <div className="relative aspect-[21/9] overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
+          <Image 
+            src="/images/newassets/intro_card.png"
+            alt="PrimusNeo Introduction"
+            fill
+            className="object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        </div>
+      </div>
+
+      <section className="px-4 py-20 relative">
+        <DreadShape volume={1} id="11" className="absolute -left-10 top-1/2 opacity-5 -rotate-45" size={180} />
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="The Solution" title="A Federated Operational Ecosystem Architecture">
             Instead of creating one monolithic platform, PrimusNeo coordinates specialized systems through shared interfaces, schemas, file formats, and permissions.
@@ -107,12 +125,13 @@ const OnePager = () => {
                 </div>
               ))}
             </div>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8">
+            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 relative overflow-hidden">
+                <DreadShape volume={5} id="15" className="absolute -right-10 -bottom-10 opacity-10" size={200} />
                 <h3 className="mb-4 text-2xl font-bold text-white">Competitive Advantage</h3>
                 <p className="mb-6 leading-8 text-gray-300">
                   The advantage is not one application. The advantage is federated interoperability. Most competitors either centralize everything or fragment everything. PrimusNeo coordinates specialization without fragmentation.
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-3 relative z-10">
                   {['Local-first architecture', 'Peer-to-peer operational systems', 'Modular specialization', 'AI-assisted organizational memory', 'Agreement-based coordination', 'Interoperable digital twins', 'Operational provenance', 'Permission-aware ecosystems'].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-gray-400">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -125,7 +144,8 @@ const OnePager = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
+      <section className="px-4 py-20 bg-white/[0.02] relative overflow-hidden">
+        <DreadShape volume={1} id="03" className="absolute right-0 top-0 opacity-5" size={160} />
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Core Product Offerings" title="What PrimusNeo Enables">
             The ecosystem separates concerns into interoperable layers, creating modular deployments and enterprise flexibility.
@@ -138,7 +158,8 @@ const OnePager = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
+      <section className="px-4 py-20 relative">
+        <DreadShape volume={5} id="09" className="absolute left-0 bottom-0 opacity-10" size={180} />
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Market Focus" title="Scaling from Communities to Cities">
             PrimusNeo evolves toward a scalable coordination architecture for real-world civilization infrastructure.
@@ -152,8 +173,9 @@ const OnePager = () => {
       </section>
 
       <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12 relative overflow-hidden">
+          <DreadShape volume={1} id="20" className="absolute right-0 top-0 opacity-10 rotate-12" size={140} />
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center relative z-10">
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Builders Commons</div>
               <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
@@ -175,6 +197,18 @@ const OnePager = () => {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-5xl px-4 py-20">
+        <div className="relative aspect-[21/9] overflow-hidden rounded-3xl border border-white/10 shadow-2xl group">
+          <Image 
+            src="/images/newassets/closing_card.png"
+            alt="PrimusNeo Closing"
+            fill
+            className="object-cover opacity-70 transition-opacity group-hover:opacity-100"
+          />
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors" />
+        </div>
+      </div>
     </div>
   );
 };

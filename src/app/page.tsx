@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
-import { ecosystemPartners, outcomePillars, platformLayers } from './_data/ecosystem';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
+import { ecosystemPartners, layerShowcase, outcomePillars, platformLayers } from './_data/ecosystem';
 import HeroScene from './_components/3d/HeroScene';
+import LayerShowcase from './_components/LayerShowcase';
 
 export const metadata = {
   title: 'Federated Operational Infrastructure',
@@ -20,47 +21,53 @@ const outcomes = [
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <section className="relative isolate overflow-hidden px-4 py-20 md:py-28">
-        <div className="absolute inset-0 -z-20 min-h-[760px] vite-grid hero-glow opacity-80">
+    <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
+      <section className="relative isolate overflow-hidden">
+        <div className="relative h-[500px] w-full md:absolute md:inset-0 md:-z-20 md:h-full vite-grid hero-glow opacity-80">
           <HeroScene className="h-full w-full" />
         </div>
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="max-w-4xl pt-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
-              Federated Operational Infrastructure
-            </div>
-            <h1 className="text-4xl font-bold leading-[0.95] tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              An AI-assisted builder ecosystem for real-world environments.
-            </h1>
-            <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-200 md:text-2xl">
-              PrimusNeo coordinates specialized systems through shared interfaces. We connect real-time operational infrastructure, digital twins, agreement-based coordination, AI-assisted memory, crypto incentives, and peer-to-peer analytics into a modular deployment architecture.
-            </p>
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <GradientButton href="/governance-platform">Governance platform</GradientButton>
-              <GradientButton href="/one-pager" variant="secondary">Explore the stack</GradientButton>
-            </div>
-          </div>
+        <div className="relative px-4 py-12 md:py-28">
+          <DreadShape volume={5} id="01" className="absolute left-[2%] top-[15%] opacity-10" size={100} />
+          <DreadShape volume={1} id="02" className="absolute right-[5%] top-[10%] opacity-10 rotate-12" size={120} />
 
-          <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
-            <div className="mb-5 text-sm uppercase tracking-[0.28em] text-emerald-300">The thesis</div>
-            <p className="text-lg leading-8 text-gray-200">
-              Most real-world infrastructure systems fail because data is fragmented and governance is disconnected. Instead of creating one monolithic platform, PrimusNeo creates one operational source of truth with many interoperable interfaces and deployment pathways.
-            </p>
-            <div className="mt-7 grid gap-3 text-sm text-gray-300 sm:grid-cols-2">
-              {['Digital twins', 'P2P analytics', 'Agreement coordination', 'AI organizational memory', 'Modular interoperability', 'Federated governance'].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
-                  {item}
-                </div>
-              ))}
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="max-w-4xl pt-10">
+              <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
+                Federated Operational Infrastructure
+              </div>
+              <h1 className="text-4xl font-bold leading-[0.95] tracking-tight text-gray-200 text-glow-green md:text-5xl">
+                An AI-assisted builder ecosystem for real-world environments.
+              </h1>
+              <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-200 md:text-2xl">
+                PrimusNeo coordinates specialized systems through shared interfaces. We connect real-time operational infrastructure, digital twins, agreement-based coordination, AI-assisted memory, crypto incentives, and peer-to-peer analytics into a modular deployment architecture.
+              </p>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+                <GradientButton href="/governance-platform">Governance platform</GradientButton>
+                <GradientButton href="/one-pager" variant="secondary">Explore the stack</GradientButton>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
+              <div className="mb-5 text-sm uppercase tracking-[0.28em] text-emerald-300">The thesis</div>
+              <p className="text-lg leading-8 text-gray-200">
+                Most real-world infrastructure systems fail because data is fragmented and governance is disconnected. Instead of creating one monolithic platform, PrimusNeo creates one operational source of truth with many interoperable interfaces and deployment pathways.
+              </p>
+              <div className="mt-7 grid gap-3 text-sm text-gray-300 sm:grid-cols-2">
+                {['Digital twins', 'P2P analytics', 'Agreement coordination', 'AI organizational memory', 'Modular interoperability', 'Federated governance'].map((item) => (
+                  <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={1} id="05" className="absolute -right-10 top-1/2 opacity-5" size={200} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Mission" title="A council for software, sovereignty, and spatial intelligence">
             PrimusNeo exists to make high-impact technology easier to steward. We focus on the human systems around software as much as the code itself: who decides, who contributes, who owns, who benefits, and how the system improves over time.
           </SectionHeader>
@@ -102,10 +109,26 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Removed Fractal Engine spotlight section */}
+      {/* Layer showcase — interactive, linked tour of each layer.
+          Distinct from the static architecture cards above: this is a guided,
+          one-at-a-time deep dive with direct links into each layer's page. */}
+      <section className="px-4 py-20 bg-white/[0.02] relative overflow-hidden border-y border-white/5">
+        <DreadShape volume={1} id="01" className="absolute -left-10 top-0 opacity-10 rotate-45" size={180} />
+        <DreadShape volume={5} id="03" className="absolute right-[10%] bottom-0 opacity-10 -rotate-12" size={150} />
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl relative z-10">
+          <SectionHeader eyebrow="Guided tour" title="Step into each layer">
+            The architecture above maps how the layers fit together. Here you can
+            move through them one at a time and jump straight into the dedicated
+            page for AMP, NEOS, OASIS, or Fractal Engine.
+          </SectionHeader>
+          <LayerShowcase layers={layerShowcase} />
+        </div>
+      </section>
+
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={5} id="10" className="absolute left-[5%] bottom-[10%] opacity-5" size={160} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Operating model" title="From idea to governed ecosystem">
             PrimusNeo supports the full arc of federated infrastructure: concept framing, NEOS-backed governance, modular architecture, community coordination, fractionalization strategy, and ongoing analytics.
           </SectionHeader>
@@ -153,8 +176,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
+      <section className="px-4 py-20 relative overflow-hidden">
+        <DreadShape volume={1} id="15" className="absolute -right-20 top-0 opacity-5" size={250} />
+        <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Partners and channels" title="A growing network for regenerative technology delivery">
             PrimusNeo collaborates with aligned builders across governance, software architecture, Web4 interoperability, spatial computing, peer-to-peer infrastructure, and community development.
           </SectionHeader>
@@ -181,8 +205,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="px-4 py-20 bg-emerald-400/5 border-t border-emerald-400/10">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="px-4 py-20 bg-emerald-400/5 border-t border-emerald-400/10 relative overflow-hidden">
+        <DreadShape volume={5} id="18" className="absolute -left-10 top-0 opacity-10 rotate-12" size={140} />
+        <DreadShape volume={5} id="13" className="absolute right-0 bottom-0 opacity-10 -rotate-12" size={160} />
+        <div className="mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-3xl font-bold text-white md:text-5xl mb-6">Ready to build the future of governed infrastructure?</h2>
           <p className="text-xl text-gray-300 mb-10">Connect with us to learn how PrimusNeo can support your project, community, or asset fractionalization strategy.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

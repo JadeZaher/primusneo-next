@@ -80,6 +80,28 @@ export const NumberedCard = ({ number, title, children }) => (
   </div>
 );
 
+export const DreadShape = ({ volume = 1, id = "01", className = "", size = 80 }) => {
+  const volPath = volume === 5 ? "Dread Shapes Vol 5" : "Dread Shapes Vol 1";
+  const filePrefix = volume === 5 ? "DSV5-" : "DSV-";
+  const src = `/images/newassets/${volPath}/${filePrefix}${id}.png`;
+  
+  // Deterministic animation based on ID
+  const animationClass = parseInt(id) % 2 === 0 ? "animate-float" : "animate-slow-spin";
+  
+  return (
+    <div 
+      className={`absolute pointer-events-none select-none -z-10 ${animationClass} ${className}`} 
+      style={{ width: size, height: size }}
+    >
+      <img
+        src={src}
+        alt={`Dread Shape ${id}`}
+        className="h-full w-full object-contain opacity-30 dread-shape-glow"
+      />
+    </div>
+  );
+};
+
 export const PillList = ({ items }) => (
   <div className="flex flex-wrap gap-3">
     {items.map((item) => (

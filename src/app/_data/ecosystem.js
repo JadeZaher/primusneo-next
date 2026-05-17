@@ -35,6 +35,57 @@ export const platformLayers = [
   },
 ];
 
+// Interactive showcase: one explorable slide per layer with a direct link to
+// its dedicated page. Copy here is deliberately punchier and outcome-oriented
+// (not the dense reference text in `platformLayers`) so the slider reads as a
+// guided tour rather than a duplicate of the architecture overview above it.
+export const layerShowcase = [
+  {
+    tab: 'AMP',
+    eyebrow: 'Layer 01 · Spatial OS',
+    title: 'AMP — the operational ground layer',
+    summary:
+      'Offline-capable, privacy-first spatial collaboration. PLAN 3D interfaces and community OS workflows that run the real-world environment.',
+    href: '/amp',
+    image: '/images/newassets/ep03-architecture-frame.png',
+    status: 'Spatial_OS_Online',
+    accent: 'emerald',
+  },
+  {
+    tab: 'NEOS',
+    eyebrow: 'Layer 02 · Governance',
+    title: 'NEOS — durable coordination & decision rights',
+    summary:
+      'Councils, charters, contribution accounting, and holonic structure via the NEOS ecosystem. Governance defined before complexity arrives.',
+    href: '/governance-platform',
+    image: '/images/newassets/ep05-sovereign-frame.png',
+    status: 'Governance_Engaged',
+    accent: 'cyan',
+  },
+  {
+    tab: 'OASIS',
+    eyebrow: 'Layer 03 · Interoperability',
+    title: 'OASIS Web4 — one API across everything',
+    summary:
+      'A universal fabric across providers, chains, storage, identity, and reputation. The modular backbone that keeps the stack interoperable.',
+    href: '/oasis',
+    image: '/images/newassets/ep04-deployment-frame.png',
+    status: 'Fabric_Connected',
+    accent: 'violet',
+  },
+  {
+    tab: 'Fractal Engine',
+    eyebrow: 'Layer 04 · Intelligence',
+    title: 'Fractal Engine — telemetry into durable insight',
+    summary:
+      'The intelligence and analytics layer by Escherbridge. Turns raw operational telemetry into historical archives and actionable signals.',
+    href: '/fractal-engine',
+    image: '/images/newassets/00-hero-transmission.png',
+    status: 'Intelligence_Active',
+    accent: 'amber',
+  },
+];
+
 export const ecosystemPartners = [
   {
     name: 'AMP',

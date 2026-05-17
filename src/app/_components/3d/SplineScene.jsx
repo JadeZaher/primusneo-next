@@ -18,7 +18,7 @@ export default function SplineScene({ className, onLoad }) {
   }, []);
 
   return (
-    <div className={`${className} relative w-full h-full min-h-[400px] touch-none overflow-hidden`}>
+    <div className={`${className} relative w-full h-full min-h-[400px] pointer-events-none overflow-hidden`}>
       <div className="absolute inset-0 gradient opacity-30 mix-blend-overlay pointer-events-none" />
       {isMobile ? (
         <Spline
