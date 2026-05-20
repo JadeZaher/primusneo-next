@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Decentralized Governance Solutions | PrimusNeo',
+  title: 'Web3 & DAO Governance',
   description: 'Scale your DAO or Web3 organization with NEOS-backed decision trails, holonic team structures, and contribution accounting. Governance that works for the real world.',
 };
 

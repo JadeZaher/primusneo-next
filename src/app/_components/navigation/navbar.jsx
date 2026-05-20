@@ -42,10 +42,9 @@ const Navbar = () => {
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-2xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex-shrink-0">
-          <img 
-            src="/images/logo-primus-neo.png" 
-            loading="lazy" 
-            alt="PrimusNeo Logo"
+          <img
+            src="/images/logo-primus-neo.png"
+            alt="PrimusNeo"
             className="h-8 w-auto"
           />
         </Link>
@@ -100,6 +99,18 @@ const Navbar = () => {
                     ))}
                   </ul>
                 </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* Industries (single link, not a dropdown) */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link
+                    href="/industries"
+                    className="bg-transparent text-sm font-medium text-gray-300 transition hover:text-white"
+                  >
+                    Industries
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               {/* About Dropdown */}
@@ -187,6 +198,15 @@ const Navbar = () => {
             <div className="space-y-1">
               <MobileLink href="/fractionalization" onClick={closeMenu}>Fractionalization</MobileLink>
               <MobileLink href="/ico-marketing" onClick={closeMenu}>ICO Refit</MobileLink>
+            </div>
+          </div>
+
+          {/* Industries (single link) */}
+          <div>
+            <div className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300/60">Sectors</div>
+            <div className="space-y-1">
+              <MobileLink href="/industries" onClick={closeMenu}>Industries</MobileLink>
+              <MobileLink href="/solutions" onClick={closeMenu}>Solutions</MobileLink>
             </div>
           </div>
 

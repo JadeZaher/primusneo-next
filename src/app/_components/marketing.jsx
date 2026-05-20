@@ -89,13 +89,15 @@ export const DreadShape = ({ volume = 1, id = "01", className = "", size = 80 })
   const animationClass = parseInt(id) % 2 === 0 ? "animate-float" : "animate-slow-spin";
   
   return (
-    <div 
-      className={`absolute pointer-events-none select-none -z-10 ${animationClass} ${className}`} 
+    <div
+      className={`absolute pointer-events-none select-none -z-10 ${animationClass} ${className}`}
       style={{ width: size, height: size }}
+      aria-hidden="true"
     >
       <img
         src={src}
-        alt={`Dread Shape ${id}`}
+        alt=""
+        role="presentation"
         className="h-full w-full object-contain opacity-30 dread-shape-glow"
       />
     </div>

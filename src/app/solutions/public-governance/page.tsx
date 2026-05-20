@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Government & Public Sector Solutions | PrimusNeo',
+  title: 'Government & Public Sector',
   description: 'Enhance public trust and operational efficiency through governed transparency. Tools for civic engagement, public infrastructure management, and accountable governance.',
 };
 

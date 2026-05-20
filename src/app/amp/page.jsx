@@ -3,8 +3,15 @@ import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } fr
 import { partnerLogos } from '../_data/ecosystem';
 
 export const metadata = {
-  title: 'AMP | Peer-to-Peer Spatial Coordination',
-  description: 'Art and Media Platform (AMP) for privacy-first, offline-capable spatial collaboration. Built on PLAN 3D, data channels, and community OS workflows.',
+  title: 'AMP — Peer-to-Peer Spatial Coordination',
+  description: 'AMP is the spatial OS / digital-twin runtime: privacy-first, offline-capable spatial collaboration built on PLAN 3D, data channels, and community OS workflows.',
+  alternates: { canonical: '/amp' },
+  openGraph: {
+    title: 'AMP — Spatial OS for Real-World Coordination',
+    description: 'Privacy-first, offline-capable spatial collaboration — PLAN 3D, data channels, and community OS workflows.',
+    url: '/amp',
+    type: 'website',
+  },
 };
 
 const capabilities = [

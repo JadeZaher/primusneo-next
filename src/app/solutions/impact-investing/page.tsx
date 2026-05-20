@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Impact Investing Solutions | PrimusNeo',
+  title: 'Impact Investing',
   description: 'Verify real-world outcomes and resolve the greenwashing crisis. PrimusNeo provides the federated infrastructure for transparent, data-driven impact investing.',
 };
 

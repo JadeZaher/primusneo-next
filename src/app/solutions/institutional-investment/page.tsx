@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Institutional Capital Solutions | PrimusNeo',
+  title: 'Institutional Capital',
   description: 'Access high-fidelity real-world asset portfolios and resolve liquidity bottlenecks. PrimusNeo provides the federated infrastructure for institutional tokenization and asset management.',
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { SectionHeader, GradientButton, InsightCard, MetricCard, DreadShape, ChallengeCard } from '../_components/marketing';
 
 export const metadata = {
-  title: 'Industry Solutions | Federated Operational Infrastructure | PrimusNeo',
+  title: 'Solutions — Federated Operational Infrastructure',
   description: 'Proof over promises. PrimusNeo is the coordination layer for real-world operational ecosystems, resolving structural fragmentation across ten critical sectors.',
 };
 

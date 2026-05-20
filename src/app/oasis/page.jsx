@@ -1,6 +1,18 @@
 import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { partnerLogos } from '../_data/ecosystem';
 
+export const metadata = {
+  title: 'OASIS Web4 — Universal Interoperability Fabric',
+  description: 'OASIS is the production-grade universal API connecting blockchains, cloud providers, storage networks, and identity systems — the interoperability fabric beneath PrimusNeo.',
+  alternates: { canonical: '/oasis' },
+  openGraph: {
+    title: 'OASIS Web4 | PrimusNeo',
+    description: 'Universal interoperability fabric: identity, ownership records, and cross-network state.',
+    url: '/oasis',
+    type: 'website',
+  },
+};
+
 const capabilities = [
   {
     title: 'Universal API',

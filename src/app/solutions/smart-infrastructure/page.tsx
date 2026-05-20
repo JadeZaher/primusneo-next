@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Smart Infrastructure & IoT Solutions | PrimusNeo',
+  title: 'Smart Infrastructure & IoT',
   description: 'Connect physical assets with digital intelligence. Manage smart cities, industrial IoT, and decentralized infrastructure with real-time spatial OS and digital twins.',
 };
 

@@ -1,6 +1,18 @@
 import Image from 'next/image';
 import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 
+export const metadata = {
+  title: 'Fractal Engine — Analytics for Federated Infrastructure',
+  description: 'Fractal Engine warehouses operational telemetry from AMP and OASIS and turns it into spatial reporting, forecasting, and infrastructure intelligence.',
+  alternates: { canonical: '/fractal-engine' },
+  openGraph: {
+    title: 'Fractal Engine | PrimusNeo',
+    description: 'Predictive ops, simulation, and ESG/financial signals for federated infrastructure.',
+    url: '/fractal-engine',
+    type: 'website',
+  },
+};
+
 const capabilities = [
   {
     title: 'Spatial Analytics',

@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Developer Ecosystem Solutions | PrimusNeo',
+  title: 'Developer Ecosystems',
   description: 'Resolve the coordination tax and API sprawl. PrimusNeo provides the federated infrastructure for building high-scale coordination applications.',
 };
 

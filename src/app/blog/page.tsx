@@ -4,6 +4,18 @@ import { POSTS_QUERY, NEWS_QUERY } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import type { Post, News } from "@/lib/sanity/types";
 
+export const metadata = {
+  title: 'Intelligence & Updates',
+  description: 'Long-form essays, deep dives, and AI-curated updates on federated infrastructure, NEOS governance, OASIS Web4, and spatial OS development.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Intelligence & Updates | PrimusNeo',
+    description: 'Long-form essays and AI-curated updates on federated infrastructure and governed coordination.',
+    url: '/blog',
+    type: 'website',
+  },
+};
+
 const options = { next: { revalidate: 30 } };
 
 export default async function BlogPage() {

@@ -15,7 +15,8 @@ interface MarkDef {
 export const portableTextComponents: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p className="mb-6 leading-relaxed text-base">{children}</p>,
-    h1: ({ children }) => <h1 className="text-3xl font-bold mt-12 mb-6 text-glow">{children}</h1>,
+    // Demote in-body h1s to h2 so the page-level h1 (post title) stays the sole h1 for SEO.
+    h1: ({ children }) => <h2 className="text-3xl font-bold mt-12 mb-6 text-glow">{children}</h2>,
     h2: ({ children }) => <h2 className="text-2xl font-semibold mt-10 mb-4 text-glow">{children}</h2>,
     h3: ({ children }) => <h3 className="text-xl font-medium mt-8 mb-3 text-glow">{children}</h3>,
     h4: ({ children }) => <h4 className="text-lg font-medium mt-6 mb-2 text-glow">{children}</h4>,

@@ -2,6 +2,18 @@ import Image from 'next/image';
 import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from '../_data/ecosystem';
 
+export const metadata = {
+  title: 'NEOS Governance Platform — Councils, Decision Rights, Contribution Accounting',
+  description: 'A governance operating system for software, infrastructure, and asset ecosystems: councils, holons, decision records, contribution accounting, and spatial evidence.',
+  alternates: { canonical: '/governance-platform' },
+  openGraph: {
+    title: 'NEOS Governance Platform | PrimusNeo',
+    description: 'Programmable councils, decision rights, and contribution accounting backed by spatial evidence.',
+    url: '/governance-platform',
+    type: 'website',
+  },
+};
+
 const governanceFlows = [
   {
     title: 'Council formation',

@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'AI & Spatial Intelligence Solutions | PrimusNeo',
+  title: 'AI & Spatial Intelligence',
   description: 'Break through the $1B training barrier and resolve the data silo crisis. PrimusNeo provides the federated infrastructure for Large World Models and Physical AI.',
 };
 

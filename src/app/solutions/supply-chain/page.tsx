@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Supply Chain & Logistics Solutions | PrimusNeo',
+  title: 'Supply Chain & Logistics',
   description: 'Optimize global supply chains with real-time tracking, digital twins, and governed coordination. Enhance transparency and reduce fragmentation in complex logistics networks.',
 };
 

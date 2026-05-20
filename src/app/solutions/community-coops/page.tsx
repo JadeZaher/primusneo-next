@@ -2,7 +2,7 @@ import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
 export const metadata = {
-  title: 'Community & Cooperative Solutions | PrimusNeo',
+  title: 'Community & Cooperatives',
   description: 'Empower localized coordination and resolve governance resilience issues. PrimusNeo provides the federated infrastructure for sustainable communities and cooperatives.',
 };
 
