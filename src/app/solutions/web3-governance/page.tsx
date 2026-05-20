@@ -12,7 +12,7 @@ const Web3GovernancePage = () => {
     { value: '1%', label: 'Hold 90% of power (CoinLaw)' },
     { value: '$90M', label: 'Losses to vulnerabilities (Immunefi)' },
     { value: '13k+', label: 'Total global DAOs (DeepDAO)' }
-  ];
+  ]; 
 
   const challenges = [
     {
