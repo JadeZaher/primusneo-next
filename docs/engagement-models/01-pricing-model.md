@@ -81,7 +81,14 @@ Comparable anchors (combined surface area AMP displaces): NVIDIA Omniverse Enter
 
 Comparable anchors: Diligent ($12K–$60K+/yr), Microsoft Viva Suite ($144/seat/yr), Loomio ($1.2K–$7.2K/yr), Aragon/Snapshot/Tally (free). **CC-NC dual-license**: free for non-commercial; commercial use at these rates.
 
-### 3.3 AZOA — Interoperability Fabric
+### 3.3 AZOA — Federation Rails (Workflows & Settlement)
+
+AZOA (Autonomous Zones of Action) is the open-source (Apache-2.0) engine for
+structured financial workflows: self-sovereign identity & consent, durable
+quests, and settlement rails across chains and fiat, with SurrealDB as its
+sole data engine. The license line here is the **commercial managed tier** —
+PrimusNeo-managed nodes, the enterprise federation gateway, and certified
+rail adapters — not the engine source, which is free to self-host.
 
 | Scale | Definition | Annual License Anchor | Services Multiplier (Y1) |
 |-------|------------|-----------------------|--------------------------|
@@ -165,7 +172,7 @@ These are the default contract terms. Negotiable but defensible:
 | **IP indemnity** | Capped at 2× annual fees for the affected layer | Industry standard for enterprise software |
 | **Liability cap** | 2× annual fees, excluding gross negligence + IP indemnity | Standard |
 | **Data export** | Customer data exportable in machine-readable form at any time | Non-negotiable; preserves no-lock-in promise |
-| **Source escrow** | Available for closed-core (AMP, AZOA) at >$500K ARR via Iron Mountain | Pass-through escrow agent fee |
+| **Source escrow** | Available for closed-core AMP at >$500K ARR via Iron Mountain; not needed for AZOA (engine is Apache-2.0) | Pass-through escrow agent fee |
 | **Termination for convenience** | After Y1, with 90-day notice, no refund of prepaid amounts | Aligned with comparable enterprise software |
 
 ---
@@ -222,3 +229,4 @@ The full math per industry lives in [`industries/*.md`](./industries/). Headline
 |---------|------|--------|--------|
 | 0.1 | 2026-05-23 | Founding team + research squad | Initial value-based formula |
 | 0.2 | 2026-07-15 | Founding team | Cross-referenced entry-pricing on-ramp ([`04`](./04-community-pilot-pricing.md)) |
+| 0.3 | 2026-07-15 | Founding team | OASIS → AZOA rename; AZOA anchors now price the commercial managed tier of the Apache-2.0 engine |

@@ -91,7 +91,6 @@ const organizationJsonLd = {
       },
       sameAs: [
         'https://escherbridge.com/',
-        'https://oasisweb4.com/',
         'https://plan-systems.org/',
       ],
       description: 'Federated operational infrastructure for real-world environments — coordinating digital twins, governance, identity, and spatial analytics.',

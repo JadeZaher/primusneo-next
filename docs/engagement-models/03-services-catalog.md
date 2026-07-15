@@ -75,7 +75,7 @@ the buyer's existing stack. The most common categories:
 | **CRM** | Salesforce, HubSpot, MS Dynamics CE | $30K – $80K |
 | **Identity / IdP** | Okta, Azure AD, Auth0, Ping, SSI Verified Credentials | $25K – $90K |
 | **Chain / RPC** | EVM, Solana, Cosmos, Hedera, Polkadot, custom L2 | $20K – $75K per chain |
-| **Storage** | S3-compatible, IPFS, Filecoin, Ceramic, Arweave | $15K – $50K per backend |
+| **Storage / data engine** | SurrealDB (AZOA's sole data engine) provisioning + tuning; optional S3-compatible bucket offload | $15K – $40K |
 | **BIM / CAD** | Autodesk ACC, Bentley iTwin, Trimble Connect | $80K – $250K |
 | **Custom REST / GraphQL** | bespoke buyer system | $20K – $120K |
 
@@ -206,3 +206,4 @@ License gross margin runs 80–92% per layer per the comparables in
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 0.1 | 2026-05-23 | Founding team | Initial catalog |
+| 0.2 | 2026-07-15 | Founding team | OASIS → AZOA rename; storage services re-scoped to SurrealDB + optional S3-compatible bucket |

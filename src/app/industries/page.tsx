@@ -251,7 +251,7 @@ export default function IndustriesPage() {
             {[
               { tag: 'AMP', title: 'Spatial OS', desc: 'Digital twin runtime, telemetry, site coordination.', href: '/amp' },
               { tag: 'NEOS', title: 'Governance', desc: 'Programmable voting, contribution accounting, decision trails.', href: '/governance-platform' },
-              { tag: 'AZOA', title: 'Web4 Fabric', desc: 'Identity, ownership records, cross-network state.', href: '/azoa' },
+              { tag: 'AZOA', title: 'Federation Rails', desc: 'Identity, consent, and value settlement across chain and fiat.', href: '/azoa' },
               { tag: 'Fractal', title: 'Engine', desc: 'Analytics, simulation, ESG and financial signals.', href: '/fractal-engine' },
             ].map((layer) => (
               <a

@@ -1,7 +1,7 @@
 export const partnerLogos = {
   escherbridge: '/images/partners/escherbridge-logo.svg',
   omnione: '/images/partners/omnione-logo.webp',
-  oasis: '/images/partners/azoa-logo.png',
+  azoa: '/images/partners/azoa-logo.png',
   amp: 'https://www.plan-systems.org/wp-content/uploads/2020/08/PLAN_Logo_600px.png',
   ampArchitecture: '/images/partners/amp-architecture.jpg',
   ampNetwork: '/images/partners/amp-network.jpg',
@@ -27,8 +27,8 @@ export const stackIndex = [
   {
     index: 'L—03',
     name: 'AZOA',
-    tag: 'INTEROPERABILITY',
-    summary: 'One API across chains, storage, identity, avatars, and reputation.',
+    tag: 'FEDERATION RAILS',
+    summary: 'Identity, consent, and durable quests settling value across chain and fiat rails.',
     href: '/azoa',
   },
   {
@@ -55,9 +55,9 @@ export const platformLayers = [
   },
   {
     eyebrow: 'Layer 03',
-    title: 'AZOA',
-    partner: 'Universal interoperability fabric',
-    body: 'One API across chains, storage systems, identity, avatars, and reputation — the interoperability backbone that keeps every layer modular.',
+    title: 'AZOA (Autonomous Zones of Action)',
+    partner: 'Federation rails — workflows & settlement',
+    body: 'Self-sovereign identity and consent, durable quest workflows, and settlement rails across blockchain and fiat — the structured seam that moves value through the stack, with SurrealDB as its sole data engine.',
   },
   {
     eyebrow: 'Layer 04',
@@ -93,13 +93,13 @@ export const layerShowcase = [
   },
   {
     tab: 'AZOA',
-    eyebrow: 'Layer 03 · Interoperability',
-    title: 'AZOA — one API across everything',
+    eyebrow: 'Layer 03 · Federation Rails',
+    title: 'AZOA — structured value in motion',
     summary:
-      'A universal fabric across providers, chains, storage, identity, and reputation. The modular backbone that keeps the stack interoperable.',
+      'Durable, auditable financial workflows: self-sovereign identity and consent, quest graphs, and chain + fiat settlement behind one uniform interface.',
     href: '/azoa',
-    image: '/images/stack/azoa-web4.svg',
-    status: 'Fabric_Connected',
+    image: '/images/stack/azoa.svg',
+    status: 'Rails_Connected',
   },
   {
     tab: 'Fractal Engine',
@@ -130,10 +130,10 @@ export const ecosystemPartners = [
   },
   {
     name: 'AZOA',
-    href: 'https://oasisweb4.com/',
-    image: partnerLogos.oasis,
-    role: 'Interoperability',
-    body: 'One universal API abstracting dozens of blockchain and cloud providers.',
+    href: '/azoa',
+    image: partnerLogos.azoa,
+    role: 'Workflows · Settlement Rails',
+    body: 'Open-source engine for structured financial workflows — identity, consent, durable quests, and chain + fiat settlement.',
   },
   {
     name: 'Escherbridge',
@@ -147,7 +147,7 @@ export const ecosystemPartners = [
 export const outcomePillars = [
   'Spatial OS workflows',
   'NEOS backend governance',
-  'AZOA interoperability',
+  'AZOA federation rails',
   'Hexon (v1.0.0) file standard',
   'WASM extension ecosystem',
   'Fractal Engine intelligence',

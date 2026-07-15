@@ -76,7 +76,7 @@ Above Rung 4, the standard model applies: Discovery sprint → PFEL bundle per
 What already exists under the licensing model, named as a product tier:
 NEOS + Fractal Engine community builds under CC-NC (within the de-minimis
 thresholds of [`02` §2.4](./02-licensing-model.md)), plus the open AMP
-community runtime and AZOA SDK/connectors (Apache-2.0/MIT). Community forum
+community runtime and the full AZOA engine (Apache-2.0). Community forum
 support only. This is the top of the funnel and the health of the ecosystem —
 it is never crippled to force upgrades.
 
@@ -190,9 +190,10 @@ $75–$170K bought separately) — with the credit-forward mechanic on top.
 **Pilot License Rider (PLR):** pilots ship under a time-boxed rider — named
 scope, pilot term + 30 days, auto-expiring, non-renewable (Production Pilots
 get limited-production scope). For CC-NC layers this simply papers the hosted
-service; for AMP/AZOA it grants the closed-core components within the
+service; for AMP it grants the closed-core components within the
 "non-commercial pilot scope" already contemplated by
-[`02` §1](./02-licensing-model.md). Conversion replaces the PLR with the
+[`02` §1](./02-licensing-model.md); for AZOA (Apache-2.0 engine) it papers
+only the managed hosting and support. Conversion replaces the PLR with the
 standard PCL/PEL/PFEL.
 
 ---
@@ -238,7 +239,7 @@ for its niche.
   then standard rates. Growth is celebrated, never punished — this is what
   keeps the CC-NC ecosystem loyal at commercial scale.
 - **Contribution credits.** Accepted contributions (NEOS council templates,
-  AZOA community connectors, Fractal schemas) earn **$500–$2,500 in Community
+  AZOA rail adapters — `ChainProvider` / `DexAdapter`, Fractal schemas) earn **$500–$2,500 in Community
   Cloud credit** per acceptance, subject to steward review. Contributors fund
   their own hosting by making the stack better.
 - **Community Partners.** Certified co-op developers and civic-tech shops

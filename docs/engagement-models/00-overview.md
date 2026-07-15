@@ -16,7 +16,8 @@ group of people, machines, and capital that needs to coordinate at scale.
 That structure makes pricing genuinely hard:
 
 - **Four layers** with different licensing postures (two creative-commons,
-  two closed/partial).
+  one closed/partial, one Apache-2.0 open source with a commercial managed
+  tier).
 - **Ten verticals** with wildly different willingness-to-pay, procurement
   norms, and service multipliers (a hospital is not a DAO is not a port).
 - **Four classes of service** (customization, integration, deployment,
@@ -37,14 +38,14 @@ and close it without burning the open-source ecosystem that feeds the stack.
 |-------|---------|----------|-----------|----------------|
 | **AMP** | PLAN Systems | Spatial OS · privacy-first 3D collaboration · offline-capable community OS · **Operational Access Management (OAM)** | **Closed-core / partial-OSS** (community runtime open, enterprise spatial + multi-tenant + OAM kernel closed) | **$$$$ — top of stack** (most mature layer; ships two production-grade capabilities — Spatial OS + OAM — in one runtime) |
 | **Fractal Engine** | Escherbridge | Intelligence · historical archive · analytics · actionable signals on operational telemetry | **Creative Commons with Commercial Use Restrictions** (CC-BY-NC + commercial license tier) | $$$ |
-| **AZOA** | AZOA | Universal interoperability fabric · one API across providers, chains, storage, identity, reputation, avatars | **Closed-core / partial-OSS** (open SDK + connectors, closed federation engine and enterprise gateway) | $$$ |
+| **AZOA** | AZOA | Federation rails · self-sovereign identity & consent · durable quest workflows · settlement across chains and fiat · SurrealDB data engine | **Open-source engine (Apache-2.0)**; commercial tier = PrimusNeo-managed nodes, enterprise federation gateway, certified rail adapters | $$$ |
 | **NEOS** | OmniOne | Governance · councils · charters · contribution accounting · holonic orgs | **Creative Commons with Commercial Use Restrictions** (CC-BY-NC-SA + commercial license tier) | $$ |
 
-> **Naming note:** The interoperability layer is **AZOA** in all PrimusNeo
-> commercial documents and product copy. The steward organization is **AZOA
-> Web4**. Older internal materials sometimes use "AZOAIS" as the layer name —
-> that term is reserved for the external standards body and is not used in
-> PrimusNeo deliverables.
+> **Naming note:** The workflow/interoperability layer is **AZOA** (Autonomous
+> Zones of Action) in all PrimusNeo commercial documents and product copy.
+> AZOA supersedes the layer formerly branded OASIS / OAS; the legacy names are
+> not used in PrimusNeo deliverables. ("GSA OASIS+", the unrelated U.S. federal
+> contract vehicle, keeps its name in market-research citations.)
 
 See [`02-licensing-model.md`](./02-licensing-model.md) for the legal mechanics
 of the CC-NC + dual-license arrangement, and the per-layer files in
@@ -74,7 +75,7 @@ PrimusNeo engagements are quoted on three axes:
 ```
                     LAYERS (4)
                    ┌───────┬───────┬───────┬───────┐
-                   │  AMP  │ NEOS  │  AZOA  │FRACTAL│
+                   │  AMP  │ NEOS  │ AZOA  │FRACTAL│
                    ├───────┼───────┼───────┼───────┤
 INDUSTRIES (10)    │       │       │       │       │
   Agriculture      │   $   │   $$  │   $$  │   $$$ │
@@ -134,8 +135,9 @@ biggest enterprise-deal de-risker we have.
 1. **Start with [`01-pricing-model.md`](./01-pricing-model.md)** — the
    value-based pricing formula and the layer/scale anchor grid.
 2. **Read [`02-licensing-model.md`](./02-licensing-model.md)** to understand
-   the CC-NC + commercial-license dual track for NEOS and Fractal Engine, and
-   the closed-core arrangement for AMP and AZOA.
+   the CC-NC + commercial-license dual track for NEOS and Fractal Engine, the
+   closed-core arrangement for AMP, and the Apache-2.0 + managed-service
+   arrangement for AZOA.
 3. **Read [`03-services-catalog.md`](./03-services-catalog.md)** for the
    service SKUs and day rates.
 4. **For anything smaller than a Small-tier engagement** — community
@@ -158,6 +160,7 @@ biggest enterprise-deal de-risker we have.
 |---------|------|--------|--------|
 | 0.1 | 2026-05-23 | Founding team + research squad | Initial draft |
 | 0.2 | 2026-07-15 | Founding team | Added entry-pricing on-ramp ([`04`](./04-community-pilot-pricing.md)) to the reading path |
+| 0.3 | 2026-07-15 | Founding team | OASIS → AZOA rename; AZOA repositioned as Apache-2.0 federation-rails engine (SurrealDB data engine) |
 
 ---
 

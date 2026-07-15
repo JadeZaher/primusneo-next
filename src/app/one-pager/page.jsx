@@ -22,8 +22,8 @@ const productOfferings = [
     content: 'Fractal-style operational intelligence including forecasting, infrastructure analysis, investment intelligence, operational warehousing, and digital twin reporting.',
   },
   {
-    title: 'Crypto Incentive Systems',
-    content: 'AZOA provides token incentives, contribution coordination, operational staking, cryptographic rewards, and ecosystem participation systems.',
+    title: 'Value Rails + Incentive Systems',
+    content: 'AZOA provides self-sovereign identity and consent, durable quest workflows, token and reward flows, and settlement rails across blockchain and fiat.',
   },
 ];
 

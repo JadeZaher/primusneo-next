@@ -7,7 +7,7 @@ A web application bootstrapped with create-t3-app using Next.js, tRPC, Tailwind 
 The platform caters to a diverse audience:
 - **Investors & Crypto Enthusiasts**: Users looking to participate in ICOs, governance, or fractionalization.
 - **Tech Enterprises & B2B**: Businesses seeking advanced Web3 infrastructure or consulting services.
-- **General Public**: Everyday users interested in exploring the fractal engine and engaging with the 3D oasis.
+- **General Public**: Everyday users interested in exploring the fractal engine and engaging with the 3D spatial environment.
 
 ## Platform Objective
 The primary objective of the application is to serve as a **marketing front end, an AI-driven dynamic news tool, and a Sanity-backed hub for developer documentation**. It focuses on driving user acquisition for ICOs, keeping the community informed via automated and curated news/blog posts, and providing a scalable, CMS-managed environment for technical docs.

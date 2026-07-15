@@ -15,7 +15,8 @@ Sentry FSL) while honoring the federated steward arrangement.
 | Track | Layers | Default license | Commercial trigger |
 |-------|--------|-----------------|--------------------|
 | **Open / CC-NC track** | NEOS, Fractal Engine | Creative Commons BY-NC-SA 4.0 (or CC-BY-NC 4.0 where derivative concerns apply) | Any *commercial use*, redistribution, or hosted-as-a-service offering |
-| **Closed-core track** | AMP, AZOA | Closed-source enterprise license; community runtime / SDK selectively open-sourced under Apache-2.0 or MIT | Any production deployment beyond community / non-commercial pilot scope |
+| **Closed-core track** | AMP | Closed-source enterprise license; community runtime / SDK selectively open-sourced under Apache-2.0 or MIT | Any production deployment beyond community / non-commercial pilot scope |
+| **Open-source + managed track** | AZOA | Entire engine **Apache-2.0** — self-hosting is free and unrestricted | PrimusNeo-managed nodes, enterprise federation gateway, certified rail adapters, SLA-backed support |
 
 The whole stack composes into commercial PrimusNeo **Engagement Bundles**
 (see [`01-pricing-model.md`](./01-pricing-model.md)) — and the bundle license
@@ -93,26 +94,30 @@ serve.
 
 ### 3.1 Layers under this track
 
-- **AMP** (steward: PLAN Systems)
-- **AZOA** (steward: AZOA)
+- **AMP** (steward: PLAN Systems) — closed-core / partial-OSS
+- **AZOA** (steward: AZOA) — open-source engine (Apache-2.0) with a
+  commercial managed tier
 
 ### 3.2 What's open
 
 - **AMP**: PLAN core runtime (Hexon file standard v1.0.0), client SDKs,
   WASM extension interface, reference 3D viewer scaffold — typically
   **Apache-2.0** to maximize adoption in spatial-computing toolchains.
-- **AZOA**: Connector SDK, the public REST/GraphQL API specification,
-  community-maintained connector implementations — typically **MIT** or
-  **Apache-2.0** depending on dependency stack.
+- **AZOA**: The **entire engine** — identity & consent, quests, holons,
+  swaps, STAR dapp generation, settlement bridges — plus the `@azoa/sdk`
+  TypeScript SDK, all **Apache-2.0**. AZOA is designed to be self-hosted and
+  extended: new chains plug in via `ChainProvider`, DEXes via `DexAdapter`,
+  and new settlement rails behind the same bridge seam.
 
 ### 3.3 What's closed
 
 - **AMP**: Enterprise spatial-collaboration server, multi-tenant federation,
   privacy-preserving mesh routing, premium PLAN 3D interface components.
-- **AZOA**: The federation engine itself, the enterprise gateway, the
-  identity/reputation orchestration kernel, the closed-source provider
-  connectors that carry commercial cost (e.g., proprietary chain or storage
-  provider relationships).
+- **AZOA**: Nothing in the engine is closed. The commercial surface is
+  **operational**: PrimusNeo-managed AZOA nodes (hosted, multi-tenant,
+  SLA-bearing), the enterprise federation gateway service, certified
+  settlement-rail adapters that carry commercial partner cost, and
+  enterprise support.
 
 ### 3.4 The commercial license
 
@@ -188,10 +193,12 @@ commercial scale-up, so it is spelled out explicitly:
   remain the customer's IP. Models trained on Escherbridge's public corpus
   remain Escherbridge IP and are licensed back to the customer under the
   PCL scope.
-- **AMP / AZOA forks** are constrained by the closed-core boundary. The
-  open SDKs are forkable under Apache-2.0; the closed components are not.
-  This is the standard open-core pattern (cf. GitLab CE/EE, Sentry,
-  HashiCorp).
+- **AMP forks** are constrained by the closed-core boundary. The open SDKs
+  are forkable under Apache-2.0; the closed components are not. This is the
+  standard open-core pattern (cf. GitLab CE/EE, Sentry, HashiCorp).
+- **AZOA forks** are unrestricted under Apache-2.0. The commercial moat is
+  the managed service, the certified rail adapters, and the trademark — not
+  the source.
 
 ---
 
@@ -217,9 +224,10 @@ fair-use principles; product naming and badging is not.
    verified) or by **purpose** (closer to the CC NC spirit, but ambiguous).
    **Recommendation:** revenue + headcount + connected-users, per §2.4.
 3. Whether enterprise customers can request **escrow** of closed-core
-   AMP/AZOA source for business-continuity purposes. **Recommendation:**
+   AMP source for business-continuity purposes. **Recommendation:**
    yes, above $500K ARR threshold, through a standard third-party escrow
-   agent (e.g., Iron Mountain).
+   agent (e.g., Iron Mountain). AZOA needs no escrow — the engine is
+   Apache-2.0.
 4. Whether DAO treasuries denominated in volatile assets are valued at
    acquisition cost or marked-to-market for the §2.4 threshold.
    **Recommendation:** trailing-90-day VWAP; documented in the PCL itself.
@@ -231,3 +239,4 @@ fair-use principles; product naming and badging is not.
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 0.1 | 2026-05-23 | Founding team | Initial dual-track structure |
+| 0.2 | 2026-07-15 | Founding team | OASIS → AZOA rename; AZOA moved to an Apache-2.0 open-source + managed-service track |

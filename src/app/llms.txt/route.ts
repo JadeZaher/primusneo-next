@@ -12,7 +12,7 @@ const platform = [
   { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, AZOA, and Fractal Engine.' },
   { path: '/amp', title: 'AMP — Art & Media Platform', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
   { path: '/governance-platform', title: 'NEOS Governance Platform', desc: 'Councils, decision rights, contribution accounting, and programmable voting logic.' },
-  { path: '/azoa', title: 'AZOA', desc: 'Universal interoperability fabric — identity, ownership records, cross-network state.' },
+  { path: '/azoa', title: 'AZOA — Autonomous Zones of Action', desc: 'Identity & consent, durable quest workflows, and settlement rails across blockchain and fiat.' },
   { path: '/fractal-engine', title: 'Fractal Engine', desc: 'Analytics + spatial intelligence: predictive ops, simulation, ESG/financial signals.' },
 ];
 

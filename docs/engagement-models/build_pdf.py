@@ -41,7 +41,7 @@ MANIFEST: list[tuple[str, str]] = [
     ("04-community-pilot-pricing.md", "Framework"),
     ("layers/amp.md", "Layer Engagement Models"),
     ("layers/neos.md", "Layer Engagement Models"),
-    ("layers/oas.md", "Layer Engagement Models"),
+    ("layers/azoa.md", "Layer Engagement Models"),
     ("layers/fractal-engine.md", "Layer Engagement Models"),
     ("industries/agriculture.md", "Industry Engagement Models"),
     ("industries/construction.md", "Industry Engagement Models"),

@@ -20,9 +20,10 @@ If you are new, read in this order:
    formula (Friction Cost × Value Share × Cost Floor), per-layer pricing
    anchors at Small/Mid/Large scale, bundle discounts, and the worked quote
    methodology.
-3. **[02-licensing-model.md](./02-licensing-model.md)** — Dual-track licensing
-   (CC-NC + PCL for NEOS + Fractal Engine; closed-core PEL for AMP + AZOA),
-   steward royalty schedule, bundle licensing, fork policy.
+3. **[02-licensing-model.md](./02-licensing-model.md)** — Licensing tracks
+   (CC-NC + PCL for NEOS + Fractal Engine; closed-core PEL for AMP;
+   Apache-2.0 engine + managed-service PEL for AZOA), steward royalty
+   schedule, bundle licensing, fork policy.
 4. **[03-services-catalog.md](./03-services-catalog.md)** — The five service
    classes (Customization, Integration, Deployment, Sustained Upkeep, Infra),
    day rates, deployment SKUs (Atom / Molecule / Hex / Lattice / Tessellation),
@@ -60,7 +61,7 @@ docs/engagement-models/
 ├── layers/
 │   ├── amp.md                         ← AMP (Spatial OS) engagement
 │   ├── neos.md                        ← NEOS (Governance) engagement
-│   ├── oas.md                         ← AZOA (Interop Fabric) engagement
+│   ├── azoa.md                        ← AZOA (Federation Rails) engagement
 │   └── fractal-engine.md              ← Fractal Engine (Intelligence) engagement
 │
 ├── industries/
@@ -111,10 +112,11 @@ file is missing, so you can use it as a completion check.
 
 - **AMP** — Spatial OS (steward: PLAN Systems)
 - **NEOS** — Governance (steward: OmniOne / Green Earth Vision)
-- **AZOA** — Interoperability Fabric (steward: AZOA). The term
-  "AZOA" is reserved for the external standards body and is not used
-  in PrimusNeo deliverables; use "AZOA" for the layer and "AZOA"
-  for the steward.
+- **AZOA** — Autonomous Zones of Action: identity & consent, durable quest
+  workflows, and settlement rails across chain and fiat (steward: the AZOA
+  project; formerly the OASIS layer). The legacy names "OASIS" / "OAS" are
+  not used in PrimusNeo deliverables. ("GSA OASIS+", the unrelated federal
+  contract vehicle, keeps its name in market-research citations.)
 - **Fractal Engine** — Intelligence / Organizational Memory (steward:
   Escherbridge)
 - **Tie Town [TX]** — The first active operational deployment, in McDade,

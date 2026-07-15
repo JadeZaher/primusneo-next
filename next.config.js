@@ -16,6 +16,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    // Legacy layer name: OASIS became AZOA.
+    return [
+      {
+        source: '/oasis',
+        destination: '/azoa',
+        permanent: true,
+      },
+    ];
+  },
   typescript: {
     // Set this to false if you want production builds to abort if there are type errors
     ignoreBuildErrors: true,

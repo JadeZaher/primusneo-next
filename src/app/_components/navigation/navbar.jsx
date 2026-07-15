@@ -17,7 +17,7 @@ import { cn } from '../../../lib/utils';
 const platformItems = [
   { href: '/amp', label: 'AMP', desc: 'Art and Media Platform' },
   { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
-  { href: '/azoa', label: 'AZOA', desc: 'Universal interoperability fabric' },
+  { href: '/azoa', label: 'AZOA', desc: 'Identity, quests, and settlement rails' },
   { href: '/fractal-engine', label: 'Fractal Engine', desc: 'Analytics and spatial intelligence' },
   { href: '/one-pager', label: 'Stack Overview', desc: 'The complete platform at a glance' },
 ];

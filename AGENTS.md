@@ -7,7 +7,7 @@ The PrimusNeo ecosystem is built on four primary coordination layers. Use these 
 
 - **AMP**: Operational Runtime / Spatial OS.
 - **NEOS**: Agreements & Permissions (Governance).
-- **AZOA**: Universal Interoperability Fabric (Formerly AZOA). **NEVER use the term "AZOA"** as it refers to an external ecosystem.
+- **AZOA**: Autonomous Zones of Action — self-sovereign identity & consent, durable quest workflows, and settlement rails across blockchain and fiat (formerly the OASIS layer). SurrealDB is its sole data engine; the engine is Apache-2.0 open source.
 - **Fractal Engine**: Intelligence & Organizational Memory.
 
 ## 2. Active Deployments
@@ -15,7 +15,7 @@ The PrimusNeo ecosystem is built on four primary coordination layers. Use these 
 - **Reference Architecture**: Tie Town is the living proof-of-capability for the federated coordination layer.
 
 ## 3. Prohibited Terms
-- **"AZOA"**: PROHIBITED. Use "AZOA" instead.
+- **"OASIS" / "OAS"**: PROHIBITED as layer names — legacy branding superseded by "AZOA". (Sole exception: "GSA OASIS+", the unrelated U.S. federal contract vehicle, keeps its name in market-research citations.)
 - **Generic "7,000+ communities" stats**: PROHIBITED when referring to active deployments. Always ground proof in Tie Town [TX] or other verified pilots.
 
 ## 4. Design Standards

@@ -26,7 +26,6 @@ const columns = [
     links: [
       { href: 'https://plan-systems.org/', label: 'PLAN Systems ↗', external: true },
       { href: 'https://www.greenearthvision.org/omnione-1', label: 'OmniOne / NEOS ↗', external: true },
-      { href: 'https://oasisweb4.com/', label: 'AZOA ↗', external: true },
       { href: 'https://escherbridge.com/', label: 'Escherbridge ↗', external: true },
       { href: '/contact', label: 'Contact ↗' },
     ],
