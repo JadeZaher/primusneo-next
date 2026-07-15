@@ -63,7 +63,7 @@ const SmartInfrastructurePage = () => {
       description: 'Define transparent rules for public-private partnerships, usage fees, and maintenance fund allocations.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Secure identity and access management for critical infrastructure operators and maintenance teams.'
     },
     {

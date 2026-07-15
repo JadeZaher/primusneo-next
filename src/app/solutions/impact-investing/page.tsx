@@ -63,7 +63,7 @@ const ImpactInvestingPage = () => {
       description: 'Define transparent impact criteria and automated accountability rules for portfolio companies and fund managers.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Verifiable credentials for impact auditors and third-party verifiers to ensure the integrity of reporting.'
     },
     {

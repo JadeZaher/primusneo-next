@@ -82,7 +82,7 @@ const solutions = [
   {
     id: 'developer-ecosystems',
     title: 'Developer Ecosystems',
-    description: 'Build high-scale coordination apps with the modular PrimusNeo stack: AMP, NEOS, and OASIS.',
+    description: 'Build high-scale coordination apps with the modular PrimusNeo stack: AMP, NEOS, and AZOA.',
     metric: 'MODULAR',
     metricLabel: 'Architecture',
     href: '/solutions/developer-ecosystems'
@@ -188,7 +188,7 @@ export default function SolutionsPage() {
             title="Industry-Specific Implementation"
             className="text-left mx-0 mb-20"
           >
-            We deploy the full stack—AMP, NEOS, OASIS, and Fractal Engine—to solve high-stakes coordination problems in these core industries.
+            We deploy the full stack—AMP, NEOS, AZOA, and Fractal Engine—to solve high-stakes coordination problems in these core industries.
           </SectionHeader>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">

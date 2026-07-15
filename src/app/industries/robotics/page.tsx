@@ -44,20 +44,20 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Vendor-Neutral Fleet Coordination', description: 'AMP + Fractal give multi-OEM fleets a shared spatial layer above ROS, NVIDIA Isaac, and proprietary stacks.' },
-  { eyebrow: 'Capital', title: 'Insurable Autonomy', description: 'NEOS + OASIS produce signed decision trails that underwriters, regulators, and operators can read post-incident.' },
+  { eyebrow: 'Capital', title: 'Insurable Autonomy', description: 'NEOS + AZOA produce signed decision trails that underwriters, regulators, and operators can read post-incident.' },
   { eyebrow: 'Trust', title: 'Right-of-Way Governance', description: 'NEOS programs shared rules of the road (warehouse aisle, hospital corridor, sidewalk) that every vendor&rsquo;s robot must respect.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Vendor-neutral 3D map of every aisle, dock, and corridor that ABB arms, AMRs, drones, and autonomous trucks coordinate against in real time.' },
   { title: 'NEOS Governance', description: 'Programmable right-of-way and priority rules (e.g., human-first, emergency-yield) that cross every fleet on a site.' },
-  { title: 'OASIS Identity', description: 'Each robot, model, and firmware version carries a verifiable identity — so liability, recall, and audit trace to the exact agent that acted.' },
+  { title: 'AZOA Identity', description: 'Each robot, model, and firmware version carries a verifiable identity — so liability, recall, and audit trace to the exact agent that acted.' },
   { title: 'Fractal Engine', description: 'Behavioral prediction and incident simulation across mixed-autonomy fleets, including failure-mode analysis for insurance and regulators.' },
 ];
 
 const useCase = {
   title: 'Mixed-Fleet Site Operating System',
-  description: 'A warehouse operator running AMRs from three vendors, ABB arms, and Boston Dynamics quadrupeds unifies them on PrimusNeo&rsquo;s spatial OS. NEOS enforces right-of-way; OASIS signs every decision; Fractal predicts deadlocks before they happen.',
+  description: 'A warehouse operator running AMRs from three vendors, ABB arms, and Boston Dynamics quadrupeds unifies them on PrimusNeo&rsquo;s spatial OS. NEOS enforces right-of-way; AZOA signs every decision; Fractal predicts deadlocks before they happen.',
   outcomes: [
     'Vendor lock-in eliminated across robot fleet',
     'Insurable, signed decision trail per agent',

@@ -63,7 +63,7 @@ const AIIntelligencePage = () => {
       description: 'Define the rules for AI agency, data privacy, and permissioned access to sensitive spatial datasets.'
     },
     {
-      title: 'OASIS Rewards',
+      title: 'AZOA Rewards',
       description: 'Incentivize data contributors and GPU providers through cryptographic participation and verifiable contribution tracking.'
     },
     {

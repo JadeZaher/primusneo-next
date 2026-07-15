@@ -2,13 +2,13 @@ import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, Sectio
 import { partnerLogos } from '../_data/ecosystem';
 
 export const metadata = {
-  title: 'OASIS Web4 — Universal Interoperability Fabric',
-  description: 'OASIS is the production-grade universal API connecting blockchains, cloud providers, storage networks, and identity systems — the interoperability fabric beneath PrimusNeo.',
-  alternates: { canonical: '/oasis' },
+  title: 'AZOA — Universal Interoperability Fabric',
+  description: 'AZOA is the production-grade universal API connecting blockchains, cloud providers, storage networks, and identity systems — the interoperability fabric beneath PrimusNeo.',
+  alternates: { canonical: '/azoa' },
   openGraph: {
-    title: 'OASIS Web4 | PrimusNeo',
+    title: 'AZOA | PrimusNeo',
     description: 'Universal interoperability fabric: identity, ownership records, and cross-network state.',
-    url: '/oasis',
+    url: '/azoa',
     type: 'website',
   },
 };
@@ -24,7 +24,7 @@ const capabilities = [
   },
   {
     title: 'Multi-chain and cross-provider',
-    body: 'Solana, Algorand, Ethereum, Polygon, Radix, and more — plus AWS, Azure, Google Cloud, IPFS, Arweave, and Holochain. OASIS routes requests intelligently across providers with fallback and failover.',
+    body: 'Solana, Algorand, Ethereum, Polygon, Radix, and more — plus AWS, Azure, Google Cloud, IPFS, Arweave, and Holochain. AZOA routes requests intelligently across providers with fallback and failover.',
   },
   {
     title: 'Web4/Web5 interoperability',
@@ -50,12 +50,12 @@ const OasisPage = () => {
         <div className="absolute right-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-cyan-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div className="relative z-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">OASIS Web4</div>
+            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">AZOA</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
               The universal interoperability fabric for Web4/Web5.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              OASIS is a mature, production-grade universal API that spans blockchain networks, cloud providers, storage systems, identity frameworks, and Web2/Web3 services. It gives PrimusNeo the interoperability backbone that makes multi-chain governance and cross-provider workflows practical.
+              AZOA is a mature, production-grade universal API that spans blockchain networks, cloud providers, storage systems, identity frameworks, and Web2/Web3 services. It gives PrimusNeo the interoperability backbone that makes multi-chain governance and cross-provider workflows practical.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/amp">AMP integration</GradientButton>
@@ -66,7 +66,7 @@ const OasisPage = () => {
             <DreadShape volume={1} id="19" className="absolute -right-6 -bottom-6 opacity-20 rotate-45" size={140} />
             <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Production ready</div>
             <p className="text-lg leading-8 text-gray-200">
-              OASIS is already deployed with a live API, ecosystem of supported providers, identity system, holon architecture, and real-world integrations. It is the most mature interoperability layer in the PrimusNeo stack.
+              AZOA is already deployed with a live API, ecosystem of supported providers, identity system, holon architecture, and real-world integrations. It is the most mature interoperability layer in the PrimusNeo stack.
             </p>
             <div className="mt-7 relative z-10">
               <PillList items={['Universal API', 'Multi-chain', 'Self-sovereign ID', 'Holons', 'Provider routing', 'Failover']} />
@@ -78,8 +78,8 @@ const OasisPage = () => {
       <section className="px-4 py-20 relative">
         <DreadShape volume={5} id="07" className="absolute -left-10 top-0 opacity-10" size={160} />
         <div className="mx-auto max-w-7xl relative z-10">
-          <SectionHeader eyebrow="Capabilities" title="What OASIS brings to PrimusNeo">
-            OASIS provides the most mature and production-ready piece of the stack. It has been operating as a live service with real provider integrations and a growing developer ecosystem.
+          <SectionHeader eyebrow="Capabilities" title="What AZOA brings to PrimusNeo">
+            AZOA provides the most mature and production-ready piece of the stack. It has been operating as a live service with real provider integrations and a growing developer ecosystem.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {capabilities.map((capability) => (
@@ -97,7 +97,7 @@ const OasisPage = () => {
               <img
                 src={partnerLogos.oasis}
                 loading="lazy"
-                alt="OASIS Web4 logo and platform"
+                alt="AZOA logo and platform"
                 className="rounded-[1.25rem] bg-white/5 p-6 shadow-2xl"
               />
             </div>
@@ -107,7 +107,7 @@ const OasisPage = () => {
                 One API across dozens of networks and services
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                OASIS abstracts away the complexity of individual provider integrations. Applications built on OASIS can switch between chains, storage backends, and cloud providers without rewriting code — and get intelligent routing, failover, and data replication for free.
+                AZOA abstracts away the complexity of individual provider integrations. Applications built on AZOA can switch between chains, storage backends, and cloud providers without rewriting code — and get intelligent routing, failover, and data replication for free.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {providers.map((provider) => (
@@ -124,14 +124,14 @@ const OasisPage = () => {
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(74,222,128,0.15),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12 relative overflow-hidden">   
           <DreadShape volume={1} id="15" className="absolute right-0 top-0 opacity-10" size={180} />
-          <SectionHeader eyebrow="Integration pattern" title="Where OASIS fits in the stack" className="mb-10">
-            OASIS is the interoperability layer that connects every other piece — governance, spatial data, assets, identity, and applications — through a unified API.
+          <SectionHeader eyebrow="Integration pattern" title="Where AZOA fits in the stack" className="mb-10">
+            AZOA is the interoperability layer that connects every other piece — governance, spatial data, assets, identity, and applications — through a unified API.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
-            <NumberedCard number="01" title="AMP">Spatial OS interfaces that use OASIS for identity, storage, and cross-system communication.</NumberedCard>
-            <NumberedCard number="02" title="NEOS">Governance records, councils, contribution flows, and organizational state connected via OASIS.</NumberedCard>
-            <NumberedCard number="03" title="OASIS">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>
-            <NumberedCard number="04" title="Fractal Engine">Intelligence layer that uses OASIS for data routing and AMP for realtime spatial context.</NumberedCard>
+            <NumberedCard number="01" title="AMP">Spatial OS interfaces that use AZOA for identity, storage, and cross-system communication.</NumberedCard>
+            <NumberedCard number="02" title="NEOS">Governance records, councils, contribution flows, and organizational state connected via AZOA.</NumberedCard>
+            <NumberedCard number="03" title="AZOA">Universal API, identity, providers, holons, storage, blockchain, and Web4 services.</NumberedCard>
+            <NumberedCard number="04" title="Fractal Engine">Intelligence layer that uses AZOA for data routing and AMP for realtime spatial context.</NumberedCard>
           </div>
         </div>
       </section>

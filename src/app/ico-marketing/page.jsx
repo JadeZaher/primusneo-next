@@ -42,7 +42,7 @@ const participationTracks = [
     range: 'Institutional, partner, or major contributor role',
     content: `• All Development Steward benefits
 • Custom governance, reporting, and data-room workflows for a portfolio or community
-• Co-designed AMP, NEOS, OASIS, Escherbridge, and Fractal Engine integrations
+• Co-designed AMP, NEOS, AZOA, Escherbridge, and Fractal Engine integrations
 • Strategic support for capital design, legal coordination, partner onboarding, and operating agreements
 • Recognition as a long-term ecosystem participant where appropriate and compliant`,
   },
@@ -50,7 +50,7 @@ const participationTracks = [
 
 const allocationModel = [
   { title: 'Asset acquisition and development', percentage: '35%', note: 'Land, buildings, equipment, improvements, feasibility, and project reserves.' },
-  { title: 'Technology infrastructure', percentage: '20%', note: 'AMP, OASIS, Escherbridge, Fractal Engine, dashboards, APIs, hosting, data rooms, and automation.' },
+  { title: 'Technology infrastructure', percentage: '20%', note: 'AMP, AZOA, Escherbridge, Fractal Engine, dashboards, APIs, hosting, data rooms, and automation.' },
   { title: 'Governance and legal', percentage: '15%', note: 'NEOS configuration, operating agreements, disclosure, compliance, counsel, and risk controls.' },
   { title: 'Operations and stewardship', percentage: '15%', note: 'Property management, maintenance, community operations, training, and field coordination.' },
   { title: 'Liquidity and reserves', percentage: '10%', note: 'Stabilization reserves, redemption design where appropriate, and contingency planning.' },
@@ -71,7 +71,7 @@ const universalBenefits = [
     title: 'Technology integration',
     features: [
       'AMP spatial OS workflows for maps, channels, training, and field coordination',
-      'OASIS Web4 interoperability for identity, APIs, providers, avatars, holons, and Web2/Web3 bridges',
+      'AZOA interoperability for identity, APIs, providers, avatars, holons, and Web2/Web3 bridges',
       'Escherbridge implementation support for cloud, web, data, blockchain, and enterprise integrations',
       'Fractal Engine analytics, data warehousing, and intelligence solution for spatial and operational data',
     ],
@@ -128,7 +128,7 @@ const IcoMarketing = () => {
               Each opportunity should describe the underlying asset, rights, governance, compliance requirements, distribution logic, digital twin data, and operating responsibilities. Tokens become rails or records, not the headline promise.
             </p>
             <div className="mt-7">
-              <PillList items={['Asset-backed stakes', 'QUSDC rails', 'Digital twin data', 'NEOS governance', 'OASIS smart contracts', 'Compliance-first']} />
+              <PillList items={['Asset-backed stakes', 'QUSDC rails', 'Digital twin data', 'NEOS governance', 'AZOA smart contracts', 'Compliance-first']} />
             </div>
           </div>
         </div>
@@ -212,7 +212,7 @@ const IcoMarketing = () => {
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="Structure">Define the asset, entity, rights, disclosures, roles, and participation requirements.</NumberedCard>
-            <NumberedCard number="02" title="Instrument">Configure NEOS governance, OASIS interoperability, dashboards, QUSDC rails, and reporting flows.</NumberedCard>
+            <NumberedCard number="02" title="Instrument">Configure NEOS governance, AZOA interoperability, dashboards, QUSDC rails, and reporting flows.</NumberedCard>
             <NumberedCard number="03" title="Twin">AMP to connect spatial context, documents, media, telemetry, and field updates.</NumberedCard>
             <NumberedCard number="04" title="Operate">Track performance, proposals, distributions, maintenance, risks, and community decisions over time.</NumberedCard>
           </div>

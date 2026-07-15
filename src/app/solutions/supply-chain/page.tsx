@@ -63,7 +63,7 @@ const SupplyChainPage = () => {
       description: 'Programmatic contracts for multi-stakeholder logistics, from customs clearing to final mile delivery.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Verifiable credentials for carriers, drivers, and facility operators to ensure chain-of-custody integrity.'
     },
     {

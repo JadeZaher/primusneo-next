@@ -45,19 +45,19 @@ const challenges = [
 const features = [
   { eyebrow: 'Operations', title: 'Cross-System Care Twin', description: 'AMP + Fractal unify EHR, device telemetry, and care-team location into a single operational picture per patient and per site.' },
   { eyebrow: 'Capital', title: 'Outcome-Tied Reimbursement', description: 'NEOS + Fractal program value-based payment that releases on verified outcomes, not claims forms.' },
-  { eyebrow: 'Trust', title: 'Patient-Owned Health Identity', description: 'OASIS gives patients portable, consented, cryptographically verifiable identity across providers and researchers.' },
+  { eyebrow: 'Trust', title: 'Patient-Owned Health Identity', description: 'AZOA gives patients portable, consented, cryptographically verifiable identity across providers and researchers.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Twin of hospital floors, beds, devices, and care teams — combined with the patient journey through the system.' },
   { title: 'NEOS Governance', description: 'Consent workflows, value-based payment rules, IRB approvals, and clinical-trial governance as programmable contracts.' },
-  { title: 'OASIS Identity', description: 'Patient-owned health identity portable across providers, payers, and trials — with selective disclosure built in.' },
+  { title: 'AZOA Identity', description: 'Patient-owned health identity portable across providers, payers, and trials — with selective disclosure built in.' },
   { title: 'Fractal Engine', description: 'Population-health, readmission, and outcome analytics drawn from live spatial + clinical signals, not retrospective claims.' },
 ];
 
 const useCase = {
   title: 'Patient-Owned Health Identity + Value-Based Care',
-  description: 'A health system rolls out PrimusNeo to unify EHRs, device telemetry, and patient consent. Patients carry their identity in OASIS; providers operate against a real-time care twin; payers settle value-based contracts in NEOS — attacking the $528B admin tax at its root.',
+  description: 'A health system rolls out PrimusNeo to unify EHRs, device telemetry, and patient consent. Patients carry their identity in AZOA; providers operate against a real-time care twin; payers settle value-based contracts in NEOS — attacking the $528B admin tax at its root.',
   outcomes: [
     'Portable patient identity & consent across providers',
     'Real-time care twin replaces fragmented EHR view',

@@ -44,14 +44,14 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Site-to-Spec Digital Twin', description: 'AMP + Fractal Engine reconcile BIM, schedule, and live site telemetry so contractors, GCs, and owners share one model of progress.' },
-  { eyebrow: 'Capital', title: 'Verifiable Draw Schedules', description: 'NEOS + OASIS turn each milestone into an auditable signature event lenders and JV partners can underwrite against in real time.' },
-  { eyebrow: 'Trust', title: 'Contractual Provenance', description: 'OASIS + NEOS anchor every change order, sub-cert, and inspection in a tamper-evident decision trail that survives the project.' },
+  { eyebrow: 'Capital', title: 'Verifiable Draw Schedules', description: 'NEOS + AZOA turn each milestone into an auditable signature event lenders and JV partners can underwrite against in real time.' },
+  { eyebrow: 'Trust', title: 'Contractual Provenance', description: 'AZOA + NEOS anchor every change order, sub-cert, and inspection in a tamper-evident decision trail that survives the project.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Live 3D site maps overlaid with crane telemetry, drone scans, and BIM clash detection — replacing the daily PDF markup cycle GCs still run on.' },
   { title: 'NEOS Governance', description: 'Programmable change-order approval flows, sub-cert workflows, and JV voting rights tied directly to milestone completion on the twin.' },
-  { title: 'OASIS Identity', description: 'Persistent identity for every trade, inspector, and asset class, so a welder&rsquo;s qualification or a beam&rsquo;s mill cert travels with the work, not the binder.' },
+  { title: 'AZOA Identity', description: 'Persistent identity for every trade, inspector, and asset class, so a welder&rsquo;s qualification or a beam&rsquo;s mill cert travels with the work, not the binder.' },
   { title: 'Fractal Engine', description: 'Predictive cost-to-complete and schedule-risk modeling that surfaces budget blowout 6+ months before a quantity surveyor would catch it.' },
 ];
 

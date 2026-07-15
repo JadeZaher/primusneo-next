@@ -44,20 +44,20 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Grid-Edge Twin', description: 'AMP + Fractal model substations, feeders, and DERs in one live spatial layer so operators see the network as it actually behaves.' },
-  { eyebrow: 'Capital', title: 'Bankable Energy Provenance', description: 'NEOS + OASIS issue verifiable green attributes, REC trails, and CBAM data that survive due diligence.' },
+  { eyebrow: 'Capital', title: 'Bankable Energy Provenance', description: 'NEOS + AZOA issue verifiable green attributes, REC trails, and CBAM data that survive due diligence.' },
   { eyebrow: 'Trust', title: 'Community-Governed Assets', description: 'NEOS programs community-benefit and dispatch rules into co-owned solar, wind, and storage, replacing opaque PPAs.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Live twin of substations, feeders, lines, and behind-the-meter assets — replacing GIS + SCADA + OMS silos with one model.' },
   { title: 'NEOS Governance', description: 'Programmable dispatch priority, curtailment compensation, and community-benefit rules for distributed and co-owned assets.' },
-  { title: 'OASIS Identity', description: 'Per-asset and per-MWh identity so RECs, CBAM, and Scope 2 / Scope 3 claims can be cryptographically verified.' },
+  { title: 'AZOA Identity', description: 'Per-asset and per-MWh identity so RECs, CBAM, and Scope 2 / Scope 3 claims can be cryptographically verified.' },
   { title: 'Fractal Engine', description: 'Load, curtailment, and OPEX forecasting that ties weather, market price, and asset health into one signal for ops and capital.' },
 ];
 
 const useCase = {
   title: 'Grid-Edge Coordination & Verified Green',
-  description: 'A utility unifies substation telemetry, DER inverters, and EV chargers on PrimusNeo&rsquo;s twin. NEOS dispatches flexibility under verified community-benefit rules; OASIS issues per-MWh provenance that satisfies CBAM, RE100 buyers, and green-bond covenants.',
+  description: 'A utility unifies substation telemetry, DER inverters, and EV chargers on PrimusNeo&rsquo;s twin. NEOS dispatches flexibility under verified community-benefit rules; AZOA issues per-MWh provenance that satisfies CBAM, RE100 buyers, and green-bond covenants.',
   outcomes: [
     'DER visibility from substation to inverter',
     'Cryptographically verifiable green energy attributes',

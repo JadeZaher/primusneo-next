@@ -44,7 +44,7 @@ const InstitutionalInvestmentPage = () => {
     {
       eyebrow: 'Compliance',
       title: 'Regulated Identity Standards',
-      description: 'Implement ERC-3643 and ERC-1400 standards at the protocol level via OASIS, ensuring 100% compliance for institutional participants.'
+      description: 'Implement ERC-3643 and ERC-1400 standards at the protocol level via AZOA, ensuring 100% compliance for institutional participants.'
     },
     {
       eyebrow: 'Data',
@@ -63,7 +63,7 @@ const InstitutionalInvestmentPage = () => {
       description: 'Define the institutional-grade rules for asset custody, distribution policies, and role-based access control.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Verifiable credentials for institutions, custodians, and qualified investors, ensuring full regulatory alignment.'
     },
     {
@@ -76,7 +76,7 @@ const InstitutionalInvestmentPage = () => {
     title: 'Cross-Border Real Estate Fund',
     description: 'A global asset manager uses PrimusNeo to manage a $500M tokenized portfolio, coordinating 10+ regional custodians and 1,000+ institutional LPs.',
     outcomes: [
-      'Eliminated protocol silos via federated OASIS bridges',
+      'Eliminated protocol silos via federated AZOA bridges',
       'Automated NAV reporting via real-time AMP telemetry',
       'Reduced bid-ask spreads through cross-chain liquidity',
       'Verified regulatory compliance for every participant'

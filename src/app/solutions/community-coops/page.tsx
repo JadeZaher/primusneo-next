@@ -63,7 +63,7 @@ const CommunityCoopsPage = () => {
       description: 'Programmatic rules for role-based access, content rights, and community-led resource distribution.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Verifiable credentials for creators and builders, ensuring privacy and integrity in the media ecosystem.'
     },
     {

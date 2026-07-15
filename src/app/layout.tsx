@@ -2,8 +2,23 @@
 import '../styles/globals.css';
 import React from 'react';
 import Script from 'next/script';
+import { Archivo, IBM_Plex_Mono } from 'next/font/google';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
+
+const archivo = Archivo({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-archivo-sans',
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
+  display: 'swap',
+});
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -13,7 +28,7 @@ export const metadata = {
     default: 'PrimusNeo | Federated Operational Infrastructure',
     template: '%s | PrimusNeo',
   },
-  description: 'Federated operational infrastructure for real-world environments. PrimusNeo coordinates AMP digital twins, NEOS governance, OASIS Web4, and Fractal Engine analytics in one modular stack.',
+  description: 'One source of truth for the real world. PrimusNeo coordinates AMP digital twins, NEOS governance, AZOA interoperability, and Fractal Engine intelligence in one governed, modular stack.',
   applicationName: 'PrimusNeo',
   keywords: ['AI', 'Governance', 'Digital Twins', 'Spatial Intelligence', 'Federated Infrastructure', 'Web3', 'Blockchain', 'P2P', 'Real World Assets', 'Coordination Layer'],
   authors: [{ name: 'PrimusNeo' }],
@@ -28,7 +43,7 @@ export const metadata = {
     url: SITE_URL,
     siteName: 'PrimusNeo',
     title: 'PrimusNeo | Federated Operational Infrastructure',
-    description: 'Federated operational infrastructure for real-world environments. Coordinate digital twins, governance, identity, and analytics in one modular stack.',
+    description: 'One source of truth for the real world — digital twins, governance, identity, and analytics coordinated through shared interfaces.',
     images: [
       {
         url: '/images/ampheader.png',
@@ -41,7 +56,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'PrimusNeo | Federated Operational Infrastructure',
-    description: 'Federated operational infrastructure for real-world environments — AMP, NEOS, OASIS Web4, and Fractal Engine in one stack.',
+    description: 'Federated operational infrastructure for real-world environments — AMP, NEOS, AZOA, and Fractal Engine in one stack.',
     images: ['/images/ampheader.png'],
   },
   robots: {
@@ -94,9 +109,9 @@ const organizationJsonLd = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
       <body>
-      <div className="min-h-screen bg-black text-white font-switzer">
+      <div className="min-h-screen bg-ink text-paper font-archivo">
         <NavBar />
         <main className="flex-1">
         {children}

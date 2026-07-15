@@ -1,221 +1,323 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
-import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from './_components/marketing';
-import { ecosystemPartners, layerShowcase, outcomePillars, platformLayers } from './_data/ecosystem';
 import HeroScene from './_components/3d/HeroScene';
+import Reveal from './_components/Reveal';
 import LayerShowcase from './_components/LayerShowcase';
+import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem';
 
 export const metadata = {
   title: 'Federated Operational Infrastructure',
-  description: 'Coordinate specialized systems through shared interfaces. Connect real-time operational infrastructure, digital twins, and AI-assisted memory into a modular deployment architecture.',
+  description:
+    'One source of truth for the real world. PrimusNeo coordinates digital twins, governance, identity, and analytics through shared interfaces — a modular stack for environments that cannot afford to fail.',
 };
+
+const tickerItems =
+  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · CRYPTO INCENTIVES · ';
+
+const operatingModel = [
+  {
+    step: '01',
+    title: 'Map the vision',
+    body: 'An ambitious thesis becomes layers, stakeholders, requirements, and measurable outcomes.',
+  },
+  {
+    step: '02',
+    title: 'Design governance',
+    body: 'Councils, holons, and contribution rules — defined in NEOS before complexity sets in.',
+  },
+  {
+    step: '03',
+    title: 'Build the tooling',
+    body: 'AMP, AZOA, dashboards, and existing software integrated into workflows people actually use.',
+  },
+  {
+    step: '04',
+    title: 'Operate and evolve',
+    body: 'Performance and community signals feed a living intelligence layer, not a static report.',
+  },
+];
 
 const outcomes = [
   'Decision trails that survive team turnover',
-  'Digital twins that connect assets, spaces, and analytics',
-  'Fractional ownership and contribution accounting models',
-  'Open and closed source project governance patterns',
-  'Interoperable APIs for existing enterprise and community tools',
-  'Spatial AI context for construction, land, logistics, and community systems',
+  'Digital twins connecting assets, spaces, and analytics',
+  'Fractional ownership and contribution accounting',
+  'Open and closed source governance patterns',
+  'Interoperable APIs for enterprise and community tools',
+  'Spatial AI context for construction, land, logistics, and community',
 ];
+
+const MonoLabel = ({ children }: { children: React.ReactNode }) => (
+  <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
+    {children}
+  </div>
+);
+
+const PrimaryCta = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link
+    href={href}
+    className="bg-paper px-7 py-4 font-mono text-xs tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-accent hover:text-white"
+  >
+    {children}
+  </Link>
+);
+
+const SecondaryCta = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link
+    href={href}
+    className="border border-white/25 px-7 py-[15px] font-mono text-xs tracking-[0.14em] text-paper transition-colors duration-300 hover:border-accent hover:text-accent"
+  >
+    {children}
+  </Link>
+);
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
-      <section className="relative isolate overflow-hidden">
-        <div className="relative h-[500px] w-full md:absolute md:inset-0 md:-z-20 md:h-full vite-grid hero-glow opacity-80">
-          <HeroScene className="h-full w-full" />
-        </div>
+    <div className="bg-ink text-paper selection:bg-accent selection:text-white">
+      {/* Hero — WebGL timeline collapse over a digital-twin ground grid */}
+      <section className="relative h-svh min-h-[680px] overflow-hidden bg-ink">
+        <HeroScene className="absolute inset-0 h-full w-full" />
 
-        <div className="relative px-4 py-12 md:py-28">
-          <DreadShape volume={5} id="01" className="absolute left-[2%] top-[15%] opacity-10" size={100} />
-          <DreadShape volume={1} id="02" className="absolute right-[5%] top-[10%] opacity-10 rotate-12" size={120} />
-
-          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="max-w-4xl pt-10">
-              <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">
-                Federated Operational Infrastructure
-              </div>
-              <h1 className="text-4xl font-bold leading-[0.95] tracking-tight text-gray-200 text-glow-green md:text-5xl">
-                An AI-assisted builder ecosystem for real-world environments.
-              </h1>
-              <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-200 md:text-2xl">
-                PrimusNeo coordinates specialized systems through shared interfaces. We connect real-time operational infrastructure, digital twins, agreement-based coordination, AI-assisted memory, crypto incentives, and peer-to-peer analytics into a modular deployment architecture.
-              </p>
-              <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <GradientButton href="/governance-platform">Governance platform</GradientButton>
-                <GradientButton href="/one-pager" variant="secondary">Explore the stack</GradientButton>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
-              <div className="mb-5 text-sm uppercase tracking-[0.28em] text-emerald-300">The thesis</div>
-              <p className="text-lg leading-8 text-gray-200">
-                Most real-world infrastructure systems fail because data is fragmented and governance is disconnected. Instead of creating one monolithic platform, PrimusNeo creates one operational source of truth with many interoperable interfaces and deployment pathways.
-              </p>
-              <div className="mt-7 grid gap-3 text-sm text-gray-300 sm:grid-cols-2">
-                {['Digital twins', 'P2P analytics', 'Agreement coordination', 'AI organizational memory', 'Modular interoperability', 'Federated governance'].map((item) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
-                    {item}
-                  </div>
-                ))}
-              </div>
+        <div className="pointer-events-none absolute inset-0 flex flex-col justify-end px-7 pb-12">
+          <div className="mb-6 font-mono text-[11px] tracking-[0.24em] text-mist">
+            FEDERATED OPERATIONAL INFRASTRUCTURE
+          </div>
+          <h1 className="max-w-[14ch] text-balance text-[clamp(48px,7.4vw,132px)] font-medium leading-[0.98] tracking-[-0.035em]">
+            One source of truth for the real world.
+          </h1>
+          <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
+            <p className="max-w-[52ch] text-[17px] leading-relaxed text-mist">
+              PrimusNeo coordinates digital twins, governance, identity, and
+              analytics through shared interfaces — a modular stack for
+              environments that cannot afford to fail.
+            </p>
+            <div className="pointer-events-auto flex gap-3">
+              <PrimaryCta href="/one-pager">EXPLORE THE STACK</PrimaryCta>
+              <SecondaryCta href="/contact">TALK TO US</SecondaryCta>
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="px-4 py-20 relative overflow-hidden">
-        <DreadShape volume={1} id="05" className="absolute -right-10 top-1/2 opacity-5" size={200} />
-        <div className="mx-auto max-w-7xl relative z-10">
-          <SectionHeader eyebrow="Mission" title="A council for software, sovereignty, and spatial intelligence">
-            PrimusNeo exists to make high-impact technology easier to steward. We focus on the human systems around software as much as the code itself: who decides, who contributes, who owns, who benefits, and how the system improves over time.
-          </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-3">
-            <InsightCard title="Governance before scale">
-              With OmniOne and NEOS, we can define authority, review loops, contributor roles, holonic team structures, funding logic, and long-term stewardship before projects become too complex to manage.
-            </InsightCard>
-            <InsightCard title="Tools that create context">
-              The stack layers spatial interfaces, peer-to-peer data, digital twin analytics, and interoperable APIs so AI and people can act on shared situational awareness.
-            </InsightCard>
-            <InsightCard title="Ecosystems over silos">
-              AMP, OASIS, and NEOS let PrimusNeo coordinate companies, nonprofits, cooperatives, local communities, developers, and asset owners without forcing one business model.
-            </InsightCard>
-          </div>
+        <div className="pointer-events-none absolute left-7 top-24 font-mono text-[10px] tracking-[0.2em] text-faint">
+          N_TIMELINES: MANY → 1
+        </div>
+        <div className="pointer-events-none absolute right-7 top-24 font-mono text-[10px] tracking-[0.2em] text-faint">
+          SPATIAL_OS // ONLINE
         </div>
       </section>
 
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="lg:sticky lg:top-24">
-              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Architecture</div>
-              <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                Four modular layers for federated infrastructure
+      {/* Ticker */}
+      <div className="overflow-hidden border-y border-white/[0.08] bg-ink py-3.5">
+        <div className="flex w-max animate-marquee whitespace-nowrap font-mono text-[11px] tracking-[0.22em] text-faint">
+          <span className="pr-12">{tickerItems}</span>
+          <span className="pr-12">{tickerItems}</span>
+        </div>
+      </div>
+
+      {/* 01 — Thesis */}
+      <section className="bg-ink px-7 py-32 md:py-36">
+        <div className="mx-auto grid max-w-[1600px] gap-8 md:grid-cols-[minmax(120px,1fr)_minmax(0,4fr)]">
+          <MonoLabel>01 — Thesis</MonoLabel>
+          <div>
+            <Reveal>
+              <h2 className="max-w-[24ch] text-balance text-[clamp(32px,4.2vw,72px)] font-medium leading-[1.08] tracking-[-0.03em]">
+                Infrastructure fails when data fragments and governance
+                disconnects.
               </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                The platform frames PrimusNeo around operational delivery plus governance: AMP contributes spatial OS workflows; NEOS powers backend governance; OASIS provides universal interoperability; and Fractal Engine adds intelligence.
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-10 max-w-[58ch] text-[17px] leading-relaxed text-mist">
+                We do not build one monolithic platform. We maintain one
+                operational source of truth with many interoperable interfaces
+                — and the governance to steward it over decades, not demo
+                cycles.
               </p>
-            </div>
-            <div className="grid gap-5">
-              {platformLayers.map((layer) => (
-                <InsightCard key={layer.title} eyebrow={layer.eyebrow} title={layer.title}>
-                  <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200/80">{layer.partner}</p>
-                  {layer.body}
-                </InsightCard>
-              ))}
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Layer showcase — interactive, linked tour of each layer.
-          Distinct from the static architecture cards above: this is a guided,
-          one-at-a-time deep dive with direct links into each layer's page. */}
-      <section className="px-4 py-20 bg-white/[0.02] relative overflow-hidden border-y border-white/5">
-        <DreadShape volume={1} id="01" className="absolute -left-10 top-0 opacity-10 rotate-45" size={180} />
-        <DreadShape volume={5} id="03" className="absolute right-[10%] bottom-0 opacity-10 -rotate-12" size={150} />
+      {/* 02 — Architecture */}
+      <section className="bg-ink px-7 pb-32 md:pb-36">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <MonoLabel>02 — Architecture</MonoLabel>
+            <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
+              Four layers. One stack.
+            </h2>
+          </div>
+          <div className="border-b border-white/10">
+            {stackIndex.map((layer) => (
+              <Reveal key={layer.href}>
+                <Link
+                  href={layer.href}
+                  className="group grid grid-cols-[48px_minmax(0,1fr)_32px] items-center gap-x-4 border-t border-white/10 px-3 py-9 transition-all duration-300 hover:bg-white/[0.03] hover:pl-7 md:grid-cols-[80px_minmax(0,2fr)_minmax(0,1fr)_minmax(0,2fr)_48px] md:gap-6"
+                >
+                  <span className="font-mono text-[11px] text-faint">{layer.index}</span>
+                  <span className="flex flex-col gap-2 md:contents">
+                    <span className="text-[clamp(26px,2.8vw,44px)] font-medium tracking-[-0.02em]">
+                      {layer.name}
+                    </span>
+                    <span className="font-mono text-[11px] tracking-[0.18em] text-accent">
+                      {layer.tag}
+                    </span>
+                    <span className="text-sm leading-normal text-mist">
+                      {layer.summary}
+                    </span>
+                  </span>
+                  <span className="justify-self-end text-[22px] text-faint transition-colors group-hover:text-accent">
+                    →
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        <div className="mx-auto max-w-7xl relative z-10">
-          <SectionHeader eyebrow="Guided tour" title="Step into each layer">
-            The architecture above maps how the layers fit together. Here you can
-            move through them one at a time and jump straight into the dedicated
-            page for AMP, NEOS, OASIS, or Fractal Engine.
-          </SectionHeader>
+      {/* 03 — Guided tour of the stack */}
+      <section className="border-t border-white/[0.06] bg-ink-deep px-7 py-28 md:py-32">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-14 flex flex-wrap items-baseline justify-between gap-4">
+            <MonoLabel>03 — Field View</MonoLabel>
+            <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
+              Step into each layer.
+            </h2>
+          </div>
           <LayerShowcase layers={layerShowcase} />
         </div>
       </section>
 
-      <section className="px-4 py-20 relative overflow-hidden">
-        <DreadShape volume={5} id="10" className="absolute left-[5%] bottom-[10%] opacity-5" size={160} />
-        <div className="mx-auto max-w-7xl relative z-10">
-          <SectionHeader eyebrow="Operating model" title="From idea to governed ecosystem">
-            PrimusNeo supports the full arc of federated infrastructure: concept framing, NEOS-backed governance, modular architecture, community coordination, fractionalization strategy, and ongoing analytics.
-          </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <NumberedCard number="01" title="Map the vision">
-              Convert an ambitious thesis into layers, stakeholders, requirements, and measurable outcomes.
-            </NumberedCard>
-            <NumberedCard number="02" title="Design governance">
-              Define councils, holons, and contribution rules with NEOS logic.
-            </NumberedCard>
-            <NumberedCard number="03" title="Build the tooling">
-              Integrate AMP, OASIS, dashboards, and existing software into usable workflows.
-            </NumberedCard>
-            <NumberedCard number="04" title="Operate and evolve">
-              Track performance and community signals as a living intelligence layer.
-            </NumberedCard>
+      {/* 04 — Operating model */}
+      <section className="bg-ink px-7 py-28 md:py-32">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
+            <MonoLabel>04 — Operating Model</MonoLabel>
+            <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
+              From idea to governed ecosystem.
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            <div className="relative aspect-video rounded-3xl border border-white/10 bg-white/[0.04] p-2">
-              <Image
-                src="/images/howwework.png"
-                alt="Collaborative governance workspace"
-                fill
-                className="rounded-[1.25rem] shadow-2xl object-cover p-2"
-              />
-            </div>
-            <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">What this enables</div>
-              <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                Better flow, clearer ownership, stronger delivery efficacy
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
-                The goal is not only to describe an exciting technology stack. It is to make the work easier to govern, fund, ship, evaluate, and explain. PrimusNeo becomes the connective layer between vision, capital, contributors, software, and real-world outcomes.
-              </p>
-              <div className="mt-8">
-                <PillList items={outcomes} />
+          <div className="grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+            {operatingModel.map((item, i) => (
+              <div key={item.step} className="bg-ink">
+                <Reveal delay={i * 80} className="h-full">
+                  <div className="h-full px-7 pb-14 pt-10">
+                    <div className="font-mono text-[11px] tracking-[0.2em] text-accent">
+                      {item.step}
+                    </div>
+                    <h3 className="mb-3 mt-5 text-[22px] font-medium tracking-[-0.01em]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-mist">{item.body}</p>
+                  </div>
+                </Reveal>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-4 py-20 relative overflow-hidden">
-        <DreadShape volume={1} id="15" className="absolute -right-20 top-0 opacity-5" size={250} />
-        <div className="mx-auto max-w-7xl relative z-10">
-          <SectionHeader eyebrow="Partners and channels" title="A growing network for regenerative technology delivery">
-            PrimusNeo collaborates with aligned builders across governance, software architecture, Web4 interoperability, spatial computing, peer-to-peer infrastructure, and community development.
-          </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {ecosystemPartners.map((partner) => (
-              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07]">
-                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
-                  <Image 
-                    src={partner.image} 
-                    alt={`${partner.name} logo`} 
-                    fill
-                    className="rounded-xl object-contain p-2" 
-                  />
-                </div>
-                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
-                <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
-                <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
-              </a>
             ))}
           </div>
-          <div className="mt-10">
-            <PillList items={outcomePillars} />
+        </div>
+      </section>
+
+      {/* 05 — What this enables */}
+      <section className="border-t border-white/[0.06] bg-ink-deep px-7 py-32 md:py-36">
+        <div className="mx-auto grid max-w-[1600px] items-start gap-16 lg:grid-cols-2">
+          <div>
+            <div className="mb-8">
+              <MonoLabel>05 — What This Enables</MonoLabel>
+            </div>
+            <Reveal>
+              <h2 className="max-w-[16ch] text-[clamp(32px,3.6vw,60px)] font-medium leading-[1.08] tracking-[-0.03em]">
+                Clearer ownership. Stronger delivery.
+              </h2>
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="mb-12 mt-8 max-w-[48ch] leading-relaxed text-mist">
+                PrimusNeo is the connective layer between vision, capital,
+                contributors, software, and real-world outcomes — easier to
+                govern, fund, ship, evaluate, and explain.
+              </p>
+            </Reveal>
+            <Reveal delay={160}>
+              <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10">
+                <Image
+                  src="/images/howwework.png"
+                  alt="Digital twin still of a governed operational environment"
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/50">
+                  FIELD_STILL // DIGITAL TWIN
+                </div>
+              </div>
+            </Reveal>
+          </div>
+          <div className="flex flex-col border-b border-white/10 lg:pt-16">
+            {outcomes.map((item, i) => (
+              <Reveal key={item} delay={i * 60}>
+                <div className="flex items-baseline gap-6 border-t border-white/10 py-[26px]">
+                  <span className="font-mono text-[11px] text-faint">
+                    {String.fromCharCode(65 + i)}
+                  </span>
+                  <span className="text-lg leading-normal">{item}</span>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="px-4 py-20 bg-emerald-400/5 border-t border-emerald-400/10 relative overflow-hidden">
-        <DreadShape volume={5} id="18" className="absolute -left-10 top-0 opacity-10 rotate-12" size={140} />
-        <DreadShape volume={5} id="13" className="absolute right-0 bottom-0 opacity-10 -rotate-12" size={160} />
-        <div className="mx-auto max-w-4xl text-center relative z-10">
-          <h2 className="text-3xl font-bold text-white md:text-5xl mb-6">Ready to build the future of governed infrastructure?</h2>
-          <p className="text-xl text-gray-300 mb-10">Connect with us to learn how PrimusNeo can support your project, community, or asset fractionalization strategy.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <GradientButton href="/contact">Get started today</GradientButton>
-            <GradientButton href="/one-pager" variant="secondary">View the stack</GradientButton>
+      {/* 06 — Network */}
+      <section className="bg-ink px-7 py-32 md:py-36">
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-12 flex flex-wrap items-baseline justify-between gap-4">
+            <MonoLabel>06 — Network</MonoLabel>
+            <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
+              Built with aligned builders.
+            </h2>
+          </div>
+          <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+            {ecosystemPartners.map((partner, i) => (
+              <div key={partner.name} className="bg-ink">
+                <Reveal delay={i * 80} className="h-full">
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-full min-h-[220px] flex-col gap-3.5 px-7 py-9 transition-colors duration-300 hover:bg-[#101218]"
+                  >
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-faint">
+                      {partner.role}
+                    </span>
+                    <span className="text-2xl font-medium tracking-[-0.01em] text-paper">
+                      {partner.name}
+                    </span>
+                    <span className="text-[13px] leading-relaxed text-mist">
+                      {partner.body}
+                    </span>
+                    <span className="mt-auto text-lg text-accent">↗</span>
+                  </a>
+                </Reveal>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
+
+      {/* 07 — Next */}
+      <section className="border-t border-white/[0.06] bg-ink-deep px-7 py-44 text-center">
+        <div className="mb-8 flex justify-center">
+          <MonoLabel>07 — Next</MonoLabel>
+        </div>
+        <Reveal>
+          <h2 className="mx-auto max-w-[16ch] text-balance text-[clamp(40px,6vw,104px)] font-medium leading-none tracking-[-0.035em]">
+            Build on governed ground.
+          </h2>
+        </Reveal>
+        <Reveal delay={120}>
+          <div className="mt-14 flex flex-wrap justify-center gap-3">
+            <PrimaryCta href="/contact">GET STARTED</PrimaryCta>
+            <SecondaryCta href="/one-pager">VIEW THE STACK</SecondaryCta>
+          </div>
+        </Reveal>
       </section>
     </div>
   );

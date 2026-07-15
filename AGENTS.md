@@ -7,7 +7,7 @@ The PrimusNeo ecosystem is built on four primary coordination layers. Use these 
 
 - **AMP**: Operational Runtime / Spatial OS.
 - **NEOS**: Agreements & Permissions (Governance).
-- **OAS**: Universal Interoperability Fabric (Formerly OASIS). **NEVER use the term "OASIS"** as it refers to an external ecosystem.
+- **AZOA**: Universal Interoperability Fabric (Formerly AZOA). **NEVER use the term "AZOA"** as it refers to an external ecosystem.
 - **Fractal Engine**: Intelligence & Organizational Memory.
 
 ## 2. Active Deployments
@@ -15,7 +15,7 @@ The PrimusNeo ecosystem is built on four primary coordination layers. Use these 
 - **Reference Architecture**: Tie Town is the living proof-of-capability for the federated coordination layer.
 
 ## 3. Prohibited Terms
-- **"OASIS"**: PROHIBITED. Use "OAS" instead.
+- **"AZOA"**: PROHIBITED. Use "AZOA" instead.
 - **Generic "7,000+ communities" stats**: PROHIBITED when referring to active deployments. Always ground proof in Tie Town [TX] or other verified pilots.
 
 ## 4. Design Standards

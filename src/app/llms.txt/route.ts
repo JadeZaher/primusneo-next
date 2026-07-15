@@ -9,10 +9,10 @@ type SanityPostRow = { title?: string; slug: string; excerpt?: string };
 type SanityNewsRow = { title?: string; slug: string; excerpt?: string; sourceName?: string };
 
 const platform = [
-  { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, OASIS Web4, and Fractal Engine.' },
+  { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, AZOA, and Fractal Engine.' },
   { path: '/amp', title: 'AMP — Art & Media Platform', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
   { path: '/governance-platform', title: 'NEOS Governance Platform', desc: 'Councils, decision rights, contribution accounting, and programmable voting logic.' },
-  { path: '/oasis', title: 'OASIS Web4', desc: 'Universal interoperability fabric — identity, ownership records, cross-network state.' },
+  { path: '/azoa', title: 'AZOA', desc: 'Universal interoperability fabric — identity, ownership records, cross-network state.' },
   { path: '/fractal-engine', title: 'Fractal Engine', desc: 'Analytics + spatial intelligence: predictive ops, simulation, ESG/financial signals.' },
 ];
 
@@ -89,7 +89,7 @@ async function buildBody(): Promise<string> {
   return [
     '# PrimusNeo',
     '',
-    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (spatial OS / digital twin runtime), NEOS (programmable governance and contribution accounting), OASIS Web4 (universal interoperability fabric for identity and ownership), and Fractal Engine (analytics + spatial intelligence). LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
+    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (spatial OS / digital twin runtime), NEOS (programmable governance and contribution accounting), AZOA (universal interoperability fabric for identity and ownership), and Fractal Engine (analytics + spatial intelligence). LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
     '',
     '## Stack & Platform',
     ...platform.map(fmtLine),
@@ -119,7 +119,7 @@ async function buildBody(): Promise<string> {
     '## Crawler Notes',
     '- This file follows the llms.txt convention (https://llmstxt.org/) — a curated, summary-first map for LLM agents.',
     '- All content is original to PrimusNeo unless cited; statistics on industry pages cite original sources (McKinsey, WEF, IMF, FAO, IEA, etc.).',
-    '- For deep technical detail, the canonical entry point is /one-pager, followed by the individual platform pages (/amp, /oasis, /governance-platform, /fractal-engine).',
+    '- For deep technical detail, the canonical entry point is /one-pager, followed by the individual platform pages (/amp, /azoa, /governance-platform, /fractal-engine).',
     '- For business and sector context, start at /industries or /solutions.',
     '',
   ].join('\n');

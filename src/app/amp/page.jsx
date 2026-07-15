@@ -58,7 +58,7 @@ const AMPPage = () => {
               AMP has been building privacy-first, offline-capable spatial collaboration tools for years. Its PLAN 3D interface, data channels, swarm file sharing, and community OS workflows give PrimusNeo a proven foundation for spatial governance.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <GradientButton href="/oasis">OASIS Web4 integration</GradientButton>
+              <GradientButton href="/azoa">AZOA integration</GradientButton>
               <GradientButton href="/one-pager" variant="secondary">Full stack</GradientButton>
             </div>
           </div>
@@ -159,11 +159,11 @@ const AMPPage = () => {
       <section className="px-4 py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.12),transparent_35%),rgba(255,255,255,0.045)] p-8 md:p-12">
           <SectionHeader eyebrow="Integration pattern" title="Where AMP fits in the stack" className="mb-10">
-            AMP provides the spatial OS layer that OASIS and NEOS services connect into.
+            AMP provides the spatial OS layer that AZOA and NEOS services connect into.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <NumberedCard number="01" title="AMP">Spatial OS, PLAN 3D, channels, maps, p2p storage, community workspaces, and offline-first coordination.</NumberedCard>
-            <NumberedCard number="02" title="OASIS">Identity, providers, holons, APIs, blockchain services, and cross-system interoperability.</NumberedCard>
+            <NumberedCard number="02" title="AZOA">Identity, providers, holons, APIs, blockchain services, and cross-system interoperability.</NumberedCard>
             <NumberedCard number="03" title="NEOS + PrimusNeo">Governance records, councils, contribution flows, policies, and organizational state.</NumberedCard>
             <NumberedCard number="04" title="Fractal Engine">Analytics and intelligence layer that ingests realtime data from AMP for historical warehousing and insight.</NumberedCard>
           </div>

@@ -42,6 +42,16 @@
 
   /* Font families */
   --font-switzer: "Switzer", sans-serif;
+  --font-archivo: var(--font-archivo-sans), "Archivo", ui-sans-serif, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Design-system palette (Claude Design "PrimusNeo" project) */
+  --color-ink: #0B0C0E;        /* base surface */
+  --color-ink-deep: #060708;   /* recessed surface */
+  --color-paper: #E8E9EB;      /* primary text */
+  --color-mist: #8A8F98;       /* secondary text */
+  --color-faint: #55595F;      /* micro-labels, indices */
+  --color-accent: #4D6BFF;     /* single accent */
 
   /* Border radius */
   --radius-lg: var(--radius);
@@ -51,6 +61,22 @@
   /* Custom gradient colors */
   --gradient-start: #4ade80;
   --gradient-end: #3b82f6;
+}
+
+/* Ticker marquee (design-system home strip) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }
 
 /* Keyframes for animations */

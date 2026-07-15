@@ -3,7 +3,7 @@ import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, Sectio
 
 export const metadata = {
   title: 'Fractal Engine — Analytics for Federated Infrastructure',
-  description: 'Fractal Engine warehouses operational telemetry from AMP and OASIS and turns it into spatial reporting, forecasting, and infrastructure intelligence.',
+  description: 'Fractal Engine warehouses operational telemetry from AMP and AZOA and turns it into spatial reporting, forecasting, and infrastructure intelligence.',
   alternates: { canonical: '/fractal-engine' },
   openGraph: {
     title: 'Fractal Engine | PrimusNeo',
@@ -58,7 +58,7 @@ const FractalEnginePage = () => {
               Intelligence for <span className="text-emerald-300">Federated</span> Infrastructure.
             </h1>
             <p className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400">
-              Fractal Engine is the analytical backbone for the PrimusNeo stack, turning operational data from AMP and OASIS into historical insights, spatial reporting, and infrastructure intelligence.
+              Fractal Engine is the analytical backbone for the PrimusNeo stack, turning operational data from AMP and AZOA into historical insights, spatial reporting, and infrastructure intelligence.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/amp">Spatial OS (AMP)</GradientButton>
@@ -187,7 +187,7 @@ const FractalEnginePage = () => {
             Fractal Engine connects the operational layers of the stack to provide a feedback loop for governance and optimization.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
-            <NumberedCard number="01" title="Ingest">Collects real-time operational telemetry from AMP and identity/provider data from OASIS.</NumberedCard>
+            <NumberedCard number="01" title="Ingest">Collects real-time operational telemetry from AMP and identity/provider data from AZOA.</NumberedCard>
             <NumberedCard number="02" title="Warehouse">Stores data in append-only, content-addressed historical archives for auditability and provenance.</NumberedCard>
             <NumberedCard number="03" title="Analyze">Processes data via WASM-based plugins to generate spatial, financial, and operational insights.</NumberedCard>
             <NumberedCard number="04" title="Report">Feeds insights back to PrimusNeo councils and operational dashboards for informed decision-making.</NumberedCard>

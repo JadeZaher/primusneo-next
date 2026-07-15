@@ -7,7 +7,7 @@ export const metadata = {
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact PrimusNeo',
-    description: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations across the AMP / NEOS / OASIS / Fractal Engine stack.',
+    description: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations across the AMP / NEOS / AZOA / Fractal Engine stack.',
     url: '/contact',
     type: 'website',
   },

@@ -59,7 +59,7 @@ const Web3GovernancePage = () => {
       description: 'The core engine for defining complex voting rules, role-based permissions, and programmatic execution logic.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Universal interoperability for cross-chain identity, reputation, and participation rights.'
     },
     {

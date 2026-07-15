@@ -7,7 +7,7 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/one-pager', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/amp', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/oasis', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/azoa', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/governance-platform', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/fractal-engine', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/fractionalization', changeFrequency: 'monthly', priority: 0.8 },

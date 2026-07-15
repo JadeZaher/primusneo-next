@@ -44,14 +44,14 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Field-to-Fork Twin', description: 'AMP + Fractal map plots, yields, and cold-chain telemetry into one model that buyers, co-ops, and lenders all read from.' },
-  { eyebrow: 'Capital', title: 'Bankable Smallholder Identity', description: 'OASIS + NEOS give a smallholder co-op a verifiable production history that closes the credit gap for the first time.' },
-  { eyebrow: 'Trust', title: 'Verifiable Provenance', description: 'Fractal + OASIS issue tamper-evident EUDR / fair-labor / carbon attestations down to the plot and batch.' },
+  { eyebrow: 'Capital', title: 'Bankable Smallholder Identity', description: 'AZOA + NEOS give a smallholder co-op a verifiable production history that closes the credit gap for the first time.' },
+  { eyebrow: 'Trust', title: 'Verifiable Provenance', description: 'Fractal + AZOA issue tamper-evident EUDR / fair-labor / carbon attestations down to the plot and batch.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Plot-level digital twins fusing satellite, sensor, and equipment telemetry — replacing scattered GIS, FMS, and clipboard records.' },
   { title: 'NEOS Governance', description: 'Programmatic co-op payouts, input pre-financing, and offtake contracts that release on verified twin events (planting, harvest, delivery).' },
-  { title: 'OASIS Identity', description: 'Persistent farmer / plot / batch identity that travels with the produce through aggregator, processor, exporter, and retailer.' },
+  { title: 'AZOA Identity', description: 'Persistent farmer / plot / batch identity that travels with the produce through aggregator, processor, exporter, and retailer.' },
   { title: 'Fractal Engine', description: 'Yield forecasting, climate risk, GPP (gross primary productivity) and supply-chain emissions modeling for buyers and insurers.' },
 ];
 

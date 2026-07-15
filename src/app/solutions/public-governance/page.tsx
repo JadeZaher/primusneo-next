@@ -63,7 +63,7 @@ const PublicGovernancePage = () => {
       description: 'The foundation for transparent public administration, defining the rules for role-based access and programmatic oversight.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Secure, privacy-preserving digital identity for citizens and public servants to ensure integrity in governance processes.'
     },
     {

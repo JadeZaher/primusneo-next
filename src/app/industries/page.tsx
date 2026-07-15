@@ -7,7 +7,7 @@ export const metadata = {
   alternates: { canonical: '/industries' },
   openGraph: {
     title: 'Industries | PrimusNeo Sector Implementations',
-    description: 'Ten industries, one coordination layer. AMP, NEOS, OASIS Web4, and Fractal Engine deployed sector by sector.',
+    description: 'Ten industries, one coordination layer. AMP, NEOS, AZOA, and Fractal Engine deployed sector by sector.',
     url: '/industries',
     type: 'website',
   },
@@ -193,7 +193,7 @@ export default function IndustriesPage() {
             title="Industry-specific implementation paths"
             className="text-left mx-0 mb-20"
           >
-            Ten sectors. Same four-layer stack — AMP, NEOS, OASIS Web4, Fractal Engine — deployed against the failure modes that actually move the P&amp;L.
+            Ten sectors. Same four-layer stack — AMP, NEOS, AZOA, Fractal Engine — deployed against the failure modes that actually move the P&amp;L.
           </SectionHeader>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
@@ -245,13 +245,13 @@ export default function IndustriesPage() {
       <section className="border-y border-white/5 bg-white/[0.015] px-4 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="The Stack" title="Four layers. Ten industries. One operating system.">
-            Every industry implementation composes the same four layers in different proportions — AMP for spatial coordination, NEOS for governance, OASIS Web4 for identity, Fractal Engine for analytics.
+            Every industry implementation composes the same four layers in different proportions — AMP for spatial coordination, NEOS for governance, AZOA for identity, Fractal Engine for analytics.
           </SectionHeader>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { tag: 'AMP', title: 'Spatial OS', desc: 'Digital twin runtime, telemetry, site coordination.', href: '/amp' },
               { tag: 'NEOS', title: 'Governance', desc: 'Programmable voting, contribution accounting, decision trails.', href: '/governance-platform' },
-              { tag: 'OASIS', title: 'Web4 Fabric', desc: 'Identity, ownership records, cross-network state.', href: '/oasis' },
+              { tag: 'AZOA', title: 'Web4 Fabric', desc: 'Identity, ownership records, cross-network state.', href: '/azoa' },
               { tag: 'Fractal', title: 'Engine', desc: 'Analytics, simulation, ESG and financial signals.', href: '/fractal-engine' },
             ].map((layer) => (
               <a

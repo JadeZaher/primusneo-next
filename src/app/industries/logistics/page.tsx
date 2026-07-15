@@ -44,20 +44,20 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'End-to-End Movement Twin', description: 'AMP + Fractal map shipments, fleets, ports, and warehouses as one live model that every party reads from.' },
-  { eyebrow: 'Capital', title: 'Trade-Finance-Ready Provenance', description: 'NEOS + OASIS sign milestones (loaded, sailed, cleared, delivered) so trade finance, insurance, and CBAM execute on the same evidence.' },
-  { eyebrow: 'Trust', title: 'Verifiable Origin & Customs', description: 'OASIS issues tamper-evident origin and chain-of-custody attestations that customs and buyers accept without paperwork.' },
+  { eyebrow: 'Capital', title: 'Trade-Finance-Ready Provenance', description: 'NEOS + AZOA sign milestones (loaded, sailed, cleared, delivered) so trade finance, insurance, and CBAM execute on the same evidence.' },
+  { eyebrow: 'Trust', title: 'Verifiable Origin & Customs', description: 'AZOA issues tamper-evident origin and chain-of-custody attestations that customs and buyers accept without paperwork.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Live twin of fleets, containers, ports, yards, and last-mile vehicles — with telemetry, ETA, and exception state in one view.' },
   { title: 'NEOS Governance', description: 'Programmable shipment milestones, demurrage/detention rules, and customs handoffs — auto-executing on verified events.' },
-  { title: 'OASIS Identity', description: 'Shipper, carrier, broker, and consignee identity (plus per-container identity) — one credential graph across global trade.' },
+  { title: 'AZOA Identity', description: 'Shipper, carrier, broker, and consignee identity (plus per-container identity) — one credential graph across global trade.' },
   { title: 'Fractal Engine', description: 'Predictive ETA, OPEX, emissions, and risk modeling tied to weather, congestion, and geopolitical signals.' },
 ];
 
 const useCase = {
   title: 'Multi-Party Cargo Twin',
-  description: 'A global shipper, its carriers, and its key customers operate on PrimusNeo. Each container has identity in OASIS; each milestone signs to NEOS; AMP shows the real-time movement twin and Fractal predicts exceptions before they hit. Trade finance, CBAM, and insurance execute on the same verified evidence.',
+  description: 'A global shipper, its carriers, and its key customers operate on PrimusNeo. Each container has identity in AZOA; each milestone signs to NEOS; AMP shows the real-time movement twin and Fractal predicts exceptions before they hit. Trade finance, CBAM, and insurance execute on the same verified evidence.',
   outcomes: [
     'End-to-end visibility across all carriers and 3PLs',
     'Trade finance releases on verified milestone events',

@@ -6,7 +6,7 @@ import type { Post, News } from "@/lib/sanity/types";
 
 export const metadata = {
   title: 'Intelligence & Updates',
-  description: 'Long-form essays, deep dives, and AI-curated updates on federated infrastructure, NEOS governance, OASIS Web4, and spatial OS development.',
+  description: 'Long-form essays, deep dives, and AI-curated updates on federated infrastructure, NEOS governance, AZOA, and spatial OS development.',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Intelligence & Updates | PrimusNeo',

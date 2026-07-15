@@ -45,13 +45,13 @@ const challenges = [
 const features = [
   { eyebrow: 'Operations', title: 'Plant-Floor to P&L Twin', description: 'AMP + Fractal Engine bridge the IT/OT gap so OEE, energy, and yield roll up to executive dashboards in the same model engineers use to fix a line.' },
   { eyebrow: 'Capital', title: 'Verifiable Capex Cases', description: 'NEOS + Fractal let CFOs underwrite each pilot against on-twin baselines instead of vendor slideware, killing pilot purgatory.' },
-  { eyebrow: 'Trust', title: 'Digital Product Passport', description: 'OASIS + NEOS issue cryptographically signed provenance for every batch, satisfying EU DPP, CBAM, and Scope 3 in one feed.' },
+  { eyebrow: 'Trust', title: 'Digital Product Passport', description: 'AZOA + NEOS issue cryptographically signed provenance for every batch, satisfying EU DPP, CBAM, and Scope 3 in one feed.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Plant-floor digital twin combining CAD, PLC telemetry, MES events, and worker location — the contextualized data layer Industry 4.0 pilots keep failing to build.' },
   { title: 'NEOS Governance', description: 'Programmable approval flows for change control, MOC, supplier qualification, and shop-floor lockout/tagout — replacing email + spreadsheet audit trails.' },
-  { title: 'OASIS Identity', description: 'Cross-tier supplier identity so a casting from a tier-3 forge carries verified mill, ESG, and conflict-mineral attestations into the OEM&rsquo;s MES.' },
+  { title: 'AZOA Identity', description: 'Cross-tier supplier identity so a casting from a tier-3 forge carries verified mill, ESG, and conflict-mineral attestations into the OEM&rsquo;s MES.' },
   { title: 'Fractal Engine', description: 'Predictive OEE, energy intensity, scrap, and downtime modeling tied to live spatial events, not month-end reports.' },
 ];
 

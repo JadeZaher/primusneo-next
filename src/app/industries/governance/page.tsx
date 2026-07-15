@@ -44,20 +44,20 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Whole-of-Government Service Twin', description: 'AMP + Fractal unify the spatial and service layers — from permits to public works — into a single citizen-facing model.' },
-  { eyebrow: 'Capital', title: 'Auditable Public Spend', description: 'NEOS + OASIS sign every procurement decision, milestone payment, and grant disbursement against verifiable outcomes.' },
-  { eyebrow: 'Trust', title: 'Verifiable Participation', description: 'NEOS deploys programmable consultation, participatory budgeting, and digital voting backed by OASIS identity.' },
+  { eyebrow: 'Capital', title: 'Auditable Public Spend', description: 'NEOS + AZOA sign every procurement decision, milestone payment, and grant disbursement against verifiable outcomes.' },
+  { eyebrow: 'Trust', title: 'Verifiable Participation', description: 'NEOS deploys programmable consultation, participatory budgeting, and digital voting backed by AZOA identity.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Whole-of-city / whole-of-region twin tying assets, permits, transit, and emergency services into one operational picture.' },
   { title: 'NEOS Governance', description: 'Programmable procurement, grant, and citizen-vote workflows with tamper-evident decision trails — auditor-ready by design.' },
-  { title: 'OASIS Identity', description: 'Citizen-owned, portable digital identity that works across agencies without giving any one of them a central honeypot.' },
+  { title: 'AZOA Identity', description: 'Citizen-owned, portable digital identity that works across agencies without giving any one of them a central honeypot.' },
   { title: 'Fractal Engine', description: 'Outcome analytics (service delivery, equity, ESG) tied directly to spending and policy decisions — closing the policy-to-evidence loop.' },
 ];
 
 const useCase = {
   title: 'Verifiable Public Spend & Participation',
-  description: 'A regional government routes all infrastructure procurement and citizen consultation through PrimusNeo. Every decision is signed in NEOS, every citizen identity lives in OASIS, every project milestone reconciles to AMP — turning the budget cycle into an audit-ready, participatory ledger.',
+  description: 'A regional government routes all infrastructure procurement and citizen consultation through PrimusNeo. Every decision is signed in NEOS, every citizen identity lives in AZOA, every project milestone reconciles to AMP — turning the budget cycle into an audit-ready, participatory ledger.',
   outcomes: [
     'Procurement trails auditor- and ombudsman-ready',
     'Citizen identity portable across all agencies',

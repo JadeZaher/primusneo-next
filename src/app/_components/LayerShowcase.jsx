@@ -4,42 +4,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Static Tailwind class strings per accent (Tailwind can't see dynamic names).
-const ACCENTS = {
-  emerald: {
-    eyebrow: 'text-emerald-300',
-    dot: 'bg-emerald-400',
-    glow: 'from-emerald-500/25',
-    progress: 'bg-emerald-300',
-    tabActive: 'border-emerald-300/60 bg-emerald-300/10 text-emerald-100',
-    cta: 'from-emerald-300 via-lime-300 to-cyan-300 shadow-[0_0_32px_rgba(74,222,128,0.22)]',
-  },
-  cyan: {
-    eyebrow: 'text-cyan-300',
-    dot: 'bg-cyan-400',
-    glow: 'from-cyan-500/25',
-    progress: 'bg-cyan-300',
-    tabActive: 'border-cyan-300/60 bg-cyan-300/10 text-cyan-100',
-    cta: 'from-cyan-300 via-sky-300 to-emerald-300 shadow-[0_0_32px_rgba(34,211,238,0.22)]',
-  },
-  violet: {
-    eyebrow: 'text-violet-300',
-    dot: 'bg-violet-400',
-    glow: 'from-violet-500/25',
-    progress: 'bg-violet-300',
-    tabActive: 'border-violet-300/60 bg-violet-300/10 text-violet-100',
-    cta: 'from-violet-300 via-fuchsia-300 to-cyan-300 shadow-[0_0_32px_rgba(167,139,250,0.22)]',
-  },
-  amber: {
-    eyebrow: 'text-amber-300',
-    dot: 'bg-amber-400',
-    glow: 'from-amber-500/25',
-    progress: 'bg-amber-300',
-    tabActive: 'border-amber-300/60 bg-amber-300/10 text-amber-100',
-    cta: 'from-amber-300 via-lime-300 to-emerald-300 shadow-[0_0_32px_rgba(252,211,77,0.22)]',
-  },
-};
-
 const AUTOPLAY_MS = 7000;
 
 export default function LayerShowcase({ layers = [] }) {
@@ -48,7 +12,7 @@ export default function LayerShowcase({ layers = [] }) {
   const count = layers.length;
 
   const go = useCallback(
-    (next) => setActive((prev) => (next + count) % count),
+    (next) => setActive(() => (next + count) % count),
     [count],
   );
 
@@ -76,7 +40,6 @@ export default function LayerShowcase({ layers = [] }) {
   if (count === 0) return null;
 
   const current = layers[active];
-  const accent = ACCENTS[current.accent] ?? ACCENTS.emerald;
 
   return (
     <div
@@ -90,7 +53,7 @@ export default function LayerShowcase({ layers = [] }) {
     >
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
         {/* Visual */}
-        <div className="relative aspect-square overflow-hidden rounded-[2.5rem] border border-white/10 bg-black/40 shadow-2xl backdrop-blur-sm">
+        <div className="relative aspect-square overflow-hidden border border-white/10 bg-ink">
           {layers.map((layer, i) => (
             <Image
               key={layer.href}
@@ -99,17 +62,12 @@ export default function LayerShowcase({ layers = [] }) {
               fill
               priority={i === 0}
               className={`object-cover transition-all duration-700 ease-out ${
-                i === active
-                  ? 'scale-100 opacity-80'
-                  : 'scale-105 opacity-0'
+                i === active ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
               }`}
             />
           ))}
-          <div
-            className={`pointer-events-none absolute inset-0 bg-gradient-to-tr ${accent.glow} via-transparent to-transparent transition-colors duration-700`}
-          />
           <div className="absolute bottom-6 left-6 flex items-center gap-2">
-            <span className={`h-1.5 w-1.5 rounded-full ${accent.dot} animate-pulse`} />
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/50">
               {current.status}
             </span>
@@ -122,21 +80,21 @@ export default function LayerShowcase({ layers = [] }) {
         {/* Content */}
         <div className="relative min-h-[20rem]">
           <div key={active} className="animate-[fadeIn_0.5s_ease-out]">
-            <div className={`text-sm font-semibold uppercase tracking-[0.35em] ${accent.eyebrow}`}>
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
               {current.eyebrow}
             </div>
-            <h3 className="mt-4 text-3xl font-bold text-white text-glow md:text-4xl lg:text-5xl">
+            <h3 className="mt-4 text-[clamp(26px,2.8vw,44px)] font-medium leading-[1.1] tracking-[-0.02em] text-paper">
               {current.title}
             </h3>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-gray-300">
+            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-mist">
               {current.summary}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href={current.href}
-                className={`inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r ${accent.cta} px-6 py-3 text-sm font-bold text-black transition hover:scale-[1.02] hover:opacity-95`}
+                className="inline-flex items-center gap-2 bg-paper px-7 py-4 font-mono text-xs tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-accent hover:text-white"
               >
-                Explore {current.tab}
+                EXPLORE {current.tab.toUpperCase()}
                 <span aria-hidden="true">→</span>
               </Link>
               <div className="flex items-center gap-3">
@@ -144,7 +102,7 @@ export default function LayerShowcase({ layers = [] }) {
                   type="button"
                   onClick={() => go(active - 1)}
                   aria-label="Previous layer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/40 hover:bg-white/10"
+                  className="flex h-10 w-10 items-center justify-center border border-white/15 text-paper transition hover:border-accent hover:text-accent"
                 >
                   ‹
                 </button>
@@ -152,7 +110,7 @@ export default function LayerShowcase({ layers = [] }) {
                   type="button"
                   onClick={() => go(active + 1)}
                   aria-label="Next layer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/40 hover:bg-white/10"
+                  className="flex h-10 w-10 items-center justify-center border border-white/15 text-paper transition hover:border-accent hover:text-accent"
                 >
                   ›
                 </button>
@@ -163,9 +121,8 @@ export default function LayerShowcase({ layers = [] }) {
       </div>
 
       {/* Tab strip — jump directly to any layer */}
-      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
         {layers.map((layer, i) => {
-          const tabAccent = ACCENTS[layer.accent] ?? ACCENTS.emerald;
           const isActive = i === active;
           return (
             <button
@@ -174,20 +131,20 @@ export default function LayerShowcase({ layers = [] }) {
               onClick={() => go(i)}
               aria-label={`Show ${layer.tab}`}
               aria-current={isActive}
-              className={`group relative overflow-hidden rounded-2xl border px-5 py-4 text-left transition ${
+              className={`group relative overflow-hidden px-5 py-4 text-left transition-colors ${
                 isActive
-                  ? tabAccent.tabActive
-                  : 'border-white/10 bg-white/[0.03] text-gray-400 hover:border-white/25 hover:text-white'
+                  ? 'bg-white/[0.05] text-paper'
+                  : 'bg-ink-deep text-faint hover:bg-white/[0.03] hover:text-paper'
               }`}
             >
-              <div className="text-xs font-semibold uppercase tracking-[0.22em]">
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em]">
                 {layer.eyebrow.split('·')[0].trim()}
               </div>
-              <div className="mt-1 text-base font-bold">{layer.tab}</div>
+              <div className="mt-1 text-base font-medium">{layer.tab}</div>
               {isActive ? (
                 <span
                   key={progressKey}
-                  className={`absolute bottom-0 left-0 h-0.5 ${tabAccent.progress} ${
+                  className={`absolute bottom-0 left-0 h-px bg-accent ${
                     paused ? '' : 'animate-[grow_7s_linear_forwards]'
                   }`}
                   style={paused ? { width: '100%' } : undefined}

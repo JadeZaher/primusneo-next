@@ -40,7 +40,7 @@ const operatingSystem = [
   'Contribution, reputation, and reward accounting',
   'Legal and compliance data rooms',
   'Digital twin and asset evidence records',
-  'OASIS identity, holons, APIs, and provider routing',
+  'AZOA identity, holons, APIs, and provider routing',
   'Fractal Engine analytics and intelligence'
 ];
 
@@ -60,7 +60,7 @@ const GovernancePlatformPage = () => {
               A governance operating system for software solutions.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              PrimusNeo uses AMP spatial context, AMP peer-to-peer community tooling, OmniOne’s NEOS governance ecosystem, OASIS Web4 interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
+              PrimusNeo uses AMP spatial context, AMP peer-to-peer community tooling, OmniOne’s NEOS governance ecosystem, AZOA interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>
@@ -178,7 +178,7 @@ const GovernancePlatformPage = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             <NumberedCard number="01" title="Discover">Map stakeholders, assets, incentives, risks, and technical constraints.</NumberedCard>
             <NumberedCard number="02" title="Constitute">Define councils, NEOS governance structures, policies, contribution rules, and disclosures.</NumberedCard>
-            <NumberedCard number="03" title="Integrate">Connect AMP, OASIS, Escherbridge, Fractal Engine, realtime intelligence, identity, APIs, and existing tools.</NumberedCard>
+            <NumberedCard number="03" title="Integrate">Connect AMP, AZOA, Escherbridge, Fractal Engine, realtime intelligence, identity, APIs, and existing tools.</NumberedCard>
             <NumberedCard number="04" title="Operate">Measure outcomes, build community, work with presence and insight using digital twins, govern proposals, and compound trust.</NumberedCard>
           </div>
         </div>

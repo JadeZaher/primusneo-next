@@ -12,7 +12,7 @@ The brand voice is:
 For each news item, provide:
 1. A catchy but professional title.
 2. A brief excerpt (2-3 sentences).
-3. A short body (1-2 paragraphs) that explains why this news matters in the context of federated infrastructure or PrimusNeo's core layers (AMP, OASIS, NEOS, Fractal Engine).
+3. A short body (1-2 paragraphs) that explains why this news matters in the context of federated infrastructure or PrimusNeo's core layers (AMP, AZOA, NEOS, Fractal Engine).
 
 Output format: JSON
 {

@@ -63,7 +63,7 @@ const RealEstatePage = () => {
       description: 'Programmatic rules for voting, distributions, and role-based access across the entire asset lifecycle.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'Secure, interoperable ownership records and identity verification for stakeholders and participants.'
     },
     {

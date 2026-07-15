@@ -23,7 +23,7 @@ const productOfferings = [
   },
   {
     title: 'Crypto Incentive Systems',
-    content: 'Oasis provides token incentives, contribution coordination, operational staking, cryptographic rewards, and ecosystem participation systems.',
+    content: 'AZOA provides token incentives, contribution coordination, operational staking, cryptographic rewards, and ecosystem participation systems.',
   },
 ];
 

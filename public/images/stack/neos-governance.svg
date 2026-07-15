@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" fill="none">
+  <rect width="800" height="800" fill="#0B0C0E"/>
+  <!-- holonic rings -->
+  <g stroke="#1C212B" stroke-width="1">
+    <circle cx="400" cy="410" r="120"/>
+    <circle cx="400" cy="410" r="210"/>
+    <circle cx="400" cy="410" r="300"/>
+  </g>
+  <circle cx="400" cy="410" r="120" stroke="#39404D" stroke-width="1" stroke-dasharray="2 6"/>
+  <!-- edges: council core to inner holons -->
+  <g stroke="#39404D" stroke-width="1">
+    <line x1="400" y1="410" x2="400" y2="290"/>
+    <line x1="400" y1="410" x2="504" y2="470"/>
+    <line x1="400" y1="410" x2="296" y2="470"/>
+    <line x1="400" y1="290" x2="295" y2="228"/>
+    <line x1="400" y1="290" x2="505" y2="228"/>
+    <line x1="504" y1="470" x2="610" y2="410"/>
+    <line x1="504" y1="470" x2="505" y2="592"/>
+    <line x1="296" y1="470" x2="190" y2="410"/>
+    <line x1="296" y1="470" x2="295" y2="592"/>
+    <line x1="295" y1="228" x2="192" y2="290"/>
+    <line x1="505" y1="228" x2="608" y2="290"/>
+  </g>
+  <!-- accent edges: an active decision path -->
+  <g stroke="#4D6BFF" stroke-width="1.5">
+    <line x1="400" y1="410" x2="400" y2="290"/>
+    <line x1="400" y1="290" x2="505" y2="228"/>
+    <line x1="505" y1="228" x2="608" y2="290"/>
+  </g>
+  <!-- outer holon nodes -->
+  <g fill="#55595F">
+    <circle cx="192" cy="290" r="4"/>
+    <circle cx="608" cy="290" r="4"/>
+    <circle cx="190" cy="410" r="4"/>
+    <circle cx="610" cy="410" r="4"/>
+    <circle cx="295" cy="592" r="4"/>
+    <circle cx="505" cy="592" r="4"/>
+  </g>
+  <!-- inner holon nodes -->
+  <g fill="#E8E9EB">
+    <circle cx="295" cy="228" r="5"/>
+    <circle cx="296" cy="470" r="5"/>
+    <circle cx="504" cy="470" r="5"/>
+  </g>
+  <circle cx="505" cy="228" r="6" fill="#4D6BFF"/>
+  <circle cx="400" cy="290" r="6" fill="#4D6BFF"/>
+  <!-- council core -->
+  <circle cx="400" cy="410" r="12" stroke="#4D6BFF" stroke-width="1.5"/>
+  <circle cx="400" cy="410" r="5" fill="#E8E9EB"/>
+  <!-- node labels -->
+  <text x="422" y="416" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10" letter-spacing="3" fill="#8A8F98">COUNCIL</text>
+  <text x="522" y="222" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10" letter-spacing="3" fill="#4D6BFF">HOLON_04</text>
+  <text x="628" y="294" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10" letter-spacing="3" fill="#55595F">RATIFIED</text>
+  <!-- frame + HUD -->
+  <rect x="24" y="24" width="752" height="752" stroke="#2A2E36" stroke-width="1"/>
+  <g stroke="#55595F" stroke-width="1">
+    <path d="M24 60 L24 24 L60 24"/>
+    <path d="M740 24 L776 24 L776 60"/>
+    <path d="M776 740 L776 776 L740 776"/>
+    <path d="M60 776 L24 776 L24 740"/>
+  </g>
+  <text x="52" y="72" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="13" letter-spacing="4" fill="#8A8F98">NEOS // GOVERNANCE</text>
+  <text x="52" y="94" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10" letter-spacing="3" fill="#55595F">DECISION RIGHTS · CONTRIBUTION ACCOUNTING</text>
+  <text x="676" y="754" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="13" letter-spacing="4" fill="#4D6BFF">L—02</text>
+  <text x="52" y="754" font-family="'IBM Plex Mono',ui-monospace,monospace" font-size="10" letter-spacing="3" fill="#55595F">QUORUM: REACHED</text>
+</svg>

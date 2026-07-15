@@ -44,20 +44,20 @@ const challenges = [
 
 const features = [
   { eyebrow: 'Operations', title: 'Asset-Aware Capital Markets', description: 'AMP + Fractal link tokenized claims to the underlying real-world asset (building, plant, plot) and its live performance.' },
-  { eyebrow: 'Capital', title: 'Programmable Distributions & Covenants', description: 'NEOS + OASIS execute waterfall, covenant, and dividend rules directly against on-twin performance signals.' },
-  { eyebrow: 'Trust', title: 'Portable Investor Identity', description: 'OASIS gives accredited investors and institutions a single, re-usable, cryptographically verifiable KYC.' },
+  { eyebrow: 'Capital', title: 'Programmable Distributions & Covenants', description: 'NEOS + AZOA execute waterfall, covenant, and dividend rules directly against on-twin performance signals.' },
+  { eyebrow: 'Trust', title: 'Portable Investor Identity', description: 'AZOA gives accredited investors and institutions a single, re-usable, cryptographically verifiable KYC.' },
 ];
 
 const layers = [
   { title: 'AMP Spatial OS', description: 'Real-world asset twin — a building&rsquo;s occupancy, a wind farm&rsquo;s output, a port&rsquo;s throughput — directly readable by the security backing it.' },
   { title: 'NEOS Governance', description: 'Programmable cap tables, covenants, waterfalls, and LP voting that execute on verified asset performance, not quarterly PDFs.' },
-  { title: 'OASIS Identity', description: 'Portable investor, issuer, and counterparty identity — one KYC, every venue, with selective disclosure.' },
+  { title: 'AZOA Identity', description: 'Portable investor, issuer, and counterparty identity — one KYC, every venue, with selective disclosure.' },
   { title: 'Fractal Engine', description: 'Cross-asset risk, NAV, and ESG analytics drawn from spatial + financial data — for allocators, auditors, and regulators.' },
 ];
 
 const useCase = {
   title: 'Institutional RWA Issuance & Servicing',
-  description: 'An asset manager issues a tokenized infrastructure fund on PrimusNeo. Each underlying asset has a live twin; NEOS automates distributions on verified performance; OASIS handles investor identity once across all venues — collapsing operational cost into the same model that issues the security.',
+  description: 'An asset manager issues a tokenized infrastructure fund on PrimusNeo. Each underlying asset has a live twin; NEOS automates distributions on verified performance; AZOA handles investor identity once across all venues — collapsing operational cost into the same model that issues the security.',
   outcomes: [
     'Distribution waterfalls execute on verified twin signals',
     'One KYC across global investor base',

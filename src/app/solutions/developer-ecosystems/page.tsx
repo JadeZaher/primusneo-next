@@ -63,7 +63,7 @@ const DeveloperEcosystemsPage = () => {
       description: 'Programmable permissions and operational rights that developers can bake directly into their application logic.'
     },
     {
-      title: 'OASIS Identity',
+      title: 'AZOA Identity',
       description: 'A unified interoperability layer for cross-chain identity, reputation, and participation rights for builders.'
     },
     {
