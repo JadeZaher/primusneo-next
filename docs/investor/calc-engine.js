@@ -32,8 +32,12 @@ const LabModel = (() => {
   const DEFAULT_ASSUMPTIONS = {
     cac: 200000, saturation: 4000000, cycle: 6, period: 24,
     entValue: 2500000, entCost: 0.40, entCac: 400000, entSaturation: 8000000, entCycle: 9, entMin: 750000, entRenewal: 0.45,
+    // Maintained platform support: engagement-model upkeep is 18–25% of licence a year at 75–85% margin.
+    supportRate: 0.20, supportCost: 0.20,
   };
   const HOLD_PLAN = { needs: { leadership: 0, partners: 0, infrastructure: 0, research: 0 }, reservePct: 100, growth: DEFAULT_PLAN.growth };
+  // Model v2 has no support renewals: matching the fixed plan also turns support off.
+  const PLAN_ASSUMPTIONS = { ...DEFAULT_ASSUMPTIONS, supportRate: 0 };
 
   const yearIndex = m => Math.ceil(m / 12) - 1;
   const inflation = m => Math.pow(1 + MODEL.annualRaise, yearIndex(m));
@@ -67,7 +71,13 @@ const LabModel = (() => {
     const midDeployments = wins(midSpend, a.cac, a.saturation);
     const enterpriseDeployments = enterpriseOpen ? wins(spend.enterprise, a.entCac, a.entSaturation) : 0;
 
-    const revenue = new Float64Array(MONTHS + 1), direct = new Float64Array(MONTHS + 1), enterpriseRevenue = new Float64Array(MONTHS + 1);
+    const revenue = new Float64Array(MONTHS + 1), direct = new Float64Array(MONTHS + 1), enterpriseRevenue = new Float64Array(MONTHS + 1), supportRevenue = new Float64Array(MONTHS + 1);
+    // Support: each mid-size deployment pays supportRate of its base fee a year, from 12 months after delivery.
+    const addSupport = (m, n, fee) => {
+      const monthly = n * fee * clamp(a.supportRate, 0, 1) / 12;
+      for (let k = m + 12; k <= MONTHS; k++) { revenue[k] += monthly; supportRevenue[k] += monthly; direct[k] += monthly * a.supportCost; }
+    };
+    let midCount = 0, midValue = 0, midFees = 0;
     const fixed = new Float64Array(MONTHS + 1);
     const poolPerMonth = available / period;
     for (let m = 1; m <= MONTHS; m++) {
@@ -75,6 +85,8 @@ const LabModel = (() => {
       const base = c.deploy[y] * c.fee[y] / 12, unitRev = c.deploy[y] * c.units[y] * MODEL.unitFee / 12;
       revenue[m] += base + unitRev;
       direct[m] += base * c.baseCost + unitRev * c.unitCost;
+      addSupport(m, c.deploy[y] / 12, c.fee[y]);
+      midCount += c.deploy[y] / 12; midValue += base + unitRev; midFees += base;
       const fte = c.lab[0] + (c.lab[1] - c.lab[0]) * (m - 1) / (MONTHS - 1) + c.ei[0] + (c.ei[1] - c.ei[0]) * (m - 1) / (MONTHS - 1);
       fixed[m] = fte * MODEL.fteCost * inflation(m) + MODEL.overhead * inflation(m) + (m <= period ? poolPerMonth : 0);
     }
@@ -87,6 +99,8 @@ const LabModel = (() => {
       const y = yearIndex(w);
       const base = n * c.fee[y] / 12, unitRev = n * c.units[y] * MODEL.unitFee / 12;
       for (let k = w; k <= Math.min(MONTHS, w + 11); k++) { revenue[k] += base + unitRev; direct[k] += base * c.baseCost + unitRev * c.unitCost; }
+      addSupport(w + 11, n, c.fee[y]);
+      midCount += n; midValue += n * (c.fee[y] + c.units[y] * MODEL.unitFee); midFees += n * c.fee[y];
     });
     // Enterprise deployments: first-year contract over 12 months, then renewals at entRenewal of that value per year.
     spread(a.entCycle, enterpriseDeployments, (w, n) => {
@@ -119,7 +133,10 @@ const LabModel = (() => {
       enterpriseOpen, midDeployments, enterpriseDeployments,
       deployments: sum(c.deploy) + midDeployments + enterpriseDeployments,
       revenue, operating, cash, enterpriseRevenue,
-      revenue5: sum(revenue), operating5: sum(operating), enterprise5: sum(enterpriseRevenue), cash60: cash[MONTHS],
+      revenue5: sum(revenue), operating5: sum(operating), enterprise5: sum(enterpriseRevenue), support5: sum(supportRevenue), cash60: cash[MONTHS],
+      // Average first-year value of a mid-size deployment, and the support price it carries each later year.
+      avgDeployment: midCount ? midValue / midCount : 0,
+      avgSupport: midCount ? midFees / midCount * clamp(a.supportRate, 0, 1) : 0,
       breakEven, earnedBack, scaleMonth, minCash, minMonth, shortfall,
       belowReserve: minCash < MODEL.reserve,
     };
@@ -132,5 +149,5 @@ const LabModel = (() => {
     return result;
   }
 
-  return { MONTHS, MODEL, CASES, NEEDS, GROWTH, DEFAULT_PLAN, DEFAULT_ASSUMPTIONS, HOLD_PLAN, simulate };
+  return { MONTHS, MODEL, CASES, NEEDS, GROWTH, DEFAULT_PLAN, DEFAULT_ASSUMPTIONS, HOLD_PLAN, PLAN_ASSUMPTIONS, simulate };
 })();

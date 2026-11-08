@@ -13,7 +13,7 @@ const expected = {
   ambitious: { revenue5: 126300000, operating5: 62606205, minCash: 1264250, minMonth: 1, cash60: 59056205, breakEven: 1 },
 };
 for (const [caseKey, want] of Object.entries(expected)) {
-  const got = LabModel.simulate({ caseKey, investment: 1500000, plan: LabModel.HOLD_PLAN });
+  const got = LabModel.simulate({ caseKey, investment: 1500000, plan: LabModel.HOLD_PLAN, assumptions: LabModel.PLAN_ASSUMPTIONS });
   for (const field of ['revenue5', 'operating5', 'minCash', 'cash60']) {
     assert.ok(Math.abs(got[field] - want[field]) < 1, `${caseKey}.${field}: got ${got[field]}, want ${want[field]}`);
   }
@@ -34,6 +34,13 @@ assert.ok(large.multiple > small.multiple, 'each dollar brings back more once en
 const plan = { ...LabModel.DEFAULT_PLAN, growth: { sales: 1, marketing: 0, acquisition: 0, enterprise: 0 } };
 const g1 = LabModel.simulate({ investment: 3000000, plan }), g2 = LabModel.simulate({ investment: 5100000, plan });
 assert.ok(g2.midDeployments > g1.midDeployments && g2.midDeployments < 2 * g1.midDeployments, 'returns diminish');
+
+// Support renewals add revenue only after a deployment's first year, and the reference average deployment is model v2's $73.125M over 67.
+const withSupport = LabModel.simulate({ investment: 1500000, plan: LabModel.HOLD_PLAN });
+const noSupport = LabModel.simulate({ investment: 1500000, plan: LabModel.HOLD_PLAN, assumptions: LabModel.PLAN_ASSUMPTIONS });
+assert.ok(withSupport.support5 > 0 && withSupport.revenue5 > noSupport.revenue5, 'support adds revenue');
+assert.equal(withSupport.revenue[12], noSupport.revenue[12], 'no support revenue inside the first year');
+assert.ok(Math.abs(noSupport.avgDeployment - 73125000 / 67) < 1, 'average deployment matches model v2');
 
 // With no investment the reference plan runs short of cash, and the shortfall month is reported.
 const none = LabModel.simulate({ investment: 0 });
