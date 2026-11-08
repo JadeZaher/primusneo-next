@@ -42,6 +42,7 @@ One team with no internal hierarchy (team decision, 2026-11-08). No one is more 
 | Ahmad Darwish | Delivery & venture building | Ventures | OVERSEASGENAI; principal, Escherbridge |
 | Max Gershfield | Blockchain governance & regulatory | NEOS · AZOA | Nuva Labs |
 | Ricardhy Grandoit | People & programmes | Elevate Impact | Founder, Elevate Impact |
+| Devin Johnson | Energy & AI infrastructure | Physical (OPQPWR) | Founder & CEO, Sol-Cap; CTO, Kaia Energia |
 | Drew O'Meara | Spatial runtime | AMP | Creator, AMP SDK |
 | Josh Pasmore | Governance architecture | NEOS | Founder, Green Earth Vision |
 | Rachel Schneider | Site operations | Reference site | Owner-operator, Tie Town [TX] |
@@ -50,7 +51,9 @@ One team with no internal hierarchy (team decision, 2026-11-08). No one is more 
 
 Advisors: the sickle cell advisory group of clinicians and advocates (Elevate Impact).
 
-Pending: **Dave** and **Denis** of OMGEN, the team's contacts for OPQPWR, introduced via "JP / OMGEN" (Rachel Schneider, 2026-11-08). opqpwr.com and OMGEN's sites (omgenwater.com, aggenglobal.com, ecodigestpro.com, resonatelifewater.com) name neither, so surnames and roles must come from the team or OMGEN. "JP" is probably JP Nickell of OMGEN Water, Oklahoma City (LinkedIn search snippet, linkedin.com/in/jp-nickell; relationship to Jamie Nickell not stated anywhere); ask JP for both names and titles. Add both to the roster alphabetically once confirmed.
+Identified: "Denis" is **Devin Johnson**, now on the roster. A résumé supplied by the team on 2026-11-08 lists an "OPQPWR Soil Remediation and Material Processing" project; confirm the name match with Rachel. Only professional details are used; the résumé itself stays out of the repo.
+
+Pending: **Dave** of OMGEN, the team's other contact for OPQPWR, introduced via "JP / OMGEN" (Rachel Schneider, 2026-11-08). opqpwr.com and OMGEN's sites (omgenwater.com, aggenglobal.com, ecodigestpro.com, resonatelifewater.com) name neither, so surnames and roles must come from the team or OMGEN. "JP" is probably JP Nickell of OMGEN Water, Oklahoma City (LinkedIn search snippet, linkedin.com/in/jp-nickell; relationship to Jamie Nickell not stated anywhere); ask JP for Dave's surname and title, and add him to the roster alphabetically once confirmed.
 
 ## How the work moves
 

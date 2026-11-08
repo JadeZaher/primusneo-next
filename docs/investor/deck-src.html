@@ -236,6 +236,8 @@ details.data summary:hover{color:var(--accent-text)}
 .person .org{font:400 clamp(10px,.7cqi,11.5px)/1.6 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .roster .person{gap:4px}
 .roster .person .txt{margin-top:6px}
+@container (max-width: 980px){.roster.c5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@container (max-width: 620px){.roster.c5{grid-template-columns:minmax(0,1fr)}}
 
 /* ---------- closing ---------- */
 .why{min-height:clamp(560px,56.25cqi,900px);display:flex}
@@ -829,13 +831,14 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
         <p class="epi r" style="--i:0">“Individually we are rare. Together, we are strong.”</p>
         <h2 class="h2 r" style="--i:1">The people who carry it.</h2>
       </div>
-      <p class="lead r" style="--i:2">Nine people across the lab, the stack and the first site. They are listed alphabetically, because no part of the work outranks another.</p>
+      <p class="lead r" style="--i:2">Ten people across the lab, the stack and the first site. They are listed alphabetically, because no part of the work outranks another.</p>
     </div>
-    <div class="cells c3 roster r" style="--i:3">
+    <div class="cells c5 roster r" style="--i:3">
       <div class="person"><span class="h3">Sean Cain</span><span class="role">Operations design</span><span class="org">Co-founder · Elevate Impact</span><p class="txt">Sixteen years making complicated operations simple, across defence, manufacturing, farming and sport.</p></div>
       <div class="person"><span class="h3">Ahmad Darwish</span><span class="role">Delivery &amp; venture building</span><span class="org">OVERSEASGENAI · Escherbridge</span><p class="txt">Twenty years of enterprise delivery. Author of the Sovereign Agent Protocol for governed AI.</p></div>
       <div class="person"><span class="h3">Max Gershfield</span><span class="role">Governance &amp; regulatory · NEOS, AZOA</span><span class="org">Nuva Labs</span><p class="txt">Leads governance and regulatory work, from on-chain decision rights to offering rules.</p></div>
       <div class="person"><span class="h3">Ricardhy Grandoit</span><span class="role">People &amp; programmes</span><span class="org">Founder · Elevate Impact</span><p class="txt">Built MLB's first violence-prevention programme. Led people strategy in global biopharma.</p></div>
+      <div class="person"><span class="h3">Devin Johnson</span><span class="role">Energy &amp; AI infrastructure · OPQPWR</span><span class="org">Founder · Sol-Cap · CTO, Kaia Energia</span><p class="txt">Designs modular edge compute and AI data centers that join power, storage and software.</p></div>
       <div class="person"><span class="h3">Drew O'Meara</span><span class="role">Spatial runtime · AMP</span><span class="org">Creator · AMP SDK</span><p class="txt">Built the kit developers use to build on AMP, the stack's spatial runtime.</p></div>
       <div class="person"><span class="h3">Josh Pasmore</span><span class="role">Governance architecture · NEOS</span><span class="org">Founder · Green Earth Vision</span><p class="txt">A systems designer of cities and currencies, shaping the decision rights NEOS runs on.</p></div>
       <div class="person"><span class="h3">Rachel Schneider</span><span class="role">Site operations · reference site</span><span class="org">Owner-operator · Tie Town [TX]</span><p class="txt">Runs the McDade creator house where the stack first operates and buyers can walk through it.</p></div>
