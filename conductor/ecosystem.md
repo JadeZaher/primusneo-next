@@ -106,6 +106,7 @@ Deck chapters 17 ("Model your investment") and 18 ("The ladder") run [`docs/inve
 - **What it shows with defaults.** First $1M operating-profit month: 49 at $1.5M, 37 at $2.5M, 25 at $10M. Margin per $1 spent: $2.26 at $1.5M, $3.38 at $2.5M, $5.45 at $10M (large deals open), $4.21 at $20M. Earned back lengthens with size (26 to 35 months) because the lab plan's own profit earns small cheques back fast.
 - **Proposed, not yet adopted:** a committed-spend ladder (−15% one year, −30% three years, overage at list) replacing the 5% prepay discount, a managed free sandbox, and a metered rate card for AZOA actions and Fractal Engine queries. See `.omc/research/pricing-competitors-2026-11-08.md`.
 - Results are company-level. Never present them as investor returns, valuations or yields.
+- **The ask is a ladder, not a floor** (team decision, 2026-11-08). With default pools and a Mid four-layer deal: **$720K** keeps the lab running (fixed needs + $150K reserve, nothing left for selling); **$2.5M** grows (about three extra platform deals, first $1M month in month 37, $3.38 back per $1); **$5.2M+** opens large deals (month 27, $6.06 per $1; month 25 at $10M). The $1.5M in chapters 13-15 is only what model v2 assumed for the lab plan. Recompute these three numbers with the engine whenever pools, prices or assumptions change.
 
 ## Inferred (do not state as fact)
 

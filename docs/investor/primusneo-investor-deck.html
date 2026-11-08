@@ -263,6 +263,12 @@ input[type="range"]{accent-color:var(--accent);width:100%;margin:0}
 .readout b{font-weight:500;color:var(--paper)}
 .deal{display:flex;flex-direction:column;gap:8px;min-width:0}
 .seg-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.kpi-hero .metric{font-size:clamp(28px,2.4cqi,40px);white-space:nowrap}
+.kpi-line{margin:0;font:400 12px/1.6 var(--font-mono);letter-spacing:.03em;color:var(--mist)}
+.kpi-line b{font-weight:500;color:var(--paper)} .kpi-line .warn{color:var(--warn)}
+.alloc{display:flex;flex-direction:column;gap:8px;min-width:0}
+.alloc .bar100{height:12px}
+.alloc .legend span{font-size:10.5px}
 .mods{display:flex;flex-wrap:wrap;gap:6px}
 .mod{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid var(--line-3);font:400 11px/1 var(--font-mono);letter-spacing:.06em;color:var(--mist);cursor:pointer}
 .mod:has(input:checked){border-color:var(--accent-text);color:var(--paper);background:rgba(77,107,255,.08)}
@@ -407,10 +413,10 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
       <h1 class="h1 r" style="--i:1">Many timelines. <span class="glow">One line.</span></h1>
     </div>
     <div class="cover-row">
-      <p class="lead r" style="--i:2">PrimusNeo brings together the people who live with a problem, the people who hold the tools, and a place to test the answer. Then it lets the evidence decide. <strong>We are raising $1.5 million to open the lab.</strong></p>
+      <p class="lead r" style="--i:2">PrimusNeo brings together the people who live with a problem, the people who hold the tools, and a place to test the answer. Then it lets the evidence decide. <strong>We are raising to open the lab: from $720K it runs, and from $5.2M it reaches large clients.</strong></p>
       <dl class="ledger r" style="--i:3">
-        <div><dt>Raise</dt><dd>$1.5M</dd></div>
-        <div><dt>Break-even</dt><dd>Month 13 · reference</dd></div>
+        <div><dt>Raise</dt><dd>From $720K</dd></div>
+        <div><dt>Large deals</dt><dd>From $5.2M</dd></div>
         <div><dt>Live</dt><dd>Tie Town [TX] · Elevate Impact</dd></div>
       </dl>
     </div>
@@ -710,39 +716,24 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 <!-- ============ 09 MODEL ============ -->
 <section class="slide" id="model" data-title="How it earns" aria-label="10 How it earns">
   <div class="frame">
-    <div class="head"><span class="eyebrow"><b>10</b> — How it earns</span><span class="eyebrow">Pricing & unit economics</span></div>
+    <div class="head"><span class="eyebrow"><b>10</b> — How it earns</span><span class="eyebrow">Platform revenue</span></div>
     <div class="split top">
       <div class="stack">
         <p class="epi r" style="--i:0">Everyone who does the work gets paid.</p>
-        <h2 class="h2 r" style="--i:1">Three paths. Each paid for finished work.</h2>
+        <h2 class="h2 r" style="--i:1">License it, stand it up, keep it running.</h2>
       </div>
-      <p class="lead r" style="--i:2">Most of the money arrives as work is delivered: a patient enrolled, a study designed, a paper finished. The deployment fee opens the door. The units are the business.</p>
+      <p class="lead r" style="--i:2">Every platform deal earns three ways: a yearly licence for each module, priced by size; services to stand it up in year one; and support every year it runs. After year one, licence and support renew.</p>
     </div>
     <div class="cells c3 r" style="--i:3">
-      <div>
-        <span class="tag dim">Elevate Impact · access</span>
-        <span class="metric sm">$80,000</span>
-        <p class="txt">per organization, per year, for mid-size organizations and government. The research platform without a delivery engagement.</p>
-      </div>
-      <div>
-        <span class="tag">Elevate Impact · research deployment</span>
-        <span class="metric sm">$250K – $400K</span>
-        <p class="txt">per deployment, <strong>plus $20,000 per agreed billable unit</strong>: a patient, a design, a paper. Access included.</p>
-      </div>
-      <div>
-        <span class="tag">PrimusNeo platform · per module</span>
-        <span class="metric sm glow">$6K – $2.5M a year</span>
-        <p class="txt">per module and size, from NEOS Small to AMP Large, with bundle and commitment discounts. A Mid full-stack deal runs about $1.7M in year one.</p>
-        <span class="note">The next chapter sets out the ladder.</span>
-      </div>
+      <div><span class="tag">Licence · every year</span><span class="metric sm">$6K – $2.5M</span><p class="txt">per module and size. Two layers −10%, three −18%, the full stack −25%.</p><span class="note">about 75% margin</span></div>
+      <div><span class="tag">Services · year one</span><span class="metric sm">0.5 – 3×</span><p class="txt">the module's licence, to integrate it and stand it up on site.</p><span class="note">about 40% margin</span></div>
+      <div><span class="tag">Support · every year</span><span class="metric sm">18 – 25%</span><p class="txt">of licence, by service level, for as long as the platform runs.</p><span class="note">about 80% margin</span></div>
     </div>
-    <div class="cells c4 r" style="--i:4">
-      <div><span class="metric sm">58.1%</span><span class="note">five-year gross margin</span></div>
-      <div><span class="metric sm">69%</span><span class="note">of revenue from billable units ($50.6M of $73.1M)</span></div>
-      <div><span class="metric sm">61%</span><span class="note">of five-year revenue allocated to Elevate Impact's research enablement ($44.4M of $73.1M), inside the same fees</span></div>
-      <div><span class="metric sm glow">$0</span><span class="note">venture proceeds in every case. Any company the lab starts is upside the model leaves out.</span></div>
+    <div class="cells c2 r" style="--i:4">
+      <div><span class="eyebrow">Mid deal · four layers · 25% bundle</span><span class="metric glow">$1.72M</span><p class="txt">in year one, then <strong>$686K every year</strong> it renews.</p></div>
+      <div><span class="eyebrow">Large deal · four layers · 25% bundle</span><span class="metric">$9.2M</span><p class="txt">in year one, then <strong>$3.65M every year</strong> it renews.</p></div>
     </div>
-    <div class="foot"><span class="note">Reference case, PrimusNeo Innovation Lab Financial Model v2. Gross margin is revenue less direct delivery, before the core team and overhead. The Lab / Elevate Impact split is a management allocation, not a legal structure.</span></div>
+    <div class="foot"><span class="note">Prices from PrimusNeo's engagement models; the full ladder is next. Elevate Impact's research module is optional in any deal and priced on its own. Margins are planning targets.</span></div>
   </div>
 </section>
 
@@ -817,7 +808,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
         <p class="epi r" style="--i:0">Assumptions, not probabilities.</p>
         <h2 class="h2 r" style="--i:1">Cash stays above zero in all three cases.</h2>
       </div>
-      <p class="lead r" style="--i:2">Each case runs on the same $1.5 million and no second raise. The reference case reproduces our pricing illustration exactly. The other two move volume, price, delivery cost, staffing and how fast customers pay.</p>
+      <p class="lead r" style="--i:2">This is the lab plan, modelled with $1.5 million and no second raise. The reference case reproduces our pricing illustration exactly. The other two move volume, price, delivery cost, staffing and how fast customers pay.</p>
     </div>
     <div class="split wide-left top grow r" style="--i:3">
       <div class="stack">
@@ -857,7 +848,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
     <div class="split wide-right top grow">
       <div class="stack">
         <p class="epi r" style="--i:0">We raise for the hard road and work for the good one.</p>
-        <h2 class="h2 r" style="--i:1">Sized for the conservative case.</h2>
+        <h2 class="h2 r" style="--i:1">The lab plan holds through its hardest case.</h2>
         <p class="txt r" style="--i:2">In the reference case the raise is barely touched. Cash never falls below <strong>$1.28 million</strong>, and the lab breaks even in month 13.</p>
         <p class="txt r" style="--i:3">In the conservative case the same $1.5 million carries two years of operating losses and bottoms out at <strong>$41,878 in month 26</strong>. That is $108,122 under our own $150,000 reserve. We show it here so nobody has to find it later.</p>
       </div>
@@ -888,7 +879,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
       <div>
         <span class="eyebrow">Sources</span>
         <div class="uses">
-          <div><i style="background:var(--paper)"></i><span>The raise</span><b>$1,500,000</b><em>47%</em></div>
+          <div><i style="background:var(--paper)"></i><span>Raise, as modelled</span><b>$1,500,000</b><em>47%</em></div>
           <div><i style="background:var(--mist)"></i><span>Customer cash collected</span><b>$1,695,833</b><em>53%</em></div>
           <div class="tot"><i></i><span>Available in year one</span><b>$3,195,833</b><em></em></div>
         </div>
@@ -919,27 +910,24 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 <!-- ============ 14 ASK ============ -->
 <section class="slide" id="ask" data-title="The ask" aria-label="16 The ask">
   <div class="frame">
-    <div class="head"><span class="eyebrow"><b>16</b> — The ask</span><span class="eyebrow">Capital, challenges, ground</span></div>
+    <div class="head"><span class="eyebrow"><b>16</b> — The ask</span><span class="eyebrow">Any amount, three steps</span></div>
     <div class="split top">
       <div class="stack">
         <p class="epi r" style="--i:0">Bring a problem worth solving, knowledge that can help, or a place to test a useful idea.</p>
-        <h2 class="h2 r" style="--i:1">$1.5 million, two first deployments, and ground to test on.</h2>
+        <h2 class="h2 r" style="--i:1">Any amount from $720K. Each step opens more.</h2>
       </div>
-      <p class="lead r" style="--i:2">The money opens the lab. The deployments prove the price. The ground is where the evidence comes from. It also funds the open engineering work: connecting Elevate Impact to AMP, NEOS, AZOA and Fractal Engine.</p>
+      <p class="lead r" style="--i:2">There is no single number. The same plan runs at any amount, and these are the three steps that change what it can do. Alongside the money, we need first deployments and ground to test on.</p>
     </div>
     <div class="cells c3 r" style="--i:3">
-      <div><span class="eyebrow"><b>Capital</b></span><span class="metric glow">$1.5M</span><p class="txt">Lands in month 1. Carries the conservative case through its lowest month without a second raise.</p></div>
-      <div><span class="eyebrow"><b>First challenges</b></span><span class="metric">2</span><p class="txt">Option B deployments in year one, with 60 billable units between them. The reference plan starts there.</p></div>
-      <div><span class="eyebrow"><b>Ground &amp; partners</b></span><span class="metric">∞</span><p class="txt">Test sites, delivery partners, and introductions to organizations that own a problem worth solving.</p></div>
+      <div><span class="eyebrow">Keep the lab running</span><span class="metric">$720K</span><p class="txt">Pays the fixed needs and holds the $150K reserve. The lab plan runs; nothing is left over for selling.</p></div>
+      <div><span class="eyebrow">Grow</span><span class="metric">$2.5M</span><p class="txt">About three extra platform deals. First $1M month in month 37; each $1 spent brings back $3.38.</p></div>
+      <div><span class="eyebrow"><b>Open large deals</b></span><span class="metric glow">$5.2M+</span><p class="txt">Large deals open. First $1M month in month 27; each $1 spent brings back $6.06. At $10M, month 25.</p></div>
     </div>
-    <ol class="miles r" style="--i:4" aria-label="Reference-case milestones">
-      <li class="mile"><b>M1</b><span>Raise lands. Six-person team.</span></li>
-      <li class="mile"><b>M12</b><span>2 deployments delivered. $1.85M revenue.</span></li>
-      <li class="mile"><b>M13</b><span>Operating break-even.</span></li>
-      <li class="mile"><b>M24</b><span>7 deployments to date. $2.68M cash.</span></li>
-      <li class="mile"><b>M36</b><span>17 deployments to date. $6.58M cash.</span></li>
-      <li class="mile"><b>M60</b><span>67 deployments. 18 people. $32.9M cash.</span></li>
-    </ol>
+    <div class="cells c2 r" style="--i:4">
+      <div><span class="eyebrow">First deployments</span><p class="txt">Two in year one put the lab plan on its reference path.</p></div>
+      <div><span class="eyebrow">Ground &amp; partners</span><p class="txt">Test sites, delivery partners, and introductions to organizations that own a problem worth solving.</p></div>
+    </div>
+    <div class="foot"><span class="note">Default pools and a Mid four-layer deal; change both in the next two chapters. Illustrative, company-level figures, not investor returns.</span></div>
   </div>
 </section>
 
@@ -950,9 +938,9 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
     <div class="split top">
       <div class="stack">
         <p class="epi r" style="--i:0">Every dollar has a job.</p>
-        <h2 class="h2 r" style="--i:1">Where every dollar goes.</h2>
+        <h2 class="h2 r" style="--i:1">Pick an amount. See what it buys.</h2>
       </div>
-      <p class="lead r" style="--i:2">Type an amount and pick the deal you sell. Needs are paid first, a reserve stays in the bank, and the rest sells the deal. Past a minimum budget, part of it opens Large deals.</p>
+      <p class="lead r" style="--i:2">Choose the amount and the deal you sell. Fixed needs are paid first, a reserve stays in the bank, and the rest goes to selling. Open “Adjust” to change any of it.</p>
     </div>
     <div class="calc r" style="--i:3">
       <div class="calc-in">
@@ -961,21 +949,29 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
           <div class="amount"><span class="cur" aria-hidden="true">$</span><input id="inv-amount" type="number" min="0" step="50000" inputmode="numeric"></div>
           <span></span>
           <input id="inv-slider" type="range" min="0" max="20000000" step="50000" aria-label="Investment amount">
-          <span></span>
-          <p class="readout" id="inv-readout" aria-live="polite">—</p>
         </div>
         <div class="field-row">
-          <span class="eyebrow" id="deal-label">Platform deal</span>
+          <span class="eyebrow" id="deal-label">Deal sold</span>
           <div class="deal">
+            <div class="seg" role="group" aria-labelledby="deal-label" id="size-seg"><button class="btn" type="button" data-size="S">Small</button><button class="btn" type="button" data-size="M">Mid</button><button class="btn" type="button" data-size="L">Large</button></div>
             <div class="mods" id="deal-mods" role="group" aria-label="Modules in the deal"></div>
+            <p class="readout" id="inv-readout" aria-live="polite">—</p>
           </div>
         </div>
-        <div class="pools" id="pool-rows"></div>
+        <div class="field-row">
+          <span class="eyebrow">Where it goes</span>
+          <div class="alloc" id="alloc"></div>
+        </div>
+        <details class="assume-more" id="pools-more"><summary>Adjust pools</summary><div class="pools" id="pool-rows"></div></details>
       </div>
       <div class="calc-out">
+        <div class="cells c3 kpi-hero">
+          <div><span class="eyebrow"><b>First $1M month</b></span><span class="metric glow" id="kpi-scale">—</span><span class="note">month the lab first earns $1M of operating profit</span></div>
+          <div><span class="eyebrow">Each $1 spent brings back</span><span class="metric" id="kpi-multiple">—</span><span class="note">in five-year margin, against holding the money</span></div>
+          <div><span class="eyebrow">Five-year revenue</span><span class="metric" id="kpi-rev">—</span><span class="note" id="kpi-rev-note">—</span></div>
+        </div>
+        <p class="kpi-line" id="kpi-line" aria-live="polite">—</p>
         <div class="seg-row">
-          <span class="eyebrow" id="size-label">Deal size</span>
-          <div class="seg" role="group" aria-labelledby="size-label" id="size-seg"><button class="btn" type="button" data-size="S">Small</button><button class="btn" type="button" data-size="M">Mid</button><button class="btn" type="button" data-size="L">Large</button></div>
           <span class="eyebrow" id="case-label">Lab case</span>
           <div class="seg" role="group" aria-labelledby="case-label" id="case-seg">
             <button class="btn" type="button" data-case="conservative">Conservative</button>
@@ -983,23 +979,15 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
             <button class="btn" type="button" data-case="ambitious">Ambitious</button>
           </div>
         </div>
-        <div class="cells c3 kpis">
-          <div><span class="eyebrow"><b>Months to scale</b></span><span class="metric sm glow" id="kpi-scale">—</span><span class="note">first month with $1M operating profit</span></div>
-          <div><span class="eyebrow">Earned back</span><span class="metric sm" id="kpi-back">—</span><span class="note">cumulative operating profit equals the amount invested</span></div>
-          <div><span class="eyebrow">Each $1 spent brings back</span><span class="metric sm" id="kpi-multiple">—</span><span class="note">in five-year margin, against holding the money as cash</span></div>
-          <div><span class="eyebrow">Five-year revenue</span><span class="metric sm" id="kpi-rev">—</span><span class="note" id="kpi-rev-note">—</span><span class="chip" id="kpi-ent">—</span></div>
-          <div><span class="eyebrow">Operating break-even</span><span class="metric sm" id="kpi-be">—</span><span class="note">six non-negative months in a row, no later loss</span></div>
-          <div><span class="eyebrow">Lowest cash</span><span class="metric sm" id="kpi-low">—</span><span class="note" id="kpi-low-note">—</span><span class="chip" id="kpi-status">—</span></div>
-        </div>
         <details class="assume-more">
-          <summary>Growth assumptions</summary>
+          <summary>Adjust growth assumptions</summary>
           <div class="assume" role="group" aria-label="Growth assumptions">
             <label for="a-cac">Platform deal: cost to win ($)<input id="a-cac" type="number" min="10000" step="10000" data-key="cac"></label>
             <label for="a-cycle">Platform deal: sales cycle (months)<input id="a-cycle" type="number" min="0" max="36" step="1" data-key="cycle"></label>
             <label for="a-entCac">Large deal: cost to win ($)<input id="a-entCac" type="number" min="10000" step="10000" data-key="entCac"></label>
             <label for="a-entCycle">Large deal: sales cycle (months)<input id="a-entCycle" type="number" min="0" max="36" step="1" data-key="entCycle"></label>
-            <label for="a-entMin">Large deals: minimum budget to open ($)<input id="a-entMin" type="number" min="0" step="50000" data-key="entMin"></label>
-            <label for="a-supportRate">Platform support (share of licence a year)<input id="a-supportRate" type="number" min="0" max="1" step="0.01" data-key="supportRate"></label>
+            <label for="a-entMin">Large deals: minimum budget ($)<input id="a-entMin" type="number" min="0" step="50000" data-key="entMin"></label>
+            <label for="a-supportRate">Support (share of licence a year)<input id="a-supportRate" type="number" min="0" max="1" step="0.01" data-key="supportRate"></label>
             <label for="a-period">Spend period (months)<input id="a-period" type="number" min="1" max="60" step="1" data-key="period"></label>
           </div>
         </details>
@@ -1009,7 +997,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
         </div>
       </div>
     </div>
-    <div class="foot"><span class="note">“Match the fixed plan” holds the raise as cash, reproducing the lab plan in “The first three years of cash”. Deal prices come from the price stack; the growth response is a planning assumption for the team to replace.</span></div>
+    <div class="foot"><span class="note">“Match the fixed plan” holds the money as cash, reproducing the lab plan. Deal prices come from the price stack; the growth response is a planning assumption for the team to replace.</span></div>
   </div>
 </section>
 
@@ -1516,21 +1504,21 @@ const LabModel = (() => {
   /* ---------- investment calculator (engine: docs/investor/calc-engine.js) ---------- */
   if (document.getElementById('invest')) {
     const L = LabModel;
-    const LADDER = [250e3, 500e3, 1e6, 1.5e6, 2.5e6, 5e6, 10e6, 20e6];
-    const KEY = 'pn-deck-calc-v3';
+    const LADDER = [250e3, 500e3, 1e6, 2.5e6, 5e6, 10e6, 20e6];
+    const KEY = 'pn-deck-calc-v4';
     const el = id => document.getElementById(id);
     const clonePlan = plan => ({ needs: { ...plan.needs }, reservePct: plan.reservePct, growth: { ...plan.growth } });
     const freshDeal = () => ({ size: L.DEFAULT_DEAL.size, modules: { ...L.DEFAULT_DEAL.modules } });
-    const fresh = () => ({ amount: 1500000, caseKey: 'reference', plan: clonePlan(L.DEFAULT_PLAN), assumptions: { ...L.DEFAULT_ASSUMPTIONS }, deal: freshDeal() });
+    const fresh = () => ({ amount: 2500000, caseKey: 'reference', plan: clonePlan(L.DEFAULT_PLAN), assumptions: { ...L.DEFAULT_ASSUMPTIONS }, deal: freshDeal() });
     let state = fresh();
     try {
       const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
       if (saved && L.CASES[saved.caseKey]) {
-        // Saved state is viewer-editable: keep only known keys, coerced to non-negative numbers.
+        // Saved state is viewer-editable: keep only known keys, coerced to safe values.
         const num = (v, d) => (Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : d);
         const d = L.DEFAULT_PLAN;
         state = {
-          amount: num(saved.amount, 1500000),
+          amount: num(saved.amount, 2500000),
           caseKey: saved.caseKey,
           plan: {
             needs: Object.fromEntries(L.NEEDS.map(n => [n.key, num(saved.plan?.needs?.[n.key], d.needs[n.key])])),
@@ -1572,10 +1560,10 @@ const LabModel = (() => {
     el('pool-rows').innerHTML =
       `<div class="pool-head"><span class="eyebrow">Fixed needs</span><span class="note">dollars over the spend period</span></div>`
       + L.NEEDS.map(n => `<div class="pool"><label for="need-${n.key}">${n.label}</label><input id="need-${n.key}" type="range" min="0" max="2000000" step="25000" data-need="${n.key}"><output class="amt" id="need-${n.key}-amt" for="need-${n.key}"></output></div>`).join('')
-      + `<div class="pool-head"><span class="eyebrow">Reserve</span><span class="note">share of the investment held as cash</span></div>`
+      + `<div class="pool-head"><span class="eyebrow">Reserve</span><span class="note">share held as cash</span></div>`
       + `<div class="pool"><label for="reserve-pct">Reserve</label><input id="reserve-pct" type="range" min="0" max="100" step="1"><output class="amt" id="reserve-amt" for="reserve-pct"></output></div>`
-      + `<div class="pool-head"><span class="eyebrow"><b>Growth</b></span><span class="note">shares of what is left</span></div>`
-      + L.GROWTH.map(g => `<div class="pool"><label for="grow-${g.key}">${g.label}${g.channel === 'enterprise' ? ' <small class="grows">larger clients</small>' : ''}</label><input id="grow-${g.key}" type="range" min="0" max="100" step="1" data-grow="${g.key}"><output class="amt" id="grow-${g.key}-amt" for="grow-${g.key}"></output></div>`).join('');
+      + `<div class="pool-head"><span class="eyebrow"><b>Selling</b></span><span class="note">shares of what is left</span></div>`
+      + L.GROWTH.map(g => `<div class="pool"><label for="grow-${g.key}">${g.label}</label><input id="grow-${g.key}" type="range" min="0" max="100" step="1" data-grow="${g.key}"><output class="amt" id="grow-${g.key}-amt" for="grow-${g.key}"></output></div>`).join('');
     el('deal-mods').innerHTML = L.MODULES.map(m => `<label class="mod" for="mod-${m.key}"><input type="checkbox" id="mod-${m.key}" data-mod="${m.key}">${m.label}</label>`).join('');
 
     const cashConfig = r => {
@@ -1599,7 +1587,7 @@ const LabModel = (() => {
         const r = run(amount), back = r.earnedBack, current = amount === Math.round(state.amount);
         const mult = r.growthBudget <= 0 ? 'Needs only' : '×' + r.multiple.toFixed(2);
         const right = r.shortfall ? `Short M${r.shortfall}` : `${mult} · ${money(r.revenue5)}`;
-        const spoken = `${money(amount)}: ${r.scaleMonth ? 'scale in month ' + r.scaleMonth : 'no $1M month within five years'}, earned back ${back ? 'month ' + back : 'beyond five years'}, each dollar spent brings back ${mult}${r.enterpriseOpen ? ', large deals open' : ''}${r.shortfall ? ', cash runs short in month ' + r.shortfall : ''}`;
+        const spoken = `${money(amount)}: ${r.scaleMonth ? 'first $1M month in month ' + r.scaleMonth : 'no $1M month within five years'}, earned back ${back ? 'month ' + back : 'beyond five years'}, each dollar spent brings back ${mult}${r.enterpriseOpen ? ', large deals open' : ''}${r.shortfall ? ', cash runs short in month ' + r.shortfall : ''}`;
         return `<button type="button" class="rung2${r.shortfall ? ' short' : ''}" data-amount="${amount}" aria-current="${current}" aria-label="${spoken}">`
           + `<span class="amt">${money(amount)}${r.enterpriseOpen ? '<b class="ent">LARGE</b>' : ''}</span>`
           + `<span class="track"><i class="fill${r.scaleMonth ? '' : ' beyond'}" style="width:${r.scaleMonth ? pct(r.scaleMonth) : '100%'}"></i>${back ? `<i class="be" style="left:${pct(back)}"></i>` : ''}</span>`
@@ -1614,10 +1602,22 @@ const LabModel = (() => {
       document.querySelectorAll('#case-seg [data-case]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.case === state.caseKey)));
       document.querySelectorAll('#size-seg [data-size]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.size === state.deal.size)));
       L.MODULES.forEach(m => { el(`mod-${m.key}`).checked = !!state.deal.modules[m.key]; });
+
+      const pd = r.platformDeal;
+      el('inv-readout').innerHTML = pd.firstYear > 0
+        ? `${pd.discount ? Math.round(pd.discount * 100) + '% bundle · ' : ''}<b>${money(pd.firstYear)}</b> year one, <b>${money(pd.renewal)}</b> a year after`
+        : 'Choose at least one module to sell.';
+
+      // Where it goes: fixed needs, reserve, selling.
+      const needs = L.NEEDS.reduce((sum, n) => sum + r.spend[n.key], 0), selling = r.growthBudget, reserve = r.spend.reserve;
+      const total = needs + reserve + selling || 1, w = v => (v / total * 100).toFixed(1) + '%';
+      el('alloc').innerHTML = `<div class="bar100" aria-hidden="true"><i style="width:${w(needs)};background:var(--faint)"></i><i style="width:${w(reserve)};background:var(--mist)"></i><i style="width:${w(selling)};background:var(--accent)"></i></div>`
+        + `<div class="legend"><span><i class="sw" style="background:var(--faint)"></i>Needs ${money(needs)}</span><span><i class="sw" style="background:var(--mist)"></i>Reserve ${money(reserve)}</span><span><i class="sw" style="background:var(--accent)"></i>Selling ${money(selling)}</span></div>`;
+
       L.NEEDS.forEach(n => { el(`need-${n.key}`).value = state.plan.needs[n.key]; el(`need-${n.key}-amt`).textContent = money(r.spend[n.key]); });
       el('reserve-pct').value = state.plan.reservePct;
       el('reserve-amt').textContent = `${Math.round(state.plan.reservePct)}% · ${money(r.spend.reserve)}`;
-      const shareTotal = L.GROWTH.reduce((s, g) => s + Math.max(0, state.plan.growth[g.key] || 0), 0) || 1;
+      const shareTotal = L.GROWTH.reduce((s2, g) => s2 + Math.max(0, state.plan.growth[g.key] || 0), 0) || 1;
       L.GROWTH.forEach(g => {
         el(`grow-${g.key}`).value = state.plan.growth[g.key];
         el(`grow-${g.key}-amt`).textContent = `${Math.round((state.plan.growth[g.key] || 0) / shareTotal * 100)}% · ${money(r.spend[g.key])}`;
@@ -1625,28 +1625,15 @@ const LabModel = (() => {
       document.querySelectorAll('.assume input').forEach(i => { if (document.activeElement !== i) i.value = state.assumptions[i.dataset.key]; });
 
       el('kpi-scale').textContent = r.scaleMonth ? 'Month ' + r.scaleMonth : 'Beyond 5 yrs';
-      el('kpi-back').textContent = r.earnedBack ? 'Month ' + r.earnedBack : state.amount > 0 ? 'Beyond 5 yrs' : '—';
       el('kpi-multiple').textContent = r.growthBudget <= 0 ? 'Needs only' : '$' + r.multiple.toFixed(2);
       el('kpi-rev').textContent = money(r.revenue5);
-      el('kpi-rev-note').textContent = `${r.platformDeployments.toFixed(1)} platform · ${r.enterpriseDeployments.toFixed(1)} Large deals won`;
-      const ent = el('kpi-ent');
-      if (r.enterpriseOpen) { ent.className = 'chip ok'; ent.textContent = 'Large deals open'; }
-      else {
-        const opensAt = smallest(amount => run(amount, false).enterpriseOpen);
-        ent.className = 'chip'; ent.textContent = opensAt === null ? 'Large deals closed' : 'Large deals open at ' + money(opensAt);
-      }
-      el('kpi-be').textContent = r.breakEven ? 'Month ' + r.breakEven : 'Beyond 5 yrs';
-      el('kpi-low').textContent = money(r.minCash);
-      const floor = smallest(amount => run(amount, false).minCash >= L.MODEL.reserve);
-      el('kpi-low-note').textContent = `month ${r.minMonth} · reserve holds from ${floor === null ? 'over $50M' : money(floor)}`;
-      const status = el('kpi-status');
-      status.className = 'chip ' + (r.belowReserve ? 'warn' : 'ok');
-      status.textContent = r.shortfall ? 'Runs short in month ' + r.shortfall : r.belowReserve ? 'Below the $150K reserve' : 'Holds the reserve';
+      el('kpi-rev-note').textContent = `${r.platformDeployments.toFixed(1)} platform · ${r.enterpriseDeployments.toFixed(1)} large deals won`;
+      const cash = r.shortfall ? `<span class="warn">cash runs short in month ${r.shortfall}</span>`
+        : r.belowReserve ? `<span class="warn">lowest cash ${money(r.minCash)}, below the reserve</span>` : `lowest cash <b>${money(r.minCash)}</b>`;
+      const opensAt = r.enterpriseOpen ? null : smallest(amount => run(amount, false).enterpriseOpen);
+      const large = r.enterpriseOpen ? '<b>large deals open</b>' : opensAt === null ? 'large deals closed' : `large deals open from <b>${money(opensAt)}</b>`;
+      el('kpi-line').innerHTML = `Break-even <b>month ${r.breakEven || '—'}</b> · earned back <b>${r.earnedBack ? 'month ' + r.earnedBack : 'beyond 5 years'}</b> · ${cash} · ${large}`;
       el('cash-for').textContent = money(state.amount);
-      const pd = r.platformDeal, sizeName = { S: 'Small', M: 'Mid', L: 'Large' }[pd.size];
-      el('inv-readout').innerHTML = pd.firstYear > 0
-        ? `${sizeName} deal · ${pd.modules} module${pd.modules === 1 ? '' : 's'}${pd.discount ? ` · ${Math.round(pd.discount * 100)}% bundle` : ''}: <b>${money(pd.firstYear)}</b> first year, <b>${money(pd.renewal)}</b> a year after (support <b>${money(pd.support)}</b>)${pd.size !== 'L' ? ` · Large deal <b>${money(r.largeDeal.firstYear)}</b>` : ''}`
-        : 'Choose at least one module to sell.';
       renderLadder();
       cashChart.update(cashConfig(r));
       save();
