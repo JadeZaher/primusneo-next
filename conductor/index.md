@@ -9,6 +9,9 @@
 - [Workflow](./workflow.md)
 - [Code Style Guides](./code_styleguides/)
 
+## Ecosystem
+- [Ecosystem & Collaboration Map](./ecosystem.md)
+
 ## Management
 - [Tracks Registry](./tracks.md)
 - [Tracks Directory](./tracks/)
