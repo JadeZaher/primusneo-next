@@ -25,7 +25,7 @@ Verified against each repo on 2026-11-08. Re-check the **Status** column before 
 | **OVERSEASGENAI** | Agentic venture shipyard: idea → grilled → modelled → built → shipped → judged | `Documents\Escherbridge\overseasgenai` | Site, idea intake, founder accounts, private-preview launch live. Billing built but off | Ahmad Darwish |
 | **ArdaNova** | Community-owned project platform: gated participation, task rewards, project tokens | `C:\Users\atooz\Programming\ArdaNova` | Scaffold. 1 of 10 sub-repos has code (3 commits); two early TEAL contracts; no deployment, users or offering | — |
 | **Taawun** | Community app builder: escrowed quests, splits, donations, principal-only loans | referenced in AZOA `conductor/` | AZOA's second target consumer | — |
-| **Tie Town [TX]** | Media and creator house, McDade, Texas | `src/app/solutions/community-coops/` | First active operational deployment; reference architecture | Rachel Schnieder (owner-operator) |
+| **Tie Town [TX]** | Media and creator house, McDade, Texas | `src/app/solutions/community-coops/` | First active operational deployment; reference architecture | Rachel Schneider (owner-operator) |
 | **Maplable** | Browser-based 3D globe for mapping and spatial collaboration; offline-ready, air-gappable; reads GeoJSON, KML/KMZ, CZML and ArcGIS feeds | [maplable.com](https://maplable.com/) | Spatial/GIS part of the stack, per the team; no written agreement found | Brandon Wallace (owner; 3D assets & GIS) |
 | **Green Earth Vision** | 501(c)(3) nonprofit "to promote a society built on contribution, philanthropy, and self-organized models"; initiatives include OmniOne, Green Earth City, DHARMA-SARI | [greenearthvision.org](https://www.greenearthvision.org/our-team) | NEOS steward (with OmniOne), per `docs/engagement-models/00-overview.md`; its site does not mention NEOS | Josh Pasmore (founder) |
 | **Nuva Labs** | Real-world-asset tokenization and management on Provenance Blockchain (formerly Provlabs) | [nuvalabs.com](https://www.nuvalabs.com/) | Affiliation of Max Gershfield; no company-level agreement found | Max Gershfield (listed by Nuva as Software Engineer) |
@@ -43,11 +43,13 @@ One team with no internal hierarchy (team decision, 2026-11-08). No one is more 
 | Ricardhy Grandoit | People & programmes | Elevate Impact | Founder, Elevate Impact |
 | Drew O'Meara | Spatial runtime | AMP | Creator, AMP SDK |
 | Josh Pasmore | Governance architecture | NEOS | Founder, Green Earth Vision |
-| Rachel Schnieder | Site operations | Reference site | Owner-operator, Tie Town [TX] |
+| Rachel Schneider | Site operations | Reference site | Owner-operator, Tie Town [TX] |
 | Brandon Wallace | 3D assets & GIS | AMP | Owner, Maplable |
 | Ahmed Zaher | Platform engineering | All layers | Founder, Escherbridge; Senior AI Engineer, Micron |
 
 Advisors: the sickle cell advisory group of clinicians and advocates (Elevate Impact).
+
+Pending: **Dave** and **Denis** of OPQPWR, introduced via "JP / OMGen" (Rachel Schneider, 2026-11-08). opqpwr.com names no people and public searches found neither, so surnames, roles and the JP / OMGen referent must come from the team. Add both to the roster alphabetically once confirmed.
 
 ## How the work moves
 
@@ -120,7 +122,7 @@ Every number on the site or in the deck must trace to one of these. Add a row be
 7. **ArdaNova framing.** `ArdaNova/documentation/ideation/ArdaNovaCoreConcept.md` and the Escherbridge portfolio entry still say "gamified ICO platform". Align with the compliance framing.
 8. **Cross-repo docs.** If AZOA is meant to be a PrimusNeo layer, say so in `oasis-sleek/conductor/product.md`, and record the ArdaNova and Taawun relationships in PrimusNeo's `docs/engagement-models/layers/azoa.md`.
 9. **Model calendar.** Month 1 is October 2026. Refresh the model if raise timing moves.
-10. **Named partners.** Confirm spellings ("Schnieder" and "O'Meara" were typed without confirmation) and get each person's consent before the deck is shared. Nuva Labs' site lists Max Gershfield as "Software Engineer"; the deck gives his PrimusNeo role and names Nuva only as an affiliation, so confirm that both he and Nuva are comfortable with that. Decide whether Maplable is a formal partner (the stack slide currently credits "maps · Maplable" under AMP).
+10. **Named partners.** Confirm spellings ("Schneider" is confirmed from Rachel's own messages, 2026-11-08; "O'Meara" is still unconfirmed) and get each person's consent before the deck is shared. Nuva Labs' site lists Max Gershfield as "Software Engineer"; the deck gives his PrimusNeo role and names Nuva only as an affiliation, so confirm that both he and Nuva are comfortable with that. Decide whether Maplable is a formal partner (the stack slide currently credits "maps · Maplable" under AMP).
 
 ## Investor deck
 
