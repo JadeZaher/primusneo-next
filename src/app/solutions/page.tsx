@@ -240,24 +240,24 @@ export default function SolutionsPage() {
         <DreadShape volume={1} id="12" className="absolute -right-20 top-1/2 opacity-5" size={250} />
         <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="The Proof" title="Real-World Coordination at Scale">
-            PrimusNeo is currently being deployed across specialized builder pilots, validating the interoperability of our core stack.
+            One live site, one live research module, and on-prem infrastructure on the way.
           </SectionHeader>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Active Pilot</h4>
-              <h3 className="text-2xl font-bold mb-4">Builders Commons</h3>
-              <p className="text-gray-400 leading-relaxed">The flagship proving ground for federated spatial OS and NEOS governance logic in a high-growth builder environment.</p>
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Active Deployment</h4>
+              <h3 className="text-2xl font-bold mb-4">Tie Town [TX]</h3>
+              <p className="text-gray-400 leading-relaxed">A media and creator house in McDade, Texas: the first active operational deployment and the reference architecture for every layer.</p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Infrastructure</h4>
-              <h3 className="text-2xl font-bold mb-4">Regenerative Campuses</h3>
-              <p className="text-gray-400 leading-relaxed">Coordinating off-grid energy, water, and community assets through shared digital twin telemetry and local-first AI.</p>
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Live Research Module</h4>
+              <h3 className="text-2xl font-bold mb-4"><a href="/elevate-impact" className="hover:text-emerald-300 transition-colors">Elevate Impact</a></h3>
+              <p className="text-gray-400 leading-relaxed">In production with the sickle cell community, turning research questions into finished, expert-checked study designs.</p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Capital</h4>
-              <h3 className="text-2xl font-bold mb-4">Fractal Portfolios</h3>
-              <p className="text-gray-400 leading-relaxed">Enabling institutional-grade transparency for distributed physical assets through governed historical archives.</p>
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Infrastructure · Starting</h4>
+              <h3 className="text-2xl font-bold mb-4"><a href="https://opqpwr.com/" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-300 transition-colors">OPQPWR</a></h3>
+              <p className="text-gray-400 leading-relaxed">Field-deployable power and compute racks: the path to running the stack on owned, bare-metal hardware where the cloud is thin.</p>
             </div>
           </div>
         </div>

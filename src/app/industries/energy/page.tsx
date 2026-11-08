@@ -1,6 +1,6 @@
 import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
-import { ContrarianInsight, IndustrySources } from '../../_components/IndustryExtras';
+import { ContrarianInsight, IndustrySources, PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
 export const metadata = {
   title: 'Energy & Utilities — Industries',
@@ -92,6 +92,7 @@ export default function EnergyIndustryPage() {
       <ContrarianInsight attribution="PrimusNeo — Energy Brief">
         The energy transition is no longer a generation problem — it&rsquo;s a coordination problem. Whichever utility can govern millions of distributed agents in real time will quietly out-earn every gigawatt-scale developer waiting in a 2030 queue.
       </ContrarianInsight>
+      <PartnerNote partners={[PARTNERS.opqpwr]} />
       <IndustrySources sources={sources} />
     </SolutionTemplate>
   );

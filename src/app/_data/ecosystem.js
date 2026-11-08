@@ -38,12 +38,19 @@ export const stackIndex = [
     summary: 'Field telemetry turned into durable, shareable insight.',
     href: '/fractal-engine',
   },
+  {
+    index: 'L—05',
+    name: 'Elevate Impact',
+    tag: 'RESEARCH',
+    summary: 'Questions turned into finished, expert-checked study designs, with the community at the table.',
+    href: '/elevate-impact',
+  },
 ];
 
 export const platformLayers = [
   {
     eyebrow: 'Layer 01',
-    title: 'AMP (Art and Media Platform)',
+    title: 'AMP — Operational Runtime / Spatial OS',
     partner: 'Spatial OS and community networks',
     body: 'Offline-capable, privacy-first spatial collaboration on the ground — PLAN 3D interfaces and community OS workflows. Integrates standalone or with the full stack.',
   },
@@ -64,6 +71,12 @@ export const platformLayers = [
     title: 'Fractal Engine',
     partner: 'Intelligence layer — Escherbridge',
     body: 'Field telemetry turned into durable, shareable insight. Built by Escherbridge to ingest and share data through AMP’s realtime operational systems.',
+  },
+  {
+    eyebrow: 'Layer 05',
+    title: 'Elevate Impact',
+    partner: 'Research enablement — Elevate Impact',
+    body: 'Turns research questions into finished, expert-checked study designs, with the community at the table. Live in production with the sickle cell community; links to the four layers are in build.',
   },
 ];
 
@@ -111,6 +124,16 @@ export const layerShowcase = [
     image: '/images/stack/fractal-engine.svg',
     status: 'Intelligence_Active',
   },
+  {
+    tab: 'Elevate Impact',
+    eyebrow: 'Layer 05 · Research',
+    title: 'Elevate Impact — questions into study designs',
+    summary:
+      'Research enablement that turns a question into a finished, expert-checked study design. Live with the sickle cell community, where patients join as co-designers, never as subjects. Links to the four layers are in build.',
+    href: '/elevate-impact',
+    image: '/images/stack/elevate-impact.svg',
+    status: 'Research_Live',
+  },
 ];
 
 export const ecosystemPartners = [
@@ -141,6 +164,25 @@ export const ecosystemPartners = [
     image: partnerLogos.escherbridge,
     role: 'Intelligence · Integration',
     body: 'Developer of Fractal Engine and technical steward connecting the modular layers.',
+  },
+  // No logo assets for the entries below; consumers must render a wordmark when `image` is absent.
+  {
+    name: 'Elevate Impact',
+    href: 'https://elevateimpact.com/',
+    role: 'Research enablement · Stack module',
+    body: 'Turns research questions into finished study designs, live with the sickle cell community, where patients join as co-designers, never as subjects. Links to the stack are in build.',
+  },
+  {
+    name: 'OVERSEASGENAI',
+    href: 'https://overseasgenai.com/',
+    role: 'Venture shipyard',
+    body: 'Agentic venture shipyard: idea, grilled, modelled, built, shipped, judged. Led by Ahmad Darwish in partnership with Escherbridge; seven waves, each ending in an honest check.',
+  },
+  {
+    name: 'OPQPWR',
+    href: 'https://opqpwr.com/',
+    role: 'Infrastructure · On-prem',
+    body: 'Opaque Power builds field-deployable racks for power, AI compute, storage, cooling and communications. The starting partner on the path to running the stack on owned, bare-metal hardware.',
   },
 ];
 

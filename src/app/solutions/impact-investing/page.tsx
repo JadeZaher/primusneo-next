@@ -1,5 +1,6 @@
 import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
+import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
 export const metadata = {
   title: 'Impact Investing',
@@ -94,7 +95,9 @@ const ImpactInvestingPage = () => {
       layers={layers}
       useCase={useCase}
       primaryCtaText="Consult on Impact Models"
-    />
+    >
+      <PartnerNote partners={[PARTNERS.elevateImpact]} />
+    </SolutionTemplate>
   );
 };
 

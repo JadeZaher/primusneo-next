@@ -10,15 +10,16 @@ type SanityNewsRow = { title?: string; slug: string; excerpt?: string; sourceNam
 
 const platform = [
   { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, AZOA, and Fractal Engine.' },
-  { path: '/amp', title: 'AMP — Art & Media Platform', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
+  { path: '/amp', title: 'AMP — Operational Runtime / Spatial OS', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
   { path: '/governance-platform', title: 'NEOS Governance Platform', desc: 'Councils, decision rights, contribution accounting, and programmable voting logic.' },
   { path: '/azoa', title: 'AZOA — Autonomous Zones of Action', desc: 'Identity & consent, durable quest workflows, and settlement rails across blockchain and fiat.' },
   { path: '/fractal-engine', title: 'Fractal Engine', desc: 'Analytics + spatial intelligence: predictive ops, simulation, ESG/financial signals.' },
+  { path: '/elevate-impact', title: 'Elevate Impact', desc: 'Research module: turns questions into expert-checked study designs. Live with the sickle cell community; integration with the four layers is in build.' },
 ];
 
 const capital = [
   { path: '/fractionalization', title: 'Fractionalization', desc: 'Asset-backed ownership and participation models for real-world assets.' },
-  { path: '/ico-marketing', title: 'ICO Refit', desc: 'Compliance-first capital design for tokenized offerings.' },
+  { path: '/ico-marketing', title: 'Asset-Backed Participation', desc: 'Compliance-first capital design; subject to securities law and counsel.' },
 ];
 
 const solutions = [
@@ -89,10 +90,18 @@ async function buildBody(): Promise<string> {
   return [
     '# PrimusNeo',
     '',
-    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (spatial OS / digital twin runtime), NEOS (programmable governance and contribution accounting), AZOA (universal interoperability fabric for identity and ownership), and Fractal Engine (analytics + spatial intelligence). LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
+    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (operational runtime / Spatial OS), NEOS (agreements and permissions), AZOA (Autonomous Zones of Action: self-sovereign identity and consent, durable workflows, and settlement across blockchain and fiat; pre-launch, Apache-2.0), and Fractal Engine (intelligence and organizational memory). Elevate Impact is the research module (live sickle cell deployment; integration with the four layers in build). Tie Town [TX] is the first active operational deployment. LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
     '',
     '## Stack & Platform',
     ...platform.map(fmtLine),
+    '',
+    '## Partners',
+    '- PLAN Systems: AMP.',
+    '- OmniOne / Green Earth Vision: NEOS.',
+    '- Escherbridge: Fractal Engine steward and engineering.',
+    '- Elevate Impact: research module.',
+    '- OVERSEASGENAI: agentic venture shipyard.',
+    '- OPQPWR: infrastructure partner for on-prem, bare-metal deployments (starting partnership).',
     '',
     '## Capital',
     ...capital.map(fmtLine),

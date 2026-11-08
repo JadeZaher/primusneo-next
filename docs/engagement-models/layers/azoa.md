@@ -30,6 +30,8 @@ In the language enterprises already know:
 
 AZOA is the layer that makes the federated four-layer stack **a stack** — the value-motion seam through which the other layers act on the world. SurrealDB is its sole data engine; real-world state (chain confirmations, settlement callbacks) is the source of truth, so balances are read, never stored.
 
+**Status and reference consumers.** AZOA is pre-launch (Alpha Gate); real-value bridges are off by default until production custody passes review. Its designed reference consumers are **ArdaNova** (community-owned project platform, first) and **Taawun** (community app builder, second); both are pre-launch, and consumer concepts never enter AZOA primitives. Neither is a live product.
+
 ---
 
 ## 2. License posture

@@ -33,8 +33,8 @@ const capabilities = [
 ];
 
 const rails = [
-  'Solana', 'Wormhole', 'ChainProvider adapters', 'DexAdapter routing',
-  'Fiat settlement partners', 'SurrealDB data engine', 'S3-compatible buckets',
+  'Algorand', 'Solana', 'Ethereum', 'Wormhole', 'ChainProvider adapters', 'DexAdapter routing',
+  'Fiat seam', 'SurrealDB data engine', 'S3-compatible buckets',
   '@azoa/sdk (TypeScript)', '.NET 10 WebAPI', 'ed25519 identity',
   'Visual quest builder', 'Apache-2.0',
 ];
@@ -64,12 +64,12 @@ const AzoaPage = () => {
           </div>
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
             <DreadShape volume={1} id="19" className="absolute -right-6 -bottom-6 opacity-20 rotate-45" size={140} />
-            <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Shipped and hardened</div>
+            <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Pre-launch</div>
             <p className="text-lg leading-8 text-gray-200">
-              The AZOA core is code-complete and security-reviewed: self-sovereign identity with consent delegation, stepwise durable quest execution, a visual quest builder, and SurrealDB as the sole persistence engine — backed by 1,500+ passing unit and integration tests.
+              AZOA is pre-launch (Alpha Gate). Self-sovereign identity and revocable consent are shipped and security-reviewed. Durable quests, a visual quest builder and SurrealDB as the sole data engine are built, with thousands of automated tests written across engine, SDK and interface. Real-value bridges stay off by default until production custody passes review.
             </p>
             <div className="mt-7 relative z-10">
-              <PillList items={['Durable quests', 'Self-sovereign ID', 'Consent grants', 'Holons', 'Chain + fiat rails', 'Exactly-once']} />
+              <PillList items={['Exactly-once by construction', 'Fail closed', 'Reconcile, never guess', 'Escalate to a human']} />
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@ const AzoaPage = () => {
                 One structured seam across chain and fiat
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                New chains plug in via the ChainProvider interface, DEXes via DexAdapter, and fiat partners through an idempotent, KYC-gated bridge seam. SurrealDB is the sole data engine — real-world state is the source of truth, so balances are read, never stored — with S3-compatible buckets as the only other storage surface.
+                Algorand, Solana and Ethereum providers plug in via the ChainProvider interface, DEXes via DexAdapter, and fiat through an idempotent, KYC-gated bridge seam. SurrealDB is the sole data engine — real-world state is the source of truth, so balances are read, never stored — with S3-compatible buckets as the only other storage surface. Because the engine is Apache-2.0, nodes can be self-hosted, including on-prem hardware through infrastructure partner <a href="https://opqpwr.com" target="_blank" rel="noreferrer" className="text-emerald-300 underline-offset-4 hover:underline">OPQPWR</a>; that partnership is a starting point, not a running deployment.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {rails.map((rail) => (

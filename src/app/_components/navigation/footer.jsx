@@ -8,6 +8,7 @@ const columns = [
       { href: '/governance-platform', label: 'NEOS Governance' },
       { href: '/azoa', label: 'AZOA' },
       { href: '/fractal-engine', label: 'Fractal Engine' },
+      { href: '/elevate-impact', label: 'Elevate Impact' },
       { href: '/one-pager', label: 'Stack Overview' },
     ],
   },
@@ -15,7 +16,7 @@ const columns = [
     heading: 'CAPITAL & SECTORS',
     links: [
       { href: '/fractionalization', label: 'Fractionalization' },
-      { href: '/ico-marketing', label: 'ICO Refit' },
+      { href: '/ico-marketing', label: 'Capital Design' },
       { href: '/industries', label: 'Industries' },
       { href: '/solutions', label: 'Solutions' },
       { href: '/blog', label: 'Blog' },
@@ -27,6 +28,9 @@ const columns = [
       { href: 'https://plan-systems.org/', label: 'PLAN Systems ↗', external: true },
       { href: 'https://www.greenearthvision.org/omnione-1', label: 'OmniOne / NEOS ↗', external: true },
       { href: 'https://escherbridge.com/', label: 'Escherbridge ↗', external: true },
+      { href: 'https://elevateimpact.com/', label: 'Elevate Impact ↗', external: true },
+      { href: 'https://overseasgenai.com/', label: 'OVERSEASGENAI ↗', external: true },
+      { href: 'https://opqpwr.com/', label: 'OPQPWR ↗', external: true },
       { href: '/contact', label: 'Contact ↗' },
     ],
   },
@@ -58,7 +62,8 @@ const Footer = () => {
           </div>
           <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-mist">
             Federated operational infrastructure for real-world environments —
-            AMP, NEOS, AZOA, and Fractal Engine in one governed stack.
+            AMP, NEOS, AZOA, and Fractal Engine in one governed stack, with
+            Elevate Impact for research.
           </p>
         </div>
         {columns.map((column) => (

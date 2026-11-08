@@ -147,18 +147,22 @@ const GovernancePlatformPage = () => {
         <DreadShape volume={1} id="12" className="absolute left-[20%] bottom-0 opacity-5" size={160} />
         <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Partner roles" title="Who powers the governance ecosystem">
-            PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims.
+            PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims. Research decisions and their evidence will run through <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Elevate Impact</a>, the research module, once its integration with NEOS (in build) lands.
           </SectionHeader>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {ecosystemPartners.map((partner) => (
-              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className="group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07]">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
+            {ecosystemPartners.map((partner, i) => (
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className={`group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07] ${i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'} ${i === ecosystemPartners.length - 1 && ecosystemPartners.length % 2 === 1 ? 'md:col-span-2 lg:col-span-4' : ''}`}>
                 <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
-                  <Image 
-                    src={partner.image} 
-                    alt={`${partner.name} logo`} 
-                    fill
-                    className="rounded-xl object-contain p-2" 
-                  />
+                  {partner.image ? (
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="rounded-xl object-contain p-2"
+                    />
+                  ) : (
+                    <span className="font-mono text-sm uppercase tracking-[0.22em] text-white/80">{partner.name}</span>
+                  )}
                 </div>
                 <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
                 <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>

@@ -10,6 +10,7 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: '/azoa', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/governance-platform', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/fractal-engine', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/elevate-impact', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/fractionalization', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/ico-marketing', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/contact', changeFrequency: 'yearly', priority: 0.7 },

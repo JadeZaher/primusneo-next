@@ -28,7 +28,7 @@ export const metadata = {
     default: 'PrimusNeo | Federated Operational Infrastructure',
     template: '%s | PrimusNeo',
   },
-  description: 'One source of truth for the real world. PrimusNeo coordinates AMP digital twins, NEOS governance, AZOA interoperability, and Fractal Engine intelligence in one governed, modular stack.',
+  description: 'One source of truth for the real world. PrimusNeo coordinates AMP digital twins, NEOS governance, AZOA interoperability, and Fractal Engine intelligence in one governed, modular stack, with Elevate Impact for research.',
   applicationName: 'PrimusNeo',
   keywords: ['AI', 'Governance', 'Digital Twins', 'Spatial Intelligence', 'Federated Infrastructure', 'Web3', 'Blockchain', 'P2P', 'Real World Assets', 'Coordination Layer'],
   authors: [{ name: 'PrimusNeo' }],
@@ -56,7 +56,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'PrimusNeo | Federated Operational Infrastructure',
-    description: 'Federated operational infrastructure for real-world environments — AMP, NEOS, AZOA, and Fractal Engine in one stack.',
+    description: 'Federated operational infrastructure for real-world environments — AMP, NEOS, AZOA, and Fractal Engine in one stack, with Elevate Impact for research.',
     images: ['/images/ampheader.png'],
   },
   robots: {
