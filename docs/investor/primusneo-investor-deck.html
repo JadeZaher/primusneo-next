@@ -1,0 +1,1232 @@
+<title>PrimusNeo Investor Deck</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="PrimusNeo, the Technology Innovation Lab: investor edition, November 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
+<style>
+/* Layout: a book of 1600×900 plates. Read mode stacks them as an ebook; Present mode scales one plate to the screen. */
+:root{
+  --ink:#0B0C0E; --ink-deep:#060708; --ink-raise:#101218;
+  --paper:#E8E9EB; --mist:#8A8F98; --faint:#757A83;
+  --accent:#4D6BFF; --accent-text:#8FA2FF;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.13); --line-3:rgba(255,255,255,.26);
+  --case-cons:#4D6BFF; --case-ref:#8FA2FF; --case-amb:#D0D9FF;
+  --font-sans:"Archivo","Helvetica Neue",Arial,system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --font-serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --bar-h:52px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink-deep);scroll-behavior:auto}
+body{background:var(--ink);color:var(--paper);font-family:var(--font-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent);color:var(--paper)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;height:var(--bar-h);display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  background:rgba(11,12,14,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:opacity .4s ease}
+.bar-left{display:flex;align-items:baseline;gap:20px;min-width:0}
+.mark{font:500 12px/1 var(--font-mono);letter-spacing:.26em;color:var(--paper);white-space:nowrap}
+.where{font:400 11px/1 var(--font-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--faint);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-right{display:flex;align-items:center;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;background:transparent;border:1px solid var(--line-3);
+  font:400 11px/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--paper);cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.btn:hover{border-color:var(--accent);color:var(--accent-text)}
+.seg{display:inline-flex;border:1px solid var(--line-3)}
+.seg .btn{border:0;height:30px}
+.seg .btn[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--accent);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+@media (max-width:640px){.where{display:none}.bar-left{gap:12px}}
+
+/* ---------- contents panel ---------- */
+.toc{position:fixed;z-index:70;top:calc(env(safe-area-inset-top,0px) + var(--bar-h));right:max(16px,env(safe-area-inset-right,0px));width:min(380px,calc(100vw - 32px));max-height:calc(100vh - var(--bar-h) - 32px);overflow:auto;
+  background:var(--ink-raise);border:1px solid var(--line-2);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+.toc ol{list-style:none;margin:0;padding:8px 0}
+.toc button{display:grid;grid-template-columns:36px 1fr;gap:8px;width:100%;padding:10px 18px;background:none;border:0;text-align:left;cursor:pointer;color:var(--mist);font-size:14px}
+.toc button span:first-child{font:400 11px/1.9 var(--font-mono);letter-spacing:.12em;color:var(--faint)}
+.toc button:hover,.toc button[aria-current="true"]{background:rgba(255,255,255,.04);color:var(--paper)}
+.toc button[aria-current="true"] span:first-child{color:var(--accent-text)}
+
+/* ---------- present controls ---------- */
+.pctl{position:fixed;z-index:55;display:none;align-items:center;gap:8px;
+  bottom:calc(16px + env(safe-area-inset-bottom,0px));right:calc(16px + env(safe-area-inset-right,0px));transition:opacity .4s ease}
+.count{font:400 11px/1 var(--font-mono);letter-spacing:.2em;color:var(--mist);min-width:72px;text-align:center;font-variant-numeric:tabular-nums}
+.icon{width:36px;height:36px;justify-content:center;padding:0;font-size:14px;letter-spacing:0}
+
+/* ---------- slides (shared) ---------- */
+.deck{position:relative}
+.slide{position:relative;container-type:inline-size;background:var(--ink);border-top:1px solid var(--line);overflow:hidden;scroll-margin-top:var(--bar-h)}
+.slide.deep{background:var(--ink-deep)}
+.frame{position:relative;z-index:1;max-width:1600px;margin-inline:auto;display:flex;flex-direction:column;gap:clamp(28px,3cqi,48px);
+  padding-block:clamp(56px,6.5cqi,104px);
+  padding-left:max(16px,env(safe-area-inset-left,0px),5.5cqi);padding-right:max(16px,env(safe-area-inset-right,0px),5.5cqi)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.body-col{display:flex;flex-direction:column;gap:clamp(20px,2.2cqi,36px);min-width:0}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-top:12px;border-top:1px solid var(--line)}
+
+/* ---------- type ---------- */
+.eyebrow{font:400 clamp(10px,.72cqi,12px)/1.5 var(--font-mono);letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
+.eyebrow b{font-weight:400;color:var(--accent-text)}
+.eyebrow a{color:var(--mist);text-decoration:underline;text-decoration-color:var(--line-3);text-underline-offset:3px}
+.eyebrow a:hover{color:var(--accent-text)}
+.h1{margin:0;font-weight:500;font-size:clamp(46px,7.6cqi,128px);line-height:.96;letter-spacing:-.035em;text-wrap:balance;max-width:12ch}
+.h2{margin:0;font-weight:500;font-size:clamp(30px,3.6cqi,58px);line-height:1.04;letter-spacing:-.03em;text-wrap:balance;max-width:22ch}
+.h3{margin:0;font-weight:500;font-size:clamp(19px,1.5cqi,25px);line-height:1.2;letter-spacing:-.012em;text-wrap:balance}
+.lead{margin:0;font-size:clamp(17px,1.36cqi,22px);line-height:1.5;color:var(--mist);max-width:58ch;text-wrap:pretty}
+.lead strong{font-weight:500;color:var(--paper)}
+.txt{margin:0;font-size:clamp(15px,1.06cqi,17.5px);line-height:1.6;color:var(--mist);text-wrap:pretty}
+.txt strong{font-weight:500;color:var(--paper)}
+.epi{margin:0;font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:clamp(19px,1.62cqi,27px);line-height:1.35;color:var(--paper);max-width:40ch;text-wrap:balance}
+.note{margin:0;font:400 clamp(11px,.78cqi,12.5px)/1.6 var(--font-mono);letter-spacing:.04em;color:var(--faint);text-wrap:pretty}
+.note a{color:var(--mist);text-decoration:underline;text-decoration-color:var(--line-3);text-underline-offset:3px}
+.note a:hover{color:var(--accent-text)}
+.metric{font-weight:500;font-size:clamp(34px,3.7cqi,60px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--paper)}
+.metric.sm{font-size:clamp(26px,2.4cqi,40px)}
+.glow{color:var(--accent);text-shadow:0 0 24px rgba(77,107,255,.45)}
+.tag{display:inline-flex;align-items:center;gap:8px;font:400 clamp(10px,.7cqi,11.5px)/1.4 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent-text)}
+.tag.dim{color:var(--faint)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(77,107,255,.8);animation:pulse 2s ease-in-out infinite;flex:none}
+@keyframes pulse{50%{opacity:.35}}
+.mono{font-family:var(--font-mono)}
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+ul.plain li{padding:10px 0;border-top:1px solid var(--line);font-size:clamp(14px,1cqi,16.5px);color:var(--mist);display:grid;grid-template-columns:28px 1fr;gap:4px}
+ul.plain li::before{content:attr(data-k);font:400 11px/1.9 var(--font-mono);letter-spacing:.12em;color:var(--faint)}
+
+/* ---------- grids ---------- */
+.cells{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.cells>*{background:var(--ink);padding:clamp(18px,1.8cqi,30px);min-width:0;display:flex;flex-direction:column;gap:10px}
+.deep .cells>*{background:var(--ink-deep)}
+.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.c5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.c6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4cqi,72px);align-items:end}
+.split.top{align-items:start}
+.split.wide-left{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+.split.wide-right{grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr)}
+.stack{display:flex;flex-direction:column;gap:clamp(14px,1.4cqi,22px);min-width:0}
+
+/* ---------- cover ---------- */
+.cover{min-height:clamp(560px,56.25cqi,900px);display:flex;background:var(--ink)}
+.cover canvas,.why canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cover::after,.why::after{content:"";position:absolute;inset:auto 0 0;height:66%;background:linear-gradient(to top,var(--ink) 18%,rgba(11,12,14,0));pointer-events:none}
+.cover .frame{flex:1;justify-content:flex-end;width:100%}
+.hud{position:absolute;z-index:2;top:clamp(20px,2.4cqi,40px);font:400 clamp(9.5px,.66cqi,11px)/1 var(--font-mono);letter-spacing:.22em;color:rgba(232,233,235,.45);white-space:nowrap}
+.hud.l{left:max(16px,env(safe-area-inset-left,0px),5.5cqi)} .hud.r{right:max(16px,env(safe-area-inset-right,0px),5.5cqi)}
+.cover-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,4cqi,64px);align-items:end}
+.ledger{display:grid;gap:0;border-top:1px solid var(--line-2);font:400 clamp(10.5px,.74cqi,12px)/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase}
+.ledger div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.ledger dt{color:var(--faint)} .ledger dd{margin:0;color:var(--paper);text-align:right}
+.ticker{overflow:hidden;border-block:1px solid var(--line);padding:13px 0;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.ticker>div{display:flex;width:max-content;white-space:nowrap;font:400 clamp(10px,.7cqi,11.5px)/1 var(--font-mono);letter-spacing:.24em;color:var(--faint);animation:marquee 44s linear infinite}
+.ticker span{padding-right:48px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- steps (lab) ---------- */
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--line-2);position:relative}
+.step{position:relative;padding:28px clamp(10px,1.2cqi,22px) 0 0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.step::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;background:var(--ink);border:1px solid var(--accent-text)}
+.deep .step::before{background:var(--ink-deep)}
+.step:last-child::before{background:var(--accent);border-color:var(--accent);box-shadow:0 0 12px rgba(77,107,255,.7)}
+.step .n{font:400 11px/1 var(--font-mono);letter-spacing:.2em;color:var(--accent-text)}
+.step p{margin:0;font-size:clamp(13.5px,.98cqi,15.5px);line-height:1.5;color:var(--mist)}
+
+/* ---------- layer rows (stack) ---------- */
+.rows{border-bottom:1px solid var(--line-2)}
+.lrow{display:grid;grid-template-columns:clamp(48px,4.4cqi,72px) minmax(0,1fr) minmax(0,1.55fr) minmax(0,.95fr);gap:clamp(14px,2cqi,32px);align-items:center;
+  padding:clamp(12px,1.15cqi,18px) 8px;border-top:1px solid var(--line-2);transition:background .3s,padding-left .3s}
+.lrow:hover{background:rgba(255,255,255,.025);padding-left:20px}
+.lrow img,.lrow svg{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.lrow .nm{display:flex;flex-direction:column;gap:4px}
+.lrow .nm b{font-weight:500;font-size:clamp(20px,1.75cqi,30px);letter-spacing:-.02em;line-height:1.1}
+.lrow .st{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+
+/* ---------- matrix ---------- */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mx{width:100%;min-width:760px;border-collapse:collapse}
+.mx th,.mx td{padding:clamp(10px,1cqi,16px) 12px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+.mx thead th{font:400 clamp(10px,.7cqi,11.5px)/1.45 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--line-2);vertical-align:bottom}
+.mx thead th small{display:block;color:var(--accent-text);letter-spacing:.16em;margin-top:4px}
+.mx th[scope=row]{text-align:left;font-weight:400}
+.mx th[scope=row] b{display:block;font-weight:500;font-size:clamp(15px,1.15cqi,19px);color:var(--paper);letter-spacing:-.01em}
+.mx th[scope=row] span{display:block;font-size:clamp(12.5px,.86cqi,14px);color:var(--faint);margin-top:2px}
+.mx tr.us th[scope=row] b{color:var(--accent-text)}
+.mx tr.us td,.mx tr.us th{background:rgba(77,107,255,.06);border-bottom-color:var(--line-2)}
+.mk{display:inline-block;width:13px;height:13px;vertical-align:middle}
+.mk.full{background:var(--accent);box-shadow:0 0 10px rgba(77,107,255,.55)}
+.mk.part{border:1px solid var(--accent-text)}
+.mk.none{width:14px;height:1px;background:var(--line-3)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:8px;font:400 11px/1 var(--font-mono);letter-spacing:.12em;color:var(--mist);text-transform:uppercase}
+
+/* ---------- deals ---------- */
+.deals{border-bottom:1px solid var(--line-2)}
+.drow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2.4fr) minmax(0,.9fr);gap:clamp(14px,2cqi,32px);padding:clamp(12px,1.1cqi,18px) 0;border-top:1px solid var(--line-2);align-items:start}
+.drow .lay{display:flex;flex-direction:column;gap:4px}
+.drow .lay b{font-weight:500;font-size:clamp(16px,1.3cqi,21px);letter-spacing:-.01em}
+.dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 28px;margin:0;padding:0;list-style:none}
+.dl li{display:flex;justify-content:space-between;gap:12px;font-size:clamp(13.5px,.98cqi,15.5px);color:var(--mist);padding-bottom:6px;border-bottom:1px dashed var(--line);min-width:0}
+.dl li b{font-weight:500;color:var(--paper);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dl li.neg{color:var(--faint)} .dl li.neg b{color:var(--faint);font-weight:400}
+.sig{font:400 clamp(10.5px,.74cqi,12px)/1.55 var(--font-mono);letter-spacing:.08em;color:var(--mist)}
+.sig.hot{color:var(--accent-text)}
+
+/* ---------- ladder (growth) ---------- */
+.ladder{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;align-items:end;min-height:clamp(220px,19cqi,300px)}
+.rung{background:var(--ink-raise);border-top:1px solid var(--accent-text);padding:clamp(14px,1.3cqi,22px);display:flex;flex-direction:column;gap:8px;min-width:0}
+.rung:nth-child(1){min-height:44%}.rung:nth-child(2){min-height:58%}.rung:nth-child(3){min-height:72%}.rung:nth-child(4){min-height:86%}.rung:nth-child(5){min-height:100%;border-top-color:var(--accent);box-shadow:inset 0 1px 0 var(--accent)}
+.rung .p{font-weight:500;font-size:clamp(19px,1.6cqi,27px);letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+
+/* ---------- tables ---------- */
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tbl th{font:400 clamp(10px,.7cqi,11.5px)/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:right;padding:0 10px 10px;border-bottom:1px solid var(--line-2);vertical-align:bottom}
+.tbl td{padding:clamp(9px,.85cqi,13px) 10px;border-bottom:1px solid var(--line);text-align:right;font-size:clamp(14px,1.02cqi,16.5px);color:var(--paper);white-space:nowrap}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0;white-space:normal}
+.tbl td:first-child{color:var(--mist)}
+.tbl .hl{background:rgba(143,162,255,.07)}
+.tbl th.hl{color:var(--accent-text)}
+.tbl tfoot td{border-bottom:0;border-top:1px solid var(--line-2);font-weight:500}
+.sw{display:inline-block;width:18px;height:2px;vertical-align:middle;margin-right:8px}
+
+/* ---------- charts ---------- */
+.chart{position:relative;min-width:0}
+.chart svg{display:block;overflow:visible}
+.chart .g{stroke:rgba(255,255,255,.07);stroke-width:1}
+.chart .ax{stroke:rgba(255,255,255,.2);stroke-width:1}
+.chart text{font-family:var(--font-mono);font-size:11.5px;fill:var(--faint);letter-spacing:.04em}
+.chart text.lab{fill:var(--paper);font-size:12.5px}
+.chart text.sub{fill:var(--mist)}
+.chart .cross{stroke:rgba(255,255,255,.35);stroke-width:1}
+.tip{position:absolute;z-index:3;pointer-events:none;min-width:190px;padding:12px 14px;background:rgba(16,18,24,.96);border:1px solid var(--line-2);box-shadow:0 12px 30px rgba(0,0,0,.5);
+  font:400 12px/1.5 var(--font-mono);color:var(--mist)}
+.tip strong{display:block;font-weight:500;color:var(--paper);letter-spacing:.1em;text-transform:uppercase;font-size:11px;margin-bottom:6px}
+.tip div{display:flex;justify-content:space-between;gap:16px}
+.tip div span:last-child{color:var(--paper);font-variant-numeric:tabular-nums}
+details.data{border-top:1px solid var(--line)}
+details.data summary{cursor:pointer;padding:12px 0;font:400 11px/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+details.data summary:hover{color:var(--accent-text)}
+
+/* ---------- budget ---------- */
+.bar100{display:flex;gap:2px;height:14px}
+.bar100 i{display:block;height:100%}
+.uses{display:grid;gap:0}
+.uses div{display:grid;grid-template-columns:22px 1fr auto auto;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:clamp(14px,1cqi,16px);color:var(--mist)}
+.uses div b{font-weight:500;color:var(--paper);font-variant-numeric:tabular-nums}
+.uses div em{font:400 12px/1 var(--font-mono);font-style:normal;color:var(--faint);min-width:52px;text-align:right}
+.uses div.tot{border-bottom:0;border-top:1px solid var(--line-2);color:var(--paper)}
+.uses i{display:block;width:14px;height:14px}
+
+/* ---------- milestones ---------- */
+.miles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--line-2)}
+.mile{position:relative;padding:24px clamp(8px,1cqi,18px) 0 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.mile::before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--accent-text)}
+.mile b{font:500 12px/1 var(--font-mono);letter-spacing:.16em;color:var(--accent-text)}
+.mile span{font-size:clamp(13.5px,.98cqi,15.5px);line-height:1.45;color:var(--paper)}
+
+/* ---------- people ---------- */
+.person{gap:12px}
+.person .role{font:400 clamp(10px,.7cqi,11.5px)/1.6 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.person .org{font:400 clamp(10px,.7cqi,11.5px)/1.6 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.roster .person{gap:4px}
+.roster .person .txt{margin-top:6px}
+
+/* ---------- closing ---------- */
+.why{min-height:clamp(560px,56.25cqi,900px);display:flex}
+.why .frame{flex:1;justify-content:center;width:100%}
+.why .epi{font-size:clamp(22px,2.3cqi,38px);max-width:30ch}
+.why .h2{font-size:clamp(32px,4.4cqi,72px);max-width:20ch}
+
+/* ---------- reveal ---------- */
+.rise{animation:rise .9s cubic-bezier(.2,.65,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+
+/* ---------- container-driven reflow (read mode at narrow widths) ---------- */
+@container (max-width: 980px){
+  .c5,.c6,.steps,.miles{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{row-gap:28px}.miles{row-gap:24px}
+  .split,.split.wide-left,.split.wide-right,.cover-row{grid-template-columns:minmax(0,1fr);align-items:start}
+  .lrow{grid-template-columns:52px minmax(0,1fr)}
+  .lrow .ds,.lrow .st{grid-column:2}
+  .drow{grid-template-columns:minmax(0,1fr)}
+  .ladder{grid-template-columns:minmax(0,1fr);min-height:0;gap:8px}
+  .rung,.rung:nth-child(n){min-height:0}
+}
+@container (max-width: 620px){
+  .c2,.c3,.c4,.c5,.c6,.steps,.miles{grid-template-columns:minmax(0,1fr)}
+  .dl{grid-template-columns:minmax(0,1fr)}
+  .head .eyebrow+.eyebrow{display:none}
+}
+
+/* ---------- present mode ---------- */
+html[data-mode="present"] body{overflow:hidden}
+html[data-mode="present"] .bar{position:fixed;left:0;right:0}
+html[data-mode="present"] .pctl{display:flex}
+html[data-mode="present"].idle .bar,html[data-mode="present"].idle .pctl{opacity:0;pointer-events:none}
+html[data-mode="present"] .deck{position:fixed;inset:0;z-index:1;background:var(--ink-deep);touch-action:pan-y}
+html[data-mode="present"] .slide{position:absolute;left:50%;top:50%;width:1600px;height:900px;min-height:0;margin:-450px 0 0 -800px;transform:scale(var(--s,1));
+  border:0;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility 0s linear .45s}
+html[data-mode="present"] .slide.is-current{opacity:1;visibility:visible;transition:opacity .45s ease}
+html[data-mode="present"] .frame{height:100%;padding:60px 96px 48px;gap:24px}
+html[data-mode="present"] .cells>*{padding:20px 22px;gap:8px}
+html[data-mode="present"] .lrow{grid-template-columns:52px minmax(0,1fr) minmax(0,1.55fr) minmax(0,.95fr);padding:8px}
+html[data-mode="present"] ul.plain li{padding:6px 0}
+html[data-mode="present"] .drow{padding:9px 0}
+html[data-mode="present"] .dl li{padding-bottom:3px}
+html[data-mode="present"] .ladder{min-height:200px}
+html[data-mode="present"] .step{padding-top:22px}
+html[data-mode="present"] .roster>*{padding:14px 22px;gap:3px}
+html[data-mode="present"] .cover .frame,html[data-mode="present"] .why .frame{padding-bottom:64px}
+html[data-mode="present"] details.data{display:none}
+html[data-mode="present"] .grow{flex:1;min-height:0}
+
+@media (prefers-reduced-motion: reduce){
+  .rise{animation:none}
+  .ticker>div,.dot{animation:none}
+  html[data-mode="present"] .slide{transition:none}
+}
+</style>
+
+<header class="bar" id="bar">
+  <div class="bar-left">
+    <span class="mark">PRIMUSNEO</span>
+    <span class="where" id="where">Cover</span>
+  </div>
+  <div class="bar-right">
+    <button class="btn" type="button" id="toc-toggle" aria-expanded="false" aria-controls="toc">Contents</button>
+    <div class="seg" role="group" aria-label="View">
+      <button class="btn" type="button" id="mode-read" aria-pressed="true">Read</button>
+      <button class="btn" type="button" id="mode-present" aria-pressed="false">Present</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<nav class="toc" id="toc" aria-label="Contents" hidden><ol id="toc-list"></ol></nav>
+
+<main class="deck" id="deck">
+
+<!-- ============ COVER ============ -->
+<section class="slide cover" id="cover" data-title="Cover" aria-label="Cover">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <span class="hud l">N_TIMELINES: MANY → 1</span>
+  <span class="hud r">INVESTOR EDITION // NOVEMBER 2026</span>
+  <div class="frame">
+    <div class="stack">
+      <span class="eyebrow r" style="--i:0">PrimusNeo · The Technology Innovation Lab</span>
+      <h1 class="h1 r" style="--i:1">Many timelines. <span class="glow">One line.</span></h1>
+    </div>
+    <div class="cover-row">
+      <p class="lead r" style="--i:2">PrimusNeo brings together the people who live with a problem, the people who hold the tools, and a place to test the answer. Then it lets the evidence decide. <strong>We are raising $1.5 million to open the lab.</strong></p>
+      <dl class="ledger r" style="--i:3">
+        <div><dt>Raise</dt><dd>$1.5M</dd></div>
+        <div><dt>Break-even</dt><dd>Month 13 · reference</dd></div>
+        <div><dt>Live</dt><dd>Tie Town [TX] · Elevate Impact</dd></div>
+      </dl>
+    </div>
+    <div class="ticker" aria-hidden="true"><div>
+      <span>AMP · OPERATIONAL RUNTIME</span><span>NEOS · AGREEMENTS &amp; PERMISSIONS</span><span>AZOA · IDENTITY, CONSENT, SETTLEMENT</span><span>FRACTAL ENGINE · ORGANIZATIONAL MEMORY</span><span>ELEVATE IMPACT · RESEARCH ENABLEMENT</span><span>OVERSEASGENAI · VENTURE SHIPYARD</span><span>OPQPWR · ON-PREM INFRASTRUCTURE</span><span>TIE TOWN [TX] // ONLINE</span><span>PROOF OVER PROMISES</span>
+      <span>AMP · OPERATIONAL RUNTIME</span><span>NEOS · AGREEMENTS &amp; PERMISSIONS</span><span>AZOA · IDENTITY, CONSENT, SETTLEMENT</span><span>FRACTAL ENGINE · ORGANIZATIONAL MEMORY</span><span>ELEVATE IMPACT · RESEARCH ENABLEMENT</span><span>OVERSEASGENAI · VENTURE SHIPYARD</span><span>OPQPWR · ON-PREM INFRASTRUCTURE</span><span>TIE TOWN [TX] // ONLINE</span><span>PROOF OVER PROMISES</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 01 PROBLEM ============ -->
+<section class="slide deep" id="problem" data-title="The problem" aria-label="01 The problem">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>01</b> — The problem</span><span class="eyebrow">Why good work goes unbuilt</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">A grower knows where the food spoils.</p>
+        <h2 class="h2 r" style="--i:1">Good ideas die in conversation.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead r" style="--i:2">Two states away, an engineer has built the scheduler that would save that food. A buyer would pay for the difference. The three never share a table. The idea is spoken, agreed with and left in the room, and next season the food spoils in the same place.</p>
+        <p class="txt r" style="--i:3">Every industry carries this loss. Almost nobody counts it, because nothing was built. <span class="tag dim">Illustrative example</span></p>
+      </div>
+    </div>
+    <div class="cells c4 r" style="--i:4">
+      <div><span class="metric glow">70%</span><p class="txt">of Industry 4.0 pilots never reach scale.</p><span class="note">McKinsey, 2023</span></div>
+      <div><span class="metric">80%</span><p class="txt">average budget overrun on megaprojects, with timelines 20 months late.</p><span class="note">McKinsey, 2024</span></div>
+      <div><span class="metric">31%</span><p class="txt">efficiency gap in public spending.</p><span class="note">IMF</span></div>
+      <div><span class="metric">&lt;10%</span><p class="txt">of organizations using AI have scaled it in any function. 78% use it.</p><span class="note">Stanford HAI, AI Index 2025</span></div>
+    </div>
+    <div class="foot"><span class="note">Figures as cited in PrimusNeo industry research, 2026.</span><span class="note">The gap is coordination: people, tools and places that never meet.</span></div>
+  </div>
+</section>
+
+<!-- ============ 02 LAB ============ -->
+<section class="slide" id="lab" data-title="The lab" aria-label="02 The lab">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>02</b> — The lab</span><span class="eyebrow">Clearing house + innovation lab</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Useful results earn the next step.</p>
+        <h2 class="h2 r" style="--i:1">A clearing house finds the people. A lab finds the proof.</h2>
+      </div>
+      <p class="lead r" style="--i:2">PrimusNeo matches a real need with the knowledge and tools that can meet it. <strong>Elevate Impact, our research partner, turns the question into a study the evidence can answer.</strong> The lab builds a first version, tests it against measures agreed in advance, and lets the evidence choose what happens next. Every project leaves relationships, records and reusable tools behind, so the next one starts with more.</p>
+    </div>
+    <ol class="steps r" style="--i:3" aria-label="The six-step project flow">
+      <li class="step"><span class="n">01</span><span class="h3">Understand the need</span><p>The people who live with the problem describe it.</p></li>
+      <li class="step"><span class="n">02</span><span class="h3">Form the team</span><p>Knowledge, tools and a delivery partner, each one named.</p></li>
+      <li class="step"><span class="n">03</span><span class="h3">Define the test</span><p>The question and its measures, set before anything is built.</p></li>
+      <li class="step"><span class="n">04</span><span class="h3">Build a first version</span><p>Existing tools where they fit. New ones where they don't.</p></li>
+      <li class="step"><span class="n">05</span><span class="h3">Review the evidence</span><p>Against the baseline, in the open.</p></li>
+      <li class="step"><span class="n">06</span><span class="h3">Put it to work</span><p>Expand it, adapt it, or stop.</p></li>
+    </ol>
+    <div class="foot">
+      <span class="note">Four ways a project ends well: research people can use · a tool or service · a lasting partnership · a new company.</span>
+      <span class="note">“You cannot jump to the end. That is the point.”</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 STACK ============ -->
+<section class="slide deep" id="stack" data-title="The machinery" aria-label="03 The machinery">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>03</b> — The machinery</span><span class="eyebrow">Federated, steward-neutral</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Rivals will not build on a platform a rival owns.</p>
+        <h2 class="h2 r" style="--i:1">Four layers. Four stewards. One operating fabric.</h2>
+      </div>
+      <p class="lead r" style="--i:2">No single company owns the stack. A different organization stewards each layer, and the layers meet through shared interfaces, schemas, file formats and permissions. Competitors can build on it without handing their business to one another.</p>
+    </div>
+    <div class="rows r" style="--i:3">
+      <div class="lrow"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgODAwIiBmaWxsPSJub25lIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iIzBCMEMwRSIvPgogIDwhLS0gcGVyc3BlY3RpdmUgZ3JvdW5kIGdyaWQgLS0+CiAgPGcgc3Ryb2tlPSIjMUMyMTJCIiBzdHJva2Utd2lkdGg9IjEiPgogICAgPGxpbmUgeDE9IjQwMCIgeTE9IjMxMCIgeDI9Ii0zMjAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSItODAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSIxMjAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSIyNjAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSIzNjAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSI0NDAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSI1NDAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSI2ODAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSI4ODAiIHkyPSI4MDAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIzMTAiIHgyPSIxMTIwIiB5Mj0iODAwIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzE0MTgyMCIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxsaW5lIHgxPSIwIiB5MT0iMzMwIiB4Mj0iODAwIiB5Mj0iMzMwIi8+CiAgICA8bGluZSB4MT0iMCIgeTE9IjM1NiIgeDI9IjgwMCIgeTI9IjM1NiIvPgogICAgPGxpbmUgeDE9IjAiIHkxPSIzODgiIHgyPSI4MDAiIHkyPSIzODgiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iNDI4IiB4Mj0iODAwIiB5Mj0iNDI4Ii8+CiAgICA8bGluZSB4MT0iMCIgeTE9IjQ3OCIgeDI9IjgwMCIgeTI9IjQ3OCIvPgogICAgPGxpbmUgeDE9IjAiIHkxPSI1NDAiIHgyPSI4MDAiIHkyPSI1NDAiLz4KICAgIDxsaW5lIHgxPSIwIiB5MT0iNjE2IiB4Mj0iODAwIiB5Mj0iNjE2Ii8+CiAgICA8bGluZSB4MT0iMCIgeTE9IjcwOCIgeDI9IjgwMCIgeTI9IjcwOCIvPgogIDwvZz4KICA8bGluZSB4MT0iMCIgeTE9IjMxMCIgeDI9IjgwMCIgeTI9IjMxMCIgc3Ryb2tlPSIjMzk0MDREIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8IS0tIGRpZ2l0YWwgdHdpbiB3aXJlZnJhbWUgdm9sdW1lIG9uIHRoZSBncmlkIC0tPgogIDxnIHN0cm9rZT0iIzRENkJGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiPgogICAgPHBhdGggZD0iTTMxMCA1NjAgTDMxMCA0MzAgTDQ3MCA0MzAgTDQ3MCA1NjAiLz4KICAgIDxwYXRoIGQ9Ik0zMTAgNDMwIEwzNzAgMzgwIEw1MzAgMzgwIEw0NzAgNDMwIi8+CiAgICA8cGF0aCBkPSJNNTMwIDM4MCBMNTMwIDUwMCBMNDcwIDU2MCIvPgogICAgPHBhdGggZD0iTTMxMCA1NjAgTDQ3MCA1NjAiLz4KICA8L2c+CiAgPGcgc3Ryb2tlPSIjMzk0MDREIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjMgNSI+CiAgICA8cGF0aCBkPSJNMzEwIDU2MCBMMzcwIDUwMCBMNTMwIDUwMCIvPgogICAgPHBhdGggZD0iTTM3MCA1MDAgTDM3MCAzODAiLz4KICA8L2c+CiAgPCEtLSBmaWVsZCBub2RlcyB3aXRoIHN0ZW1zIC0tPgogIDxnIHN0cm9rZT0iIzU1NTk1RiIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxsaW5lIHgxPSIxNzAiIHkxPSI2MjAiIHgyPSIxNzAiIHkyPSI1NjAiLz4KICAgIDxsaW5lIHgxPSI2MjAiIHkxPSI1ODAiIHgyPSI2MjAiIHkyPSI1MjAiLz4KICAgIDxsaW5lIHgxPSIyNTAiIHkxPSI0NzAiIHgyPSIyNTAiIHkyPSI0MzAiLz4KICAgIDxsaW5lIHgxPSI1NjAiIHkxPSI2NDAiIHgyPSI1NjAiIHkyPSI1OTAiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iMTcwIiBjeT0iNTU2IiByPSI0IiBmaWxsPSIjNEQ2QkZGIi8+CiAgPGNpcmNsZSBjeD0iNjIwIiBjeT0iNTE2IiByPSI0IiBmaWxsPSIjRThFOUVCIi8+CiAgPGNpcmNsZSBjeD0iMjUwIiBjeT0iNDI2IiByPSIzIiBmaWxsPSIjNTU1OTVGIi8+CiAgPGNpcmNsZSBjeD0iNTYwIiBjeT0iNTg2IiByPSIzIiBmaWxsPSIjNTU1OTVGIi8+CiAgPCEtLSBmcmFtZSArIEhVRCAtLT4KICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSI3NTIiIGhlaWdodD0iNzUyIiBzdHJva2U9IiMyQTJFMzYiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxnIHN0cm9rZT0iIzU1NTk1RiIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxwYXRoIGQ9Ik0yNCA2MCBMMjQgMjQgTDYwIDI0Ii8+CiAgICA8cGF0aCBkPSJNNzQwIDI0IEw3NzYgMjQgTDc3NiA2MCIvPgogICAgPHBhdGggZD0iTTc3NiA3NDAgTDc3NiA3NzYgTDc0MCA3NzYiLz4KICAgIDxwYXRoIGQ9Ik02MCA3NzYgTDI0IDc3NiBMMjQgNzQwIi8+CiAgPC9nPgogIDx0ZXh0IHg9IjUyIiB5PSI3MiIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBsZXR0ZXItc3BhY2luZz0iNCIgZmlsbD0iIzhBOEY5OCI+QU1QIC8vIFNQQVRJQUxfT1M8L3RleHQ+CiAgPHRleHQgeD0iNTIiIHk9Ijk0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5PRkZMSU5FLUNBUEFCTEUgwrcgUFJJVkFDWS1GSVJTVDwvdGV4dD4KICA8dGV4dCB4PSI2NzYiIHk9Ijc1NCIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBsZXR0ZXItc3BhY2luZz0iNCIgZmlsbD0iIzRENkJGRiI+TOKAlDAxPC90ZXh0PgogIDx0ZXh0IHg9IjUyIiB5PSI3NTQiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM1NTU5NUYiPkdST1VORF9UUlVUSDogTElWRTwvdGV4dD4KPC9zdmc+Cg==" alt="AMP emblem: a perspective ground grid"><div class="nm"><b>AMP</b><span class="eyebrow">Operational runtime · Spatial OS</span></div><p class="txt ds">Sees and coordinates the physical site. Offline-first spatial collaboration with an access-management kernel.</p><div class="st"><span class="tag"><span class="dot"></span>Running at Tie Town [TX]</span><span class="note">Steward · PLAN Systems · maps · Maplable</span></div></div>
+      <div class="lrow"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgODAwIiBmaWxsPSJub25lIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iIzBCMEMwRSIvPgogIDwhLS0gaG9sb25pYyByaW5ncyAtLT4KICA8ZyBzdHJva2U9IiMxQzIxMkIiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0MTAiIHI9IjEyMCIvPgogICAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iNDEwIiByPSIyMTAiLz4KICAgIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjQxMCIgcj0iMzAwIi8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjQxMCIgcj0iMTIwIiBzdHJva2U9IiMzOTQwNEQiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iMiA2Ii8+CiAgPCEtLSBlZGdlczogY291bmNpbCBjb3JlIHRvIGlubmVyIGhvbG9ucyAtLT4KICA8ZyBzdHJva2U9IiMzOTQwNEQiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iNDEwIiB4Mj0iNDAwIiB5Mj0iMjkwIi8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iNDEwIiB4Mj0iNTA0IiB5Mj0iNDcwIi8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iNDEwIiB4Mj0iMjk2IiB5Mj0iNDcwIi8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iMjkwIiB4Mj0iMjk1IiB5Mj0iMjI4Ii8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iMjkwIiB4Mj0iNTA1IiB5Mj0iMjI4Ii8+CiAgICA8bGluZSB4MT0iNTA0IiB5MT0iNDcwIiB4Mj0iNjEwIiB5Mj0iNDEwIi8+CiAgICA8bGluZSB4MT0iNTA0IiB5MT0iNDcwIiB4Mj0iNTA1IiB5Mj0iNTkyIi8+CiAgICA8bGluZSB4MT0iMjk2IiB5MT0iNDcwIiB4Mj0iMTkwIiB5Mj0iNDEwIi8+CiAgICA8bGluZSB4MT0iMjk2IiB5MT0iNDcwIiB4Mj0iMjk1IiB5Mj0iNTkyIi8+CiAgICA8bGluZSB4MT0iMjk1IiB5MT0iMjI4IiB4Mj0iMTkyIiB5Mj0iMjkwIi8+CiAgICA8bGluZSB4MT0iNTA1IiB5MT0iMjI4IiB4Mj0iNjA4IiB5Mj0iMjkwIi8+CiAgPC9nPgogIDwhLS0gYWNjZW50IGVkZ2VzOiBhbiBhY3RpdmUgZGVjaXNpb24gcGF0aCAtLT4KICA8ZyBzdHJva2U9IiM0RDZCRkYiIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI0MDAiIHkyPSIyOTAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSIyOTAiIHgyPSI1MDUiIHkyPSIyMjgiLz4KICAgIDxsaW5lIHgxPSI1MDUiIHkxPSIyMjgiIHgyPSI2MDgiIHkyPSIyOTAiLz4KICA8L2c+CiAgPCEtLSBvdXRlciBob2xvbiBub2RlcyAtLT4KICA8ZyBmaWxsPSIjNTU1OTVGIj4KICAgIDxjaXJjbGUgY3g9IjE5MiIgY3k9IjI5MCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNjA4IiBjeT0iMjkwIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSIxOTAiIGN5PSI0MTAiIHI9IjQiLz4KICAgIDxjaXJjbGUgY3g9IjYxMCIgY3k9IjQxMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iMjk1IiBjeT0iNTkyIiByPSI0Ii8+CiAgICA8Y2lyY2xlIGN4PSI1MDUiIGN5PSI1OTIiIHI9IjQiLz4KICA8L2c+CiAgPCEtLSBpbm5lciBob2xvbiBub2RlcyAtLT4KICA8ZyBmaWxsPSIjRThFOUVCIj4KICAgIDxjaXJjbGUgY3g9IjI5NSIgY3k9IjIyOCIgcj0iNSIvPgogICAgPGNpcmNsZSBjeD0iMjk2IiBjeT0iNDcwIiByPSI1Ii8+CiAgICA8Y2lyY2xlIGN4PSI1MDQiIGN5PSI0NzAiIHI9IjUiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iNTA1IiBjeT0iMjI4IiByPSI2IiBmaWxsPSIjNEQ2QkZGIi8+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iMjkwIiByPSI2IiBmaWxsPSIjNEQ2QkZGIi8+CiAgPCEtLSBjb3VuY2lsIGNvcmUgLS0+CiAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iNDEwIiByPSIxMiIgc3Ryb2tlPSIjNEQ2QkZGIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjQxMCIgcj0iNSIgZmlsbD0iI0U4RTlFQiIvPgogIDwhLS0gbm9kZSBsYWJlbHMgLS0+CiAgPHRleHQgeD0iNDIyIiB5PSI0MTYiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM4QThGOTgiPkNPVU5DSUw8L3RleHQ+CiAgPHRleHQgeD0iNTIyIiB5PSIyMjIiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM0RDZCRkYiPkhPTE9OXzA0PC90ZXh0PgogIDx0ZXh0IHg9IjYyOCIgeT0iMjk0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5SQVRJRklFRDwvdGV4dD4KICA8IS0tIGZyYW1lICsgSFVEIC0tPgogIDxyZWN0IHg9IjI0IiB5PSIyNCIgd2lkdGg9Ijc1MiIgaGVpZ2h0PSI3NTIiIHN0cm9rZT0iIzJBMkUzNiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPGcgc3Ryb2tlPSIjNTU1OTVGIiBzdHJva2Utd2lkdGg9IjEiPgogICAgPHBhdGggZD0iTTI0IDYwIEwyNCAyNCBMNjAgMjQiLz4KICAgIDxwYXRoIGQ9Ik03NDAgMjQgTDc3NiAyNCBMNzc2IDYwIi8+CiAgICA8cGF0aCBkPSJNNzc2IDc0MCBMNzc2IDc3NiBMNzQwIDc3NiIvPgogICAgPHBhdGggZD0iTTYwIDc3NiBMMjQgNzc2IEwyNCA3NDAiLz4KICA8L2c+CiAgPHRleHQgeD0iNTIiIHk9IjcyIiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTMiIGxldHRlci1zcGFjaW5nPSI0IiBmaWxsPSIjOEE4Rjk4Ij5ORU9TIC8vIEdPVkVSTkFOQ0U8L3RleHQ+CiAgPHRleHQgeD0iNTIiIHk9Ijk0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5ERUNJU0lPTiBSSUdIVFMgwrcgQ09OVFJJQlVUSU9OIEFDQ09VTlRJTkc8L3RleHQ+CiAgPHRleHQgeD0iNjc2IiB5PSI3NTQiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMyIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiM0RDZCRkYiPkzigJQwMjwvdGV4dD4KICA8dGV4dCB4PSI1MiIgeT0iNzU0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5RVU9SVU06IFJFQUNIRUQ8L3RleHQ+Cjwvc3ZnPgo=" alt="NEOS emblem"><div class="nm"><b>NEOS</b><span class="eyebrow">Agreements &amp; permissions</span></div><p class="txt ds">Councils, charters, decision rights and contribution accounting that outlive the teams that wrote them.</p><div class="st"><span class="tag"><span class="dot"></span>Councils at Tie Town [TX]</span><span class="note">Steward · OmniOne / Green Earth Vision</span></div></div>
+      <div class="lrow"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgODAwIiBmaWxsPSJub25lIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iIzBCMEMwRSIvPgogIDwhLS0gb3JiaXRhbCBndWlkZSAtLT4KICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0MTAiIHI9IjI1MCIgc3Ryb2tlPSIjMUMyMTJCIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8IS0tIHNwb2tlcyAtLT4KICA8ZyBzdHJva2U9IiMzOTQwNEQiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNCA2Ij4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI0MDAiIHkyPSIxNjAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI1NzciIHkyPSIyMzMiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI2NTAiIHkyPSI0MTAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI1NzciIHkyPSI1ODciLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSI0MDAiIHkyPSI2NjAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSIyMjMiIHkyPSI1ODciLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSIxNTAiIHkyPSI0MTAiLz4KICAgIDxsaW5lIHgxPSI0MDAiIHkxPSI0MTAiIHgyPSIyMjMiIHkyPSIyMzMiLz4KICA8L2c+CiAgPCEtLSBhY3RpdmUgcm91dGUgLS0+CiAgPGxpbmUgeDE9IjQwMCIgeTE9IjQxMCIgeDI9IjU3NyIgeTI9IjIzMyIgc3Ryb2tlPSIjNEQ2QkZGIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDwhLS0gc2F0ZWxsaXRlIG5vZGVzIC0tPgogIDxnIHN0cm9rZT0iIzU1NTk1RiIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxyZWN0IHg9IjM5MCIgeT0iMTUwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjY0MCIgeT0iNDAwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjM5MCIgeT0iNjUwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjE0MCIgeT0iNDAwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjU2NyIgeT0iNTc3IiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjIxMyIgeT0iNTc3IiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICAgIDxyZWN0IHg9IjIxMyIgeT0iMjIzIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiLz4KICA8L2c+CiAgPHJlY3QgeD0iNTY3IiB5PSIyMjMiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgc3Ryb2tlPSIjNEQ2QkZGIiBzdHJva2Utd2lkdGg9IjEuNSIvPgogIDwhLS0gaHViIC0tPgogIDxyZWN0IHg9IjM2OCIgeT0iMzc4IiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHN0cm9rZT0iIzRENkJGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cmVjdCB4PSIzODQiIHk9IjM5NCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBzdHJva2U9IiNFOEU5RUIiIHN0cm9rZS13aWR0aD0iMSIvPgogIDx0ZXh0IHg9IjQwMCIgeT0iNDE1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIxIiBmaWxsPSIjRThFOUVCIj5BUEk8L3RleHQ+CiAgPCEtLSBzYXRlbGxpdGUgbGFiZWxzIC0tPgogIDxnIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM1NTU5NUYiPgogICAgPHRleHQgeD0iNDAwIiB5PSIxMzYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNIQUlOUzwvdGV4dD4KICAgIDx0ZXh0IHg9IjU5NiIgeT0iMjE2IiBmaWxsPSIjNEQ2QkZGIj5JREVOVElUWTwvdGV4dD4KICAgIDx0ZXh0IHg9IjY3MiIgeT0iNDE0Ij5TVE9SQUdFPC90ZXh0PgogICAgPHRleHQgeD0iNTk2IiB5PSI2MTgiPkFWQVRBUlM8L3RleHQ+CiAgICA8dGV4dCB4PSI0MDAiIHk9IjY5NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UkVQVVRBVElPTjwvdGV4dD4KICAgIDx0ZXh0IHg9IjIwNCIgeT0iNjE4IiB0ZXh0LWFuY2hvcj0iZW5kIj5XQUxMRVRTPC90ZXh0PgogICAgPHRleHQgeD0iMTI4IiB5PSI0MTQiIHRleHQtYW5jaG9yPSJlbmQiPkNMT1VEPC90ZXh0PgogICAgPHRleHQgeD0iMjA0IiB5PSIyMTYiIHRleHQtYW5jaG9yPSJlbmQiPkRBVEE8L3RleHQ+CiAgPC9nPgogIDwhLS0gZnJhbWUgKyBIVUQgLS0+CiAgPHJlY3QgeD0iMjQiIHk9IjI0IiB3aWR0aD0iNzUyIiBoZWlnaHQ9Ijc1MiIgc3Ryb2tlPSIjMkEyRTM2IiBzdHJva2Utd2lkdGg9IjEiLz4KICA8ZyBzdHJva2U9IiM1NTU5NUYiIHN0cm9rZS13aWR0aD0iMSI+CiAgICA8cGF0aCBkPSJNMjQgNjAgTDI0IDI0IEw2MCAyNCIvPgogICAgPHBhdGggZD0iTTc0MCAyNCBMNzc2IDI0IEw3NzYgNjAiLz4KICAgIDxwYXRoIGQ9Ik03NzYgNzQwIEw3NzYgNzc2IEw3NDAgNzc2Ii8+CiAgICA8cGF0aCBkPSJNNjAgNzc2IEwyNCA3NzYgTDI0IDc0MCIvPgogIDwvZz4KICA8dGV4dCB4PSI1MiIgeT0iNzIiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMyIgbGV0dGVyLXNwYWNpbmc9IjQiIGZpbGw9IiM4QThGOTgiPkFaT0EgLy8gUkFJTFM8L3RleHQ+CiAgPHRleHQgeD0iNTIiIHk9Ijk0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5PTkUgQVBJIEFDUk9TUyBFVkVSWVRISU5HPC90ZXh0PgogIDx0ZXh0IHg9IjY3NiIgeT0iNzU0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTMiIGxldHRlci1zcGFjaW5nPSI0IiBmaWxsPSIjNEQ2QkZGIj5M4oCUMDM8L3RleHQ+CiAgPHRleHQgeD0iNTIiIHk9Ijc1NCIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBsZXR0ZXItc3BhY2luZz0iMyIgZmlsbD0iIzU1NTk1RiI+UFJPVklERVJTOiBBQlNUUkFDVEVEPC90ZXh0Pgo8L3N2Zz4K" alt="AZOA emblem: an orbit of nodes around one active hub"><div class="nm"><b>AZOA</b><span class="eyebrow">Autonomous Zones of Action</span></div><p class="txt ds">Self-sovereign identity and consent, durable quest workflows, and settlement across blockchain and fiat.</p><div class="st"><span class="tag">Alpha Gate · identity &amp; consent reviewed</span><span class="note">Open engine · Apache-2.0</span></div></div>
+      <div class="lrow"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgODAwIiBmaWxsPSJub25lIj4KICA8cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iIzBCMEMwRSIvPgogIDwhLS0gZnJhY3RhbCBjb2xsYXBzZTogdGVsZW1ldHJ5IGxlYXZlcyBmZWVkIHVwd2FyZCBpbnRvIG9uZSBpbnNpZ2h0IGxpbmUgLS0+CiAgPGcgc3Ryb2tlPSIjMzk0MDREIiBzdHJva2Utd2lkdGg9IjEiPgogICAgPCEtLSBsZXZlbCA0IOKGkiBsZWF2ZXMgLS0+CiAgICA8bGluZSB4MT0iMTQ1IiB5MT0iNjIwIiB4Mj0iMTEwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMTQ1IiB5MT0iNjIwIiB4Mj0iMTgwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMjE1IiB5MT0iNjIwIiB4Mj0iMjUwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMjE1IiB5MT0iNjIwIiB4Mj0iMjE1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMjkwIiB5MT0iNjIwIiB4Mj0iMjkwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMjkwIiB5MT0iNjIwIiB4Mj0iMzI1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMzYwIiB5MT0iNjIwIiB4Mj0iMzk1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iMzYwIiB5MT0iNjIwIiB4Mj0iMzYwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNDQwIiB5MT0iNjIwIiB4Mj0iNDQwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNDQwIiB5MT0iNjIwIiB4Mj0iNDc1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNTEwIiB5MT0iNjIwIiB4Mj0iNTQ1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNTEwIiB5MT0iNjIwIiB4Mj0iNTEwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNTg1IiB5MT0iNjIwIiB4Mj0iNTg1IiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNTg1IiB5MT0iNjIwIiB4Mj0iNjIwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNjU1IiB5MT0iNjIwIiB4Mj0iNjkwIiB5Mj0iNjc2Ii8+CiAgICA8bGluZSB4MT0iNjU1IiB5MT0iNjIwIiB4Mj0iNjU1IiB5Mj0iNjc2Ii8+CiAgICA8IS0tIGxldmVsIDMgLS0+CiAgICA8bGluZSB4MT0iMTgwIiB5MT0iNTIwIiB4Mj0iMTQ1IiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iMTgwIiB5MT0iNTIwIiB4Mj0iMjE1IiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iMzI1IiB5MT0iNTIwIiB4Mj0iMjkwIiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iMzI1IiB5MT0iNTIwIiB4Mj0iMzYwIiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iNDc1IiB5MT0iNTIwIiB4Mj0iNDQwIiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iNDc1IiB5MT0iNTIwIiB4Mj0iNTEwIiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iNjIwIiB5MT0iNTIwIiB4Mj0iNTg1IiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iNjIwIiB5MT0iNTIwIiB4Mj0iNjU1IiB5Mj0iNjIwIi8+CiAgICA8IS0tIGxldmVsIDIgLS0+CiAgICA8bGluZSB4MT0iMjUyIiB5MT0iNDAwIiB4Mj0iMTgwIiB5Mj0iNTIwIi8+CiAgICA8bGluZSB4MT0iMjUyIiB5MT0iNDAwIiB4Mj0iMzI1IiB5Mj0iNTIwIi8+CiAgICA8bGluZSB4MT0iNTQ4IiB5MT0iNDAwIiB4Mj0iNDc1IiB5Mj0iNTIwIi8+CiAgICA8bGluZSB4MT0iNTQ4IiB5MT0iNDAwIiB4Mj0iNjIwIiB5Mj0iNTIwIi8+CiAgICA8IS0tIGxldmVsIDEgLS0+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iMjcwIiB4Mj0iMjUyIiB5Mj0iNDAwIi8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iMjcwIiB4Mj0iNTQ4IiB5Mj0iNDAwIi8+CiAgPC9nPgogIDwhLS0gYWNjZW50IHBhdGg6IG9uZSBzaWduYWwgc3VyZmFjZWQgLS0+CiAgPGcgc3Ryb2tlPSIjNEQ2QkZGIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICA8bGluZSB4MT0iNDc1IiB5MT0iNjc2IiB4Mj0iNDQwIiB5Mj0iNjIwIi8+CiAgICA8bGluZSB4MT0iNDQwIiB5MT0iNjIwIiB4Mj0iNDc1IiB5Mj0iNTIwIi8+CiAgICA8bGluZSB4MT0iNDc1IiB5MT0iNTIwIiB4Mj0iNTQ4IiB5Mj0iNDAwIi8+CiAgICA8bGluZSB4MT0iNTQ4IiB5MT0iNDAwIiB4Mj0iNDAwIiB5Mj0iMjcwIi8+CiAgICA8bGluZSB4MT0iNDAwIiB5MT0iMjcwIiB4Mj0iNDAwIiB5Mj0iMTUwIi8+CiAgPC9nPgogIDwhLS0gdGVsZW1ldHJ5IGxlYXZlcyAtLT4KICA8ZyBmaWxsPSIjNTU1OTVGIj4KICAgIDxjaXJjbGUgY3g9IjExMCIgY3k9IjY4MCIgcj0iMyIvPgogICAgPGNpcmNsZSBjeD0iMTgwIiBjeT0iNjgwIiByPSIzIi8+CiAgICA8Y2lyY2xlIGN4PSIyMTUiIGN5PSI2ODAiIHI9IjMiLz4KICAgIDxjaXJjbGUgY3g9IjI1MCIgY3k9IjY4MCIgcj0iMyIvPgogICAgPGNpcmNsZSBjeD0iMjkwIiBjeT0iNjgwIiByPSIzIi8+CiAgICA8Y2lyY2xlIGN4PSIzMjUiIGN5PSI2ODAiIHI9IjMiLz4KICAgIDxjaXJjbGUgY3g9IjM2MCIgY3k9IjY4MCIgcj0iMyIvPgogICAgPGNpcmNsZSBjeD0iMzk1IiBjeT0iNjgwIiByPSIzIi8+CiAgICA8Y2lyY2xlIGN4PSI0NDAiIGN5PSI2ODAiIHI9IjMiLz4KICAgIDxjaXJjbGUgY3g9IjUxMCIgY3k9IjY4MCIgcj0iMyIvPgogICAgPGNpcmNsZSBjeD0iNTQ1IiBjeT0iNjgwIiByPSIzIi8+CiAgICA8Y2lyY2xlIGN4PSI1ODUiIGN5PSI2ODAiIHI9IjMiLz4KICAgIDxjaXJjbGUgY3g9IjYyMCIgY3k9IjY4MCIgcj0iMyIvPgogICAgPGNpcmNsZSBjeD0iNjU1IiBjeT0iNjgwIiByPSIzIi8+CiAgICA8Y2lyY2xlIGN4PSI2OTAiIGN5PSI2ODAiIHI9IjMiLz4KICA8L2c+CiAgPGNpcmNsZSBjeD0iNDc1IiBjeT0iNjgwIiByPSI0IiBmaWxsPSIjNEQ2QkZGIi8+CiAgPCEtLSBqdW5jdGlvbiBub2RlcyAtLT4KICA8ZyBmaWxsPSIjRThFOUVCIj4KICAgIDxjaXJjbGUgY3g9IjI1MiIgY3k9IjQwMCIgcj0iNCIvPgogICAgPGNpcmNsZSBjeD0iNTQ4IiBjeT0iNDAwIiByPSI0Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjQwMCIgY3k9IjI3MCIgcj0iNSIgZmlsbD0iIzRENkJGRiIvPgogIDwhLS0gaW5zaWdodCB0ZXJtaW5hbCAtLT4KICA8Y2lyY2xlIGN4PSI0MDAiIGN5PSIxNDQiIHI9IjYiIHN0cm9rZT0iIzRENkJGRiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSI0MjAiIHk9IjE1MCIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEwIiBsZXR0ZXItc3BhY2luZz0iMyIgZmlsbD0iIzhBOEY5OCI+SU5TSUdIVF9PVVQ8L3RleHQ+CiAgPHRleHQgeD0iNDIwIiB5PSI3MDAiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM1NTU5NUYiPlRFTEVNRVRSWV9JTiDDlzEwMjQ8L3RleHQ+CiAgPCEtLSBmcmFtZSArIEhVRCAtLT4KICA8cmVjdCB4PSIyNCIgeT0iMjQiIHdpZHRoPSI3NTIiIGhlaWdodD0iNzUyIiBzdHJva2U9IiMyQTJFMzYiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxnIHN0cm9rZT0iIzU1NTk1RiIgc3Ryb2tlLXdpZHRoPSIxIj4KICAgIDxwYXRoIGQ9Ik0yNCA2MCBMMjQgMjQgTDYwIDI0Ii8+CiAgICA8cGF0aCBkPSJNNzQwIDI0IEw3NzYgMjQgTDc3NiA2MCIvPgogICAgPHBhdGggZD0iTTc3NiA3NDAgTDc3NiA3NzYgTDc0MCA3NzYiLz4KICAgIDxwYXRoIGQ9Ik02MCA3NzYgTDI0IDc3NiBMMjQgNzQwIi8+CiAgPC9nPgogIDx0ZXh0IHg9IjUyIiB5PSI3MiIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBsZXR0ZXItc3BhY2luZz0iNCIgZmlsbD0iIzhBOEY5OCI+RlJBQ1RBTCAvLyBFTkdJTkU8L3RleHQ+CiAgPHRleHQgeD0iNTIiIHk9Ijk0IiBmb250LWZhbWlseT0iJ0lCTSBQbGV4IE1vbm8nLHVpLW1vbm9zcGFjZSxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjNTU1OTVGIj5URUxFTUVUUlkg4oaSIERVUkFCTEUgSU5TSUdIVDwvdGV4dD4KICA8dGV4dCB4PSI2NzYiIHk9Ijc1NCIgZm9udC1mYW1pbHk9IidJQk0gUGxleCBNb25vJyx1aS1tb25vc3BhY2UsbW9ub3NwYWNlIiBmb250LXNpemU9IjEzIiBsZXR0ZXItc3BhY2luZz0iNCIgZmlsbD0iIzRENkJGRiI+TOKAlDA0PC90ZXh0PgogIDx0ZXh0IHg9IjUyIiB5PSI3NTQiIGZvbnQtZmFtaWx5PSInSUJNIFBsZXggTW9ubycsdWktbW9ub3NwYWNlLG1vbm9zcGFjZSIgZm9udC1zaXplPSIxMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiM1NTU5NUYiPlNJR05BTDogU1VSRkFDRUQ8L3RleHQ+Cjwvc3ZnPgo=" alt="Fractal Engine emblem"><div class="nm"><b>Fractal Engine</b><span class="eyebrow">Intelligence &amp; organizational memory</span></div><p class="txt ds">An archive that learns. Analytics and signals drawn from the operation's own telemetry.</p><div class="st"><span class="tag"><span class="dot"></span>Contributor memory at Tie Town</span><span class="note">Steward · Escherbridge</span></div></div>
+      <div class="lrow"><svg viewBox="0 0 80 80" role="img" aria-label="Elevate Impact emblem: six gated stages on one line"><rect width="80" height="80" fill="#0B0C0E"/><path d="M8 40H72" stroke="#39404D" fill="none"/><g fill="#0B0C0E" stroke="#55595F"><rect x="6" y="36" width="8" height="8"/><rect x="18" y="36" width="8" height="8"/><rect x="30" y="36" width="8" height="8"/><rect x="42" y="36" width="8" height="8"/><rect x="54" y="36" width="8" height="8"/></g><rect x="64" y="34" width="12" height="12" fill="#4D6BFF"/><path d="M16 28V52M28 28V52M40 28V52M52 28V52M64 28V52" stroke="#2A2E36" stroke-dasharray="2 3" fill="none"/></svg><div class="nm"><b>Elevate Impact</b><span class="eyebrow">Research enablement</span></div><p class="txt ds">Turns questions into finished study designs, with the people a problem belongs to at the table.</p><div class="st"><span class="tag"><span class="dot"></span>Live in production</span><span class="note">Research module of the stack</span></div></div>
+    </div>
+    <div class="foot"><span class="note">Connected workflow, in build: AMP brings the field in → Fractal Engine measures → NEOS records the decision → AZOA settles the value.</span><span class="note">IBM and Maersk closed TradeLens in 2022 after rivals declined to join it.</span></div>
+  </div>
+</section>
+
+<!-- ============ 04 RAILS ============ -->
+<section class="slide" id="rails" data-title="The rails" aria-label="04 The rails">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>04</b> — The rails</span><span class="eyebrow">AZOA · open-source settlement engine</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">A workflow you can trust with money.</p>
+        <h2 class="h2 r" style="--i:1">Value moves once, or not at all.</h2>
+      </div>
+      <p class="lead r" style="--i:2">AZOA is the open engine under the stack's money. It carries a multi-step financial workflow to completion across blockchains and fiat. When a result is ambiguous, it waits for the truth. When a workflow is stuck, it hands the decision to a person, with the whole story attached.</p>
+    </div>
+    <div class="cells c4 r" style="--i:3">
+      <div><span class="tag">Exactly once</span><p class="txt">A retried or duplicated step settles once, or not at all. Never twice.</p></div>
+      <div><span class="tag">Fail closed</span><p class="txt">An unverified signature or a lapsed consent grant refuses the action.</p></div>
+      <div><span class="tag">Reconcile, never guess</span><p class="txt">Status comes from the chain or the settlement partner before the next irreversible step.</p></div>
+      <div><span class="tag">Escalate to a person</span><p class="txt">A stuck workflow is flagged for manual intervention, never quietly resolved.</p></div>
+    </div>
+    <div class="split wide-left top r" style="--i:4">
+      <div class="cells c3">
+        <div><span class="metric sm glow">4,800+</span><span class="note">automated tests written across engine, SDK and interface</span></div>
+        <div><span class="metric sm">658</span><span class="note">commits in six months, May to October 2026</span></div>
+        <div><span class="metric sm">39 / 62</span><span class="note">feature tracks shipped in its catalog</span></div>
+      </div>
+      <div class="cells">
+        <div>
+          <span class="eyebrow">First consumers · designed, not live</span>
+          <p class="txt"><strong>ArdaNova.</strong> Community-owned projects: gated participation, task rewards and project tokens, with an Algorand TestNet route first.</p>
+          <p class="txt"><strong>Taawun.</strong> A community app builder for escrowed quests, splits, donations and principal-only loans.</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="note">Alpha Gate. Self-sovereign identity and revocable consent are shipped and security-reviewed. Real-value bridges stay off until production custody passes review.</span><span class="note">Algorand · Solana · Ethereum · fiat seam</span></div>
+  </div>
+</section>
+
+<!-- ============ 04 PROOF ============ -->
+<section class="slide deep" id="proof" data-title="What already stands" aria-label="05 What already stands">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>05</b> — What already stands</span><span class="eyebrow">Proof over promises</span></div>
+    <div class="split top">
+      <h2 class="h2 r" style="--i:0">Proof over promises.</h2>
+      <p class="epi r" style="--i:1">“We don't ship slideware. We extend a system that's already in production.”</p>
+    </div>
+    <div class="cells c2 r" style="--i:2">
+      <div>
+        <span class="tag"><span class="dot"></span>Tie Town [TX] · 30.28° N 97.24° W</span>
+        <span class="h3">McDade, Texas</span>
+        <p class="txt">A media and creator house built to platform the next generation of technologies. It is the stack's first active operational deployment and the reference architecture for every layer.</p>
+        <ul class="plain">
+          <li data-k="A">Coordination for high-scale media production</li>
+          <li data-k="B">Verifiable contributor memory through Fractal Engine</li>
+          <li data-k="C">Programmatic access control for creator facilities</li>
+          <li data-k="D">Governance councils running on NEOS</li>
+        </ul>
+      </div>
+      <div>
+        <span class="tag"><span class="dot"></span>Elevate Impact · live in production</span>
+        <span class="h3">Built with the sickle cell community</span>
+        <p class="txt">“Patients join as co-designers, never as subjects.” Seven courses and eighty lessons, written with clinicians and advocates.</p>
+        <div class="cells c3" style="margin-top:4px">
+          <div><span class="metric sm">1,185</span><span class="note">clinical trials analyzed</span></div>
+          <div><span class="metric sm">3,696</span><span class="note">care &amp; research centres mapped</span></div>
+          <div><span class="metric sm">7,374</span><span class="note">rare diseases catalogued</span></div>
+          <div><span class="metric sm">390+</span><span class="note">API operations</span></div>
+          <div><span class="metric sm">121</span><span class="note">data models</span></div>
+          <div><span class="metric sm">3</span><span class="note">languages</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cells c4 r" style="--i:3">
+      <div><span class="metric sm glow">$250K</span><span class="note">founder capital already committed</span></div>
+      <div><span class="metric sm">4,800+</span><span class="note">automated tests written for the AZOA engine</span></div>
+      <div><span class="metric sm">2</span><span class="note">life-sciences prospects with tailored programme guides, Aug 2026. No contract is claimed.</span></div>
+      <div><span class="metric sm">MBE</span><span class="note">Minority Business Enterprise certified (Elevate Impact)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 PARTNERS ============ -->
+<section class="slide" id="partners" data-title="The partners" aria-label="06 The partners">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>06</b> — The partners</span><span class="eyebrow">Research · engineering · ventures · infrastructure</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Nobody builds a town alone.</p>
+        <h2 class="h2 r" style="--i:1">Four partners, each holding one part of the work.</h2>
+      </div>
+      <p class="lead r" style="--i:2">The lab finds the problem. Elevate Impact builds the evidence. Escherbridge builds and stewards the machinery. OVERSEASGENAI carries a proven result into a company. OPQPWR puts the stack on hardware a community can own.</p>
+    </div>
+    <div class="cells c2 r" style="--i:3">
+      <div>
+        <span class="tag"><span class="dot"></span>Elevate Impact · research partner &amp; stack module</span>
+        <span class="h3">Turns questions into finished study designs.</span>
+        <p class="txt">The stack's research module, live in production with the sickle cell community. People affected by a problem help design the study, and experts check it before anything runs. “Design lives on the platform. Execution does not.”</p>
+        <span class="note">7 courses · 80 lessons · 3 languages · links to the four layers in build</span>
+      </div>
+      <div>
+        <span class="tag">Escherbridge · governance &amp; engineering</span>
+        <span class="h3">Builds and stewards the machinery.</span>
+        <p class="txt">Steward of Fractal Engine. Built the PrimusNeo platform site and the Elevate Impact platform, and publishes SurrealForge, the open database toolkit AZOA runs on. Fractional CTO to startups and nonprofits.</p>
+        <span class="note">Agent memory &amp; MCP · Algorand contracts · enterprise analytics</span>
+      </div>
+      <div>
+        <span class="tag">OVERSEASGENAI · venture shipyard</span>
+        <span class="h3">Idea, grilled, modelled, built, shipped, judged.</span>
+        <p class="txt">Seven waves, each ending in an honest check. Fourteen days after launch the numbers decide whether to scale, pivot or kill, on thresholds set before launch.</p>
+        <span class="note">Live: idea intake, founder accounts, private-preview launch</span>
+      </div>
+      <div>
+        <span class="tag">OPQPWR · infrastructure</span>
+        <span class="h3">The stack on hardware a community can own.</span>
+        <p class="txt">Field-deployable racks that combine power, AI compute, storage, cooling and communications, built for places where the cloud is thin or absent. Our path to a self-service, on-prem, bare-metal stack.</p>
+        <span class="note">Mission Infrastructure Platform · Solar In a Box · partnership starting</span>
+      </div>
+    </div>
+    <div class="foot"><span class="note">“A venture is one possible result. The purpose is to put a useful solution into the world.”</span><span class="note">Studio-built startups reach Series A in 25.2 months against 56 for the field. GSSN 2022, self-reported.</span></div>
+  </div>
+</section>
+
+<!-- ============ 06 MARKET ============ -->
+<section class="slide deep" id="market" data-title="The market" aria-label="07 The market">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>07</b> — The market</span><span class="eyebrow">Ten industries, one coordination layer</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Ten industries. One coordination layer.</p>
+        <h2 class="h2 r" style="--i:1">Every layer sits in a market that is already spending.</h2>
+      </div>
+      <p class="lead r" style="--i:2">We do not need a new market to exist. Cities, operators, research groups and finance teams already buy each piece. They buy them separately, and the pieces do not speak to each other.</p>
+    </div>
+    <div class="split wide-left top r" style="--i:3">
+      <div class="cells c2">
+        <div><span class="eyebrow">Smart cities &amp; community infrastructure</span><span class="metric sm">$699.7B → $1.45T</span><span class="note">2025 → 2030 · 15.6% CAGR · MarketsandMarkets</span></div>
+        <div><span class="eyebrow">Digital twins · AMP</span><span class="metric sm">$21.1B → $149.8B</span><span class="note">2025 → 2030 · 47.9% CAGR · MarketsandMarkets</span></div>
+        <div><span class="eyebrow">Decentralized identity · AZOA</span><span class="metric sm">$3.7B → $258.2B</span><span class="note">2025 → 2033 · 68.2% CAGR · Grand View Research</span></div>
+        <div><span class="eyebrow">Knowledge management · Fractal Engine</span><span class="metric sm">$20.2B → $62.2B</span><span class="note">2024 → 2033 · 13.6% CAGR · Grand View Research</span></div>
+      </div>
+      <div class="cells">
+        <div>
+          <span class="eyebrow"><b>What we need to believe</b></span>
+          <span class="metric glow" style="font-size:clamp(64px,7cqi,112px)">67</span>
+          <p class="txt"><strong>paid deployments over five years, across ten industries.</strong> Two in year one. Thirty in year five.</p>
+          <span class="note">Reference case. Published market sizes vary widely between research houses, so we plan bottom-up.</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="note">Tokenized real-world assets: $38.8B distributed on-chain (rwa.xyz, Sep 2026). BCG sizes the opportunity at $16T by 2030.</span><span class="note">Studio funds: 13% of new venture funds in 2025, up from 6% in 2024 (Decile Group).</span></div>
+  </div>
+</section>
+
+<!-- ============ 07 FIELD ============ -->
+<section class="slide" id="field" data-title="The field" aria-label="08 The field">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>08</b> — The field</span><span class="eyebrow">Competitive landscape</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Each of them owns a room. Nobody owns the hallway.</p>
+        <h2 class="h2 r" style="--i:1">Strong companies hold one layer each. The joins are open.</h2>
+      </div>
+      <div class="stack r" style="--i:2">
+        <p class="lead">Tally, a leading governance tool, wound down in March 2026. Its chief executive said there isn't a venture-backed business in governance tooling for decentralized protocols, “at least not yet.” Governance needs the operations, identity and money around it.</p>
+        <div class="legend" aria-hidden="true"><span><i class="mk full"></i>Core offering</span><span><i class="mk part"></i>Partial</span><span><i class="mk none"></i>Absent</span></div>
+      </div>
+    </div>
+    <div class="scroll r" style="--i:3">
+      <table class="mx">
+        <thead><tr><th scope="col" style="text-align:left">Category</th><th scope="col">Sees the site<small>AMP</small></th><th scope="col">Governs the agreement<small>NEOS</small></th><th scope="col">Settles value &amp; consent<small>AZOA</small></th><th scope="col">Remembers &amp; learns<small>Fractal Engine</small></th><th scope="col">Turns proof into ventures<small>The lab</small></th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><b>Digital twins &amp; spatial</b><span>NVIDIA Omniverse · Bentley iTwin + Cesium · PTC · Cognite</span></th><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk part"></i><span class="sr">partial</span></td><td><i class="mk none"></i><span class="sr">absent</span></td></tr>
+          <tr><th scope="row"><b>Governance tooling</b><span>Snapshot · Aragon · Diligent · Loomio</span></th><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk part"></i><span class="sr">partial</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td></tr>
+          <tr><th scope="row"><b>Identity &amp; settlement</b><span>Entra Verified ID · SpruceID · Stripe + Bridge · MuleSoft</span></th><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td></tr>
+          <tr><th scope="row"><b>Enterprise intelligence</b><span>Palantir Foundry · Glean · Databricks</span></th><td><i class="mk part"></i><span class="sr">partial</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk none"></i><span class="sr">absent</span></td></tr>
+          <tr><th scope="row"><b>Venture studios</b><span>Atomic · High Alpha · AlleyCorp · Expa</span></th><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk none"></i><span class="sr">absent</span></td><td><i class="mk full"></i><span class="sr">core</span></td></tr>
+          <tr class="us"><th scope="row"><b>PrimusNeo</b><span>Federated · cross-layer workflow in build</span></th><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk full"></i><span class="sr">core</span></td><td><i class="mk full"></i><span class="sr">core</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="foot"><span class="note">Category placement is our assessment of each company's primary offering. Tally wind-down: <a href="https://www.theblock.co/amp/post/394026/ethereum-governance-solution-tally-uniswap-arbitrum-others-winding-down" target="_blank" rel="noopener">The Block, Mar 2026</a>.</span></div>
+  </div>
+</section>
+
+<!-- ============ 08 ACQUISITIONS ============ -->
+<section class="slide deep" id="acquisitions" data-title="What acquirers buy" aria-label="09 What acquirers buy">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>09</b> — What acquirers buy</span><span class="eyebrow">Strategic transactions, 2021 – 2026</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Buyers have paid for every layer we join, except one.</p>
+        <h2 class="h2 r" style="--i:1">Acquirers keep paying for the pieces.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Spatial, identity, settlement and intelligence have each drawn billion-dollar buyers. Governance on its own has not. Joined to the other three, it becomes the reason they can work together.</p>
+    </div>
+    <div class="deals r" style="--i:3">
+      <div class="drow"><div class="lay"><b>Spatial &amp; digital twins</b><span class="eyebrow">AMP</span></div><ul class="dl">
+        <li>Scopely → Niantic games, 2025<b>$3.5B</b></li><li>CoStar → Matterport, 2025<b>$1.6B EV</b></li>
+        <li>PTC divests ThingWorx/Kepware, 2025<b>up to $725M</b></li><li>Bentley → Cesium, 2024<b>undisclosed</b></li></ul><span class="sig">Niantic Spatial spun out with $250M.</span></div>
+      <div class="drow"><div class="lay"><b>Identity &amp; consent</b><span class="eyebrow">AZOA</span></div><ul class="dl">
+        <li>Okta → Auth0, 2021<b>~$6.5B</b></li><li>Visa → BioCatch, announced Aug 2026<b>$2.4B</b></li>
+        <li>Thoma Bravo → ForgeRock, 2023<b>$2.3B</b></li></ul><span class="sig">Visa deal pending, expected 2027.</span></div>
+      <div class="drow"><div class="lay"><b>Settlement rails</b><span class="eyebrow">AZOA</span></div><ul class="dl">
+        <li>Mastercard → BVNK, closed Aug 2026<b>up to $1.8B</b></li><li>Stripe → Bridge, 2024<b>~$1.1B reported</b></li>
+        <li>Stripe → Privy, 2025<b>undisclosed</b></li></ul><span class="sig hot">Card networks now buy stablecoin rails.</span></div>
+      <div class="drow"><div class="lay"><b>Intelligence &amp; memory</b><span class="eyebrow">Fractal Engine</span></div><ul class="dl">
+        <li>Salesforce → Informatica, 2025<b>~$8B</b></li><li>ServiceNow → Moveworks, 2025<b>$2.85B</b></li>
+        <li>Workday → Sana, 2025<b>~$1.1B</b></li></ul><span class="sig">The data layer for AI agents.</span></div>
+      <div class="drow"><div class="lay"><b>Governance</b><span class="eyebrow">NEOS</span></div><ul class="dl">
+        <li>Agora → Boardroom, 2025<b>undisclosed</b></li><li class="neg">Tally wound down, 2026<b>—</b></li>
+        <li class="neg">Aragon Association dissolved, 2023<b>—</b></li></ul><span class="sig hot">No standalone buyer yet.</span></div>
+    </div>
+    <div class="foot"><span class="note">Prices as announced by the companies or, where marked “reported,” by the press. Market signals only; nothing here values PrimusNeo.</span></div>
+  </div>
+</section>
+
+<!-- ============ 09 MODEL ============ -->
+<section class="slide" id="model" data-title="How it earns" aria-label="10 How it earns">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>10</b> — How it earns</span><span class="eyebrow">Pricing & unit economics</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Everyone who does the work gets paid.</p>
+        <h2 class="h2 r" style="--i:1">Two prices. Both paid for finished work.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Most of the money arrives as work is delivered: a patient enrolled, a study designed, a paper finished. The deployment fee opens the door. The units are the business.</p>
+    </div>
+    <div class="cells c2 r" style="--i:3">
+      <div>
+        <span class="tag dim">Option A · platform access</span>
+        <span class="metric">$80,000</span>
+        <p class="txt">per organization, per year. Access to the platform and its tools without a delivery engagement.</p>
+      </div>
+      <div>
+        <span class="tag">Option B · platform + delivery</span>
+        <span class="metric">$250K – $400K</span>
+        <p class="txt">per deployment, <strong>plus $20,000 per agreed billable unit</strong>: a patient, a design, a paper. Access is included and never charged twice.</p>
+      </div>
+    </div>
+    <div class="cells c4 r" style="--i:4">
+      <div><span class="metric sm">58.1%</span><span class="note">five-year gross margin</span></div>
+      <div><span class="metric sm">69%</span><span class="note">of revenue from billable units ($50.6M of $73.1M)</span></div>
+      <div><span class="metric sm">61%</span><span class="note">of five-year revenue allocated to Elevate Impact's research enablement ($44.4M of $73.1M), inside the same fees</span></div>
+      <div><span class="metric sm glow">$0</span><span class="note">venture proceeds in every case. Any company the lab starts is upside the model leaves out.</span></div>
+    </div>
+    <div class="foot"><span class="note">Reference case, PrimusNeo Innovation Lab Financial Model v2. Gross margin is revenue less direct delivery, before the core team and overhead. The Lab / Elevate Impact split is a management allocation, not a legal structure.</span></div>
+  </div>
+</section>
+
+<!-- ============ 10 GROWTH ============ -->
+<section class="slide deep" id="growth" data-title="Winning the first 67" aria-label="11 Winning the first 67">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>11</b> — Winning the first 67</span><span class="eyebrow">Go-to-market</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Every pilot is paid. Payment is the commitment signal.</p>
+        <h2 class="h2 r" style="--i:1">A paid ladder from first test to full deployment.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Unpaid proofs of concept are where most pilots go to die. Ours cost something from the first rung, and every fee credits forward in full within 90 days. The buyer's own measured results become the next quote.</p>
+    </div>
+    <ol class="ladder r" style="--i:3" aria-label="Pilot ladder">
+      <li class="rung"><span class="eyebrow">Community pilot</span><span class="p">$4K – $9K</span><span class="note">6 weeks</span></li>
+      <li class="rung"><span class="eyebrow">Proof pilot</span><span class="p">$18K – $45K</span><span class="note">6–10 weeks · 40% conversion target</span></li>
+      <li class="rung"><span class="eyebrow">Production pilot</span><span class="p">$60K – $120K</span><span class="note">10–14 weeks · regulated settings</span></li>
+      <li class="rung"><span class="eyebrow">Deployment</span><span class="p">$250K – $400K</span><span class="note">+ $20K per billable unit</span></li>
+      <li class="rung"><span class="eyebrow"><b>Platform access</b></span><span class="p">$80K / yr</span><span class="note">renewing relationship</span></li>
+    </ol>
+    <div class="cells c4 r" style="--i:4">
+      <div><span class="eyebrow">Reference site</span><p class="txt"><strong>Tie Town [TX].</strong> A working campus buyers can walk through.</p></div>
+      <div><span class="eyebrow">Research network</span><p class="txt"><strong>Elevate Impact.</strong> Patient communities, clinicians and life-sciences organizations.</p></div>
+      <div><span class="eyebrow">Venture pipeline</span><p class="txt"><strong>OVERSEASGENAI.</strong> Founders and operators across the USA, Indonesia and the Middle East.</p></div>
+      <div><span class="eyebrow">Enterprise delivery</span><p class="txt"><strong>Escherbridge.</strong> Enterprise engineering relationships and fractional-CTO work.</p></div>
+    </div>
+    <div class="foot"><span class="note">Sequence: regenerative campuses, co-ops and builder collectives → industrial sites, municipalities, utilities and logistics → enterprise, distributed manufacturing and smart cities.</span></div>
+  </div>
+</section>
+
+<!-- ============ 11 PROJECTIONS ============ -->
+<section class="slide" id="projections" data-title="Five years, three cases" aria-label="12 Five years, three cases">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>12</b> — Five years, three cases</span><span class="eyebrow">Revenue · USD · pre-tax</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Assumptions, not probabilities.</p>
+        <h2 class="h2 r" style="--i:1">Cash stays above zero in all three cases.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Each case runs on the same $1.5 million and no second raise. The reference case reproduces our pricing illustration exactly. The other two move volume, price, delivery cost, staffing and how fast customers pay.</p>
+    </div>
+    <div class="split wide-left top grow r" style="--i:3">
+      <div class="stack">
+        <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--case-cons);height:2px;background-image:none"></i>Conservative</span><span><i class="sw" style="background:var(--case-ref);height:3px"></i>Reference</span><span><i class="sw" style="background:var(--case-amb)"></i>Ambitious</span></div>
+        <div class="chart" id="chart-revenue" aria-label="Annual revenue by case, years one to five"></div>
+      </div>
+      <table class="tbl" aria-label="Five-year results by case">
+        <thead><tr><th>Five years</th><th>Conservative</th><th class="hl">Reference</th><th>Ambitious</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td>$33.9M</td><td class="hl">$73.1M</td><td>$126.3M</td></tr>
+          <tr><td>Operating result</td><td>$9.0M</td><td class="hl">$34.4M</td><td>$62.6M</td></tr>
+          <tr><td>Gross margin</td><td>47.9%</td><td class="hl">58.1%</td><td>57.9%</td></tr>
+          <tr><td>Deployments</td><td>40</td><td class="hl">67</td><td>90</td></tr>
+          <tr><td>Billable units</td><td>1,196</td><td class="hl">2,530</td><td>4,515</td></tr>
+          <tr><td>Operating break-even</td><td>Month 25</td><td class="hl">Month 13</td><td>Month 1</td></tr>
+          <tr><td>Lowest cash</td><td>$41,878</td><td class="hl">$1.28M</td><td>$1.26M</td></tr>
+          <tr><td>Cash at month 60</td><td>$7.8M</td><td class="hl">$32.9M</td><td>$59.1M</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <details class="data"><summary>Show annual revenue</summary>
+      <table class="tbl"><thead><tr><th>Year</th><th>Conservative</th><th class="hl">Reference</th><th>Ambitious</th></tr></thead><tbody>
+        <tr><td>Year 1</td><td>$650,000</td><td class="hl">$1,850,000</td><td>$3,300,000</td></tr>
+        <tr><td>Year 2</td><td>$2,190,000</td><td class="hl">$4,825,000</td><td>$8,400,000</td></tr>
+        <tr><td>Year 3</td><td>$4,860,000</td><td class="hl">$10,250,000</td><td>$18,200,000</td></tr>
+        <tr><td>Year 4</td><td>$10,200,000</td><td class="hl">$21,700,000</td><td>$36,400,000</td></tr>
+        <tr><td>Year 5</td><td>$16,020,000</td><td class="hl">$34,500,000</td><td>$60,000,000</td></tr>
+      </tbody></table>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 12 CASH ============ -->
+<section class="slide deep" id="cash" data-title="The first three years of cash" aria-label="13 The first three years of cash">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>13</b> — The first three years of cash</span><span class="eyebrow">Month-end cash · USD</span></div>
+    <div class="split wide-right top grow">
+      <div class="stack">
+        <p class="epi r" style="--i:0">We raise for the hard road and work for the good one.</p>
+        <h2 class="h2 r" style="--i:1">Sized for the conservative case.</h2>
+        <p class="txt r" style="--i:2">In the reference case the raise is barely touched. Cash never falls below <strong>$1.28 million</strong>, and the lab breaks even in month 13.</p>
+        <p class="txt r" style="--i:3">In the conservative case the same $1.5 million carries two years of operating losses and bottoms out at <strong>$41,878 in month 26</strong>. That is $108,122 under our own $150,000 reserve. We show it here so nobody has to find it later.</p>
+      </div>
+      <div class="stack r" style="--i:4">
+        <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--case-cons)"></i>Conservative</span><span><i class="sw" style="background:var(--case-ref);height:3px"></i>Reference</span><span><i class="sw" style="background:var(--case-amb)"></i>Ambitious</span><span><i class="sw" style="background:var(--faint)"></i>$150K reserve</span></div>
+        <div class="chart" id="chart-cash" aria-label="Month-end cash by case, months 0 to 36"></div>
+      </div>
+    </div>
+    <details class="data"><summary>Show the plotted points</summary>
+      <table class="tbl"><thead><tr><th>Month</th><th>Conservative</th><th class="hl">Reference</th><th>Ambitious</th></tr></thead><tbody id="cash-rows"></tbody></table>
+    </details>
+    <div class="foot"><span class="note">Quarter-end balances plus each case's lowest month. Month 0 is the start of month 1, when the raise lands.</span></div>
+  </div>
+</section>
+
+<!-- ============ 13 BUDGET ============ -->
+<section class="slide" id="budget" data-title="Where the money goes" aria-label="14 Where the money goes">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>14</b> — Where the money goes</span><span class="eyebrow">Year one · reference case</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Year one, line by line.</p>
+        <h2 class="h2 r" style="--i:1">$1.8 million of work, paid for by the raise and the first fees.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Customers pay a month after the work is earned, while the team is paid from the first day. The raise covers that gap and leaves $1.39 million in the bank at the end of the year.</p>
+    </div>
+    <div class="cells c3 r" style="--i:3">
+      <div>
+        <span class="eyebrow">Sources</span>
+        <div class="uses">
+          <div><i style="background:var(--paper)"></i><span>The raise</span><b>$1,500,000</b><em>47%</em></div>
+          <div><i style="background:var(--mist)"></i><span>Customer cash collected</span><b>$1,695,833</b><em>53%</em></div>
+          <div class="tot"><i></i><span>Available in year one</span><b>$3,195,833</b><em></em></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Uses</span>
+        <div class="bar100" aria-hidden="true"><i style="width:42.6%;background:var(--case-cons)"></i><i style="width:42.7%;background:var(--case-ref)"></i><i style="width:12%;background:var(--case-amb)"></i><i style="width:2.7%;background:var(--faint)"></i></div>
+        <div class="uses">
+          <div><i style="background:var(--case-cons)"></i><span>Direct delivery</span><b>$767,500</b><em>42.6%</em></div>
+          <div><i style="background:var(--case-ref)"></i><span>Core team</span><b>$768,814</b><em>42.7%</em></div>
+          <div><i style="background:var(--case-amb)"></i><span>Shared overhead</span><b>$216,000</b><em>12.0%</em></div>
+          <div><i style="background:var(--faint)"></i><span>Setup &amp; equipment</span><b>$50,000</b><em>2.8%</em></div>
+          <div class="tot"><i></i><span>Year-one spending</span><b>$1,802,314</b><em></em></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">The team</span>
+        <span class="metric">6 → 18</span>
+        <p class="txt">people from month 1 to month 60. Lab coordination grows from 2 to 7, Elevate Impact's research enablement from 4 to 11.</p>
+        <span class="note">$9,000 fully loaded per person-month, rising 3% a year. Shared overhead $18,000 a month. Project staff sit in delivery costs.</span>
+        <span class="metric sm" style="margin-top:auto">$1,393,520</span><span class="note">cash at the end of year one</span>
+      </div>
+    </div>
+    <div class="foot"><span class="note">The model sets no separate use-of-funds line. This is its year-one plan in the reference case; in the conservative case the raise also absorbs $763K of operating losses over two years.</span></div>
+  </div>
+</section>
+
+<!-- ============ 14 ASK ============ -->
+<section class="slide deep" id="ask" data-title="The ask" aria-label="15 The ask">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>15</b> — The ask</span><span class="eyebrow">Capital, challenges, ground</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Bring a problem worth solving, knowledge that can help, or a place to test a useful idea.</p>
+        <h2 class="h2 r" style="--i:1">$1.5 million, two first deployments, and ground to test on.</h2>
+      </div>
+      <p class="lead r" style="--i:2">The money opens the lab. The deployments prove the price. The ground is where the evidence comes from. It also funds the open engineering work: connecting Elevate Impact to AMP, NEOS, AZOA and Fractal Engine.</p>
+    </div>
+    <div class="cells c3 r" style="--i:3">
+      <div><span class="eyebrow"><b>Capital</b></span><span class="metric glow">$1.5M</span><p class="txt">Lands in month 1. Carries the conservative case through its lowest month without a second raise.</p></div>
+      <div><span class="eyebrow"><b>First challenges</b></span><span class="metric">2</span><p class="txt">Option B deployments in year one, with 60 billable units between them. The reference plan starts there.</p></div>
+      <div><span class="eyebrow"><b>Ground &amp; partners</b></span><span class="metric">∞</span><p class="txt">Test sites, delivery partners, and introductions to organizations that own a problem worth solving.</p></div>
+    </div>
+    <ol class="miles r" style="--i:4" aria-label="Reference-case milestones">
+      <li class="mile"><b>M1</b><span>Raise lands. Six-person team.</span></li>
+      <li class="mile"><b>M12</b><span>2 deployments delivered. $1.85M revenue.</span></li>
+      <li class="mile"><b>M13</b><span>Operating break-even.</span></li>
+      <li class="mile"><b>M24</b><span>7 deployments to date. $2.68M cash.</span></li>
+      <li class="mile"><b>M36</b><span>17 deployments to date. $6.58M cash.</span></li>
+      <li class="mile"><b>M60</b><span>67 deployments. 18 people. $32.9M cash.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 16 PEOPLE ============ -->
+<section class="slide" id="people" data-title="The people" aria-label="16 The people">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>16</b> — The people</span><span class="eyebrow">Listed alphabetically</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">“Individually we are rare. Together, we are strong.”</p>
+        <h2 class="h2 r" style="--i:1">The people who carry it.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Nine people across the lab, the stack and the first site. They are listed alphabetically, because no part of the work outranks another.</p>
+    </div>
+    <div class="cells c3 roster r" style="--i:3">
+      <div class="person"><span class="h3">Sean Cain</span><span class="role">Operations design</span><span class="org">Co-founder · Elevate Impact</span><p class="txt">Sixteen years making complicated operations simple, across defence, manufacturing, farming and sport.</p></div>
+      <div class="person"><span class="h3">Ahmad Darwish</span><span class="role">Delivery &amp; venture building</span><span class="org">OVERSEASGENAI · Escherbridge</span><p class="txt">Twenty years of enterprise delivery. Author of the Sovereign Agent Protocol for governed AI.</p></div>
+      <div class="person"><span class="h3">Max Gershfield</span><span class="role">Governance &amp; regulatory · NEOS, AZOA</span><span class="org">Nuva Labs</span><p class="txt">Leads governance and regulatory work, from on-chain decision rights to offering rules.</p></div>
+      <div class="person"><span class="h3">Ricardhy Grandoit</span><span class="role">People &amp; programmes</span><span class="org">Founder · Elevate Impact</span><p class="txt">Built MLB's first violence-prevention programme. Led people strategy in global biopharma.</p></div>
+      <div class="person"><span class="h3">Drew O'Meara</span><span class="role">Spatial runtime · AMP</span><span class="org">Creator · AMP SDK</span><p class="txt">Built the kit developers use to build on AMP, the stack's spatial runtime.</p></div>
+      <div class="person"><span class="h3">Josh Pasmore</span><span class="role">Governance architecture · NEOS</span><span class="org">Founder · Green Earth Vision</span><p class="txt">A systems designer of cities and currencies, shaping the decision rights NEOS runs on.</p></div>
+      <div class="person"><span class="h3">Rachel Schnieder</span><span class="role">Site operations · reference site</span><span class="org">Owner-operator · Tie Town [TX]</span><p class="txt">Runs the McDade creator house where the stack first operates and buyers can walk through it.</p></div>
+      <div class="person"><span class="h3">Brandon Wallace</span><span class="role">3D assets &amp; GIS · AMP</span><span class="org">Owner · Maplable</span><p class="txt">Turns real places into maps and 3D assets, so a digital twin stands on true ground.</p></div>
+      <div class="person"><span class="h3">Ahmed Zaher</span><span class="role">Platform engineering · all layers</span><span class="org">Founder · Escherbridge · Senior AI Engineer, Micron</span><p class="txt">Builds the platform and its tools. Ten years in enterprise systems, networks and blockchain.</p></div>
+    </div>
+    <div class="foot"><span class="note">Advisors · the sickle cell advisory group of clinicians and advocates who have shaped Elevate Impact since the beginning.</span></div>
+  </div>
+</section>
+
+<!-- ============ 17 WHY ============ -->
+<section class="slide why" id="why" data-title="Why" aria-label="17 Why">
+  <canvas id="why-canvas" aria-hidden="true"></canvas>
+  <span class="hud l">N_TIMELINES: 1</span>
+  <span class="hud r">PRIMUSNEO.COM</span>
+  <div class="frame">
+    <span class="eyebrow r" style="--i:0"><b>17</b> — Why</span>
+    <p class="epi r" style="--i:1">Somewhere a town has learned to live with a problem. Somewhere else, a person holds the tool that would end it.</p>
+    <p class="lead r" style="--i:2">The distance between them is the whole of our business. We close it with a first test, a fair agreement and a ledger that pays everyone who did the work. When the evidence is good, we build. When it is not, we stop and say so.</p>
+    <h2 class="h2 r" style="--i:3">That is how the lab works. It is also how a decent society works.</h2>
+    <div class="cover-row r" style="--i:4">
+      <span class="tag"><span class="dot"></span>Tie Town [TX] // online</span>
+      <a class="btn" href="https://primusneo.com" target="_blank" rel="noopener" style="justify-self:end">primusneo.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 17 NOTES ============ -->
+<section class="slide" id="notes" data-title="Notes & sources" aria-label="18 Notes and sources">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>18</b> — Notes &amp; sources</span><span class="eyebrow">Read before relying on any figure</span></div>
+    <h2 class="h2">What the numbers are, and what they are not.</h2>
+    <div class="cells c2">
+      <div>
+        <span class="eyebrow">Financial model</span>
+        <p class="note">PrimusNeo Innovation Lab Financial Model, version 2, prepared 11 September 2026. Pre-tax planning model in USD over 60 months; month 1 is October 2026. Pricing and reference volumes are planning assumptions, not contracted sales. The $1.5M is proposed funding, not committed. Opening cash is $0. Venture proceeds are $0 in every case. The model estimates no tax, debt service, valuation or investor return.</p>
+        <p class="note">The split between the PrimusNeo lab and Elevate Impact is an internal management allocation, not a legal ownership structure. Break-even means at least six consecutive non-negative operating months with no later loss.</p>
+        <span class="eyebrow">Status</span>
+        <p class="note">Live: Tie Town [TX]; Elevate Impact's sickle cell deployment. In build: connected workflows between Elevate Impact and AMP, NEOS, AZOA and Fractal Engine. Programme guides for two life-sciences prospects (Aug 2026) are proposals; no contract, payment or sponsorship is claimed. Pilot ladder prices come from PrimusNeo's engagement models (draft, 2026).</p>
+        <p class="note">AZOA is pre-launch (Alpha Gate) with no released version; test and commit counts are static repository counts as of November 2026, not a pass rate. Real-value bridges are disabled by default and wallet creation is simulated outside development. ArdaNova and Taawun are designed consumers with no live deployment; ArdaNova has made no token offering, and any future offering is subject to securities law. OPQPWR is a new infrastructure partner; no on-prem deployment is running yet.</p>
+        <p class="note">Organizations beside people (<a href="https://maplable.com/" target="_blank" rel="noopener">Maplable</a>, <a href="https://www.greenearthvision.org/" target="_blank" rel="noopener">Green Earth Vision</a>, <a href="https://www.nuvalabs.com/" target="_blank" rel="noopener">Nuva Labs</a> and others) identify where each person works and imply no commercial agreement with PrimusNeo.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Market &amp; industry</span>
+        <p class="note">Industry statistics as cited in PrimusNeo engagement research (2026): McKinsey (2023, 2024), IMF, Stanford HAI AI Index 2025. Market sizes: <a href="https://www.marketsandmarkets.com/market-reports/smart-cities-market-542.html" target="_blank" rel="noopener">MarketsandMarkets, smart cities</a>; <a href="https://www.marketsandmarkets.com/ResearchInsight/digital-twin-market-size.asp" target="_blank" rel="noopener">MarketsandMarkets, digital twins</a>; <a href="https://www.grandviewresearch.com/industry-analysis/decentralized-identity-market-report" target="_blank" rel="noopener">Grand View, decentralized identity</a>; <a href="https://www.grandviewresearch.com/industry-analysis/knowledge-management-software-market-report" target="_blank" rel="noopener">Grand View, knowledge management</a>; rwa.xyz via Cointelegraph (Sep 2026); BCG; <a href="https://decilegroup.com/articles/venture-studio-funds-emerging-vc" target="_blank" rel="noopener">Decile Group</a>. Studio performance: GSSN 2022, self-reported.</p>
+        <span class="eyebrow">Transactions</span>
+        <p class="note"><a href="https://www.bentley.com/news/bentley-systems-acquires-3d-geospatial-company-cesium/" target="_blank" rel="noopener">Bentley–Cesium</a> · <a href="https://www.theblock.co/amp/post/410521/mastercard-completes-bvnk-acquisition" target="_blank" rel="noopener">Mastercard–BVNK</a> · <a href="https://newsroom.workday.com/2025-11-04-Workday-Completes-Acquisition-of-Sana" target="_blank" rel="noopener">Workday–Sana</a> · <a href="https://siliconangle.com/2024/10/21/stripe-acquires-stablecoin-infrastructure-startup-bridge/" target="_blank" rel="noopener">Stripe–Bridge (price reported)</a> · <a href="https://siliconangle.com/2025/06/11/stripe-acquires-crypto-wallet-infrastructure-provider-privy/" target="_blank" rel="noopener">Stripe–Privy</a> · <a href="https://techcrunch.com/2025/03/12/pokemon-go-maker-niantic-is-selling-its-games-division-to-scopely-for-3-5b" target="_blank" rel="noopener">Scopely–Niantic</a> · <a href="https://www.businesswire.com/news/home/20250228873241/en/CoStar-Group-Completes-Acquisition-of-Matterport-Ushering-in-a-New-Era-of-3D-Digital-Twins-and-AI-Powered-Real-Estate-Innovation" target="_blank" rel="noopener">CoStar–Matterport</a> · <a href="https://okta.com/press-room/press-releases/okta-signs-agreement-to-acquire-auth0" target="_blank" rel="noopener">Okta–Auth0</a> · <a href="https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-forgerock-combines-forgerock-into-ping-identity" target="_blank" rel="noopener">Thoma Bravo–ForgeRock</a> · <a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22626.html" target="_blank" rel="noopener">Visa–BioCatch</a> · ServiceNow–Moveworks and Salesforce–Informatica per company announcements · PTC–ThingWorx/Kepware per PrimusNeo manufacturing research · Agora–Boardroom per CoinDesk · <a href="https://www.theblock.co/post/261179/aragon-association-to-dissolve-itself-provide-liquidity-for-ant-redemption" target="_blank" rel="noopener">Aragon dissolution</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="pctl" id="pctl">
+  <button class="btn icon" type="button" id="prev" aria-label="Previous slide">←</button>
+  <span class="count" id="count">01 / 19</span>
+  <button class="btn icon" type="button" id="next" aria-label="Next slide">→</button>
+  <button class="btn" type="button" id="fullscreen">Full screen</button>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const slides = [...document.querySelectorAll('.slide')];
+  const pad2 = n => String(n).padStart(2, '0');
+  let mode = 'read', cur = 0;
+  const scale = () => (mode === 'present' ? parseFloat(getComputedStyle(root).getPropertyValue('--s')) || 1 : 1);
+
+  /* ---------- Timelines: 2D-canvas port of the site's HeroTimelines (perspective projection + exp² fog) ---------- */
+  const Timelines = (() => {
+    const N = 42, PTS = 90, Z0 = 4, Z1 = -95, F = 1 / Math.tan(27.5 * Math.PI / 180), FOG = 0.026;
+    const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const frac = v => v - Math.floor(v);
+    const field = Array.from({ length: N }, (_, i) => {
+      const r1 = frac(Math.sin(i * 127.1) * 43758.5453), r2 = frac(Math.sin(i * 311.7) * 12543.853), r3 = frac(Math.sin(i * 74.7) * 9631.31);
+      return { sx: (i / (N - 1) - .5) * 2, ampX: 1.5 + r1 * 7, fX: .05 + r2 * .12, phX: r3 * Math.PI * 2,
+               baseY: .1 + r2 * 2.6, ampY: .3 + r3 * 1.6, fY: .04 + r1 * .1, phY: r1 * Math.PI * 2, accent: i % 9 === 4 };
+    });
+    const pointer = { x: 0, y: 0 };
+    addEventListener('pointermove', e => { pointer.x = (e.clientX / innerWidth - .5) * 2; pointer.y = (e.clientY / innerHeight - .5) * 2; }, { passive: true });
+    const live = new Set(); let raf = 0; const t0 = performance.now();
+
+    function make(canvas, opts) {
+      const ctx = canvas.getContext('2d');
+      const cam = { x: 0, y: 0 }, buf = new Float32Array(PTS * 3), P = new Float32Array(6);
+      let W = 0, H = 0;
+      const r = { opts, active: false };
+      r.size = () => {
+        W = canvas.clientWidth; H = canvas.clientHeight;
+        const dpr = Math.min(2, (devicePixelRatio || 1) * Math.max(1, scale()));
+        canvas.width = Math.max(1, Math.round(W * dpr)); canvas.height = Math.max(1, Math.round(H * dpr));
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        if (reduced || !r.active) r.frame(0, opts.u ?? .72, true);
+      };
+      r.frame = (t, u, still) => {
+        if (!W || !H) return;
+        if (!still) { cam.x += (pointer.x - cam.x) * .04; cam.y += (pointer.y - cam.y) * .04; }
+        const px = cam.x * .9, py = 2 - cam.y * .5, pz = 9;
+        let fx = -px, fy = 1 - py, fz = -34 - pz; const fl = Math.hypot(fx, fy, fz); fx /= fl; fy /= fl; fz /= fl;
+        let rx = -fz, rz = fx; const rl = Math.hypot(rx, rz); rx /= rl; rz /= rl;
+        const ux = -rz * fy, uy = rz * fx - rx * fz, uz = rx * fy;
+        const half = H / 2, cx0 = W / 2;
+        const proj = (x, y, z, out, o) => {
+          const dx = x - px, dy = y - py, dz = z - pz, zc = dx * fx + dy * fy + dz * fz;
+          if (zc < .3) { out[o + 2] = -1; return; }
+          const s = F * half / zc;
+          out[o] = cx0 + (dx * rx + dz * rz) * s; out[o + 1] = half - (dx * ux + dy * uy + dz * uz) * s; out[o + 2] = zc;
+        };
+        const fog = zc => Math.exp(-((FOG * zc) ** 2));
+        ctx.clearRect(0, 0, W, H);
+        ctx.globalCompositeOperation = 'source-over'; ctx.lineWidth = 1;
+        const g = (t * .9) % 2.5, GY = -1.5;
+        for (let k = 0; k < 42; k++) {
+          const z = Z0 - k * 2.5 + g; proj(-70, GY, z, P, 0); proj(70, GY, z, P, 3);
+          if (P[2] < 0 || P[5] < 0) continue;
+          ctx.strokeStyle = `rgba(46,53,66,${.55 * fog(P[2])})`; ctx.beginPath(); ctx.moveTo(P[0], P[1]); ctx.lineTo(P[3], P[4]); ctx.stroke();
+        }
+        for (let x = -70; x <= 70; x += 2.5) {
+          for (let s = 0; s < 7; s++) {
+            const za = Z0 - s * 15, zb = za - 15; proj(x, GY, za, P, 0); proj(x, GY, zb, P, 3);
+            if (P[2] < 0 || P[5] < 0) continue;
+            ctx.strokeStyle = `rgba(46,53,66,${(Math.abs(x) < .1 ? .8 : .5) * fog((P[2] + P[5]) / 2)})`;
+            ctx.beginPath(); ctx.moveTo(P[0], P[1]); ctx.lineTo(P[3], P[4]); ctx.stroke();
+          }
+        }
+        ctx.globalCompositeOperation = 'lighter';
+        const CH = 9;
+        for (const L of field) {
+          for (let j = 0; j < PTS; j++) {
+            const tt = j / (PTS - 1), z = Z0 + (Z1 - Z0) * tt;
+            const k = smooth(.12, .92, tt) * (.3 + .7 * u);
+            const xd = L.sx * (2.2 + 7 * tt) + Math.sin(z * L.fX + L.phX + t * .22) * L.ampX * tt;
+            const yd = L.baseY + Math.sin(z * L.fY + L.phY + t * .16) * L.ampY * tt;
+            proj(xd * (1 - k), yd * (1 - k) + 1.15 * k, z, buf, j * 3);
+          }
+          for (let c = 0; c < PTS - 1; c += CH) {
+            const end = Math.min(PTS - 1, c + CH), mid = buf[((c + end) >> 1) * 3 + 2];
+            if (mid < 0) continue;
+            const a = fog(mid);
+            ctx.beginPath(); let on = false;
+            for (let j = c; j <= end; j++) {
+              const o = j * 3; if (buf[o + 2] < 0) { on = false; continue; }
+              if (on) ctx.lineTo(buf[o], buf[o + 1]); else { ctx.moveTo(buf[o], buf[o + 1]); on = true; }
+            }
+            if (L.accent) {
+              ctx.strokeStyle = `rgba(77,107,255,${.2 * a})`; ctx.lineWidth = 4; ctx.stroke();
+              ctx.strokeStyle = `rgba(77,107,255,${.95 * a})`; ctx.lineWidth = 1.3; ctx.stroke();
+            } else { ctx.strokeStyle = `rgba(78,86,104,${.55 * a})`; ctx.lineWidth = 1; ctx.stroke(); }
+          }
+        }
+        ctx.globalCompositeOperation = 'source-over';
+      };
+      r.setActive = on => {
+        if (r.active === on) return; r.active = on;
+        if (reduced) return;
+        if (on) { live.add(r); if (!raf) raf = requestAnimationFrame(loop); } else live.delete(r);
+      };
+      new ResizeObserver(() => r.size()).observe(canvas);
+      return r;
+    }
+    function loop(now) {
+      raf = 0; if (!live.size) return;
+      const t = (now - t0) / 1000, u = .5 + .5 * Math.sin(t * .24 - Math.PI / 2);
+      live.forEach(r => r.frame(t, r.opts.u ?? u, false));
+      raf = requestAnimationFrame(loop);
+    }
+    return { make };
+  })();
+
+  const hero = Timelines.make(document.getElementById('hero-canvas'), {});
+  const why = Timelines.make(document.getElementById('why-canvas'), { u: 1 });
+  const renderers = new Map([[slides[0], hero], [document.getElementById('why'), why]]);
+
+  /* ---------- charts ---------- */
+  const NS = 'http://www.w3.org/2000/svg';
+  let chartSeq = 0;
+  function lineChart(host, cfg) {
+    const id = 'clip' + (++chartSeq);
+    let lastW = 0;
+    const tip = document.createElement('div'); tip.className = 'tip'; tip.hidden = true;
+    function render() {
+      const W = Math.max(280, host.clientWidth);
+      if (!host.clientWidth || W === lastW) return; lastW = W;
+      const narrow = W < 600;
+      const H = cfg.height(W);
+      const m = { l: narrow ? 50 : 66, r: narrow ? 16 : cfg.right, t: 26, b: 34 };
+      const iw = W - m.l - m.r, ih = H - m.t - m.b;
+      const X = x => m.l + (x - cfg.x.min) / (cfg.x.max - cfg.x.min) * iw;
+      const Y = y => m.t + ih - (Math.min(y, cfg.y.max * 1.04) - cfg.y.min) / (cfg.y.max - cfg.y.min) * ih;
+      let s = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${cfg.label}"><defs><clipPath id="${id}"><rect x="${m.l - 6}" y="${m.t - 4}" width="${iw + 12}" height="${ih + 8}"/></clipPath></defs>`;
+      cfg.y.ticks.forEach(([v, l]) => { s += `<line class="${v === cfg.y.min ? 'ax' : 'g'}" x1="${m.l}" x2="${m.l + iw}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l - 12}" y="${Y(v) + 4}" text-anchor="end">${l}</text>`; });
+      cfg.x.ticks.forEach(([v, l]) => { s += `<text x="${X(v)}" y="${m.t + ih + 22}" text-anchor="middle">${l}</text>`; });
+      if (cfg.reserve) s += `<line x1="${m.l}" x2="${m.l + iw}" y1="${Y(cfg.reserve.y)}" y2="${Y(cfg.reserve.y)}" stroke="var(--faint)" stroke-dasharray="2 4"/><text x="${m.l + 8}" y="${Y(cfg.reserve.y) - 8}" class="sub">${cfg.reserve.label}</text>`;
+      cfg.series.forEach(se => {
+        const d = se.points.map((p, i) => `${i ? 'L' : 'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join('');
+        s += `<path d="${d}" fill="none" stroke="${se.color}" stroke-width="${se.width}" stroke-linejoin="round" stroke-linecap="round" ${se.dash ? `stroke-dasharray="${se.dash}"` : ''} clip-path="url(#${id})"/>`;
+        if (cfg.markers) se.points.forEach(p => { s += `<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="4" fill="${se.color}" stroke="var(--ink)" stroke-width="2"/>`; });
+      });
+      (cfg.notes || []).forEach(n => {
+        const x = X(n.x), y = Y(n.y);
+        s += `<circle cx="${x}" cy="${y}" r="5" fill="var(--ink)" stroke="${n.color}" stroke-width="2"/>`;
+        if (!narrow || n.always) s += `<text x="${x + (n.dx || 10)}" y="${y + (n.dy || -10)}" text-anchor="${n.anchor || 'start'}" class="lab">${n.label}</text>`;
+      });
+      if (!narrow) cfg.series.forEach(se => {
+        const last = se.points[se.points.length - 1];
+        if (last[1] <= cfg.y.max) { s += `<text x="${X(last[0]) + 12}" y="${Y(last[1]) + 4}" class="lab">${se.label}</text><text x="${X(last[0]) + 12}" y="${Y(last[1]) + 20}" class="sub">${se.end || last[2]}</text>`; return; }
+        for (let i = 1; i < se.points.length; i++) {
+          const a = se.points[i - 1], b = se.points[i];
+          if (b[1] > cfg.y.max && a[1] <= cfg.y.max) {
+            const xc = a[0] + (cfg.y.max - a[1]) / (b[1] - a[1]) * (b[0] - a[0]);
+            s += `<text x="${X(xc) + 10}" y="${m.t + (se.exitRow || 0) * 16 + 2}" class="lab">↑ ${se.label}</text><text x="${X(xc) + 10}" y="${m.t + (se.exitRow || 0) * 16 + 18}" class="sub">${se.end}</text>`;
+            break;
+          }
+        }
+      });
+      s += `<line class="cross" x1="0" x2="0" y1="${m.t}" y2="${m.t + ih}" visibility="hidden"/><g class="hov"></g><rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent" class="hit"/></svg>`;
+      host.innerHTML = s; host.appendChild(tip); tip.hidden = true;
+      const svg = host.querySelector('svg'), cross = svg.querySelector('.cross'), hov = svg.querySelector('.hov');
+      const xs = [...new Set(cfg.series.flatMap(se => se.points.map(p => p[0])))].sort((a, b) => a - b);
+      const move = e => {
+        const rc = svg.getBoundingClientRect(), k = W / rc.width;
+        const lx = (e.clientX - rc.left) * k, xv = cfg.x.min + (lx - m.l) / iw * (cfg.x.max - cfg.x.min);
+        let nx = xs[0]; xs.forEach(v => { if (Math.abs(v - xv) < Math.abs(nx - xv)) nx = v; });
+        cross.setAttribute('x1', X(nx)); cross.setAttribute('x2', X(nx)); cross.setAttribute('visibility', 'visible');
+        let rows = '', dots = '';
+        cfg.series.slice().reverse().forEach(se => {
+          const p = se.points.find(q => q[0] === nx); if (!p) return;
+          rows += `<div><span><i class="sw" style="background:${se.color}"></i>${se.label}</span><span>${p[2]}</span></div>`;
+          if (p[1] <= cfg.y.max) dots += `<circle cx="${X(nx)}" cy="${Y(p[1])}" r="5" fill="${se.color}" stroke="var(--ink)" stroke-width="2"/>`;
+        });
+        hov.innerHTML = dots;
+        tip.innerHTML = `<strong>${cfg.x.name(nx)}</strong>${rows}`; tip.hidden = false;
+        const tw = tip.offsetWidth, left = X(nx) + 16 + tw > W ? X(nx) - 16 - tw : X(nx) + 16;
+        tip.style.left = left + 'px'; tip.style.top = (m.t + 6) + 'px';
+      };
+      svg.addEventListener('pointermove', move);
+      svg.addEventListener('pointerdown', move);
+      svg.addEventListener('pointerleave', () => { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); hov.innerHTML = ''; });
+    }
+    new ResizeObserver(render).observe(host);
+    render();
+  }
+
+  const M = v => '$' + (v / 1e6).toFixed(2) + 'M';
+  lineChart(document.getElementById('chart-revenue'), {
+    label: 'Annual revenue by case, years one to five', right: 150, markers: true,
+    height: W => Math.round(Math.min(440, Math.max(260, W * .5))),
+    x: { min: 1, max: 5, ticks: [[1, 'YEAR 1'], [2, 'YEAR 2'], [3, 'YEAR 3'], [4, 'YEAR 4'], [5, 'YEAR 5']], name: v => 'Year ' + v },
+    y: { min: 0, max: 60e6, ticks: [[0, '$0'], [15e6, '$15M'], [30e6, '$30M'], [45e6, '$45M'], [60e6, '$60M']] },
+    series: [
+      { label: 'Conservative', color: 'var(--case-cons)', width: 2, dash: '7 5', points: [[1, .65e6, '$0.65M'], [2, 2.19e6, '$2.19M'], [3, 4.86e6, '$4.86M'], [4, 10.2e6, '$10.20M'], [5, 16.02e6, '$16.02M']] },
+      { label: 'Reference', color: 'var(--case-ref)', width: 3, points: [[1, 1.85e6, '$1.85M'], [2, 4.825e6, '$4.83M'], [3, 10.25e6, '$10.25M'], [4, 21.7e6, '$21.70M'], [5, 34.5e6, '$34.50M']] },
+      { label: 'Ambitious', color: 'var(--case-amb)', width: 2, points: [[1, 3.3e6, '$3.30M'], [2, 8.4e6, '$8.40M'], [3, 18.2e6, '$18.20M'], [4, 36.4e6, '$36.40M'], [5, 60e6, '$60.00M']] }
+    ]
+  });
+
+  const cashCons = [[0, 1500000], [1, 1350292], [3, 1200923], [6, 1047823], [9, 882368], [12, 704556], [15, 435386], [18, 410156], [21, 372199], [24, 321516], [26, 41878], [27, 122374], [30, 355125], [33, 574767], [36, 781301]];
+  const cashRef = [[0, 1500000], [1, 1314042], [3, 1344967], [6, 1377626], [9, 1393810], [12, 1393520], [13, 1283506], [15, 1553654], [18, 1944736], [21, 2318850], [24, 2675994], [27, 3339732], [30, 4438076], [33, 5518942], [36, 6582330]];
+  const cashAmb = [[0, 1500000], [1, 1264250], [3, 1433597], [6, 1664737], [9, 1868419], [12, 2044644], [15, 2499612], [18, 3351298], [21, 4174702], [24, 4969826], [27, 6323756], [30, 8465224], [33, 10577562], [36, 12660769]];
+  const usd = v => '$' + Math.round(v).toLocaleString('en-US');
+  const withLabel = a => a.map(([x, y]) => [x, y, usd(y)]);
+  lineChart(document.getElementById('chart-cash'), {
+    label: 'Month-end cash by case, months 0 to 36, axis capped at $2.5M', right: 170,
+    height: W => Math.round(Math.min(560, Math.max(280, W * .6))),
+    x: { min: 0, max: 36, ticks: [[0, 'M0'], [6, 'M6'], [12, 'M12'], [18, 'M18'], [24, 'M24'], [30, 'M30'], [36, 'M36']], name: v => v === 0 ? 'Raise lands' : 'Month ' + v },
+    y: { min: 0, max: 2.5e6, ticks: [[0, '$0'], [.5e6, '$0.5M'], [1e6, '$1.0M'], [1.5e6, '$1.5M'], [2e6, '$2.0M'], [2.5e6, '$2.5M']] },
+    reserve: { y: 150000, label: '$150K reserve' },
+    series: [
+      { label: 'Conservative', color: 'var(--case-cons)', width: 2, dash: '7 5', points: withLabel(cashCons), end: '$781,301 · M36' },
+      { label: 'Reference', color: 'var(--case-ref)', width: 3, points: withLabel(cashRef), end: '$32.9M by M60', exitRow: 1 },
+      { label: 'Ambitious', color: 'var(--case-amb)', width: 2, points: withLabel(cashAmb), end: '$59.1M by M60', exitRow: 0 }
+    ],
+    notes: [
+      { x: 26, y: 41878, color: 'var(--case-cons)', label: 'Low: $41,878 · month 26', dx: 12, dy: -12, always: true },
+      { x: 13, y: 1283506, color: 'var(--case-ref)', label: 'Low: $1.28M · month 13', dx: 0, dy: 24, anchor: 'middle' }
+    ]
+  });
+  document.getElementById('cash-rows').innerHTML = [...new Set([...cashCons, ...cashRef].map(p => p[0]))].sort((a, b) => a - b).map(mo => {
+    const f = arr => { const p = arr.find(q => q[0] === mo); return p ? usd(p[1]) : '—'; };
+    return `<tr><td>${mo === 0 ? 'Raise lands' : 'Month ' + mo}</td><td>${f(cashCons)}</td><td class="hl">${f(cashRef)}</td><td>${f(cashAmb)}</td></tr>`;
+  }).join('');
+
+  /* ---------- reveal ---------- */
+  const play = el => { if (reduced) return; el.classList.remove('rise'); void el.offsetWidth; el.classList.add('rise'); };
+  const seen = new WeakSet();
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting && mode === 'read' && !seen.has(e.target)) { seen.add(e.target); play(e.target); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px 12% 0px' });
+  document.querySelectorAll('.r').forEach(el => io.observe(el));
+
+  /* ---------- canvas visibility in read mode ---------- */
+  const vis = new IntersectionObserver(es => es.forEach(e => {
+    const r = renderers.get(e.target); if (r && mode === 'read') r.setActive(e.isIntersecting);
+  }));
+  renderers.forEach((_, el) => vis.observe(el));
+
+  /* ---------- deck controller ---------- */
+  const where = document.getElementById('where'), progress = document.getElementById('progress'), count = document.getElementById('count');
+  const tocBtn = document.getElementById('toc-toggle'), toc = document.getElementById('toc'), tocList = document.getElementById('toc-list');
+  const bRead = document.getElementById('mode-read'), bPresent = document.getElementById('mode-present');
+  tocList.innerHTML = slides.map((s, i) => `<li><button type="button" data-i="${i}"><span>${i ? pad2(i) : '—'}</span><span>${s.dataset.title}</span></button></li>`).join('');
+
+  function label(i) { where.textContent = (i ? pad2(i) + ' — ' : '') + slides[i].dataset.title; tocList.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', j === i ? 'true' : 'false')); }
+  function fit() { root.style.setProperty('--s', Math.min(innerWidth / 1600, innerHeight / 900).toFixed(4)); }
+
+  function show(i, animate) {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, j) => {
+      const on = j === cur; s.classList.toggle('is-current', on);
+      if (on) { s.removeAttribute('inert'); s.removeAttribute('aria-hidden'); } else { s.setAttribute('inert', ''); s.setAttribute('aria-hidden', 'true'); }
+    });
+    renderers.forEach((r, el) => r.setActive(el === slides[cur]));
+    if (animate) slides[cur].querySelectorAll('.r').forEach(play);
+    count.textContent = `${pad2(cur + 1)} / ${pad2(slides.length)}`;
+    progress.style.setProperty('--p', (cur / (slides.length - 1)).toFixed(4));
+    label(cur);
+  }
+  function go(i) {
+    if (mode === 'present') { if (i !== cur) show(i, true); }
+    else slides[Math.max(0, Math.min(slides.length - 1, i))].scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  }
+  function setMode(m) {
+    if (m === mode) return;
+    mode = m; root.dataset.mode = m;
+    bRead.setAttribute('aria-pressed', m === 'read'); bPresent.setAttribute('aria-pressed', m === 'present');
+    if (m === 'present') { fit(); show(cur, true); poke(); }
+    else {
+      slides.forEach(s => { s.classList.remove('is-current'); s.removeAttribute('inert'); s.removeAttribute('aria-hidden'); });
+      root.classList.remove('idle');
+      slides[cur].scrollIntoView({ block: 'start' });
+      renderers.forEach(r => r.setActive(false));
+      requestAnimationFrame(() => renderers.forEach((r, el) => { const b = el.getBoundingClientRect(); r.setActive(b.bottom > 0 && b.top < innerHeight); }));
+      onScroll();
+    }
+    try { localStorage.setItem('pn-deck-mode', m); } catch (e) { /* storage unavailable */ }
+  }
+
+  function onScroll() {
+    if (mode !== 'read') return;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+    const line = innerHeight * .35; let i = 0;
+    slides.forEach((s, j) => { if (s.getBoundingClientRect().top <= line) i = j; });
+    if (i !== cur || where.textContent === '') { cur = i; label(i); }
+  }
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; onScroll(); }); } }, { passive: true });
+  addEventListener('resize', () => { if (mode === 'present') fit(); });
+
+  let idleTimer = 0;
+  function poke() { root.classList.remove('idle'); clearTimeout(idleTimer); if (mode === 'present') idleTimer = setTimeout(() => root.classList.add('idle'), 2600); }
+  addEventListener('pointermove', poke, { passive: true });
+
+  bRead.addEventListener('click', () => setMode('read'));
+  bPresent.addEventListener('click', () => setMode('present'));
+  document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+  document.getElementById('next').addEventListener('click', () => go(cur + 1));
+  document.getElementById('fullscreen').addEventListener('click', () => {
+    try { const p = document.fullscreenElement ? document.exitFullscreen() : root.requestFullscreen(); if (p && p.catch) p.catch(() => {}); } catch (e) { /* not available here */ }
+  });
+  tocBtn.addEventListener('click', () => { toc.hidden = !toc.hidden; tocBtn.setAttribute('aria-expanded', String(!toc.hidden)); });
+  tocList.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; toc.hidden = true; tocBtn.setAttribute('aria-expanded', 'false'); go(+b.dataset.i); });
+  document.addEventListener('click', e => { if (!toc.hidden && !toc.contains(e.target) && e.target !== tocBtn) { toc.hidden = true; tocBtn.setAttribute('aria-expanded', 'false'); } });
+
+  addEventListener('keydown', e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'Escape') { if (!toc.hidden) { toc.hidden = true; tocBtn.setAttribute('aria-expanded', 'false'); return; } if (mode === 'present') setMode('read'); return; }
+    if (mode !== 'present') { if (e.key === 'p' || e.key === 'P') setMode('present'); return; }
+    const next = ['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'], prev = ['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'];
+    if (next.includes(e.key)) { e.preventDefault(); go(cur + 1); }
+    else if (prev.includes(e.key)) { e.preventDefault(); go(cur - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(slides.length - 1); }
+  });
+
+  let sx = null, sy = null;
+  const deck = document.getElementById('deck');
+  deck.addEventListener('pointerdown', e => { if (mode === 'present' && e.pointerType !== 'mouse') { sx = e.clientX; sy = e.clientY; } });
+  deck.addEventListener('pointerup', e => {
+    if (sx === null) return; const dx = e.clientX - sx, dy = e.clientY - sy; sx = sy = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1));
+  });
+
+  /* ---------- start ---------- */
+  const fromHash = slides.findIndex(s => '#' + s.id === location.hash);
+  let saved = null; try { saved = localStorage.getItem('pn-deck-mode'); } catch (e) { /* storage unavailable */ }
+  root.dataset.mode = 'read'; label(0);
+  if (fromHash > 0) { cur = fromHash; slides[cur].scrollIntoView({ block: 'start' }); label(cur); }
+  if (saved === 'present' && innerWidth >= 900) setMode('present');
+  else onScroll();
+})();
+</script>

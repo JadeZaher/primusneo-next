@@ -52,7 +52,7 @@ const AMPPage = () => {
           <div>
             <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">AMP</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              Art and Media Platform (AMP) for peer-to-peer coordination.
+              AMP: the operational runtime and Spatial OS for peer-to-peer coordination.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
               AMP has been building privacy-first, offline-capable spatial collaboration tools for years. Its PLAN 3D interface, data channels, swarm file sharing, and community OS workflows give PrimusNeo a proven foundation for spatial governance.
@@ -65,7 +65,7 @@ const AMPPage = () => {
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
             <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Maturity</div>
             <p className="text-lg leading-8 text-gray-200">
-              AMP is not a concept. It is a working spatial operating system with deployed community networks, field-tested peer-to-peer infrastructure, and years of development behind its architecture.
+              AMP is not a concept. It is a working spatial operating system, running today at Tie Town [TX], with field-tested peer-to-peer infrastructure and years of development behind its architecture.
             </p>
             <div className="mt-7">
               <PillList items={['Spatial OS', 'P2P networking', 'Offline-first', 'PLAN 3D', 'Data channels', 'Community governance']} />
@@ -104,7 +104,7 @@ const AMPPage = () => {
                 Privacy-first, offline-capable, community-owned
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                AMP contributes more than technology. It contributes a design philosophy: communities should own their spatial data, collaborate without cloud dependency, and interact through both 2D and 3D interfaces that respect local context.
+                AMP contributes more than technology. It contributes a design philosophy: communities should own their spatial data, collaborate without cloud dependency, and interact through both 2D and 3D interfaces that respect local context. For self-service, on-prem, bare-metal sites, OPQPWR is the infrastructure partner: modular, field-deployable racks of power, compute, storage and communications. That path is a starting partnership, not a running deployment.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {workflows.map((item) => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
-import { ContrarianInsight, IndustrySources } from '../../_components/IndustryExtras';
+import { ContrarianInsight, IndustrySources, PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
 export const metadata = {
   title: 'Healthcare & Life Sciences — Industries',
@@ -91,6 +91,7 @@ export default function HealthcareIndustryPage() {
       <ContrarianInsight attribution="PrimusNeo — Healthcare Brief">
         Healthcare&rsquo;s productivity crisis isn&rsquo;t a clinical problem — it&rsquo;s an <em>identity</em> problem. The system that puts patients in control of their own portable health graph will quietly out-perform every vertically integrated incumbent.
       </ContrarianInsight>
+      <PartnerNote partners={[PARTNERS.elevateImpact]} />
       <IndustrySources sources={sources} />
     </SolutionTemplate>
   );

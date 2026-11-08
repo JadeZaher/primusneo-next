@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 const tickerItems =
-  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · CRYPTO INCENTIVES · ';
+  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · RESEARCH ENABLEMENT · CRYPTO INCENTIVES · ';
 
 const operatingModel = [
   {
@@ -143,7 +143,7 @@ const Home = () => {
           <div className="mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <MonoLabel>02 — Architecture</MonoLabel>
             <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
-              Four layers. One stack.
+              Four coordination layers and a research module.
             </h2>
           </div>
           <div className="border-b border-white/10">
@@ -274,9 +274,15 @@ const Home = () => {
               Built with aligned builders.
             </h2>
           </div>
-          <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-12">
+            {/* Seven partners: first four span 3 of 12 columns, last three span 4 — no orphan cell */}
             {ecosystemPartners.map((partner, i) => (
-              <div key={partner.name} className="bg-ink">
+              <div
+                key={partner.name}
+                className={`bg-ink ${
+                  i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'
+                } ${i === ecosystemPartners.length - 1 && i % 2 === 0 ? 'sm:col-span-2' : ''}`}
+              >
                 <Reveal delay={i * 80} className="h-full">
                   <a
                     href={partner.href}

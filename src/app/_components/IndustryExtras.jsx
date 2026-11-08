@@ -71,4 +71,60 @@ export const IndustrySources = ({ sources = [] }) => {
   );
 };
 
+/**
+ * Partner panel. Each partner: { name, role, body, href, linkLabel, external? }.
+ */
+export const PartnerNote = ({ partners = [], eyebrow = 'Partners', title = 'Who we build with' }) => {
+  if (!partners.length) return null;
+  return (
+    <section className="px-4 py-20 border-t border-white/5">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeader eyebrow={eyebrow} title={title} />
+        <div className={`grid gap-6 ${partners.length > 1 ? 'md:grid-cols-2' : 'mx-auto max-w-3xl'}`}>
+          {partners.map((partner) => (
+            <div key={partner.name} className="flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.045] p-6">
+              <div className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-emerald-300/80">{partner.role}</div>
+              <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
+              <p className="flex-1 text-base leading-7 text-gray-300">{partner.body}</p>
+              <a
+                href={partner.href}
+                {...(partner.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="mt-5 text-sm font-semibold text-emerald-300 hover:text-emerald-200"
+              >
+                {partner.linkLabel} &rarr;
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const PARTNERS = {
+  elevateImpact: {
+    name: 'Elevate Impact',
+    role: 'Research enablement',
+    body: 'The stack’s research module. It brings the people affected into the work, prepares the research and keeps the learning. Live in production with the sickle cell community; links to the four layers are in build.',
+    href: '/elevate-impact',
+    linkLabel: 'See Elevate Impact',
+  },
+  opqpwr: {
+    name: 'OPQPWR (Opaque Power)',
+    role: 'Infrastructure partner',
+    body: 'Mission Infrastructure Platform: modular, field-deployable racks combining power, AI compute, storage, cooling and communications, for places where infrastructure is limited, contested or unavailable. A starting partnership toward a self-service, on-prem, bare-metal PrimusNeo stack; not yet a running deployment.',
+    href: 'https://opqpwr.com/',
+    linkLabel: 'opqpwr.com',
+    external: true,
+  },
+  overseasgenai: {
+    name: 'OVERSEASGENAI',
+    role: 'Venture shipyard',
+    body: 'An agentic venture shipyard (idea → grilled → modelled → built → shipped → judged), led by Ahmad Darwish in partnership with Escherbridge. A route for builders who need a venture shaped, not only a stack.',
+    href: 'https://overseasgenai.com/',
+    linkLabel: 'overseasgenai.com',
+    external: true,
+  },
+};
+
 export default ContrarianInsight;

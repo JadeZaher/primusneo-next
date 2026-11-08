@@ -110,12 +110,12 @@ const IcoMarketing = () => {
         <div className="absolute right-0 top-0 -z-10 h-[560px] w-[560px] rounded-full bg-emerald-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div>
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">ICO page refit</div>
+            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Capital design</div>
             <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
               From token marketing to asset-backed fractionalization.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              This page no longer positions PrimusNeo as a speculative ICO. It reframes the prior tier model into compliant fractional ownership, contribution accounting, QUSDC-compatible distribution rails, and governed participation around real-world assets, software ecosystems, and regenerative infrastructure.
+              This page does not position PrimusNeo as a speculative token sale. It reframes the prior tier model into compliant fractional ownership, contribution accounting, QUSDC-compatible distribution rails, and governed participation around real-world assets, software ecosystems, and regenerative infrastructure.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/fractionalization">Fractionalization model</GradientButton>

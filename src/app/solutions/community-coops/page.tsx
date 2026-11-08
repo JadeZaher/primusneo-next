@@ -1,5 +1,6 @@
 import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
+import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
 export const metadata = {
   title: 'Community & Cooperatives',
@@ -94,7 +95,9 @@ const CommunityCoopsPage = () => {
       layers={layers}
       useCase={useCase}
       primaryCtaText="Consult on Creator Models"
-    />
+    >
+      <PartnerNote partners={[PARTNERS.opqpwr]} />
+    </SolutionTemplate>
   );
 };
 

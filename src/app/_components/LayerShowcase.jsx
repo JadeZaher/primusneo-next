@@ -121,9 +121,11 @@ export default function LayerShowcase({ layers = [] }) {
       </div>
 
       {/* Tab strip — jump directly to any layer */}
-      <div className="mt-12 grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-5">
         {layers.map((layer, i) => {
           const isActive = i === active;
+          // Odd final tab spans both columns on two-column layouts so no empty cell shows.
+          const spansRow = i === count - 1 && count % 2 === 1;
           return (
             <button
               key={layer.href}
@@ -132,6 +134,8 @@ export default function LayerShowcase({ layers = [] }) {
               aria-label={`Show ${layer.tab}`}
               aria-current={isActive}
               className={`group relative overflow-hidden px-5 py-4 text-left transition-colors ${
+                spansRow ? 'sm:col-span-2 lg:col-span-1' : ''
+              } ${
                 isActive
                   ? 'bg-white/[0.05] text-paper'
                   : 'bg-ink-deep text-faint hover:bg-white/[0.03] hover:text-paper'

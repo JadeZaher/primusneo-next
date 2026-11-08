@@ -143,7 +143,7 @@ const FractalEnginePage = () => {
                 Developed by Escherbridge
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Escherbridge leads the development of Fractal Engine and provides integration support for partners building on the PrimusNeo stack. They bridge high-level architecture with production delivery.
+                Escherbridge leads the development of Fractal Engine and provides integration support for partners building on the PrimusNeo stack. They bridge high-level architecture with production delivery. Research decisions and evidence will connect through <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Elevate Impact</a>, the research module, whose integration with the four layers is in build.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {features.map((item) => (

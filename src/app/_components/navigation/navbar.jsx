@@ -15,16 +15,17 @@ import { Button } from '../ui/button';
 import { cn } from '../../../lib/utils';
 
 const platformItems = [
-  { href: '/amp', label: 'AMP', desc: 'Art and Media Platform' },
+  { href: '/amp', label: 'AMP', desc: 'Operational runtime and Spatial OS' },
   { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
   { href: '/azoa', label: 'AZOA', desc: 'Identity, quests, and settlement rails' },
   { href: '/fractal-engine', label: 'Fractal Engine', desc: 'Analytics and spatial intelligence' },
+  { href: '/elevate-impact', label: 'Elevate Impact', desc: 'Research enablement and study design' },
   { href: '/one-pager', label: 'Stack Overview', desc: 'The complete platform at a glance' },
 ];
 
 const capitalItems = [
   { href: '/fractionalization', label: 'Fractionalization', desc: 'Asset-backed ownership and participation' },
-  { href: '/ico-marketing', label: 'ICO Refit', desc: 'Compliance-first capital design' },
+  { href: '/ico-marketing', label: 'Capital Design', desc: 'Compliance-first capital design' },
 ];
 
 const Navbar = () => {
@@ -178,7 +179,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className={cn(
         "border-t border-white/10 bg-ink/95 backdrop-blur-2xl md:hidden transition-all duration-300 overflow-hidden",
-        isMenuOpen ? 'max-h-[640px] opacity-100' : 'max-h-0 opacity-0'
+        isMenuOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
       )}>
         <div className="px-4 py-4 space-y-5">
           {/* Platform group */}
@@ -189,6 +190,7 @@ const Navbar = () => {
               <MobileLink href="/governance-platform" onClick={closeMenu}>Governance Platform</MobileLink>
               <MobileLink href="/azoa" onClick={closeMenu}>AZOA</MobileLink>
               <MobileLink href="/fractal-engine" onClick={closeMenu}>Fractal Engine</MobileLink>
+              <MobileLink href="/elevate-impact" onClick={closeMenu}>Elevate Impact</MobileLink>
             </div>
           </div>
 
@@ -197,7 +199,7 @@ const Navbar = () => {
             <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Capital</div>
             <div className="space-y-1">
               <MobileLink href="/fractionalization" onClick={closeMenu}>Fractionalization</MobileLink>
-              <MobileLink href="/ico-marketing" onClick={closeMenu}>ICO Refit</MobileLink>
+              <MobileLink href="/ico-marketing" onClick={closeMenu}>Capital Design</MobileLink>
             </div>
           </div>
 

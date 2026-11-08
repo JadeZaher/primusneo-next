@@ -1,5 +1,6 @@
 import React from 'react';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
+import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
 export const metadata = {
   title: 'AI & Spatial Intelligence',
@@ -94,7 +95,9 @@ const AIIntelligencePage = () => {
       layers={layers}
       useCase={useCase}
       primaryCtaText="Consult on Physical AI"
-    />
+    >
+      <PartnerNote partners={[PARTNERS.elevateImpact]} />
+    </SolutionTemplate>
   );
 };
 

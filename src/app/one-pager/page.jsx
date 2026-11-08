@@ -23,7 +23,11 @@ const productOfferings = [
   },
   {
     title: 'Value Rails + Incentive Systems',
-    content: 'AZOA provides self-sovereign identity and consent, durable quest workflows, token and reward flows, and settlement rails across blockchain and fiat.',
+    content: 'AZOA provides self-sovereign identity and consent, durable quest workflows, token and reward flows, and settlement rails across blockchain and fiat. Pre-launch.',
+  },
+  {
+    title: 'Research Enablement',
+    content: 'Elevate Impact, the stack’s research module, turns questions into finished, expert-checked study designs. It is live in production with the sickle cell community; integration with the four layers is in build.',
   },
 ];
 
@@ -177,12 +181,12 @@ const OnePager = () => {
           <DreadShape volume={1} id="20" className="absolute right-0 top-0 opacity-10 rotate-12" size={140} />
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center relative z-10">
             <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Builders Commons</div>
+              <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Tie Town [TX]</div>
               <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                The First Operational Pilot
+                The First Active Deployment
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Builders Commons serves as the first operational proving ground. It demonstrates real-world operational coordination using the full ecosystem stack to validate architecture, interoperability, digital twin systems, and governance coordination.
+                Tie Town [TX], a media and creator house in McDade, Texas, is the first active operational deployment and the reference architecture. It demonstrates real-world operational coordination to validate architecture, interoperability, digital twin systems, and governance coordination.
               </p>
               <div className="mt-8">
                   <GradientButton href="/contact">Join the Federation</GradientButton>
@@ -194,6 +198,23 @@ const OnePager = () => {
                 A sustainable ecosystem built on enterprise deployments, infrastructure licensing, coordination subscriptions, integration contracts, and analytics services. Secondary streams include training, certification, and marketplace integrations.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader eyebrow="Partners" title="Who builds with PrimusNeo" />
+          <div className="grid gap-6 md:grid-cols-3">
+            <InsightCard title="Elevate Impact">
+              Research module. Patients join as co-designers, never as subjects. <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Learn more</a>.
+            </InsightCard>
+            <InsightCard title="OVERSEASGENAI">
+              Agentic venture shipyard led by Ahmad Darwish with Escherbridge: idea, grilled, modelled, built, shipped, judged. Carries lab results that justify a company into a venture.
+            </InsightCard>
+            <InsightCard title="OPQPWR">
+              Infrastructure partner for self-service, on-prem, bare-metal deployments: field-deployable racks of power, compute, storage and communications. A starting partnership, not a running deployment.
+            </InsightCard>
           </div>
         </div>
       </section>
