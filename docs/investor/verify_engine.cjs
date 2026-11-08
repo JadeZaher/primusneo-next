@@ -1,4 +1,4 @@
-// Checks calc-engine.js against the Innovation Lab Financial Model v2 outputs. Run: node docs/investor/verify_engine.cjs
+// Checks calc-engine.js against the Innovation Lab Financial Model v2 and the engagement-model price ladder. Run: node docs/investor/verify_engine.cjs
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -21,29 +21,37 @@ for (const [caseKey, want] of Object.entries(expected)) {
   assert.equal(got.breakEven, want.breakEven, `${caseKey}.breakEven`);
 }
 
-// The enterprise path stays closed below its minimum budget and opens above it, shortening the wait for a $1M month.
+// A Mid full-stack deal prices like the engagement models' worked example: ~$555K licence after 25% off,
+// ~$1.11M services, ~$122K Silver upkeep, $1.85-2.0M year one including $60-180K of infrastructure we do not book.
+const mid = LabModel.priceDeal(LabModel.DEFAULT_DEAL, 'M', 0.22);
+assert.equal(mid.discount, 0.25, 'four layers earn the full-stack discount');
+assert.ok(Math.abs(mid.licence - 555000) / 555000 < 0.03, `licence ${mid.licence}`);
+assert.ok(mid.services > 950000 && mid.services < 1150000, `services ${mid.services}`);
+assert.ok(Math.abs(mid.support - 122000) / 122000 < 0.03, `support ${mid.support}`);
+assert.equal(mid.renewal, mid.licence + mid.support, 'renewals are licence plus support');
+const twoLayers = LabModel.priceDeal({ modules: { amp: true, fractal: true } }, 'M', 0.22);
+assert.equal(twoLayers.discount, 0.10, 'two layers earn 10% off');
+
+// Large deals stay closed below their minimum budget and open above it, shortening the wait for a $1M month.
 const small = LabModel.simulate({ investment: 1500000 });
 const large = LabModel.simulate({ investment: 10000000 });
-assert.equal(small.enterpriseOpen, false, 'enterprise closed at $1.5M');
-assert.equal(small.enterpriseDeployments, 0, 'no enterprise deployments while closed');
-assert.equal(large.enterpriseOpen, true, 'enterprise open at $10M');
+assert.equal(small.enterpriseOpen, false, 'large deals closed at $1.5M');
+assert.equal(small.enterpriseDeployments, 0, 'no large deals while closed');
+assert.equal(large.enterpriseOpen, true, 'large deals open at $10M');
 assert.ok(large.scaleMonth < small.scaleMonth, 'more capital reaches a $1M month sooner');
-assert.ok(large.multiple > small.multiple, 'each dollar brings back more once enterprise opens');
+assert.ok(large.multiple > small.multiple, 'each dollar brings back more once large deals open');
 
-// Growth spend has diminishing returns: doubling it buys fewer than double the deployments.
+// Growth spend has diminishing returns: doubling it buys fewer than double the deals.
 const plan = { ...LabModel.DEFAULT_PLAN, growth: { sales: 1, marketing: 0, acquisition: 0, enterprise: 0 } };
 const g1 = LabModel.simulate({ investment: 3000000, plan }), g2 = LabModel.simulate({ investment: 5100000, plan });
-assert.ok(g2.midDeployments > g1.midDeployments && g2.midDeployments < 2 * g1.midDeployments, 'returns diminish');
+assert.ok(g2.platformDeployments > g1.platformDeployments && g2.platformDeployments < 2 * g1.platformDeployments, 'returns diminish');
 
-// Support renewals add revenue only after a deployment's first year, and the reference average deployment is model v2's $73.125M over 67.
-const withSupport = LabModel.simulate({ investment: 1500000, plan: LabModel.HOLD_PLAN });
-const noSupport = LabModel.simulate({ investment: 1500000, plan: LabModel.HOLD_PLAN, assumptions: LabModel.PLAN_ASSUMPTIONS });
-assert.ok(withSupport.support5 > 0 && withSupport.revenue5 > noSupport.revenue5, 'support adds revenue');
-assert.equal(withSupport.revenue[12], noSupport.revenue[12], 'no support revenue inside the first year');
-assert.ok(Math.abs(noSupport.avgDeployment - 73125000 / 67) < 1, 'average deployment matches model v2');
+// Choosing no modules sells nothing, so selling spend adds no revenue.
+const none = LabModel.simulate({ investment: 3000000, deal: { size: 'M', modules: { amp: false, neos: false, azoa: false, fractal: false, ei: false } } });
+assert.equal(none.platform5, 0, 'an empty deal books no platform revenue');
 
 // With no investment the reference plan runs short of cash, and the shortfall month is reported.
-const none = LabModel.simulate({ investment: 0 });
-assert.ok(none.shortfall !== null && none.minCash < 0, 'zero investment shows a shortfall');
+const zero = LabModel.simulate({ investment: 0 });
+assert.ok(zero.shortfall !== null && zero.minCash < 0, 'zero investment shows a shortfall');
 
-console.log('engine matches model v2 for all three cases; enterprise, growth and shortfall checks pass');
+console.log('engine matches model v2 and the price ladder; large-deal, growth and shortfall checks pass');
