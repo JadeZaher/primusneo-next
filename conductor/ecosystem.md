@@ -45,7 +45,7 @@ One team with no internal hierarchy (team decision, 2026-11-08). No one is more 
 | Devin Johnson | Energy & AI infrastructure | Physical (OPQPWR) | Founder & CEO, Sol-Cap; CTO, Kaia Energia |
 | Drew O'Meara | Spatial runtime | AMP | Creator, AMP SDK |
 | Josh Pasmore | Governance architecture | NEOS | Founder, Green Earth Vision |
-| Rachel Schneider | Site operations | Reference site | Owner-operator, Tie Town [TX] |
+| Rachel Schneider | Visionary & solution architect | All layers · reference site | Owner-operator, Tie Town [TX] |
 | Brandon Wallace | 3D assets & GIS | AMP | Owner, Maplable |
 | Ahmed Zaher | Platform engineering | All layers | Founder, Escherbridge; Senior AI Engineer, Micron |
 
