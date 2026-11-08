@@ -4,6 +4,7 @@ const columns = [
   {
     heading: 'PLATFORM',
     links: [
+      { href: '/infrastructure', label: 'OPQPWR Infrastructure' },
       { href: '/amp', label: 'AMP' },
       { href: '/governance-platform', label: 'NEOS Governance' },
       { href: '/azoa', label: 'AZOA' },
@@ -62,8 +63,8 @@ const Footer = () => {
           </div>
           <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-mist">
             Federated operational infrastructure for real-world environments —
-            AMP, NEOS, AZOA, and Fractal Engine in one governed stack, with
-            Elevate Impact for research.
+            a physical base (OPQPWR), four coordination layers (AMP, NEOS,
+            AZOA, Fractal Engine) and a research module (Elevate Impact).
           </p>
         </div>
         {columns.map((column) => (

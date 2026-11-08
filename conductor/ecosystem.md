@@ -29,7 +29,8 @@ Verified against each repo on 2026-11-08. Re-check the **Status** column before 
 | **Maplable** | Browser-based 3D globe for mapping and spatial collaboration; offline-ready, air-gappable; reads GeoJSON, KML/KMZ, CZML and ArcGIS feeds | [maplable.com](https://maplable.com/) | Spatial/GIS part of the stack, per the team; no written agreement found | Brandon Wallace (owner; 3D assets & GIS) |
 | **Green Earth Vision** | 501(c)(3) nonprofit "to promote a society built on contribution, philanthropy, and self-organized models"; initiatives include OmniOne, Green Earth City, DHARMA-SARI | [greenearthvision.org](https://www.greenearthvision.org/our-team) | NEOS steward (with OmniOne), per `docs/engagement-models/00-overview.md`; its site does not mention NEOS | Josh Pasmore (founder) |
 | **Nuva Labs** | Real-world-asset tokenization and management on Provenance Blockchain (formerly Provlabs) | [nuvalabs.com](https://www.nuvalabs.com/) | Affiliation of Max Gershfield; no company-level agreement found | Max Gershfield (listed by Nuva as Software Engineer) |
-| **OPQPWR** (Opaque Power) | "Mission Infrastructure Platform": modular, field-deployable racks combining power, AI compute, storage, cooling and communications; "Solar In a Box" | [opqpwr.com](https://opqpwr.com/) | Infrastructure partner (team, 2026-11-08) for a self-service, on-prem, bare-metal stack. Partnership starting; no deployment running | — |
+| **OPQPWR** (Opaque Power) | "Mission Infrastructure Platform": modular, field-deployable racks combining power, AI compute, storage, cooling and communications; "Solar In a Box" | [opqpwr.com](https://opqpwr.com/) | The stack's physical infrastructure layer, `L—00` (team decision, 2026-11-08), for a self-service, on-prem, bare-metal stack. Partnership starting; no deployment running | Contacts Dave and Denis (pending, see People) |
+| **OMGEN** | Water-technology group; founder & chairman Jamie Nickell ("decades of experience in water technologies and microbiology"); brands include OMGEN Water, AgGen Global, EcoDigest Pro, Resonate Life Water | World Trumpet Television promo shared by Rachel Schneider, 2026-11-08 | Introduction route to OPQPWR ("via JP / OMGEN"). Not a stack partner. Its marketing makes wellness claims ("structured water for whole-body wellness"), so keep any mention to the introduction | Jamie Nickell |
 
 ## People
 
@@ -49,7 +50,7 @@ One team with no internal hierarchy (team decision, 2026-11-08). No one is more 
 
 Advisors: the sickle cell advisory group of clinicians and advocates (Elevate Impact).
 
-Pending: **Dave** and **Denis** of OPQPWR, introduced via "JP / OMGen" (Rachel Schneider, 2026-11-08). opqpwr.com names no people and public searches found neither, so surnames, roles and the JP / OMGen referent must come from the team. Add both to the roster alphabetically once confirmed.
+Pending: **Dave** and **Denis** of OMGEN, the team's contacts for OPQPWR, introduced via "JP / OMGEN" (Rachel Schneider, 2026-11-08). opqpwr.com and OMGEN's sites (omgenwater.com, aggenglobal.com, ecodigestpro.com, resonatelifewater.com) name neither, so surnames and roles must come from the team or OMGEN. "JP" is probably JP Nickell of OMGEN Water, Oklahoma City (LinkedIn search snippet, linkedin.com/in/jp-nickell; relationship to Jamie Nickell not stated anywhere); ask JP for both names and titles. Add both to the roster alphabetically once confirmed.
 
 ## How the work moves
 

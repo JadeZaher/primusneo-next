@@ -13,7 +13,7 @@ export const metadata = {
 };
 
 const tickerItems =
-  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · RESEARCH ENABLEMENT · CRYPTO INCENTIVES · ';
+  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · RESEARCH ENABLEMENT · PHYSICAL INFRASTRUCTURE · CRYPTO INCENTIVES · ';
 
 const operatingModel = [
   {
@@ -143,7 +143,7 @@ const Home = () => {
           <div className="mb-12 flex flex-wrap items-baseline justify-between gap-4">
             <MonoLabel>02 — Architecture</MonoLabel>
             <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
-              Four coordination layers and a research module.
+              A physical base, four coordination layers and a research module.
             </h2>
           </div>
           <div className="border-b border-white/10">

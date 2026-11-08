@@ -6,6 +6,7 @@ const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').r
 const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/one-pager', changeFrequency: 'monthly', priority: 0.9 },
+  { path: '/infrastructure', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/amp', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/azoa', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/governance-platform', changeFrequency: 'monthly', priority: 0.9 },

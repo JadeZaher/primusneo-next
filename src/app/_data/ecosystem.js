@@ -11,6 +11,13 @@ export const partnerLogos = {
 // Home architecture index — one row per layer, copy kept to a single line.
 export const stackIndex = [
   {
+    index: 'L—00',
+    name: 'OPQPWR',
+    tag: 'PHYSICAL INFRASTRUCTURE',
+    summary: 'Field-deployable racks for power, compute, storage and cooling: the owned, bare-metal ground the stack is meant to run on.',
+    href: '/infrastructure',
+  },
+  {
     index: 'L—01',
     name: 'AMP',
     tag: 'SPATIAL OS',
@@ -49,6 +56,12 @@ export const stackIndex = [
 
 export const platformLayers = [
   {
+    eyebrow: 'Layer 00',
+    title: 'OPQPWR — Physical Infrastructure',
+    partner: 'On-prem, bare-metal hardware — OPQPWR',
+    body: 'Modular, field-deployable racks that combine power, AI compute, storage, cooling, protection and communications. The physical ground for a self-service, bare-metal stack. Partnership starting; nothing runs on OPQPWR hardware yet.',
+  },
+  {
     eyebrow: 'Layer 01',
     title: 'AMP — Operational Runtime / Spatial OS',
     partner: 'Spatial OS and community networks',
@@ -84,6 +97,16 @@ export const platformLayers = [
 // its dedicated page. Visuals are purpose-built SVG schematics per layer
 // (public/images/stack/) in the design-system language.
 export const layerShowcase = [
+  {
+    tab: 'OPQPWR',
+    eyebrow: 'Layer 00 · Physical',
+    title: 'OPQPWR — the ground the stack runs on',
+    summary:
+      'Modular, field-deployable racks for power, AI compute, storage, cooling, protection and communications, so useful compute can sit where infrastructure is limited, contested, or unavailable. Partnership starting; nothing runs on OPQPWR hardware yet.',
+    href: '/infrastructure',
+    image: '/images/stack/physical-infrastructure.svg',
+    status: 'Partnership_Starting',
+  },
   {
     tab: 'AMP',
     eyebrow: 'Layer 01 · Spatial OS',
@@ -181,8 +204,8 @@ export const ecosystemPartners = [
   {
     name: 'OPQPWR',
     href: 'https://opqpwr.com/',
-    role: 'Infrastructure · On-prem',
-    body: 'Opaque Power builds field-deployable racks for power, AI compute, storage, cooling and communications. The starting partner on the path to running the stack on owned, bare-metal hardware.',
+    role: 'Physical infrastructure · Layer 00',
+    body: 'Opaque Power builds field-deployable racks for power, AI compute, storage, cooling and communications. The stack’s physical layer: partnership starting, on the path to running the stack on owned, bare-metal hardware.',
   },
 ];
 

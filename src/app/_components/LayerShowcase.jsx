@@ -121,7 +121,7 @@ export default function LayerShowcase({ layers = [] }) {
       </div>
 
       {/* Tab strip — jump directly to any layer */}
-      <div className="mt-12 grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-12 grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
         {layers.map((layer, i) => {
           const isActive = i === active;
           // Odd final tab spans both columns on two-column layouts so no empty cell shows.

@@ -15,6 +15,7 @@ import { Button } from '../ui/button';
 import { cn } from '../../../lib/utils';
 
 const platformItems = [
+  { href: '/infrastructure', label: 'Infrastructure', desc: 'OPQPWR physical layer: on-prem, bare-metal racks' },
   { href: '/amp', label: 'AMP', desc: 'Operational runtime and Spatial OS' },
   { href: '/governance-platform', label: 'Governance Platform', desc: 'Councils, NEOS, decision rights, and contribution accounting' },
   { href: '/azoa', label: 'AZOA', desc: 'Identity, quests, and settlement rails' },
@@ -186,6 +187,7 @@ const Navbar = () => {
           <div>
             <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Platform</div>
             <div className="space-y-1">
+              <MobileLink href="/infrastructure" onClick={closeMenu}>Infrastructure</MobileLink>
               <MobileLink href="/amp" onClick={closeMenu}>AMP</MobileLink>
               <MobileLink href="/governance-platform" onClick={closeMenu}>Governance Platform</MobileLink>
               <MobileLink href="/azoa" onClick={closeMenu}>AZOA</MobileLink>

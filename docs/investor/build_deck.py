@@ -15,6 +15,7 @@ emblems = {
     "NEOS": "neos-governance.svg",
     "AZOA": "azoa.svg",
     "FRACTAL": "fractal-engine.svg",
+    "PHYSICAL": "physical-infrastructure.svg",
 }
 
 source = (here / "deck-src.html").read_text(encoding="utf-8")

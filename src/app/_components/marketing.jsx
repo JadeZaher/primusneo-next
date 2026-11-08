@@ -20,14 +20,14 @@ export const SectionHeader = ({ eyebrow, title, children, className = "" }) => (
   </div>
 );
 
-export const GradientButton = ({ href, children, variant = "primary" }) => {
+export const GradientButton = ({ href, children, variant = "primary", ...anchorProps }) => {
   const className =
     variant === "secondary"
       ? "inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-emerald-300/60 hover:bg-white/10"
       : "inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300 px-6 py-3 text-sm font-bold text-black shadow-[0_0_32px_rgba(74,222,128,0.22)] transition hover:scale-[1.02] hover:opacity-95";
 
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} {...anchorProps}>
       {children}
     </a>
   );

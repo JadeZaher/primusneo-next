@@ -9,7 +9,8 @@ type SanityPostRow = { title?: string; slug: string; excerpt?: string };
 type SanityNewsRow = { title?: string; slug: string; excerpt?: string; sourceName?: string };
 
 const platform = [
-  { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, AZOA, and Fractal Engine.' },
+  { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — a physical base (OPQPWR), four coordination layers (AMP, NEOS, AZOA, Fractal Engine) and a research module (Elevate Impact).' },
+  { path: '/infrastructure', title: 'OPQPWR — Physical Infrastructure', desc: 'Layer 00: field-deployable on-prem, bare-metal racks for power, compute, storage and cooling. Partnership starting; nothing runs on OPQPWR hardware yet.' },
   { path: '/amp', title: 'AMP — Operational Runtime / Spatial OS', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
   { path: '/governance-platform', title: 'NEOS Governance Platform', desc: 'Councils, decision rights, contribution accounting, and programmable voting logic.' },
   { path: '/azoa', title: 'AZOA — Autonomous Zones of Action', desc: 'Identity & consent, durable quest workflows, and settlement rails across blockchain and fiat.' },
@@ -90,7 +91,7 @@ async function buildBody(): Promise<string> {
   return [
     '# PrimusNeo',
     '',
-    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (operational runtime / Spatial OS), NEOS (agreements and permissions), AZOA (Autonomous Zones of Action: self-sovereign identity and consent, durable workflows, and settlement across blockchain and fiat; pre-launch, Apache-2.0), and Fractal Engine (intelligence and organizational memory). Elevate Impact is the research module (live sickle cell deployment; integration with the four layers in build). Tie Town [TX] is the first active operational deployment. LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
+    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of a physical base (OPQPWR: field-deployable on-prem, bare-metal racks; partnership starting, nothing runs on OPQPWR hardware yet), four coordination layers, and a research module. The four coordination layers are: AMP (operational runtime / Spatial OS), NEOS (agreements and permissions), AZOA (Autonomous Zones of Action: self-sovereign identity and consent, durable workflows, and settlement across blockchain and fiat; pre-launch, Apache-2.0), and Fractal Engine (intelligence and organizational memory). Elevate Impact is the research module (live sickle cell deployment; integration with the four layers in build). Tie Town [TX] is the first active operational deployment. LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
     '',
     '## Stack & Platform',
     ...platform.map(fmtLine),
@@ -101,7 +102,7 @@ async function buildBody(): Promise<string> {
     '- Escherbridge: Fractal Engine steward and engineering.',
     '- Elevate Impact: research module.',
     '- OVERSEASGENAI: agentic venture shipyard.',
-    '- OPQPWR: infrastructure partner for on-prem, bare-metal deployments (starting partnership).',
+    '- OPQPWR: physical infrastructure layer (L—00) for on-prem, bare-metal deployments (partnership starting).',
     '',
     '## Capital',
     ...capital.map(fmtLine),
