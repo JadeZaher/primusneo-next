@@ -94,6 +94,16 @@ Every number on the site or in the deck must trace to one of these. Add a row be
 | Financial model figures | `harrsoft/ElevateImpact/docs/PrimusNeo-Innovation-Lab-Financial-Model.html`, v2, 11 Sep 2026 |
 | Market sizes, transactions, studio statistics | `.omc/research/deck-comps-2026-11-08.md` (confidence per row) |
 
+## Investment calculator
+
+Deck chapters 16 ("Model your investment") and 17 ("The ladder") run [`docs/investor/calc-engine.js`](../docs/investor/calc-engine.js) in the browser. `node docs/investor/verify_engine.cjs` must pass before any change ships: holding the whole raise as cash reproduces model v2's reference, conservative and ambitious results to the dollar.
+
+- **Pricing tiers.** Option A ($80K/yr access) and Option B ($250K–$400K per deployment + $20K per unit) are the **mid-size organization and government** tiers (team decision, 2026-11-08). The **enterprise path** is planned, not sold: $2.5M first-year contract, three-year terms, ~45% renewals, 40% delivery cost. These sit inside the engagement models' Large-tier licence anchors and Lattice SKU ($1.0M–$3.5M); the renewal rate follows the worked example ($1.85–2.0M year one, $3.4–4.0M over three years).
+- **Pools.** Fixed needs are dollar budgets (default $900K: leadership $450K, partnerships $150K, infrastructure $150K, research & integration $150K). The reserve is a share of the amount (default 10%). Growth takes the rest (sales 30%, marketing 15%, acquisition 15%, enterprise 40%). An enterprise budget under its $750K minimum is redirected to mid-size selling.
+- **Growth response (illustrative).** Mid-size: $200K to win a deployment, 6-month cycle, returns halving at $4M of spend. Enterprise: $400K to win, 9-month cycle, halving at $8M. All spend lands over a 24-month period.
+- **What it shows with defaults.** Enterprise opens near $3.1M. Time to the first $1M operating-profit month: 49 months up to $2.5M, 37 at $5M, 25 at $10M. Margin brought back per $1 spent: ×1.27 at $2.5M, ×2.95 at $5M, ×2.01 at $20M (diminishing). Months to earn back the amount invested lengthen with size (26 at $1.5M, 34 at $10M), because the base plan's own profit earns small cheques back quickly.
+- Results are company-level. Never present them as investor returns, valuations or yields.
+
 ## Inferred (do not state as fact)
 
 - ArdaNova as the community-capital rail for ventures the Lab produces. Nothing in either repo says so, and the PrimusNeo `/fractionalization` page never names ArdaNova.
@@ -112,6 +122,7 @@ Every number on the site or in the deck must trace to one of these. Add a row be
 | Novo Nordisk, Kamau Therapeutics or Sickleverse as customers or pilots | "Programme guides prepared for two life-sciences prospects; no contract claimed" |
 | EI is integrated with AMP / NEOS / AZOA / Fractal Engine | Integration is in build |
 | The $1.5M is committed, or the model's revenue is contracted | Proposed funding; planning assumptions |
+| Enterprise contracts are signed, or calculator outputs are investor returns | Enterprise is a planned path priced from engagement-model ranges; calculator results are illustrative, company-level |
 | The stack runs on OPQPWR hardware, or an on-prem node is live | OPQPWR is the infrastructure partner for a self-service, on-prem, bare-metal path; partnership starting |
 | "7,000+ communities" or the legacy layer name | Tie Town [TX]; AZOA |
 

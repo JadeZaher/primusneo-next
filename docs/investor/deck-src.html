@@ -9,7 +9,7 @@
 :root{
   --ink:#0B0C0E; --ink-deep:#060708; --ink-raise:#101218;
   --paper:#E8E9EB; --mist:#8A8F98; --faint:#757A83;
-  --accent:#4D6BFF; --accent-text:#8FA2FF;
+  --accent:#4D6BFF; --accent-text:#8FA2FF; --warn:#E5A445;
   --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.13); --line-3:rgba(255,255,255,.26);
   --case-cons:#4D6BFF; --case-ref:#8FA2FF; --case-amb:#D0D9FF;
   --font-sans:"Archivo","Helvetica Neue",Arial,system-ui,sans-serif;
@@ -249,6 +249,68 @@ details.data summary:hover{color:var(--accent-text)}
 .rise{animation:rise .9s cubic-bezier(.2,.65,.2,1) both;animation-delay:calc(var(--i,0) * 90ms)}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}}
 
+/* ---------- investment calculator ---------- */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(20px,3cqi,48px);align-items:start}
+.calc-in,.calc-out{display:flex;flex-direction:column;gap:12px;min-width:0}
+.field-row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 16px;align-items:center}
+.amount{display:flex;align-items:center;border:1px solid var(--line-3);background:var(--ink-raise)}
+.amount:focus-within{border-color:var(--accent)}
+.amount .cur{padding-left:14px;font:500 clamp(18px,1.5cqi,24px)/1 var(--font-mono);color:var(--mist)}
+.amount input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:var(--paper);font:500 clamp(20px,1.7cqi,28px)/1 var(--font-sans);letter-spacing:-.02em;padding:10px 12px;font-variant-numeric:tabular-nums}
+input[type="range"]{accent-color:var(--accent);width:100%;margin:0}
+.calc-actions{display:flex;flex-wrap:wrap;gap:8px}
+.pools{display:flex;flex-direction:column}
+.pool-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0 4px;border-bottom:1px solid var(--line-2)}
+.pool{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1.2fr) 108px;gap:12px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
+.pool label{font-size:clamp(13.5px,.95cqi,15px);color:var(--paper);line-height:1.3}
+.pool label small{font:400 10px/1.3 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);white-space:nowrap}
+.pool output{font:400 12px/1 var(--font-mono);color:var(--paper);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpis .metric.sm{font-size:clamp(22px,2cqi,32px)}
+details.assume-more{border-top:1px solid var(--line)}
+details.assume-more summary{cursor:pointer;padding:10px 0;font:400 11px/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+details.assume-more summary:hover{color:var(--accent-text)}
+.assume{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;padding-bottom:4px}
+.assume label{display:flex;flex-direction:column;gap:6px;font:400 10.5px/1.4 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.assume input{width:100%;background:var(--ink-raise);border:1px solid var(--line-3);color:var(--paper);font:500 15px/1 var(--font-mono);padding:9px 10px;font-variant-numeric:tabular-nums}
+.assume input:focus{outline:0;border-color:var(--accent)}
+.chip{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border:1px solid var(--line-3);color:var(--mist);font:400 10.5px/1.3 var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
+.chip.ok{color:var(--accent-text);border-color:var(--accent-text)}
+.chip.warn{color:var(--warn);border-color:var(--warn)}
+.chip.warn::before{content:"!";font-weight:500}
+.ent{display:inline-block;margin-left:8px;padding:2px 5px;font:500 9.5px/1.2 var(--font-mono);letter-spacing:.1em;color:var(--ink);background:var(--accent-text);vertical-align:middle}
+.legend .ent{margin:0}
+.axis,.rung2{display:grid;grid-template-columns:104px minmax(0,1fr) 150px;gap:16px;align-items:center}
+.axis .ticks{position:relative;height:16px}
+.axis .ticks i{position:absolute;top:0;transform:translateX(-50%);font:400 10.5px/1 var(--font-mono);font-style:normal;letter-spacing:.08em;color:var(--faint)}
+.axis .ticks i:first-child{transform:none}.axis .ticks i:last-child{transform:translateX(-100%)}
+.ladder2{display:flex;flex-direction:column;border-bottom:1px solid var(--line)}
+.rung2{width:100%;padding:8px 6px;background:none;border:0;border-top:1px solid var(--line);color:inherit;text-align:left;cursor:pointer;font:inherit;transition:background .2s}
+.rung2:hover{background:rgba(255,255,255,.03)}
+.rung2[aria-current="true"]{background:rgba(77,107,255,.09)}
+.rung2 .amt{font:500 15px/1 var(--font-mono);color:var(--paper);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rung2 .rt{font:400 12px/1.3 var(--font-mono);color:var(--mist);text-align:right;font-variant-numeric:tabular-nums}
+.rung2.short .rt{color:var(--warn)}
+.track{position:relative;height:14px;border-left:1px solid var(--line-2);background:linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/20% 100%}
+.rung2.short .track{background-image:repeating-linear-gradient(45deg,rgba(229,164,69,.32) 0 2px,transparent 2px 7px)}
+.track .fill{position:absolute;left:0;top:4px;height:6px;background:var(--accent);box-shadow:0 0 10px rgba(77,107,255,.5)}
+.track .fill.beyond{background:linear-gradient(90deg,var(--accent),rgba(77,107,255,0))}
+.track .be,.lg-be{position:absolute;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;background:var(--ink);border:2px solid var(--paper);transform:rotate(45deg)}
+.lg-be{position:static;display:inline-block;margin:0}
+.lg-short{display:inline-block;width:18px;height:10px;background:repeating-linear-gradient(45deg,rgba(229,164,69,.6) 0 2px,transparent 2px 6px)}
+@container (max-width: 980px){
+  .calc{grid-template-columns:minmax(0,1fr)}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@container (max-width: 620px){
+  .field-row{grid-template-columns:minmax(0,1fr)}
+  .pool{grid-template-columns:minmax(0,1fr) 108px}
+  .pool input{grid-column:1/-1;grid-row:2}
+  .assume{grid-template-columns:minmax(0,1fr)}
+  .axis,.rung2{grid-template-columns:92px minmax(0,1fr)}
+  .rung2 .rt{grid-column:1/-1;text-align:left}
+  .axis span:last-child{display:none}
+}
+
 /* ---------- container-driven reflow (read mode at narrow widths) ---------- */
 @container (max-width: 980px){
   .c5,.c6,.steps,.miles{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -285,6 +347,8 @@ html[data-mode="present"] .dl li{padding-bottom:3px}
 html[data-mode="present"] .ladder{min-height:200px}
 html[data-mode="present"] .step{padding-top:22px}
 html[data-mode="present"] .roster>*{padding:14px 22px;gap:3px}
+html[data-mode="present"] .pool{padding:4px 0}
+html[data-mode="present"] .calc .cells>*{padding:14px 18px;gap:6px}
 html[data-mode="present"] .cover .frame,html[data-mode="present"] .why .frame{padding-bottom:64px}
 html[data-mode="present"] details.data{display:none}
 html[data-mode="present"] .grow{flex:1;min-height:0}
@@ -633,20 +697,26 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
     <div class="split top">
       <div class="stack">
         <p class="epi r" style="--i:0">Everyone who does the work gets paid.</p>
-        <h2 class="h2 r" style="--i:1">Two prices. Both paid for finished work.</h2>
+        <h2 class="h2 r" style="--i:1">Three paths. Each paid for finished work.</h2>
       </div>
       <p class="lead r" style="--i:2">Most of the money arrives as work is delivered: a patient enrolled, a study designed, a paper finished. The deployment fee opens the door. The units are the business.</p>
     </div>
-    <div class="cells c2 r" style="--i:3">
+    <div class="cells c3 r" style="--i:3">
       <div>
-        <span class="tag dim">Option A · platform access</span>
-        <span class="metric">$80,000</span>
-        <p class="txt">per organization, per year. Access to the platform and its tools without a delivery engagement.</p>
+        <span class="tag dim">Option A · access · mid-size &amp; government</span>
+        <span class="metric sm">$80,000</span>
+        <p class="txt">per organization, per year. The platform and its tools, without a delivery engagement.</p>
       </div>
       <div>
-        <span class="tag">Option B · platform + delivery</span>
-        <span class="metric">$250K – $400K</span>
-        <p class="txt">per deployment, <strong>plus $20,000 per agreed billable unit</strong>: a patient, a design, a paper. Access is included and never charged twice.</p>
+        <span class="tag">Option B · delivery · mid-size &amp; government</span>
+        <span class="metric sm">$250K – $400K</span>
+        <p class="txt">per deployment, <strong>plus $20,000 per agreed billable unit</strong>: a patient, a design, a paper. Access included.</p>
+      </div>
+      <div>
+        <span class="tag">Enterprise · planned path</span>
+        <span class="metric sm glow">$2.5M first year</span>
+        <p class="txt">on three-year terms, renewing near 45% of year one. Opens once a dedicated enterprise sales budget is in place.</p>
+        <span class="note">Inside the engagement models' Large-tier and Lattice ranges ($1.0M–$3.5M).</span>
       </div>
     </div>
     <div class="cells c4 r" style="--i:4">
@@ -822,10 +892,97 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
   </div>
 </section>
 
-<!-- ============ 16 PEOPLE ============ -->
-<section class="slide" id="people" data-title="The people" aria-label="16 The people">
+<!-- ============ 16 INVEST ============ -->
+<section class="slide" id="invest" data-title="Model your investment" aria-label="16 Model your investment">
   <div class="frame">
-    <div class="head"><span class="eyebrow"><b>16</b> — The people</span><span class="eyebrow">Listed alphabetically</span></div>
+    <div class="head"><span class="eyebrow"><b>16</b> — Model your investment</span><span class="eyebrow">Interactive · illustrative</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Every dollar has a job.</p>
+        <h2 class="h2 r" style="--i:1">Where every dollar goes.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Type any amount. Fixed needs are paid first, a reserve stays in the bank, and everything left goes to selling. Above a minimum budget, part of it opens the enterprise path to larger clients.</p>
+    </div>
+    <div class="calc r" style="--i:3">
+      <div class="calc-in">
+        <div class="field-row">
+          <label class="eyebrow" for="inv-amount">Investment</label>
+          <div class="amount"><span class="cur" aria-hidden="true">$</span><input id="inv-amount" type="number" min="0" step="50000" inputmode="numeric"></div>
+          <span></span>
+          <input id="inv-slider" type="range" min="0" max="20000000" step="50000" aria-label="Investment amount">
+        </div>
+        <div class="pools" id="pool-rows"></div>
+      </div>
+      <div class="calc-out">
+        <div class="field-row">
+          <span class="eyebrow" id="case-label">Mid-size case</span>
+          <div class="seg" role="group" aria-labelledby="case-label" id="case-seg">
+            <button class="btn" type="button" data-case="conservative">Conservative</button>
+            <button class="btn" type="button" data-case="reference">Reference</button>
+            <button class="btn" type="button" data-case="ambitious">Ambitious</button>
+          </div>
+        </div>
+        <div class="cells c3 kpis">
+          <div><span class="eyebrow"><b>Months to scale</b></span><span class="metric sm glow" id="kpi-scale">—</span><span class="note">first month with $1M operating profit</span></div>
+          <div><span class="eyebrow">Earned back</span><span class="metric sm" id="kpi-back">—</span><span class="note">cumulative operating profit equals the amount invested</span></div>
+          <div><span class="eyebrow">Each $1 spent brings back</span><span class="metric sm" id="kpi-multiple">—</span><span class="note">in five-year margin, against holding the money as cash</span></div>
+          <div><span class="eyebrow">Five-year revenue</span><span class="metric sm" id="kpi-rev">—</span><span class="note" id="kpi-rev-note">—</span><span class="chip" id="kpi-ent">—</span></div>
+          <div><span class="eyebrow">Operating break-even</span><span class="metric sm" id="kpi-be">—</span><span class="note">six non-negative months in a row, no later loss</span></div>
+          <div><span class="eyebrow">Lowest cash</span><span class="metric sm" id="kpi-low">—</span><span class="note" id="kpi-low-note">—</span><span class="chip" id="kpi-status">—</span></div>
+        </div>
+        <details class="assume-more">
+          <summary>Growth assumptions</summary>
+          <div class="assume" role="group" aria-label="Growth assumptions">
+            <label for="a-cac">Mid-size: cost to win a deployment ($)<input id="a-cac" type="number" min="10000" step="10000" data-key="cac"></label>
+            <label for="a-cycle">Mid-size: sales cycle (months)<input id="a-cycle" type="number" min="0" max="36" step="1" data-key="cycle"></label>
+            <label for="a-entValue">Enterprise: first-year contract ($)<input id="a-entValue" type="number" min="100000" step="100000" data-key="entValue"></label>
+            <label for="a-entCac">Enterprise: cost to win ($)<input id="a-entCac" type="number" min="10000" step="10000" data-key="entCac"></label>
+            <label for="a-entCycle">Enterprise: sales cycle (months)<input id="a-entCycle" type="number" min="0" max="36" step="1" data-key="entCycle"></label>
+            <label for="a-entRenewal">Enterprise: renewal (share of year one)<input id="a-entRenewal" type="number" min="0" max="1" step="0.05" data-key="entRenewal"></label>
+            <label for="a-entMin">Enterprise: minimum budget to open ($)<input id="a-entMin" type="number" min="0" step="50000" data-key="entMin"></label>
+            <label for="a-period">Spend period (months)<input id="a-period" type="number" min="1" max="60" step="1" data-key="period"></label>
+          </div>
+        </details>
+        <div class="calc-actions">
+          <button class="btn" type="button" id="pools-plan">Hold it all in reserve</button>
+          <button class="btn" type="button" id="pools-reset">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><span class="note">“Hold it all in reserve” reproduces the fixed plan in chapter 12. Growth and enterprise inputs are planning assumptions for the team to replace.</span></div>
+  </div>
+</section>
+
+<!-- ============ 17 LADDER ============ -->
+<section class="slide" id="ladder" data-title="The ladder" aria-label="17 The ladder">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>17</b> — The ladder</span><span class="eyebrow">Time to scale by amount</span></div>
+    <div class="split top">
+      <div class="stack">
+        <p class="epi r" style="--i:0">Larger clients take longer to win, and pay more when they come.</p>
+        <h2 class="h2 r" style="--i:1">Past the enterprise line, every dollar works harder.</h2>
+      </div>
+      <p class="lead r" style="--i:2">Each rung runs the same model with your pools. The bar is the wait for the first month with $1M of operating profit; the diamond marks when the amount invested is earned back. Once the enterprise budget clears its minimum, the wait shortens and each dollar brings back more. Select a rung to load it.</p>
+    </div>
+    <div class="split wide-left top r" style="--i:3">
+      <div class="stack">
+        <div class="axis" aria-hidden="true"><span></span><span class="ticks"><i style="left:0">M0</i><i style="left:20%">M12</i><i style="left:40%">M24</i><i style="left:60%">M36</i><i style="left:80%">M48</i><i style="left:100%">M60</i></span><span></span></div>
+        <div class="ladder2" id="ladder-rows" role="group" aria-label="Investment ladder"></div>
+        <div class="legend" aria-hidden="true"><span><i class="sw" style="background:var(--accent);height:6px"></i>Months to scale</span><span><i class="lg-be"></i>Earned back</span><span><b class="ent">ENT</b>Enterprise open</span><span><i class="lg-short"></i>Cash runs short</span></div>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Month-end cash for <b id="cash-for">$1.5M</b></span>
+        <div class="chart" id="chart-invest-cash" aria-label="Month-end cash for the selected investment, months 0 to 60"></div>
+      </div>
+    </div>
+    <div class="foot"><span class="note">Illustrative. Mid-size and government revenue follows the Innovation Lab model v2 month by month. Pool spending is operating cost over the spend period; selling spend wins extra deployments with diminishing returns. Enterprise contract size, cost to win and renewals are planning assumptions inside the engagement models' Large-tier ranges. Company-level results, not investor returns.</span></div>
+  </div>
+</section>
+
+<!-- ============ 18 PEOPLE ============ -->
+<section class="slide" id="people" data-title="The people" aria-label="18 The people">
+  <div class="frame">
+    <div class="head"><span class="eyebrow"><b>18</b> — The people</span><span class="eyebrow">Listed alphabetically</span></div>
     <div class="split top">
       <div class="stack">
         <p class="epi r" style="--i:0">“Individually we are rare. Together, we are strong.”</p>
@@ -850,12 +1007,12 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 </section>
 
 <!-- ============ 17 WHY ============ -->
-<section class="slide why" id="why" data-title="Why" aria-label="17 Why">
+<section class="slide why" id="why" data-title="Why" aria-label="19 Why">
   <canvas id="why-canvas" aria-hidden="true"></canvas>
   <span class="hud l">N_TIMELINES: 1</span>
   <span class="hud r">PRIMUSNEO.COM</span>
   <div class="frame">
-    <span class="eyebrow r" style="--i:0"><b>17</b> — Why</span>
+    <span class="eyebrow r" style="--i:0"><b>19</b> — Why</span>
     <p class="epi r" style="--i:1">Somewhere a town has learned to live with a problem. Somewhere else, a person holds the tool that would end it.</p>
     <p class="lead r" style="--i:2">The distance between them is the whole of our business. We close it with a first test, a fair agreement and a ledger that pays everyone who did the work. When the evidence is good, we build. When it is not, we stop and say so.</p>
     <h2 class="h2 r" style="--i:3">That is how the lab works. It is also how a decent society works.</h2>
@@ -867,9 +1024,9 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 </section>
 
 <!-- ============ 17 NOTES ============ -->
-<section class="slide" id="notes" data-title="Notes & sources" aria-label="18 Notes and sources">
+<section class="slide" id="notes" data-title="Notes & sources" aria-label="20 Notes and sources">
   <div class="frame">
-    <div class="head"><span class="eyebrow"><b>18</b> — Notes &amp; sources</span><span class="eyebrow">Read before relying on any figure</span></div>
+    <div class="head"><span class="eyebrow"><b>20</b> — Notes &amp; sources</span><span class="eyebrow">Read before relying on any figure</span></div>
     <h2 class="h2">What the numbers are, and what they are not.</h2>
     <div class="cells c2">
       <div>
@@ -895,7 +1052,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 
 <div class="pctl" id="pctl">
   <button class="btn icon" type="button" id="prev" aria-label="Previous slide">←</button>
-  <span class="count" id="count">01 / 19</span>
+  <span class="count" id="count">01 / 21</span>
   <button class="btn icon" type="button" id="next" aria-label="Next slide">→</button>
   <button class="btn" type="button" id="fullscreen">Full screen</button>
 </div>
@@ -903,6 +1060,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 <script>
 (() => {
   'use strict';
+%%ENGINE%%
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const slides = [...document.querySelectorAll('.slide')];
@@ -1034,7 +1192,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
       let s = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${cfg.label}"><defs><clipPath id="${id}"><rect x="${m.l - 6}" y="${m.t - 4}" width="${iw + 12}" height="${ih + 8}"/></clipPath></defs>`;
       cfg.y.ticks.forEach(([v, l]) => { s += `<line class="${v === cfg.y.min ? 'ax' : 'g'}" x1="${m.l}" x2="${m.l + iw}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l - 12}" y="${Y(v) + 4}" text-anchor="end">${l}</text>`; });
       cfg.x.ticks.forEach(([v, l]) => { s += `<text x="${X(v)}" y="${m.t + ih + 22}" text-anchor="middle">${l}</text>`; });
-      if (cfg.reserve) s += `<line x1="${m.l}" x2="${m.l + iw}" y1="${Y(cfg.reserve.y)}" y2="${Y(cfg.reserve.y)}" stroke="var(--faint)" stroke-dasharray="2 4"/><text x="${m.l + 8}" y="${Y(cfg.reserve.y) - 8}" class="sub">${cfg.reserve.label}</text>`;
+      if (cfg.reserve) s += `<line x1="${m.l}" x2="${m.l + iw}" y1="${Y(cfg.reserve.y)}" y2="${Y(cfg.reserve.y)}" stroke="var(--faint)" stroke-dasharray="2 4"/><text x="${cfg.reserve.align === 'end' ? m.l + iw - 8 : m.l + 8}" y="${Y(cfg.reserve.y) - 8}" text-anchor="${cfg.reserve.align === 'end' ? 'end' : 'start'}" class="sub">${cfg.reserve.label}</text>`;
       cfg.series.forEach(se => {
         const d = se.points.map((p, i) => `${i ? 'L' : 'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join('');
         s += `<path d="${d}" fill="none" stroke="${se.color}" stroke-width="${se.width}" stroke-linejoin="round" stroke-linecap="round" ${se.dash ? `stroke-dasharray="${se.dash}"` : ''} clip-path="url(#${id})"/>`;
@@ -1083,6 +1241,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
     }
     new ResizeObserver(render).observe(host);
     render();
+    return { update(next) { cfg = next; lastW = 0; render(); } };
   }
 
   const M = v => '$' + (v / 1e6).toFixed(2) + 'M';
@@ -1123,6 +1282,156 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
     const f = arr => { const p = arr.find(q => q[0] === mo); return p ? usd(p[1]) : '—'; };
     return `<tr><td>${mo === 0 ? 'Raise lands' : 'Month ' + mo}</td><td>${f(cashCons)}</td><td class="hl">${f(cashRef)}</td><td>${f(cashAmb)}</td></tr>`;
   }).join('');
+
+  /* ---------- investment calculator (engine: docs/investor/calc-engine.js) ---------- */
+  if (document.getElementById('invest')) {
+    const L = LabModel;
+    const LADDER = [250e3, 500e3, 1e6, 1.5e6, 2.5e6, 5e6, 10e6, 20e6];
+    const KEY = 'pn-deck-calc-v2';
+    const el = id => document.getElementById(id);
+    const clonePlan = plan => ({ needs: { ...plan.needs }, reservePct: plan.reservePct, growth: { ...plan.growth } });
+    const fresh = () => ({ amount: 1500000, caseKey: 'reference', plan: clonePlan(L.DEFAULT_PLAN), assumptions: { ...L.DEFAULT_ASSUMPTIONS } });
+    let state = fresh();
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (saved && L.CASES[saved.caseKey]) {
+        // Saved state is viewer-editable: keep only known keys, coerced to non-negative numbers.
+        const num = (v, d) => (Number.isFinite(Number(v)) && Number(v) >= 0 ? Number(v) : d);
+        const d = L.DEFAULT_PLAN;
+        state = {
+          amount: num(saved.amount, 1500000),
+          caseKey: saved.caseKey,
+          plan: {
+            needs: Object.fromEntries(L.NEEDS.map(n => [n.key, num(saved.plan?.needs?.[n.key], d.needs[n.key])])),
+            reservePct: num(saved.plan?.reservePct, d.reservePct),
+            growth: Object.fromEntries(L.GROWTH.map(g => [g.key, num(saved.plan?.growth?.[g.key], d.growth[g.key])])),
+          },
+          assumptions: Object.fromEntries(Object.keys(L.DEFAULT_ASSUMPTIONS).map(k => [k, num(saved.assumptions?.[k], L.DEFAULT_ASSUMPTIONS[k])])),
+        };
+      }
+    } catch (e) { /* storage unavailable */ }
+    const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable */ } };
+    const money = v => {
+      const a = Math.abs(v), sign = v < 0 ? '−$' : '$';
+      if (a >= 1e6) return sign + (a / 1e6).toFixed(a >= 1e7 ? 1 : 2).replace(/\.?0+$/, '') + 'M';
+      if (a >= 1e3) return sign + Math.round(a / 1e3) + 'K';
+      return sign + Math.round(a);
+    };
+    // Rounded axis bounds and ticks (1 / 2 / 2.5 / 5 steps).
+    const niceScale = (lo, hi, n = 5) => {
+      const raw = (hi - lo || 1) / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+      const step = [1, 2, 2.5, 5, 10].map(f => f * mag).find(s => s >= raw);
+      const min = Math.floor(lo / step) * step, max = Math.ceil(hi / step) * step, ticks = [];
+      for (let v = min; v <= max + step / 2; v += step) ticks.push(v);
+      return { min, max, ticks };
+    };
+    const run = (amount, compare = true) => L.simulate({ caseKey: state.caseKey, investment: amount, plan: state.plan, assumptions: state.assumptions, compare });
+    // Binary search for the smallest amount that satisfies a monotone condition.
+    const smallest = test => {
+      let lo = 0, hi = 50e6;
+      if (!test(hi)) return null;
+      for (let i = 0; i < 30; i++) { const mid = (lo + hi) / 2; if (test(mid)) hi = mid; else lo = mid; }
+      return Math.ceil(hi / 10000) * 10000;
+    };
+
+    el('pool-rows').innerHTML =
+      `<div class="pool-head"><span class="eyebrow">Fixed needs</span><span class="note">dollars over the spend period</span></div>`
+      + L.NEEDS.map(n => `<div class="pool"><label for="need-${n.key}">${n.label}</label><input id="need-${n.key}" type="range" min="0" max="2000000" step="25000" data-need="${n.key}"><output class="amt" id="need-${n.key}-amt" for="need-${n.key}"></output></div>`).join('')
+      + `<div class="pool-head"><span class="eyebrow">Reserve</span><span class="note">share of the investment held as cash</span></div>`
+      + `<div class="pool"><label for="reserve-pct">Reserve</label><input id="reserve-pct" type="range" min="0" max="100" step="1"><output class="amt" id="reserve-amt" for="reserve-pct"></output></div>`
+      + `<div class="pool-head"><span class="eyebrow"><b>Growth</b></span><span class="note">shares of what is left</span></div>`
+      + L.GROWTH.map(g => `<div class="pool"><label for="grow-${g.key}">${g.label}${g.channel === 'enterprise' ? ' <small class="grows">larger clients</small>' : ''}</label><input id="grow-${g.key}" type="range" min="0" max="100" step="1" data-grow="${g.key}"><output class="amt" id="grow-${g.key}-amt" for="grow-${g.key}"></output></div>`).join('');
+
+    const cashConfig = r => {
+      const scale = niceScale(Math.min(0, r.minCash), Math.max(L.MODEL.reserve, ...r.cash));
+      return {
+        label: 'Month-end cash for the selected investment, months 0 to 60', right: 130,
+        height: W => Math.round(Math.min(360, Math.max(240, W * .62))),
+        x: { min: 0, max: 60, ticks: [[0, 'M0'], [12, 'M12'], [24, 'M24'], [36, 'M36'], [48, 'M48'], [60, 'M60']], name: v => v === 0 ? 'Investment lands' : 'Month ' + v },
+        y: { min: scale.min, max: scale.max, ticks: scale.ticks.map(v => [v, money(v)]) },
+        reserve: { y: L.MODEL.reserve, label: '$150K reserve', align: 'end' },
+        series: [{ label: 'Cash', color: 'var(--case-ref)', width: 2.5, points: Array.from(r.cash, (v, m) => [m, v, money(v)]), end: money(r.cash60) + ' · M60' }],
+        notes: r.minCash < L.MODEL.reserve ? [{ x: r.minMonth, y: r.minCash, color: 'var(--warn)', label: 'Low ' + money(r.minCash) + ' · M' + r.minMonth, always: true }] : [],
+      };
+    };
+    const cashChart = lineChart(el('chart-invest-cash'), cashConfig(run(state.amount, false)));
+
+    function renderLadder() {
+      const amounts = [...new Set([...LADDER, Math.round(state.amount)])].sort((a, b) => a - b);
+      const pct = m => (m / L.MONTHS * 100).toFixed(2) + '%';
+      el('ladder-rows').innerHTML = amounts.map(amount => {
+        const r = run(amount), back = r.earnedBack, current = amount === Math.round(state.amount);
+        const mult = r.growthBudget <= 0 ? 'Needs only' : '×' + r.multiple.toFixed(2);
+        const right = r.shortfall ? `Short M${r.shortfall}` : `${mult} · ${money(r.revenue5)}`;
+        const spoken = `${money(amount)}: ${r.scaleMonth ? 'scale in month ' + r.scaleMonth : 'no $1M month within five years'}, earned back ${back ? 'month ' + back : 'beyond five years'}, each dollar spent brings back ${mult}${r.enterpriseOpen ? ', enterprise path open' : ''}${r.shortfall ? ', cash runs short in month ' + r.shortfall : ''}`;
+        return `<button type="button" class="rung2${r.shortfall ? ' short' : ''}" data-amount="${amount}" aria-current="${current}" aria-label="${spoken}">`
+          + `<span class="amt">${money(amount)}${r.enterpriseOpen ? '<b class="ent">ENT</b>' : ''}</span>`
+          + `<span class="track"><i class="fill${r.scaleMonth ? '' : ' beyond'}" style="width:${r.scaleMonth ? pct(r.scaleMonth) : '100%'}"></i>${back ? `<i class="be" style="left:${pct(back)}"></i>` : ''}</span>`
+          + `<span class="rt">${right}</span></button>`;
+      }).join('');
+    }
+
+    function render() {
+      const r = run(state.amount);
+      if (document.activeElement !== el('inv-amount')) el('inv-amount').value = Math.round(state.amount);
+      el('inv-slider').value = Math.min(20e6, state.amount);
+      document.querySelectorAll('#case-seg [data-case]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.case === state.caseKey)));
+      L.NEEDS.forEach(n => { el(`need-${n.key}`).value = state.plan.needs[n.key]; el(`need-${n.key}-amt`).textContent = money(r.spend[n.key]); });
+      el('reserve-pct').value = state.plan.reservePct;
+      el('reserve-amt').textContent = `${Math.round(state.plan.reservePct)}% · ${money(r.spend.reserve)}`;
+      const shareTotal = L.GROWTH.reduce((s, g) => s + Math.max(0, state.plan.growth[g.key] || 0), 0) || 1;
+      L.GROWTH.forEach(g => {
+        el(`grow-${g.key}`).value = state.plan.growth[g.key];
+        el(`grow-${g.key}-amt`).textContent = `${Math.round((state.plan.growth[g.key] || 0) / shareTotal * 100)}% · ${money(r.spend[g.key])}`;
+      });
+      document.querySelectorAll('.assume input').forEach(i => { if (document.activeElement !== i) i.value = state.assumptions[i.dataset.key]; });
+
+      el('kpi-scale').textContent = r.scaleMonth ? 'Month ' + r.scaleMonth : 'Beyond 5 yrs';
+      el('kpi-back').textContent = r.earnedBack ? 'Month ' + r.earnedBack : state.amount > 0 ? 'Beyond 5 yrs' : '—';
+      el('kpi-multiple').textContent = r.growthBudget <= 0 ? 'Needs only' : '$' + r.multiple.toFixed(2);
+      el('kpi-rev').textContent = money(r.revenue5);
+      el('kpi-rev-note').textContent = `${r.midDeployments.toFixed(1)} mid-size · ${r.enterpriseDeployments.toFixed(1)} enterprise deployments won`;
+      const ent = el('kpi-ent');
+      if (r.enterpriseOpen) { ent.className = 'chip ok'; ent.textContent = 'Enterprise path open'; }
+      else {
+        const opensAt = smallest(amount => run(amount, false).enterpriseOpen);
+        ent.className = 'chip'; ent.textContent = opensAt === null ? 'Enterprise closed' : 'Enterprise opens at ' + money(opensAt);
+      }
+      el('kpi-be').textContent = r.breakEven ? 'Month ' + r.breakEven : 'Beyond 5 yrs';
+      el('kpi-low').textContent = money(r.minCash);
+      const floor = smallest(amount => run(amount, false).minCash >= L.MODEL.reserve);
+      el('kpi-low-note').textContent = `month ${r.minMonth} · reserve holds from ${floor === null ? 'over $50M' : money(floor)}`;
+      const status = el('kpi-status');
+      status.className = 'chip ' + (r.belowReserve ? 'warn' : 'ok');
+      status.textContent = r.shortfall ? 'Runs short in month ' + r.shortfall : r.belowReserve ? 'Below the $150K reserve' : 'Holds the reserve';
+      el('cash-for').textContent = money(state.amount);
+      renderLadder();
+      cashChart.update(cashConfig(r));
+      save();
+    }
+    let pending = 0;
+    const schedule = () => { if (!pending) pending = requestAnimationFrame(() => { pending = 0; render(); }); };
+
+    el('inv-amount').addEventListener('input', e => { state.amount = Math.max(0, Number(e.target.value) || 0); schedule(); });
+    el('inv-amount').addEventListener('change', () => { el('inv-amount').value = Math.round(state.amount); });
+    el('inv-slider').addEventListener('input', e => { state.amount = Number(e.target.value); schedule(); });
+    el('case-seg').addEventListener('click', e => { const b = e.target.closest('[data-case]'); if (b) { state.caseKey = b.dataset.case; schedule(); } });
+    el('pool-rows').addEventListener('input', e => {
+      const t = e.target, v = Number(t.value);
+      if (t.dataset.need) state.plan = { ...state.plan, needs: { ...state.plan.needs, [t.dataset.need]: v } };
+      else if (t.dataset.grow) state.plan = { ...state.plan, growth: { ...state.plan.growth, [t.dataset.grow]: v } };
+      else if (t.id === 'reserve-pct') state.plan = { ...state.plan, reservePct: v };
+      schedule();
+    });
+    document.querySelector('.assume').addEventListener('input', e => {
+      const k = e.target.dataset.key, v = Number(e.target.value);
+      if (k && Number.isFinite(v) && v >= 0) { state.assumptions = { ...state.assumptions, [k]: v }; schedule(); }
+    });
+    el('pools-plan').addEventListener('click', () => { state.plan = clonePlan(L.HOLD_PLAN); schedule(); });
+    el('pools-reset').addEventListener('click', () => { state.plan = clonePlan(L.DEFAULT_PLAN); state.assumptions = { ...L.DEFAULT_ASSUMPTIONS }; schedule(); });
+    el('ladder-rows').addEventListener('click', e => { const b = e.target.closest('[data-amount]'); if (b) { state.amount = Number(b.dataset.amount); schedule(); } });
+    render();
+  }
 
   /* ---------- reveal ---------- */
   const play = el => { if (reduced) return; el.classList.remove('rise'); void el.offsetWidth; el.classList.add('rise'); };
@@ -1208,6 +1517,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 
   addEventListener('keydown', e => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key !== 'Escape' && e.target.closest && e.target.closest('input, textarea, select')) return;
     if (e.key === 'Escape') { if (!toc.hidden) { toc.hidden = true; tocBtn.setAttribute('aria-expanded', 'false'); return; } if (mode === 'present') setMode('read'); return; }
     if (mode !== 'present') { if (e.key === 'p' || e.key === 'P') setMode('present'); return; }
     const next = ['ArrowRight', 'ArrowDown', 'PageDown', ' ', 'Enter'], prev = ['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'];
@@ -1219,7 +1529,7 @@ html[data-mode="present"] .grow{flex:1;min-height:0}
 
   let sx = null, sy = null;
   const deck = document.getElementById('deck');
-  deck.addEventListener('pointerdown', e => { if (mode === 'present' && e.pointerType !== 'mouse') { sx = e.clientX; sy = e.clientY; } });
+  deck.addEventListener('pointerdown', e => { if (mode === 'present' && e.pointerType !== 'mouse' && !e.target.closest('input, button, label, select')) { sx = e.clientX; sy = e.clientY; } });
   deck.addEventListener('pointerup', e => {
     if (sx === null) return; const dx = e.clientX - sx, dy = e.clientY - sy; sx = sy = null;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1));

@@ -23,6 +23,8 @@ for token, filename in emblems.items():
     encoded = base64.b64encode((stack / filename).read_bytes()).decode("ascii")
     source = source.replace(f"%%{token}%%", f"data:image/svg+xml;base64,{encoded}")
 
+source = source.replace("%%ENGINE%%", (here / "calc-engine.js").read_text(encoding="utf-8"))
+
 leftover = re.findall(r"%%[A-Z]+%%", source)
 if leftover:
     sys.exit(f"unreplaced tokens: {leftover}")
