@@ -33,7 +33,7 @@ const Contact = () => {
             <div className="order-2 lg:order-1">
               <MultiStepContactForm />
               <p className="mt-6 text-sm leading-relaxed text-mist">
-                The form is the path we read. The other way is email, phone, or the mailbox:{' '}
+                The form is the path we read. The other way is email or phone:{' '}
                 <OperatorLine />. {operator.contactName}, {operator.entity}.
               </p>
             </div>

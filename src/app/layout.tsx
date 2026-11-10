@@ -2,7 +2,7 @@
 import '../styles/globals.css';
 import React from 'react';
 import { Archivo, IBM_Plex_Mono } from 'next/font/google';
-import { operator } from '@/content/operator';
+import { operator, operatorPostalAddress } from '@/content/operator';
 import { AttributionCapture } from './_components/AttributionCapture';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
@@ -103,6 +103,7 @@ const organizationJsonLd = {
       name: 'PrimusNeo',
       url: CANONICAL_ORIGIN,
       email: operator.email,
+      address: operatorPostalAddress,
       logo: {
         '@type': 'ImageObject',
         url: `${CANONICAL_ORIGIN}/images/logo-primus-neo.png`,
@@ -113,6 +114,7 @@ const organizationJsonLd = {
         name: operator.entity,
         url: 'https://escherbridge.com/',
         email: operator.email,
+        address: operatorPostalAddress,
         subOrganization: [{ '@id': `${CANONICAL_ORIGIN}/#organization` }, ...sisterOrganizations],
       },
       contactPoint: {
