@@ -58,6 +58,7 @@ export const metadata = {
     card: 'summary_large_image',
     images: ['/images/ampheader.png'],
   },
+  manifest: '/manifest.json',
   robots: {
     index: true,
     follow: true,
