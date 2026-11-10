@@ -137,10 +137,11 @@ export default function PaidTwicePage() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>{" "}
             is plain about the lost reply. The client is supposed to retry with
-            the same idempotency key. After the first request is acknowledged,
-            retrying with that key, in Stripe&apos;s words, &quot;returns the
-            originally saved status and body, regardless of whether the first
-            request succeeded or failed.&quot; The key is the record of a
+            the same idempotency key. In Stripe&apos;s words, &quot;For API v1,
+            Stripe saves the status code and body of the first request made with
+            a given idempotency key after endpoint execution begins. Retries
+            with the same key return the saved response, including 500
+            errors.&quot; The key is the record of a
             decision, not a courtesy header. Stripe refuses a retry when the
             parameters do not match the original request, and it prunes keys
             after at least twenty-four hours, after which the same key is
