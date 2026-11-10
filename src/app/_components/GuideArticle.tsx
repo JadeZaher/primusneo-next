@@ -7,18 +7,29 @@ import { articleNode, breadcrumbList, citationWorks, graph } from '@/lib/jsonld'
 function guideCitations(sources: GuideSource[]) {
   return sources.flatMap((source) => {
     const primary = citationWorks([source]);
-    if (!source.doi) return primary;
-    return [
-      ...primary,
-      ...citationWorks([
-        {
-          href: source.doi,
-          title: source.title ? `${source.title} (DOI)` : `${source.label} (DOI)`,
-          org: source.org,
-          year: source.year,
-        },
-      ]),
+    const extras = [
+      ...(source.doi
+        ? citationWorks([
+            {
+              href: source.doi,
+              title: source.title ? `${source.title} (DOI)` : `${source.label} (DOI)`,
+              org: source.org,
+              year: source.year,
+            },
+          ])
+        : []),
+      ...(source.more ?? []).flatMap((item) =>
+        citationWorks([
+          {
+            href: item.href,
+            title: item.label,
+            org: source.org,
+            year: source.year,
+          },
+        ]),
+      ),
     ];
+    return [...primary, ...extras];
   });
 }
 
@@ -34,6 +45,18 @@ export function SourceList({ sources }: { sources: GuideSource[] }) {
           >
             {source.href}
           </a>
+          {source.more?.map((item) => (
+            <span key={item.href}>
+              {' '}
+              · {item.label}:{' '}
+              <a
+                href={item.href}
+                className="text-paper underline decoration-white/20 underline-offset-4 hover:text-accent"
+              >
+                {item.href}
+              </a>
+            </span>
+          ))}
           {source.doi ? (
             <>
               {' '}

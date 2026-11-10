@@ -17,6 +17,8 @@ export type GuideSource = CitedSource & {
   label: string;
   href: string;
   doi?: string;
+  /** Extra follow links on the same citation, such as a PDF next to a landing page. */
+  more?: { label: string; href: string }[];
 };
 
 export type GuideFigure = { lead: string; text: string };
@@ -181,6 +183,16 @@ export const guides: Guide[] = [
         href: '/guides/ai-rmf-accountability',
         note: 'a recommendation still needs a name on it.',
       },
+      {
+        label: 'Digital twins of processes and conceptual models',
+        href: '/guides/process-digital-twins',
+        note: 'a twin can be a process or a conceptual model.',
+      },
+      {
+        label: 'What to write down when software recommends',
+        href: '/guides/recommendation-lineage',
+        note: 'the goal, the data, the check, and the name.',
+      },
     ],
     closing: [
       p(
@@ -286,6 +298,11 @@ export const guides: Guide[] = [
         href: '/guides/local-first-software',
         note: 'the copy you can still open later.',
       },
+      {
+        label: 'Architecture decision records: write down why it was decided',
+        href: '/guides/architecture-decision-records',
+        note: 'an interface or a dependency is often the thing being decided.',
+      },
     ],
     closing: [
       p(
@@ -388,6 +405,11 @@ export const guides: Guide[] = [
         label: 'AI accountability: NIST AI RMF and the GAO framework',
         href: '/guides/ai-rmf-accountability',
         note: 'a recommendation still needs a name on it.',
+      },
+      {
+        label: 'Architecture decision records: write down why it was decided',
+        href: '/guides/architecture-decision-records',
+        note: 'an interface or a dependency is often the thing being decided.',
       },
     ],
     closing: [
@@ -508,6 +530,11 @@ export const guides: Guide[] = [
         label: 'AI accountability: NIST AI RMF and the GAO framework',
         href: '/guides/ai-rmf-accountability',
         note: 'a recommendation still needs a name on it.',
+      },
+      {
+        label: 'Digital twins of processes and conceptual models',
+        href: '/guides/process-digital-twins',
+        note: 'a twin can be a process, not only a building.',
       },
     ],
     closing: [
@@ -636,6 +663,16 @@ export const guides: Guide[] = [
         href: '/guides/local-first-software',
         note: 'where the primary copy lives.',
       },
+      {
+        label: 'SSDF: add security practices to the lifecycle',
+        href: '/guides/ssdf-secure-development',
+        note: 'practices inside the lifecycle, not a phase at the end.',
+      },
+      {
+        label: 'What to write down when software recommends',
+        href: '/guides/recommendation-lineage',
+        note: 'what to write down, not a second framework overview.',
+      },
     ],
     closing: [
       p(
@@ -645,6 +682,413 @@ export const guides: Guide[] = [
           '/blog/a-recommendation-still-needs-a-name',
         ),
         '. The useful next step is to name the role, the data, the check, and the monitoring, or to read the two frameworks themselves. If something on this page is wrong, ',
+        a('write to us', '/contact'),
+        '.',
+      ),
+    ],
+  },
+  {
+    slug: 'architecture-decision-records',
+    title: 'Architecture decision records: write down why it was decided',
+    seoTitle: 'Architecture decision records — Guides | PrimusNeo',
+    crumb: 'Architecture decision records',
+    eyebrow: 'Architecture decision records',
+    description: 'An architecture decision record is a short note of why a decision was made, so a later engineer need not accept or reverse that decision blindly.',
+    excerpt: 'An architecture decision record is a short note of why a decision was made, so a later engineer need not accept or reverse that decision blindly.',
+    publishedAt: '2026-11-10',
+    lastReviewed: '2026-11-10',
+    metric: 'Two choices',
+    metricLabel: 'Nygard, 15 November 2011 — blindly accept the decision, or blindly change it',
+    cardDescription: 'Michael Nygard\'s 2011 practice is to keep a collection of short records for architecturally significant decisions — each one a set of forces and a single decision in response — so a later engineer does not have to accept or reverse that decision blindly. If the motivation is not written down, those are the only two choices left.',
+    patternTitle: 'Write down why it was decided',
+    patternDescription: 'Nygard\'s 2011 practice keeps a short record of the forces and a single decision, so a later engineer does not accept or reverse it blindly.',
+    lead: [
+      p('Michael Nygard\'s 2011 practice is to keep a collection of short records for architecturally significant decisions — each one a set of forces and a single decision in response — so a later engineer does not have to accept or reverse that decision blindly. If the motivation is not written down, those are the only two choices left. This is a field practice about recording why a decision was made, not a PrimusNeo process badge.'),
+    ],
+    figures: [
+      {
+        lead: 'Michael Nygard, "Documenting Architecture Decisions," 15 November 2011.',
+        text: '"Architecture for agile projects has to be described and defined differently. Not all decisions will be made at once, nor will all of them be done when the project begins." "Agile methods are not opposed to documentation, only to valueless documentation. Documents that assist the team itself can have value, but only if they are kept up to date. Large documents are never kept up to date." "One of the hardest things to track during the life of a project is the motivation behind certain decisions." A new person, without the rationale or consequences, "has only two choices": "Blindly accept the decision," which may be wrong if the context has changed, or "Blindly change it," which may damage a requirement that has not been tested yet. "It’s better to avoid either blind acceptance or blind reversal."',
+      },
+      {
+        lead: 'What counts, in the same essay.',
+        text: '"We will keep a collection of records for ‘architecturally significant’ decisions: those that affect the structure, non-functional characteristics, dependencies, interfaces, or construction techniques." "An architecture decision record is a short text file in a format similar to an Alexandrian pattern." "Each record describes a set of forces and a single decision in response to those forces." "The decision is the central piece here, so specific forces may appear in multiple ADRs."',
+      },
+      {
+        lead: 'Nygard\'s own convention,',
+        text: 'quoted as his convention, not as a PrimusNeo repository layout: keep them in the project repository under doc/arch/adr-NNN.md; use a lightweight format such as Markdown or Textile; number them "sequentially and monotonically. Numbers will not be reused." "If a decision is reversed, we will keep the old one around, but mark it as superseded." The parts: Title (a short noun phrase; his examples include "ADR 1: Deployment on Ruby on Rails 3.0.10"); Context (the forces, "value-neutral," "simply describing facts"); Decision ("stated in full sentences, with active voice. ‘We will …’"); Status ("proposed" or "accepted"; later "deprecated" or "superseded" with a reference to its replacement); Consequences ("the resulting context"). No extra sections are invented here.',
+      },
+    ],
+    sections: [
+      h2('What to write down'),
+      p('A delivery program can keep this habit. It does not require a house ADR standard or a required path. Nygard\'s doc/arch/ path, Rails example, and Markdown preference are his. They are not a PrimusNeo rule. This page does not invent adoption rates or a claim that ADRs prevent a percentage of rework. It is not a certification.'),
+      p(
+        a('Architecture decision records on a delivery program', 'https://overseasgenai.com/guides/architecture-decision-records'),
+        ' is the delivery-handover reading of the same 2011 essay. ',
+        a('Idempotent HTTP requests', '/guides/idempotent-requests'),
+        ' and ',
+        a('BIM and IFC file exchange', '/guides/bim-ifc-exchange'),
+        ' are siblings where an interface or a dependency is often the thing being decided.',
+      ),
+    ],
+    scenario: 'This is a worked example, not a customer and not a house standard. A later engineer is asked to change a storage interface, and the only record is a ticket title with no forces, no decision sentence, and no status. Nygard\'s two blind choices are already the ones left.',
+    sources: [
+      {
+        label: 'Michael Nygard, "Documenting Architecture Decisions," 15 November 2011.',
+        href: 'https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions',
+      },
+      {
+        label: 'Delivery sibling: Architecture decision records on a delivery program',
+        href: 'https://overseasgenai.com/guides/architecture-decision-records',
+      },
+    ],
+    siblings: [
+      {
+        label: 'BIM and IFC file exchange',
+        href: '/guides/bim-ifc-exchange',
+        note: 'say which schema the file actually is.',
+      },
+      {
+        label: 'Idempotent HTTP requests',
+        href: '/guides/idempotent-requests',
+        note: 'when a retry is a safe move.',
+      },
+      {
+        label: 'What is a software bill of materials',
+        href: '/guides/software-bill-of-materials',
+        note: 'an inventory of what the software is made of.',
+      },
+    ],
+    closing: [
+      p(
+        'The useful next step is to write a short record of the next architecturally significant decision, or to read the ',
+        a('guides index', '/guides'),
+        '. If something on this page is wrong, ',
+        a('write to us', '/contact'),
+        '.',
+      ),
+    ],
+  },
+  {
+    slug: 'software-bill-of-materials',
+    title: 'What is a software bill of materials (SBOM)',
+    seoTitle: 'What is a software bill of materials (SBOM) — Guides | PrimusNeo',
+    crumb: 'What is a software bill of materials',
+    eyebrow: 'Software bill of materials',
+    description: 'CISA describes an SBOM as a nested inventory of software ingredients. The 2026 minimum elements update the 2021 NTIA baseline. An SBOM is not a safety finding.',
+    excerpt: 'CISA describes an SBOM as a nested inventory of software ingredients. The 2026 minimum elements update the 2021 NTIA baseline. An SBOM is not a safety finding.',
+    publishedAt: '2026-11-10',
+    lastReviewed: '2026-11-10',
+    metric: 'Ingredients',
+    metricLabel: 'CISA — a nested inventory, not a safety finding',
+    cardDescription: 'CISA describes an SBOM as a nested inventory — a list of ingredients that make up software. The 29 July 2026 joint guidance updates and replaces the 2021 NTIA minimum elements.',
+    patternTitle: 'An inventory, not a safety finding',
+    patternDescription: 'CISA describes an SBOM as a nested inventory, a list of ingredients that make up software. The 29 July 2026 guidance updates and replaces the 2021 NTIA minimum elements.',
+    lead: [
+      p('CISA describes an SBOM as a nested inventory — a list of ingredients that make up software. The 29 July 2026 joint guidance updates and replaces the 2021 NTIA minimum elements. An SBOM is a transparency tool. It can support risk-informed decisions. It does not, by itself, make the software safe, and it is not a certification PrimusNeo holds. This page stays with the official inventory documents. It is not a vulnerability walkthrough.'),
+    ],
+    figures: [
+      {
+        lead: 'CISA, "Software Bill of Materials (SBOM)" landing.',
+        text: '"A ‘software bill of materials’ (SBOM) has emerged as a key building block in software security and software supply chain risk management. An SBOM is a nested inventory, a list of ingredients that make up software components." The ideas and implementation "have advanced since 2018 through a number of collaborative community effort, including National Telecommunications and Information Administration’s (NTIA) multistakeholder process." CISA also names a related concept, the Vulnerability Exploitability eXchange (VEX): "A VEX document is an attestation, a form of a security advisory that indicates whether a product or products are affected by a known vulnerability or vulnerabilities." VEX is kept here as CISA\'s definition, not as a second lede and not as a house product.',
+      },
+      {
+        lead: 'CISA and partners, 2026 Minimum Elements for a Software Bill of Materials (SBOM), publication 29 July 2026 (Version 2.1).',
+        text: '"CISA, the National Security Agency, the Federal Bureau of Investigation, and international partners released joint guidance… that updates and replaces the minimum elements for an SBOM published by the National Telecommunications and Information Administration (NTIA) in 2021." The landing: "An SBOM serves as an ‘ingredients list’ for software." "Minimum elements for an SBOM describe the baseline technologies and practices that an SBOM should include. While the minimum elements for an SBOM apply to all software, some software types—such as artificial intelligence and software as a service in cloud environments—may require additional elements. Any effort to improve software transparency, regardless of the software type, should begin with the application of minimum elements."',
+      },
+      {
+        lead: 'The PDF introduction (opened):',
+        text: '"An SBOM is a nested inventory, a list of ingredients that make up software applications and systems." "The elements outlined in this document set forth the minimum expected data fields and the practices and processes for an SBOM." Intended audience, from Guidance at a Glance: "Organizations that produce software, procure software, or operate software." Key actions, as the document lists them: organizations should request SBOMs that satisfy the updated minimum elements; use available tools to generate, ingest, and analyze SBOM data; and generate SBOMs that satisfy the updated minimum elements. Appendix A, Table 1, is the official list of minimum-elements data fields. The opened table includes component dependency relationship, hash algorithm and value, identifiers, license, name, producer, version; SBOM author, author signature, data format name and version, generation context, timestamp, tool name and version, and SBOM version. This page points at that table rather than inventing a shorter "must-have" list, and does not treat the appendix as a certification checklist PrimusNeo has passed. The 2021 NTIA list was not re-opened in this pass; the brief uses the 2026 document\'s own "updates and replaces" statement.',
+      },
+    ],
+    sections: [
+      h2('What an operator can ask for'),
+      p(
+        'A delivery or operations program can ask for an SBOM that meets the published minimum elements. That request is not a finding that the software is safe, and it is not a claim that PrimusNeo, a client, or a stack is SBOM-certified. ',
+        a('SSDF: add security practices to the lifecycle', '/guides/ssdf-secure-development'),
+        ' is the practice-framework sibling. ',
+        a('Asking for a software bill of materials', 'https://overseasgenai.com/guides/software-bill-of-materials'),
+        ' is the delivery-firm reading of the same 2026 baseline.',
+      ),
+      p('This page has no exploit steps, no invented coverage percentages, and no politics.'),
+    ],
+    scenario: 'This is a worked example, not a customer and not a certification. A procurement note says "we have an SBOM," and treats the file as proof that the software is safe, without asking whether the 2026 minimum elements are present. CISA\'s ingredients-list definition, and the 2026 document\'s own limit that the minimum elements are a baseline, are already the reason that leap does not hold.',
+    sources: [
+      {
+        label: 'CISA, Software Bill of Materials landing.',
+        href: 'https://www.cisa.gov/sbom',
+      },
+      {
+        label: '2026 Minimum Elements for a Software Bill of Materials (SBOM), 29 July 2026, Version 2.1. Landing:',
+        href: 'https://www.cisa.gov/resources-tools/resources/2026-minimum-elements-software-bill-materials-sbom',
+        more: [
+          { label: 'PDF', href: 'https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf' },
+        ],
+      },
+      {
+        label: 'Delivery sibling: Asking for a software bill of materials',
+        href: 'https://overseasgenai.com/guides/software-bill-of-materials',
+      },
+    ],
+    siblings: [
+      {
+        label: 'SSDF: add security practices to the lifecycle',
+        href: '/guides/ssdf-secure-development',
+        note: 'practices inside the lifecycle, not a phase at the end.',
+      },
+      {
+        label: 'Architecture decision records',
+        href: '/guides/architecture-decision-records',
+        note: 'write down why a structural choice was made.',
+      },
+    ],
+    closing: [
+      p(
+        'The useful next step is to read the 2026 minimum elements, or to ask whether an SBOM in hand actually meets them. If something on this page is wrong, ',
+        a('write to us', '/contact'),
+        '.',
+      ),
+    ],
+  },
+  {
+    slug: 'ssdf-secure-development',
+    title: 'SSDF: add security practices to the lifecycle',
+    seoTitle: 'SSDF: add security practices to the lifecycle — Guides | PrimusNeo',
+    crumb: 'SSDF: add security practices to the lifecycle',
+    eyebrow: 'SSDF secure development',
+    description: 'NIST’s SSDF is a core set of secure-development practices to add to each lifecycle. This is the operator and architect reading, not a certification.',
+    excerpt: 'NIST’s SSDF is a core set of secure-development practices to add to each lifecycle. This is the operator and architect reading, not a certification.',
+    publishedAt: '2026-11-10',
+    lastReviewed: '2026-11-10',
+    metric: 'SP 800-218',
+    metricLabel: 'NIST, February 2022 — practices added to each lifecycle',
+    cardDescription: 'NIST\'s Secure Software Development Framework is "a core set of high-level secure software development practices that can be integrated into each SDLC implementation," because few lifecycle models address software security in detail on their own. If the lifecycle model does not already address security in detail, the practices still have to be added to each implementation.',
+    patternTitle: 'Add the practices to each lifecycle',
+    patternDescription: 'NIST SP 800-218 recommends a core set of high-level secure-development practices that can be integrated into each SDLC implementation. Pointing at it is not a certification.',
+    lead: [
+      p(
+        'NIST\'s Secure Software Development Framework is "a core set of high-level secure software development practices that can be integrated into each SDLC implementation," because few lifecycle models address software security in detail on their own. If the lifecycle model does not already address security in detail, the practices still have to be added to each implementation. This is the operator and architect reading of the same official source used on ',
+        a('OverseasGenAI\'s SSDF page', 'https://overseasgenai.com/guides/ssdf-secure-development'),
+        '. It is not a second practice list, not a penetration-test page, and not a certification PrimusNeo holds.',
+      ),
+    ],
+    figures: [
+      {
+        lead: 'NIST SP 800-218, Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities, February 2022.',
+        text: 'Authors: Murugiah Souppaya, Karen Scarfone, Donna Dodson. The document "recommends the Secure Software Development Framework (SSDF) – a core set of high-level secure software development practices that can be integrated into each SDLC implementation." Following those practices "should help software producers reduce the number of vulnerabilities in released software, reduce the potential impact of the exploitation of undetected or unaddressed vulnerabilities, and address the root causes of" those vulnerabilities — only complete sentences are used here.',
+      },
+      {
+        lead: 'The CSRC publication page:',
+        text: '"Few software development life cycle (SDLC) models explicitly address software security in detail, so secure software development practices usually need to be added to each SDLC model to ensure that the software being developed is well-secured." Date published: February 2022; supersedes CSWP 13 (23 April 2020).',
+      },
+    ],
+    sections: [
+      h2('What SSDF is, and is not'),
+      p('Version 1.1, February 2022; a recommended, high-level set of practices; intended to reduce vulnerabilities, reduce the impact of those that remain, and address root causes. Not a checklist badge. A program can point at the framework. Pointing at it is not a claim that PrimusNeo, NEOS, AZOA, or a named client is SSDF-aligned. Individual practice IDs (PO, PS, PW, RV, or similar) are not listed from memory; they would need to be opened and quoted from those tables. There are no vulnerability walkthroughs on this page.'),
+      p(
+        a('What is a software bill of materials (SBOM)', '/guides/software-bill-of-materials'),
+        ' is the inventory sibling. The OSGA page is the delivery-firm reading of the same publication.',
+      ),
+    ],
+    scenario: 'This is a worked example, not a customer and not an audit. A system is already in use, and "security" is added as a later workstream, with no practices integrated into the lifecycle that produced it. The CSRC sentence about adding practices to each SDLC model is already the reason that later workstream is late.',
+    sources: [
+      {
+        label: 'Souppaya, Murugiah, Karen Scarfone, and Donna Dodson. Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities, NIST SP 800-218, February 2022.',
+        href: 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf',
+        doi: 'https://doi.org/10.6028/NIST.SP.800-218',
+      },
+      {
+        label: 'NIST CSRC publication page for SP 800-218.',
+        href: 'https://csrc.nist.gov/pubs/sp/800/218/final',
+      },
+      {
+        label: 'Delivery sibling: NIST SSDF: secure software development practices',
+        href: 'https://overseasgenai.com/guides/ssdf-secure-development',
+      },
+    ],
+    siblings: [
+      {
+        label: 'What is a software bill of materials (SBOM)',
+        href: '/guides/software-bill-of-materials',
+        note: 'an inventory, not a talisman.',
+      },
+      {
+        label: 'AI accountability: NIST AI RMF and the GAO framework',
+        href: '/guides/ai-rmf-accountability',
+        note: 'a recommendation still needs a name on it.',
+      },
+    ],
+    closing: [
+      p(
+        'The useful next step is to read SP 800-218, or to ask whether secure-development practices are already in the lifecycle, or still waiting for a later phase. If something on this page is wrong, ',
+        a('write to us', '/contact'),
+        '.',
+      ),
+    ],
+  },
+  {
+    slug: 'recommendation-lineage',
+    title: 'What to write down when software recommends',
+    seoTitle: 'What to write down when software recommends — Guides | PrimusNeo',
+    crumb: 'What to write down when software recommends',
+    eyebrow: 'Recommendation lineage',
+    description: 'GAO asks for clear goals and roles when software recommends, because inputs and operations are not always visible. This guide covers what to write down.',
+    excerpt: 'GAO asks for clear goals and roles when software recommends, because inputs and operations are not always visible. This guide covers what to write down.',
+    publishedAt: '2026-11-10',
+    lastReviewed: '2026-11-10',
+    metric: '1.1 / 1.2',
+    metricLabel: 'GAO-21-519SP, June 2021 — clear goals and clear roles',
+    cardDescription: 'GAO\'s AI accountability framework asks for clear goals and objectives, and for clear roles, responsibilities, and delegation of authority, because "inputs and operations are not always visible." If those are not visible, the record has to make the goal, the data, the check, the role, and the monitoring visible instead. This is a practice page about what to write down when software recommends, not a second framework overview.',
+    patternTitle: 'Write down the goal and the name',
+    patternDescription: 'GAO asks for clear goals and clear roles because inputs and operations are not always visible. NIST says risk management runs through the AI system lifecycle dimensions.',
+    lead: [
+      p(
+        'GAO\'s AI accountability framework asks for clear goals and objectives, and for clear roles, responsibilities, and delegation of authority, because "inputs and operations are not always visible." If those are not visible, the record has to make the goal, the data, the check, the role, and the monitoring visible instead. This is a practice page about what to write down when software recommends, not a second framework overview. ',
+        a('AI accountability: NIST AI RMF and the GAO framework', '/guides/ai-rmf-accountability'),
+        ' is the sibling, and ',
+        a('A recommendation still needs a name on it', '/blog/a-recommendation-still-needs-a-name'),
+        ' is the essay. This page is not legal advice, and not a certification.',
+      ),
+    ],
+    figures: [
+      {
+        lead: 'GAO-21-519SP, Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities, June 2021 (product page: published 30 June 2021).',
+        text: '"This framework is organized around four complementary principles, which address governance, data, performance, and monitoring." "However, AI systems pose unique challenges to such oversight because their inputs and operations are not always visible." Practice 1.1: "Define clear goals and objectives for the AI system to ensure intended outcomes are achieved." Practice 1.2: "Define clear roles, responsibilities, and delegation of authority for the AI system to ensure effective operations, timely corrections, and sustained oversight." This page does not imply that PrimusNeo is a federal system.',
+      },
+      {
+        lead: 'NIST AI 100-1, AI Risk Management Framework (AI RMF 1.0), January 2023.',
+        text: 'Characteristics of trustworthy AI systems "include valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy enhanced, and fair with their harmful biases managed." The Core\'s four functions are GOVERN, MAP, MEASURE, and MANAGE, with GOVERN applying "to all stages of organizations’ AI risk management processes and procedures." "Risk management should be continuous, timely, and performed throughout the AI system lifecycle dimensions." The Framework "is intended to be voluntary."',
+      },
+    ],
+    sections: [
+      h2('The official prompts'),
+      p('Clear goals (GAO 1.1). Clear roles and delegation (GAO 1.2). Governance, data, performance, monitoring. GOVERN across the lifecycle; continuous, not a one-time label (NIST). The useful record of a recommendation is who is responsible, what data went in, whether the output was checked against a stated goal, and how it will be watched.'),
+      p('This page does not claim that PrimusNeo implements either framework. The live alpha note belongs in the newsroom, not as a closer here. There are no invented deployments, accuracy numbers, "X percent of AI projects fail" lines, or CHAOS rates.'),
+    ],
+    scenario: 'This is a worked example, not a customer and not a certification. A recommendation is accepted in a meeting, and the only record is the output itself, with no stated goal, no named data, no check, and no name on the acceptance. GAO\'s 1.1 and 1.2 are already the missing lines.',
+    sources: [
+      {
+        label: 'U.S. Government Accountability Office, Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities, GAO-21-519SP, June 2021.',
+        href: 'https://www.gao.gov/products/gao-21-519sp',
+      },
+      {
+        label: 'NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1, January 2023.',
+        href: 'https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf',
+      },
+      {
+        label: 'Framework sibling: AI accountability: NIST AI RMF and the GAO framework. Essay: A recommendation still needs a name on it',
+        href: '/guides/ai-rmf-accountability',
+        more: [
+          { label: 'A recommendation still needs a name on it', href: '/blog/a-recommendation-still-needs-a-name' },
+        ],
+      },
+    ],
+    siblings: [
+      {
+        label: 'AI accountability: NIST AI RMF and the GAO framework',
+        href: '/guides/ai-rmf-accountability',
+        note: 'the official frameworks, not a second essay.',
+      },
+      {
+        label: 'What is a digital twin',
+        href: '/guides/digital-twins',
+        note: 'a representation you can evaluate.',
+      },
+      {
+        label: 'Digital twins of processes',
+        href: '/guides/process-digital-twins',
+        note: 'a twin can be a process, not only a building.',
+      },
+    ],
+    closing: [
+      p(
+        'The useful next step is to write down the goal, the data, the check, and the name, or to read the ',
+        a('framework companion', '/guides/ai-rmf-accountability'),
+        '. If something on this page is wrong, ',
+        a('write to us', '/contact'),
+        '.',
+      ),
+    ],
+  },
+  {
+    slug: 'process-digital-twins',
+    title: 'Digital twins of processes and conceptual models',
+    seoTitle: 'Digital twins of processes and conceptual models — Guides | PrimusNeo',
+    crumb: 'Digital twins of processes',
+    eyebrow: 'Process digital twins',
+    description: 'NIST IR 8356 says a digital twin can represent a process or a conceptual model, not only a building. Interoperable definitions and trust still apply.',
+    excerpt: 'NIST IR 8356 says a digital twin can represent a process or a conceptual model, not only a building. Interoperable definitions and trust still apply.',
+    publishedAt: '2026-11-10',
+    lastReviewed: '2026-11-10',
+    metric: 'IR 8356',
+    metricLabel: 'NIST, February 2025 — a process or a conceptual model can be a twin',
+    cardDescription: 'NIST IR 8356 is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to What is a digital twin, not a second opening definition, and not a vulnerability write-up.',
+    patternTitle: 'A process can be the entity',
+    patternDescription: 'NIST IR 8356 says a digital twin can emulate processes and conceptual models, not only buildings. The full benefits still require interoperable definitions and early consideration of cybersecurity and trust.',
+    lead: [
+      p(
+        'NIST IR 8356 is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to ',
+        a('What is a digital twin', '/guides/digital-twins'),
+        ', not a second opening definition, and not a vulnerability write-up.',
+      ),
+    ],
+    figures: [
+      {
+        lead: 'NIST IR 8356, Security and Trust Considerations for Digital Twin Technology, February 2025.',
+        text: '"A digital twin (DT) is an electronic representation of a real-world entity; providing the capability to evaluate this entity. A digital twin can emulate both physical things (e.g., buildings, electronics, living things), and non-physical things (e.g., processes, conceptual models)." "The full benefits of digital twin technology will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." That is the complete sentence. A cut-off version appeared in a source note on the batch-1 brief; this page uses the complete line.',
+      },
+      {
+        lead: 'NIST\'s 14 February 2025 news release',
+        text: 'restates that a twin may represent "a real-world physical (e.g., buildings, electronics, living things) or non-physical (e.g., processes, conceptual models) entity."',
+      },
+    ],
+    sections: [
+      h2('The same limit, now in a complete sentence'),
+      p('Interoperable definitions, tools, and standards; early consideration of cybersecurity and trust. That is a finding in the report, not a PrimusNeo roadmap. A later companion can stay with NIST\'s published trust sections, without attack steps; this page does not preview exploits. A workflow diagram, by itself, is not treated here as a twin.'),
+      p(
+        'A process twin still needs a record of what process is represented, how it is synchronized, and who accepts a decision made with it. ',
+        a('What to write down when software recommends', '/guides/recommendation-lineage'),
+        ' is the habit sibling when a decision is made with the twin. This page does not claim a live PrimusNeo process twin, invent coverage percentages, or say that every factory already twins its process. It is not a Tie Town or stack claim, and not investment language.',
+      ),
+    ],
+    scenario: 'This is a worked example, not a customer and not a deployment. A proposal is titled "digital twin of the process" and attaches a workflow diagram with no named process, no evaluation method, and no synchronization frequency. NIST\'s opening sentence already asks for a representation you can evaluate, and the complete benefits sentence already names interoperable definitions and early attention to trust.',
+    sources: [
+      {
+        label: 'Voas, Mell, Laplante, and Piroumian, Security and Trust Considerations for Digital Twin Technology, NIST IR 8356, February 2025.',
+        href: 'https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8356.pdf',
+        doi: 'https://doi.org/10.6028/NIST.IR.8356',
+      },
+      {
+        label: 'NIST, "Security and Trust Considerations for Digital Twin Technology: NIST Releases IR 8356," 14 February 2025.',
+        href: 'https://www.nist.gov/news-events/news/2025/02/security-and-trust-considerations-digital-twin-technology-nist-releases-ir',
+      },
+      {
+        label: 'Definition sibling: What is a digital twin',
+        href: '/guides/digital-twins',
+      },
+    ],
+    siblings: [
+      {
+        label: 'What is a digital twin',
+        href: '/guides/digital-twins',
+        note: 'the official definition, and the interoperability limit.',
+      },
+      {
+        label: 'What to write down when software recommends',
+        href: '/guides/recommendation-lineage',
+        note: 'the goal, the data, the check, and the name.',
+      },
+      {
+        label: 'What is local-first software',
+        href: '/guides/local-first-software',
+        note: 'the copy on the device as the primary copy.',
+      },
+    ],
+    closing: [
+      p(
+        'The useful next step is to say what process is being represented and how it can be evaluated, or to read ',
+        a('What is a digital twin', '/guides/digital-twins'),
+        '. If something on this page is wrong, ',
         a('write to us', '/contact'),
         '.',
       ),

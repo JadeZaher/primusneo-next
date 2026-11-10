@@ -7,7 +7,7 @@ import { guides, type GuideSource } from '@/content/guides';
 import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 const description =
-  'Five field guides on twins, file exchange, retries, the primary copy, and accountability. Figures belong to the cited documents. Not a survey or a deployment.';
+  'Ten field guides. Decisions, inventories, secure development, recommendations, and process twins, with the links left on. Not a certification or a deployment.';
 
 const shareImage = {
   url: '/images/ampheader.png',
@@ -88,13 +88,13 @@ export default function GuidesPage() {
           <span className="text-mist">Guides</span>
         </nav>
         <div className="mt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
-          Five guides · the links stay on
+          Ten guides · the links stay on
         </div>
         <h1 className="mt-5 max-w-[14ch] text-balance text-[clamp(48px,7vw,104px)] font-medium leading-[0.94] tracking-[-0.04em]">
           The source already wrote the definition.
         </h1>
         <p className="mt-8 max-w-[62ch] text-[18px] leading-[1.65] text-mist">
-          Five field guides. Each one stays inside a public document, and each figure on the cards is cited on the
+          Ten field guides. Each one stays inside a public document, and each figure on the cards is cited on the
           child. This is not a survey, a certification, or a deployment.
         </p>
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
@@ -107,7 +107,7 @@ export default function GuidesPage() {
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">The pattern</div>
           <h2 className="max-w-[18ch] text-balance text-[clamp(32px,4vw,64px)] font-medium leading-[1.05] tracking-[-0.03em]">
-            Five documents, five questions.
+            Ten documents. The sentence is on the child.
           </h2>
           <p className="mt-6 max-w-[62ch] text-[17px] leading-relaxed text-mist">
             The short label is on the card. The sentence and the link are on the child page.

@@ -142,7 +142,7 @@ async function buildBody(): Promise<string> {
     fmtLine({
       path: '/guides',
       title: 'Field guides',
-      desc: 'Five field definitions. The figures belong to the documents they quote. Not a survey, a certification, or a deployment.',
+      desc: 'Ten field definitions. The figures belong to the documents they quote. Not a survey, a certification, or a deployment.',
     }),
     ...guides.map((guide) =>
       fmtLine({

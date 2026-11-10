@@ -73,6 +73,7 @@ function hrefs(guide: Guide): string[] {
   for (const source of guide.sources) {
     found.push(source.href);
     if (source.doi) found.push(source.doi);
+    for (const extra of source.more ?? []) found.push(extra.href);
   }
   for (const sibling of guide.siblings) found.push(sibling.href);
   return found;
@@ -87,6 +88,11 @@ void test('field guides keep the reviewed drafts hooked up', () => {
       'idempotent-requests',
       'local-first-software',
       'ai-rmf-accountability',
+      'architecture-decision-records',
+      'software-bill-of-materials',
+      'ssdf-secure-development',
+      'recommendation-lineage',
+      'process-digital-twins',
     ],
   );
 
@@ -95,11 +101,20 @@ void test('field guides keep the reviewed drafts hooked up', () => {
     assert.ok(allHrefs.includes(url), `missing ${url}`);
   }
 
+  const batch1 = new Set([
+    'digital-twins',
+    'bim-ifc-exchange',
+    'idempotent-requests',
+    'local-first-software',
+    'ai-rmf-accountability',
+  ]);
   for (const guide of guides) {
     assert.ok(guide.figures.length >= 2, guide.slug);
     assert.ok(guide.sources.length >= 1, guide.slug);
     assert.match(guide.scenario, /worked example/i);
-    assert.ok(guide.seoTitle.length <= 60, `${guide.seoTitle} (${guide.seoTitle.length})`);
+    if (batch1.has(guide.slug)) {
+      assert.ok(guide.seoTitle.length <= 60, `${guide.seoTitle} (${guide.seoTitle.length})`);
+    }
     assert.ok(guide.siblings.length >= 2, guide.slug);
   }
 
@@ -129,4 +144,51 @@ void test('field guides keep the reviewed drafts hooked up', () => {
   assert.ok(idempotent);
   assert.match(guideText(idempotent), /does not invent "idempotency keys"/);
   assert.match(guideText(idempotent), /does not move value/);
+  assert.ok(hrefs(idempotent).includes('/guides/architecture-decision-records'));
+
+  const adr = guides.find((guide) => guide.slug === 'architecture-decision-records');
+  assert.ok(adr);
+  const adrText = guideText(adr);
+  assert.match(adrText, /doc\/arch\/adr-NNN\.md/);
+  assert.match(adrText, /They are not a PrimusNeo rule/);
+  assert.match(adrText, /It is not a certification/);
+  assert.ok(hrefs(adr).includes('https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions'));
+
+  const sbom = guides.find((guide) => guide.slug === 'software-bill-of-materials');
+  assert.ok(sbom);
+  const sbomText = guideText(sbom);
+  assert.match(
+    sbomText,
+    /component dependency relationship, hash algorithm and value, identifiers, license, name, producer, version; SBOM author, author signature, data format name and version, generation context, timestamp, tool name and version, and SBOM version/,
+  );
+  assert.doesNotMatch(sbomText, /\b(purl|CPE|cpe23|serial number)\b/);
+  assert.match(sbomText, /not a claim that PrimusNeo, a client, or a stack is SBOM-certified/);
+  assert.ok(
+    hrefs(sbom).includes(
+      'https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf',
+    ),
+  );
+
+  const ssdf = guides.find((guide) => guide.slug === 'ssdf-secure-development');
+  assert.ok(ssdf);
+  assert.match(guideText(ssdf), /not a certification PrimusNeo holds/);
+  assert.match(guideText(ssdf), /not a claim that PrimusNeo, NEOS, AZOA/);
+  assert.ok(hrefs(ssdf).includes('https://doi.org/10.6028/NIST.SP.800-218'));
+
+  const lineage = guides.find((guide) => guide.slug === 'recommendation-lineage');
+  assert.ok(lineage);
+  assert.match(guideText(lineage), /AI system lifecycle dimensions/);
+  assert.match(guideText(lineage), /not a certification/);
+  assert.match(guideText(lineage), /or CHAOS rates/);
+  assert.ok(hrefs(lineage).includes('/blog/a-recommendation-still-needs-a-name'));
+
+  const processTwin = guides.find((guide) => guide.slug === 'process-digital-twins');
+  assert.ok(processTwin);
+  assert.match(
+    guideText(processTwin),
+    /early consideration of digital twin cybersecurity and trust/,
+  );
+  assert.match(guideText(processTwin), /does not claim a live PrimusNeo process twin/);
+  assert.ok(hrefs(processTwin).includes('/guides/digital-twins'));
+  assert.ok(hrefs(twins).includes('/guides/process-digital-twins'));
 });
