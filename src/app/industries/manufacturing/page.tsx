@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/manufacturing',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Manufacturing & Industrial Production | PrimusNeo',
+    description: 'Escape pilot purgatory. Run your plants on one governed twin tying OEE, ESG, and capex into a single contextualized layer.',
+  },
 };
 
 const stats = [

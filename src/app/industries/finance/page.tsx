@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/finance',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Finance & Investing | PrimusNeo',
+    description: 'Where capital markets meet the real-world asset, live.',
+  },
 };
 
 const stats = [

@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/agriculture',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agriculture & Food Systems | PrimusNeo',
+    description: 'Banking, provenance, and yield — on one field-to-fork model.',
+  },
 };
 
 const stats = [

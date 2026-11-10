@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/technology',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Technology & Software | PrimusNeo',
+    description: 'The governed coordination plane for AI-native software organizations.',
+  },
 };
 
 const stats = [

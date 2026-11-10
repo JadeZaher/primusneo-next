@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/healthcare',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Healthcare & Life Sciences | PrimusNeo',
+    description: 'Portable identity, real-time care, outcome-based capital.',
+  },
 };
 
 const stats = [

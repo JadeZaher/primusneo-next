@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/energy',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Energy & Utilities | PrimusNeo',
+    description: 'The operating system for grid-edge coordination and verified green.',
+  },
 };
 
 const stats = [

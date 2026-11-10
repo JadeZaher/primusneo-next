@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/robotics',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Robotics & Autonomous Systems | PrimusNeo',
+    description: 'The coordination protocol for every robot that shares physical space.',
+  },
 };
 
 const stats = [

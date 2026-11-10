@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/construction',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Construction & Built Environment | PrimusNeo',
+    description: 'The coordination layer for the world&rsquo;s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
+  },
 };
 
 const stats = [
