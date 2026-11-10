@@ -87,6 +87,8 @@ export default function ManufacturingIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/manufacturing"
+      sources={sources}
       primaryCtaText="Book a plant assessment"
     >
       <ContrarianInsight attribution="PrimusNeo — Manufacturing Brief">

@@ -4,11 +4,10 @@ import { client } from "@/lib/sanity/client";
 import { NEWS_ITEM_QUERY } from "@/lib/sanity/queries";
 import type { News } from "@/lib/sanity/types";
 import Link from "next/link";
-import Script from "next/script";
+import { JsonLd } from "@/app/_components/JsonLd";
+import { articleNode, breadcrumbList, graph } from "@/lib/jsonld";
 
 const options = { next: { revalidate: 30 } };
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
 export async function generateMetadata({
   params,
@@ -61,32 +60,27 @@ export default async function NewsItemPage({
     );
   }
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
-    headline: newsItem.title,
-    description: newsItem.excerpt,
-    datePublished: newsItem.publishedAt,
-    mainEntityOfPage: `${SITE_URL}/news/${newsItem.slug.current}`,
-    publisher: {
-      '@type': 'Organization',
-      name: 'PrimusNeo',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo-primus-neo.png` },
-    },
-    isBasedOn: newsItem.sourceUrl ?? undefined,
-    sourceOrganization: newsItem.sourceName
-      ? { '@type': 'Organization', name: newsItem.sourceName }
-      : undefined,
-  };
+  const path = `/news/${newsItem.slug.current}`;
+  const articleJsonLd = graph(
+    articleNode({
+      headline: newsItem.title,
+      description: newsItem.excerpt ?? newsItem.title,
+      path,
+      datePublished: newsItem.publishedAt,
+      citations: newsItem.sourceUrl
+        ? [{ '@type': 'CreativeWork', name: newsItem.sourceName ?? newsItem.title, url: newsItem.sourceUrl }]
+        : undefined,
+    }),
+    breadcrumbList([
+      { name: 'Home', path: '/' },
+      { name: 'Newsroom', path: '/newsroom' },
+      { name: newsItem.title, path },
+    ]),
+  );
 
   return (
     <main className="container mx-auto min-h-screen max-w-4xl pt-32 pb-16 px-8">
-      <Script
-        id={`ld-news-${newsItem.slug.current}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+      <JsonLd data={articleJsonLd} />
       <Link
         href="/blog"
         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8"

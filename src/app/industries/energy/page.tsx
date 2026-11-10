@@ -87,6 +87,8 @@ export default function EnergyIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/energy"
+      sources={sources}
       primaryCtaText="Talk to utility team"
       relatedEssay={{ href: '/blog/the-queue-is-not-a-plan', title: 'The queue is not a plan' }}
     >

@@ -86,6 +86,8 @@ export default function FinanceIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/finance"
+      sources={sources}
       primaryCtaText="Talk to capital markets"
     >
       <ContrarianInsight attribution="PrimusNeo — Capital Markets Brief">

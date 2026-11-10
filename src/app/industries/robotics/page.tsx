@@ -87,6 +87,8 @@ export default function RoboticsIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/robotics"
+      sources={sources}
       primaryCtaText="Coordinate a fleet"
     >
       <ContrarianInsight attribution="PrimusNeo — Robotics Brief">

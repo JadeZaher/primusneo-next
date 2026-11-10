@@ -87,6 +87,8 @@ export default function AgricultureIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/agriculture"
+      sources={sources}
       primaryCtaText="Talk to agrifood team"
     >
       <ContrarianInsight attribution="PrimusNeo — Agriculture Brief">

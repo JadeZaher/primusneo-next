@@ -88,6 +88,8 @@ export default function GovernanceIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/governance"
+      sources={sources}
       primaryCtaText="Brief our public team"
     >
       <ContrarianInsight attribution="PrimusNeo — Public Sector Brief">

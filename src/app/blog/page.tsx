@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { JsonLd } from '../_components/JsonLd';
 import { WritingNav } from '../_components/WritingNav';
 import { loadWritingIndex } from '@/lib/writing';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 export const metadata = {
   title: 'Blog',
@@ -29,6 +31,20 @@ export default async function BlogPage() {
 
   return (
     <main className="bg-ink text-paper">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'Blog',
+            description: 'Builder notes and op-eds, with the footnotes attached.',
+            path: '/blog',
+            items: items.map((item) => ({ name: item.title, path: item.href })),
+          }),
+          breadcrumbList([
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+          ]),
+        )}
+      />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Blog</div>
         <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">

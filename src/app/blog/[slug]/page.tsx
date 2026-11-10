@@ -8,11 +8,10 @@ import { urlFor } from "@/lib/sanity/image";
 import type { Post } from "@/lib/sanity/types";
 import { essays, getEssay } from "@/content/essays";
 import Link from "next/link";
-import Script from "next/script";
+import { JsonLd } from "@/app/_components/JsonLd";
+import { articleNode, breadcrumbList, graph } from "@/lib/jsonld";
 
 const options = { next: { revalidate: 30 } };
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
 export function generateStaticParams() {
   return essays.map((essay) => ({ slug: essay.slug }));
@@ -102,29 +101,25 @@ export default async function PostPage({
     ? urlFor(post.image)?.width(1200).height(675).url()
     : null;
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.publishedAt,
-    image: postImageUrl ? [postImageUrl] : undefined,
-    mainEntityOfPage: `${SITE_URL}/blog/${post.slug.current}`,
-    publisher: {
-      '@type': 'Organization',
-      name: 'PrimusNeo',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo-primus-neo.png` },
-    },
-  };
+  const path = `/blog/${post.slug.current}`;
+  const articleJsonLd = graph(
+    articleNode({
+      headline: post.title,
+      description: post.excerpt ?? post.title,
+      path,
+      datePublished: post.publishedAt,
+      image: postImageUrl ?? undefined,
+    }),
+    breadcrumbList([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+      { name: post.title, path },
+    ]),
+  );
 
   return (
     <main className="container mx-auto min-h-screen max-w-4xl pt-32 pb-16 px-8">
-      <Script
-        id={`ld-article-${post.slug.current}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
+      <JsonLd data={articleJsonLd} />
       <Link
         href="/blog"
         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8"

@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import { JsonLd } from './JsonLd';
 import { GradientButton, InsightCard, NumberedCard, SectionHeader, ChallengeCard, MetricCard, RelatedWriting } from './marketing';
+import { articleNode, breadcrumbList, citationWorks, graph } from '@/lib/jsonld';
 
 export const SolutionTemplate = ({
   eyebrow,
@@ -17,9 +19,29 @@ export const SolutionTemplate = ({
   primaryCtaText = 'Talk to us',
   primaryCtaHref = '/contact',
   relatedEssay,
+  path,
+  sources = [],
 }) => {
+  const schema = path
+    ? graph(
+        articleNode({
+          headline: title,
+          description,
+          path,
+          datePublished: '2026-11-10',
+          citations: citationWorks(sources),
+        }),
+        breadcrumbList([
+          { name: 'Home', path: '/' },
+          { name: 'Industries', path: '/industries' },
+          { name: eyebrow, path },
+        ]),
+      )
+    : null;
+
   return (
     <div className="min-h-screen bg-ink text-paper selection:bg-accent selection:text-white">
+      {schema ? <JsonLd data={schema} /> : null}
       <section className="px-7 pb-24 pt-32 md:pb-32 md:pt-40">
         <div className="mx-auto grid max-w-[1600px] items-end gap-16 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
           <div>

@@ -86,6 +86,8 @@ export default function HealthcareIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/healthcare"
+      sources={sources}
       primaryCtaText="Talk to clinical team"
     >
       <ContrarianInsight attribution="PrimusNeo — Healthcare Brief">

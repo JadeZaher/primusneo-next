@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import { EntryArticle } from '@/app/_components/EntryArticle';
 import { getNewsItem, newsItems } from '@/content/news';
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
+import { articleNode, breadcrumbList, graph } from '@/lib/jsonld';
 
 export function generateStaticParams() {
   return newsItems.map((item) => ({ slug: item.slug }));
@@ -41,15 +40,19 @@ export default async function NewsItemPage({ params }: { params: Promise<{ slug:
       date={item.date}
       paragraphs={item.paragraphs}
       links={item.links}
-      jsonLd={{
-        '@context': 'https://schema.org',
-        '@type': 'NewsArticle',
-        headline: item.title,
-        description: item.excerpt,
-        datePublished: item.date,
-        mainEntityOfPage: `${SITE_URL}/newsroom/${item.slug}`,
-        publisher: { '@type': 'Organization', name: 'PrimusNeo', url: SITE_URL },
-      }}
+      jsonLd={graph(
+        articleNode({
+          headline: item.title,
+          description: item.excerpt,
+          path: `/newsroom/${item.slug}`,
+          datePublished: item.date,
+        }),
+        breadcrumbList([
+          { name: 'Home', path: '/' },
+          { name: 'Newsroom', path: '/newsroom' },
+          { name: item.title, path: `/newsroom/${item.slug}` },
+        ]),
+      )}
     />
   );
 }

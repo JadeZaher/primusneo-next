@@ -87,6 +87,8 @@ export default function ConstructionIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/construction"
+      sources={sources}
       primaryCtaText="Talk to capital projects"
     >
       <ContrarianInsight attribution="PrimusNeo — Construction Brief">

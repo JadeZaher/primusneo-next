@@ -87,6 +87,8 @@ export default function LogisticsIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/logistics"
+      sources={sources}
       primaryCtaText="Talk to logistics team"
     >
       <ContrarianInsight attribution="PrimusNeo — Logistics Brief">

@@ -85,6 +85,8 @@ export default function TechnologyIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/technology"
+      sources={sources}
       primaryCtaText="Brief our platform team"
     >
       <ContrarianInsight attribution="PrimusNeo — Tech Industry Brief">

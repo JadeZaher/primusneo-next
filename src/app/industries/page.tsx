@@ -1,5 +1,7 @@
 import React from 'react';
+import { JsonLd } from '../_components/JsonLd';
 import { SectionHeader, GradientButton, DreadShape, ChallengeCard } from '../_components/marketing';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 export const metadata = {
   title: 'Industries — Sector-by-Sector Implementation',
@@ -126,6 +128,20 @@ const crossCuttingChallenges = [
 export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'Industries',
+            description: metadata.description,
+            path: '/industries',
+            items: industries.map((industry) => ({ name: industry.title, path: industry.href })),
+          }),
+          breadcrumbList([
+            { name: 'Home', path: '/' },
+            { name: 'Industries', path: '/industries' },
+          ]),
+        )}
+      />
       {/* Hero */}
       <section className="relative isolate overflow-hidden border-b border-white/5 px-4 py-32 md:py-64">
         <DreadShape volume={5} id="02" className="absolute left-[5%] top-[18%] opacity-15 rotate-12" size={120} />

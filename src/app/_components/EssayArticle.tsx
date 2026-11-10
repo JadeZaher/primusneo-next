@@ -1,11 +1,8 @@
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/app/_components/JsonLd';
 import { Inlines, PieceClose, ProseBlockView } from '@/app/_components/Prose';
 import type { Essay, EssayLink } from '@/content/essays';
-
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com'
-).replace(/\/$/, '');
+import { articleNode, breadcrumbList, citationWorks, graph } from '@/lib/jsonld';
 
 function RelatedNotes({ items }: { items: EssayLink[] }) {
   return (
@@ -48,35 +45,25 @@ function stackLayer(essay: Essay): { layer: string; href: string } | undefined {
 
 export function EssayArticle({ essay }: { essay: Essay }) {
   const layer = stackLayer(essay);
-  const url = `${SITE_URL}/blog/${essay.slug}`;
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: essay.title,
-    description: essay.description,
-    datePublished: essay.publishedAt,
-    dateModified: essay.publishedAt,
-    mainEntityOfPage: url,
-    author: { '@type': 'Organization', name: 'PrimusNeo', url: SITE_URL },
-    publisher: {
-      '@type': 'Organization',
-      name: 'PrimusNeo',
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/images/logo-primus-neo.png`,
-      },
-    },
-    citation: essay.sources.map((source) => source.href),
-  };
+  const path = `/blog/${essay.slug}`;
+  const jsonLd = graph(
+    articleNode({
+      headline: essay.title,
+      description: essay.description,
+      path,
+      datePublished: essay.publishedAt,
+      citations: citationWorks(essay.sources),
+    }),
+    breadcrumbList([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+      { name: essay.title, path },
+    ]),
+  );
 
   return (
     <main className="bg-ink text-paper">
-      <Script
-        id={`ld-essay-${essay.slug}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <article className="mx-auto max-w-[1600px] px-7 pt-32 pb-24">
         <Link
           href="/blog"

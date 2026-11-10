@@ -1,13 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/app/_components/JsonLd";
 import { WritingNav } from "@/app/_components/WritingNav";
 import { getPaper, papers, type PaperLink } from "@/content/papers";
-
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://primusneo.com"
-).replace(/\/$/, "");
+import { absoluteUrl, articleNode, breadcrumbList, graph } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return papers.map((paper) => ({ slug: paper.slug }));
@@ -113,33 +110,21 @@ export default async function PaperPage({
 
   return (
     <main className="bg-ink text-paper">
-      <Script
-        id={`ld-paper-${paper.slug}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Report",
-            name: paper.title,
+      <JsonLd
+        data={graph(
+          articleNode({
             headline: paper.title,
             description: paper.description,
+            path: `/papers/${paper.slug}`,
             datePublished: paper.publishedAt,
-            url: `${SITE_URL}/papers/${paper.slug}`,
-            image: `${SITE_URL}${paper.cover.src}`,
-            numberOfPages: paper.pages,
-            encoding: {
-              "@type": "MediaObject",
-              contentUrl: `${SITE_URL}${paper.pdf}`,
-              encodingFormat: "application/pdf",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "PrimusNeo",
-              url: SITE_URL,
-            },
+            image: absoluteUrl(paper.cover.src),
           }),
-        }}
+          breadcrumbList([
+            { name: "Home", path: "/" },
+            { name: "Papers", path: "/papers" },
+            { name: paper.title, path: `/papers/${paper.slug}` },
+          ]),
+        )}
       />
 
       <header className="mx-auto max-w-[1600px] px-7 pt-32 pb-12 md:pt-40">

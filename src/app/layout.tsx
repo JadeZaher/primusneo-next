@@ -110,6 +110,7 @@ const organizationJsonLd = {
       },
       parentOrganization: {
         '@type': 'Organization',
+        '@id': 'https://escherbridge.com/#organization',
         name: operator.entity,
         url: 'https://escherbridge.com/',
         email: operator.email,

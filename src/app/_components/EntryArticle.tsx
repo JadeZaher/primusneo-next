@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Script from 'next/script';
+import { JsonLd } from '@/app/_components/JsonLd';
 import { PieceClose, ProseBlockView } from '@/app/_components/Prose';
 import type { EssaySource, ProseBlock } from '@/content/essays';
 import { WritingNav } from './WritingNav';
@@ -35,12 +35,7 @@ export function EntryArticle({
 }) {
   return (
     <main className="bg-ink text-paper">
-      <Script
-        id={`ld-${sectionHref}-${date}`}
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <article className="mx-auto max-w-[1600px] px-7 pt-32 pb-24">
         <Link
           href={sectionHref}
