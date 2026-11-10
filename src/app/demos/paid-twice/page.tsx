@@ -231,8 +231,11 @@ export default function PaidTwicePage() {
         </h2>
         <div className="text-mist mt-6 space-y-5 text-[17px] leading-relaxed">
           <p>
-            AZOA is the layer in this stack meant to keep that kind of record
-            for identity, consent, and settlement. It is pre-launch. The public
+            <a className={linkClass} href="https://azoa.ardanova.com">
+              AZOA
+            </a>{" "}
+            is the layer in this stack meant to keep that kind of record for
+            identity, consent, and settlement. It is pre-launch. The public
             repository calls that status Alpha Gate. Real-value rails are off.{" "}
             <a
               className={linkClass}

@@ -59,12 +59,17 @@ export const platformLayers = [
     title: 'NEOS Governance',
     partner: 'Backend governance ecosystem — OmniOne',
     body: 'Decision rights, councils, contribution accounting, project charters, and holonic organization that outlive the teams that define them.',
+    sites: [{ href: 'https://neos.primusneo.com', label: 'NEOS, agreements and permissions' }],
   },
   {
     eyebrow: 'Layer 03',
     title: 'AZOA (Autonomous Zones of Action)',
     partner: 'Federation rails — workflows & settlement',
-    body: 'Self-sovereign identity and consent, durable quest workflows, and settlement rails across blockchain and fiat — the structured seam that moves value through the stack, with SurrealDB as its sole data engine.',
+    body: 'Self-sovereign identity and consent, durable quest workflows, and settlement rails across blockchain and fiat — the structured seam that moves value through the stack, with SurrealDB as its sole data engine. ArdaNova is a designed consumer of this layer, not a live deployment, and it has made no token offering.',
+    sites: [
+      { href: 'https://azoa.ardanova.com', label: 'AZOA, identity, consent, and settlement' },
+      { href: 'https://ardanova.com', label: 'ArdaNova, a designed consumer of this layer' },
+    ],
   },
   {
     eyebrow: 'Layer 04',

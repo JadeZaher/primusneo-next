@@ -1,8 +1,8 @@
 // src/app/layout.tsx
 import '../styles/globals.css';
 import React from 'react';
-import Script from 'next/script';
 import { Archivo, IBM_Plex_Mono } from 'next/font/google';
+import { operator } from '@/content/operator';
 import { AttributionCapture } from './_components/AttributionCapture';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
@@ -78,30 +78,60 @@ export const viewport = {
   initialScale: 1,
 };
 
+/** Public identity for structured data. Canonical and Open Graph stay on metadataBase. */
+const CANONICAL_ORIGIN = 'https://primusneo.com';
+
+const sisterOrganizations = [
+  { name: 'NEOS', url: 'https://neos.primusneo.com' },
+  { name: 'AZOA', url: 'https://azoa.ardanova.com' },
+  { name: 'ArdaNova', url: 'https://ardanova.com' },
+  { name: 'Aevani', url: 'https://aevani.com' },
+  { name: 'PlantGeo', url: 'https://plantgeo.aevani.com' },
+  { name: 'OverseasGenAI', url: 'https://overseasgenai.com' },
+  { name: 'Glitxz', url: 'https://glitxz.com' },
+].map((site) => ({
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+}));
+
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': `${SITE_URL}/#organization`,
+      '@id': `${CANONICAL_ORIGIN}/#organization`,
       name: 'PrimusNeo',
-      url: SITE_URL,
+      url: CANONICAL_ORIGIN,
+      email: operator.email,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}/images/logo-primus-neo.png`,
+        url: `${CANONICAL_ORIGIN}/images/logo-primus-neo.png`,
       },
-      sameAs: [
-        'https://escherbridge.com/',
-        'https://plan-systems.org/',
-      ],
-      description: 'Federated operational infrastructure for real-world environments — coordinating digital twins, governance, identity, and spatial analytics.',
+      parentOrganization: {
+        '@type': 'Organization',
+        name: operator.entity,
+        url: 'https://escherbridge.com/',
+        email: operator.email,
+        subOrganization: [{ '@id': `${CANONICAL_ORIGIN}/#organization` }, ...sisterOrganizations],
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'inquiries',
+        email: operator.email,
+      },
+      // NEOS and AZOA are layers of this lab. Sibling projects belong to the operator, not to sameAs.
+      subOrganization: sisterOrganizations.filter((site) => site.name === 'NEOS' || site.name === 'AZOA'),
+      sameAs: ['https://escherbridge.com/', 'https://plan-systems.org/'],
+      description:
+        'Federated operational infrastructure for real-world environments — coordinating digital twins, governance, identity, and spatial analytics. Operated by Escherbridge, LLC.',
     },
     {
       '@type': 'WebSite',
-      '@id': `${SITE_URL}/#website`,
-      url: SITE_URL,
+      '@id': `${CANONICAL_ORIGIN}/#website`,
+      url: CANONICAL_ORIGIN,
       name: 'PrimusNeo',
-      publisher: { '@id': `${SITE_URL}/#organization` },
+      publisher: { '@id': `${CANONICAL_ORIGIN}/#organization` },
       inLanguage: 'en-US',
     },
   ],
@@ -119,10 +149,8 @@ const RootLayout = ({ children }) => {
         </main>
         <Footer />
       </div>
-      <Script
-        id="ld-organization"
+      <script
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
       </body>

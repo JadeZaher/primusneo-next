@@ -182,6 +182,14 @@ const Home = () => {
               </Reveal>
             ))}
           </div>
+          <p className="mt-8 max-w-[68ch] text-sm leading-relaxed text-mist">
+            <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a>{' '}
+            keeps agreements and permissions on its own site.{' '}
+            <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a>{' '}
+            keeps identity, consent, and settlement on its own site.{' '}
+            <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://ardanova.com">ArdaNova</a>{' '}
+            is designed to consume that settlement layer. It is not a live deployment, and it has made no token offering.
+          </p>
         </div>
       </section>
 
@@ -249,7 +257,7 @@ const Home = () => {
             <Reveal delay={160}>
               <div className="relative aspect-[16/10] w-full overflow-hidden border border-white/10">
                 <Image
-                  src="/images/howwework.png"
+                  src="/images/howwework.webp"
                   alt="Digital twin still of a governed operational environment"
                   fill
                   className="object-cover opacity-80"

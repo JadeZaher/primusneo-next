@@ -55,7 +55,7 @@ const AzoaPage = () => {
               Dynamic where it helps. Strict where money moves.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              AZOA is the open-source engine on PrimusNeo&rsquo;s federation rails. Describe a multi-step process — who acts, what moves, under what conditions, in what order — and AZOA runs it durably to completion, settling value across whichever rails the workflow touches: blockchains, fiat, or both.
+              <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a> is the open-source engine on PrimusNeo&rsquo;s federation rails. Describe a multi-step process — who acts, what moves, under what conditions, in what order — and AZOA runs it durably to completion, settling value across whichever rails the workflow touches: blockchains, fiat, or both.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/amp">AMP integration</GradientButton>
@@ -66,7 +66,7 @@ const AzoaPage = () => {
             <DreadShape volume={1} id="19" className="absolute -right-6 -bottom-6 opacity-20 rotate-45" size={140} />
             <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Alpha Gate</div>
             <p className="text-lg leading-8 text-paper">
-              Pre-launch. Identity and revocable consent are shipped and security-reviewed. Durable actions, the visual builder, and SurrealDB as the only data engine are in. Real-value bridges stay off, and wallet creation outside development is simulated. Governance tally and credential revocation stay in the not-enabled list until their reviews close. <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/Escherbridge/Ardanova">ArdaNova</a> is a designed consumer of the settlement layer, not a live deployment, and it has made no token offering.
+              Pre-launch. Identity and revocable consent are shipped and security-reviewed. Durable actions, the visual builder, and SurrealDB as the only data engine are in. Real-value bridges stay off, and wallet creation outside development is simulated. Governance tally and credential revocation stay in the not-enabled list until their reviews close. <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://ardanova.com">ArdaNova</a> is a designed consumer of the settlement layer, not a live deployment, and it has made no token offering. Its <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/Escherbridge/Ardanova">public repository</a> is the project record.
             </p>
             <div className="mt-7 relative z-10">
               <PillList items={['Exactly-once by construction', 'Fail closed', 'Reconcile, never guess', 'Escalate to a human']} />

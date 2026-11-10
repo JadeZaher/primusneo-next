@@ -71,6 +71,19 @@ export default async function RoadmapLayerPage({ params }: { params: Promise<{ s
             </a>
           ) : null}
         </div>
+        {layer.links && layer.links.length > 0 ? (
+          <p className="mt-6 max-w-[68ch] text-sm leading-relaxed text-mist">
+            {layer.links.map((link, index) => (
+              <span key={link.href}>
+                {index > 0 ? ' ' : null}
+                <a href={link.href} className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent">
+                  {link.label}
+                </a>
+                .
+              </span>
+            ))}
+          </p>
+        ) : null}
         <div className="mt-16 grid gap-12 md:grid-cols-3">
           {columns.map(([label, items]) => (
             <section key={label}>
