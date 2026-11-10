@@ -41,7 +41,10 @@ export default async function FuturePage({ params }: { params: Promise<{ slug: s
       date={piece.date}
       banner="Speculation. Not a roadmap, not a delivery date."
       paragraphs={piece.paragraphs}
-      links={[{ label: piece.layer, href: piece.layerHref }, { label: 'Roadmap', href: '/roadmap' }]}
+      blocks={piece.blocks}
+      sources={piece.sources}
+      links={[{ label: 'Roadmap', href: '/roadmap' }]}
+      close={{ layer: piece.layer, layerHref: piece.layerHref }}
       jsonLd={{
         '@context': 'https://schema.org',
         '@type': 'Article',
@@ -50,6 +53,7 @@ export default async function FuturePage({ params }: { params: Promise<{ slug: s
         datePublished: piece.date,
         mainEntityOfPage: `${SITE_URL}/futures/${piece.slug}`,
         author: { '@type': 'Organization', name: 'PrimusNeo', url: SITE_URL },
+        citation: piece.sources?.map((source) => source.href),
       }}
     />
   );

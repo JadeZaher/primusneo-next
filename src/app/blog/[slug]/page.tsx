@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/app/_components/PortableTextComponents";
 import { EssayArticle } from "@/app/_components/EssayArticle";
+import { PieceClose } from "@/app/_components/Prose";
 import { client } from "@/lib/sanity/client";
 import { POST_QUERY } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
@@ -40,7 +41,7 @@ export async function generateMetadata({
       twitter: {
         card: 'summary_large_image',
         title: essay.title,
-        description: essay.excerpt,
+        description: essay.description,
       },
     };
   }
@@ -162,6 +163,7 @@ export default async function PostPage({
             />
           )}
         </div>
+        <PieceClose />
       </article>
     </main>
   );
