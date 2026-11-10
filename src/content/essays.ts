@@ -3,12 +3,15 @@
  * these render alongside it so the writing ships with the site.
  */
 
-export type Inline = string | { t: string; href: string };
+export type Inline = string | { t: string; href?: string; em?: boolean; strong?: boolean };
 
-export type EssayBlock =
+export type ProseBlock =
   | { kind: 'p'; inlines: Inline[] }
   | { kind: 'h2'; text: string }
-  | { kind: 'ul'; items: string[] }
+  | { kind: 'ul'; items: Array<string | Inline[]> };
+
+export type EssayBlock =
+  | ProseBlock
   | { kind: 'cta'; layer: string; layerHref: string; inlines: Inline[] };
 
 export type EssaySource = { label: string; href: string };
@@ -20,6 +23,10 @@ export type Essay = {
   description: string;
   publishedAt: string;
   kicker: string;
+  /** Stack layer named in the template closer. A `cta` block supplies this when the field is absent. */
+  layer?: string;
+  /** Site layer page, or a `/roadmap/[slug]` section when the layer has no page of its own. */
+  layerHref?: string;
   blocks: EssayBlock[];
   sources: EssaySource[];
 };
@@ -794,6 +801,210 @@ export const essays: Essay[] = [
           '. ',
           a('Contact', '/contact'),
           ' if you would like the limits read to you before the demo, which is the only order that makes any sense.',
+        ],
+      },
+    ],
+  },
+
+  {
+    slug: 'paid-twice-or-never',
+    title: 'Paid twice, or never, is the same bug',
+    kicker: 'Settlement',
+    publishedAt: '2026-11-09',
+    excerpt:
+      'A timeout is not a decision. Most payout systems treat a missing reply as a reason to try again, which is how the same work gets paid twice, or not at all.',
+    description:
+      'A timeout is not a decision. Most payout systems treat a missing reply as a reason to try again, which is how the same work gets paid twice, or not at all.',
+    layer: 'AZOA',
+    layerHref: '/azoa',
+    sources: [
+      {
+        label: 'Stripe Docs, Idempotent requests',
+        href: 'https://docs.stripe.com/api/idempotent_requests',
+      },
+      {
+        label:
+          'Federal Reserve Banks, FedNow Service Readiness Guide: Understanding the Payment Timeout Clock',
+        href: 'https://explore.fednow.org/resources/readiness-guide-understanding-the-payment-timeout-clock.pdf',
+      },
+      {
+        label:
+          'AZOA README (JadeZaher/azoa-autonomous-zones-of-action), Status and value-rail notes',
+        href: 'https://github.com/JadeZaher/azoa-autonomous-zones-of-action',
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          'A payment that times out is not a payment that failed. It is a payment whose outcome you do not know. Most systems treat that uncertainty as a reason to try again. That is how the same work gets paid twice, or not at all. They are the same bug, seen from opposite ends of the ledger.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Nobody has to be cheating. A timeout and a retry will do it.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. After the first request is acknowledged, retrying with that key, in Stripe\'s words, "returns the originally saved status and body, regardless of whether the first request succeeded or failed." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'That is a test written down in advance: this request, once.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A public payment rail makes the same problem visible at a shorter interval. The Federal Reserve Banks' FedNow Service uses a payment timeout clock so that a credit transfer is either settled or rejected within a defined window. The readiness guide on that clock says the clock is twenty seconds long, configurable by the Reserve Banks, and that it stops counting just before settlement. A receiving institution can reserve up to five of those seconds to answer a request for confirmation. If the clock runs out before settlement begins, the service rejects the payment and tells the sender. It does not guess.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The guide is equally plain about what happens next. If the sender resubmits a message the service has already received, it must use a new unique message identification number; otherwise the service rejects the duplicate. And because a timeout can leave the sender without an advice, an acknowledgement, or a rejection, the Reserve Banks tell institutions to ask for the payment\'s status — an ISO pacs.028 request — before they send the payment again. "FIs that submit request for payment status messages (pacs.028) before resending a payment message through the service are able to limit their risk of sending duplicate payments." They also recommend waiting a few seconds longer than the clock itself, twenty-five seconds in the twenty-second example, so that a late acknowledgement is not mistaken for silence.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Twenty seconds is not a long time. It is long enough to lose a reply, short enough to make a second send feel harmless, and exactly the interval in which "did it settle?" and "should I try again?" become the same question. The status request is the missing test. Without it, a timeout is treated as a failure, and a failure is treated as permission to fire the same payment twice.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The pattern is older than either system. A process starts a transfer. The network blinks. The process does not know whether the other side committed. Assume no, when the other side said yes, and someone is paid twice. Assume yes, when the other side said no, and someone is never paid. Both outcomes come from the same missing record: there was never a durable answer to "has this already been decided?"',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Idempotency is not a feature you bolt on after the first double payout. It is a prior: the same intent, the same key, the same result. Timeouts, retries, and status checks are how you keep that prior when the network is unkind. A system that can start a payment and cannot later ask what became of it is not a payment system. It is a hope with a retry loop.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'This is the point at which a company is tempted to announce that it has solved settlement. I will not. AZOA, the layer in the PrimusNeo stack meant to handle identity, consent, and settlement, is published as pre-launch. Its public repository calls that status "Alpha Gate." Real-value rails are off. The project\'s own README is clear that no provider currently implements the complete reviewed lock, mint, burn, and release path plus a production custody lifecycle, and that wallet creation is limited to a development simulation until a reviewed production custody adapter exists. Governance votes and credential revocation are listed among action types that are not enabled.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'That is not a footnote. It is the same rule the FedNow guide writes for banks: do not move value until you can say, later, what happened to it. Turning the rail on before the custody review and the complete lifecycle are in place would be a way to invent the bug this essay is about. Leaving the rail off is less exciting. It is also the test, written first.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'None of this requires a new philosophy of money. It requires a narrower habit. Before a system is allowed to pay anyone, it should be able to answer three questions from its own records: what was intended, whether a decision was reached, and what that decision was. A timeout is not an answer. A retry is not an answer. A dashboard that says "pending" is not an answer. The answer is a stored result that a second attempt can find.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Stripe documents that habit for card payments. The FedNow readiness guide documents it for instant settlement. AZOA is being built to keep the same kind of record for identity, consent, and settlement, and the dangerous path stays closed until that record is real. Paid twice, or never, is the same bug. The fix is not courage. It is a key, a status check, and a yes or a no you can find later.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'the-file-opened-it-wasnt-the-building',
+    title: "The file opened. It wasn't the building.",
+    kicker: 'BIM',
+    publishedAt: '2026-11-09',
+    excerpt:
+      "IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real. The handshake often isn't.",
+    description:
+      "IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real. The handshake often isn't.",
+    layer: 'Fractal Engine',
+    layerHref: '/fractal-engine',
+    sources: [
+      {
+        label:
+          'Hang Lai and Yaohua Deng, “Data exchange problems of building information modeling in collaboration design on the architecture design of a resort hotel,” Journal of Civil Engineering and Management 24(7), 2018',
+        href: 'https://doi.org/10.3846/jcem.2018.6132',
+      },
+      {
+        label: 'plan-systems/amp.SDK README',
+        href: 'https://github.com/plan-systems/amp.SDK',
+      },
+      {
+        label: 'Escherbridge/fractalengine README',
+        href: 'https://github.com/Escherbridge/fractalengine',
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          "The usual handoff on a building project goes like this. One team exports a model. Another team imports it. The file opens. For a moment, it looks as if the building has traveled. Then a beam is missing, a wall has the wrong type, or a property that lived on an object in the first tool is sitting in a comment in the second. The file opened. It wasn't the building.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "This is not the same problem as a model trapped in someone else's cloud. The file did leave. It arrived. What failed is the handshake: the assumption that a shared format means a shared meaning.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Industry Foundation Classes, or IFC, is the usual answer to that assumption. It is a public schema for describing buildings so that architectural, structural, and other models can be exchanged without each team living in the same proprietary tool. In 2018, Hang Lai and Yaohua Deng published a paper in the Journal of Civil Engineering and Management that tested bidirectional, IFC-based exchange between architectural and structural models. The abstract is not optimistic. Current BIM software tools, they wrote, "cannot well interpret objects created by other discipline’s software." The errors in sharing and exchange came, in their account, from three places that are still familiar: diverse and specialized ways of representing objects; differences in how software interprets IFC objects; and different methods of defining and associating properties.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'They also noted that versions of IFC, and differences among IFC-compatible tools, compound the problem. That last point is easy to treat as a vendor quarrel. It is more ordinary than that. A standard can be complete on paper and still underdetermined in practice. Geometry can be described more than one way. A property can be attached to an object, or to a type, or not attached at all. Two tools can both "support IFC" and still disagree about what a wall is.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The result is a file that validates and a building that does not survive the trip. Completeness, interoperability, and object identification — the three issues Lai and Deng flag — are not edge cases. They are what happens when a schema is asked to do the work of an agreement.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'A standard is a shared vocabulary. A handshake is two parties confirming they used that vocabulary to mean the same thing. Exporting an IFC file is the first half. The second half is a check that the objects, properties, and relationships that left the first tool are the ones that arrived in the second, under identifiers that still point at the same elements. Without that check, "we exchanged IFC" is a status report, not a fact about the building.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'This is why a successful import is a weak test. Software will often open a file it does not fully understand. It will drop what it cannot map, coerce what it can, and present a model that looks complete enough to discuss. The missing beam then shows up later, sometimes in the field. The format did not fail in the sense that the file was corrupt. The process failed in the sense that nobody wrote down, in advance, what "the same building" would mean after the transfer.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'PrimusNeo includes a spatial runtime (AMP) and a layer for organizational memory (Fractal Engine). I will not claim that either has solved IFC interchange. The public AMP SDK, in its README, is a toolkit for 3D, geospatial, and media runtimes. I have not found a public, documented IFC round-trip in the repositories I looked at. Fractal Engine, still in alpha, can store models as glTF with BLAKE3 hashes and keep object history. A hash will tell you whether a file changed. It will not tell you whether two tools understood it the same way. Those are useful facts. They are not a translation layer.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'What would actually help is narrower. If a model is going to move between tools, or between a site and an office, someone has to keep a record of what was actually sent, what was actually received, and who accepted the result. A hash of the file is a start. A list of objects that survived the trip, and a list of the ones that did not, would be better. Until that record exists, an IFC export is a hope that the next program is generous.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Interchange standards are worth having. The alternative is emailing native files around a project and hoping the right plugin is installed, which is not an improvement. A standard, by itself, does not close the loop. The loop closes when the receiving tool can show, in a form the sending team can check, that the objects they care about arrived with their geometry, properties, and identifiers intact — or that they did not, in which case the handover is incomplete and should be treated as such.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'That is a duller story than a new format. It is also the one the 2018 tests were already telling. AMP can keep a spatial model in view; Fractal Engine, still in alpha, can hash a file and keep its history. Neither is an IFC translator. What they can offer is a record of what was sent, what arrived, and whether anyone accepted it. The file will keep opening. The question is whether the building came with it.',
         ],
       },
     ],

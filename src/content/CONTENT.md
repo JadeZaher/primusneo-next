@@ -22,10 +22,12 @@ Append an object to the `essays` array.
 | `kicker` | Short label, for example `Digital twins` |
 | `blocks` | `p` (with `inlines`), `h2`, `ul`, and one `cta` |
 | `sources` | `{ label, href }` for every fact that is not ours |
+| `layer` | Optional. Stack layer the template closer links. A `cta` block supplies it when this is absent. |
+| `layerHref` | That layer’s page, or `/roadmap/[slug]` when the layer has no page of its own. |
 
-`inlines` are strings, or `{ t, href }` for a link. Internal links start with `/`.
+`inlines` are strings, `{ t, href }` for a link, or `{ t, em }` / `{ t, strong }` for emphasis. Internal links start with `/`. List items are strings or inline arrays.
 
-The closing `cta` names the layer, links its page, and links `/contact`. Say what the software does not do yet if that is the honest part.
+The article template ends every post with a closer: the layer link, plus Contact (`/contact`) and RSS (`/feed.xml`). Do not write that closer into the body. A `cta` block is still how an existing note names its layer in the prose. Say what the software does not do yet if that is the honest part.
 
 ## Newsroom — `news.ts`
 
@@ -70,9 +72,13 @@ Append an object to `futures`. The page always prints a speculation label. You d
 | `date` | When it was written, `YYYY-MM-DD` |
 | `horizon` | A range such as `5–20 years` |
 | `layer` | The stack layer the speculation hangs on |
-| `layerHref` | That layer’s page |
-| `excerpt` | Index line. Say that it is speculation. |
-| `paragraphs` | Short. Ground the first half in what is already true, then say what is only a direction. |
+| `layerHref` | That layer’s page on this site, or `/roadmap/[slug]` |
+| `excerpt` | Index line. Say that it is speculation. The page uses it as the meta description. |
+| `paragraphs` | Short plain strings, when the draft has no headings or links. |
+| `blocks` | Use instead of `paragraphs` for `h2`, `p` (inlines), and `ul`. Keep a draft’s “What is true now” / “What follows is speculation” headings. |
+| `sources` | `{ label, href }` for every source on the draft. |
+
+`horizon` can be the year the piece names, such as `2035`. The page always prints a speculation label above the body. The template closer links `layerHref` and adds Contact and RSS. Point `layerHref` at a layer page on this site, or at `/roadmap/[slug]` when that is the section we have.
 
 ## After you add one
 
