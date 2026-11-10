@@ -16,9 +16,8 @@ export const metadata = {
 
 const stats = [
   { value: '0.4%', label: 'Annual productivity growth 2000-2024 [McKinsey]' },
-  { value: '80%', label: 'Average megaproject budget overrun [McKinsey]' },
+  { value: '9/10', label: 'Megaprojects over budget [Flyvbjerg]' },
   { value: '$12T', label: 'Global construction spend 2024 [Next MSC]' },
-  { value: '20mo', label: 'Average megaproject timeline overrun [McKinsey]' },
 ];
 
 const challenges = [
@@ -30,9 +29,9 @@ const challenges = [
   },
   {
     title: 'Cost & Schedule Blowout',
-    description: 'Megaprojects routinely deliver 80% over budget and 20 months late because change orders, RFIs, and field telemetry never reconcile to a single source of truth.',
-    metric: '80%',
-    metricLabel: 'average budget overrun [McKinsey]',
+    description: 'Change orders, RFIs, and field notes still fail to meet in one record. Flyvbjerg’s megaproject work, cited below, finds about 9 in 10 over budget.',
+    metric: '9/10',
+    metricLabel: 'over budget [Flyvbjerg]',
   },
   {
     title: 'Capital & Trust Gap',

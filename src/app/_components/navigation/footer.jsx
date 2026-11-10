@@ -19,7 +19,16 @@ const columns = [
       { href: '/ico-marketing', label: 'Capital Design' },
       { href: '/industries', label: 'Industries' },
       { href: '/solutions', label: 'Solutions' },
+    ],
+  },
+  {
+    heading: 'WRITING',
+    links: [
       { href: '/blog', label: 'Blog' },
+      { href: '/newsroom', label: 'Newsroom' },
+      { href: '/roadmap', label: 'Roadmap' },
+      { href: '/futures', label: 'Futures' },
+      { href: '/feed.xml', label: 'RSS' },
     ],
   },
   {
@@ -55,7 +64,7 @@ const FooterLink = ({ href, label, external }) =>
 const Footer = () => {
   return (
     <footer className="border-t border-white/[0.08] bg-ink-deep px-7 pb-7 pt-20 text-paper">
-      <div className="mx-auto grid max-w-[1600px] gap-x-8 gap-y-12 md:grid-cols-4">
+      <div className="mx-auto grid max-w-[1600px] gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <div className="text-sm font-semibold tracking-[0.14em]">
             PRIMUS—NEO<span className="text-accent">.</span>

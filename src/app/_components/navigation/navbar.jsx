@@ -23,6 +23,13 @@ const platformItems = [
   { href: '/one-pager', label: 'Stack Overview', desc: 'The complete platform at a glance' },
 ];
 
+const writingItems = [
+  { href: '/blog', label: 'Blog', desc: 'Builder notes and op-eds' },
+  { href: '/newsroom', label: 'Newsroom', desc: 'Dated announcements and the press kit' },
+  { href: '/roadmap', label: 'Roadmap', desc: 'Now, next, later. No dates.' },
+  { href: '/futures', label: 'Futures', desc: 'Speculation, labeled as such' },
+];
+
 const capitalItems = [
   { href: '/fractionalization', label: 'Fractionalization', desc: 'Asset-backed ownership and participation' },
   { href: '/ico-marketing', label: 'Capital Design', desc: 'Compliance-first capital design' },
@@ -101,6 +108,29 @@ const Navbar = () => {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent font-mono text-[11px] uppercase tracking-[0.18em] text-mist transition hover:text-paper">
+                  Writing
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[320px] gap-1 border border-white/10 bg-ink p-4">
+                    {writingItems.map((item) => (
+                      <li key={item.href}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="block px-4 py-3 transition hover:bg-white/[0.05]"
+                          >
+                            <div className="text-sm font-medium text-paper">{item.label}</div>
+                            <p className="text-xs text-mist">{item.desc}</p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
               {/* Industries (single link, not a dropdown) */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
@@ -130,9 +160,9 @@ const Navbar = () => {
                     </li>
                     <li>
                       <NavigationMenuLink asChild>
-                        <Link href="/blog" className="block px-4 py-3 transition hover:bg-white/[0.05]">
-                          <div className="text-sm font-semibold text-white">Blog</div>
-                          <p className="text-xs text-gray-400">Updates and deep dives</p>
+                        <Link href="/newsroom#press-kit" className="block px-4 py-3 transition hover:bg-white/[0.05]">
+                          <div className="text-sm font-semibold text-white">Press kit</div>
+                          <p className="text-xs text-gray-400">Boilerplate and logo files</p>
                         </Link>
                       </NavigationMenuLink>
                     </li>
@@ -179,7 +209,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div className={cn(
         "border-t border-white/10 bg-ink/95 backdrop-blur-2xl md:hidden transition-all duration-300 overflow-hidden",
-        isMenuOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'
+        isMenuOpen ? 'max-h-[960px] opacity-100' : 'max-h-0 opacity-0'
       )}>
         <div className="px-4 py-4 space-y-5">
           {/* Platform group */}
@@ -219,6 +249,9 @@ const Navbar = () => {
               <MobileLink href="/" onClick={closeMenu}>Home</MobileLink>
               <MobileLink href="/one-pager" onClick={closeMenu}>Stack Overview</MobileLink>
               <MobileLink href="/blog" onClick={closeMenu}>Blog</MobileLink>
+              <MobileLink href="/newsroom" onClick={closeMenu}>Newsroom</MobileLink>
+              <MobileLink href="/roadmap" onClick={closeMenu}>Roadmap</MobileLink>
+              <MobileLink href="/futures" onClick={closeMenu}>Futures</MobileLink>
               <MobileLink href="/contact" onClick={closeMenu}>Contact</MobileLink>
             </div>
           </div>

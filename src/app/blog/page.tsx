@@ -1,14 +1,18 @@
 import Link from 'next/link';
+import { WritingNav } from '../_components/WritingNav';
 import { loadWritingIndex } from '@/lib/writing';
 
 export const metadata = {
-  title: 'Notes',
+  title: 'Blog',
   description:
-    'Op-eds on digital-twin lock-in, grid queues, cooperative records, treasuries, agent consent, and plugin supply chains. Sources linked. No unnamed statistics.',
-  alternates: { canonical: '/blog' },
+    'Builder notes and op-eds. The long ones cite public sources and name the layer that applies. Sanity posts sit in the same list when the studio has them.',
+  alternates: {
+    canonical: '/blog',
+    types: { 'application/rss+xml': '/feed.xml' },
+  },
   openGraph: {
-    title: 'Notes | PrimusNeo',
-    description: 'Researched notes on the coordination problems the stack is for, with the citations attached.',
+    title: 'Blog | PrimusNeo',
+    description: 'Builder notes and op-eds, with the footnotes attached.',
     url: '/blog',
     type: 'website',
   },
@@ -26,14 +30,15 @@ export default async function BlogPage() {
   return (
     <main className="bg-ink text-paper">
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Notes</div>
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Blog</div>
         <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">
-          Proof, with the footnotes attached.
+          Builder notes and op-eds.
         </h1>
         <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-mist">
           Arguments about problems that already have public sources. Each one ends by naming the layer that
-          applies, and the layer that does not get to take credit.
+          applies, and the layer that does not get to take credit. Studio posts, when they exist, sit in the same list.
         </p>
+        <WritingNav current="/blog" />
       </header>
 
       <section className="mx-auto max-w-[1600px] border-t border-white/10 px-7">

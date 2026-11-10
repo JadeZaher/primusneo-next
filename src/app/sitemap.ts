@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
+import { futures } from '@/content/futures';
+import { newsItems } from '@/content/news';
+import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -16,6 +19,10 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: '/ico-marketing', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/contact', changeFrequency: 'yearly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.8 },
+  { path: '/newsroom', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/roadmap', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/futures', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/feed.xml', changeFrequency: 'daily', priority: 0.4 },
   // Solutions pillar
   { path: '/solutions', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/solutions/real-estate', changeFrequency: 'monthly', priority: 0.8 },
@@ -86,6 +93,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.6,
     }));
 
+  const newsroomEntries: MetadataRoute.Sitemap = newsItems.map((item) => ({
+    url: `${SITE_URL}/newsroom/${item.slug}`,
+    lastModified: new Date(item.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
+  const roadmapEntries: MetadataRoute.Sitemap = roadmapLayers.map((layer) => ({
+    url: `${SITE_URL}/roadmap/${layer.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.5,
+  }));
+
+  const futureEntries: MetadataRoute.Sitemap = futures.map((piece) => ({
+    url: `${SITE_URL}/futures/${piece.slug}`,
+    lastModified: new Date(piece.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, updatedAt }) => ({
     url: `${SITE_URL}/news/${slug}`,
     lastModified: updatedAt ? new Date(updatedAt) : now,
@@ -93,5 +121,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsEntries];
+  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsroomEntries, ...roadmapEntries, ...futureEntries, ...newsEntries];
 }

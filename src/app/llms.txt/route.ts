@@ -1,5 +1,8 @@
 import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
+import { futures } from '@/content/futures';
+import { newsItems } from '@/content/news';
+import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -53,7 +56,11 @@ const industries = [
 
 const about = [
   { path: '/', title: 'PrimusNeo Home', desc: 'Federated operational infrastructure for real-world environments.' },
-  { path: '/blog', title: 'Intelligence & Updates', desc: 'Long-form writing, deep dives, and product updates.' },
+  { path: '/blog', title: 'Blog', desc: 'Builder notes and op-eds. Sanity posts appear in the same index when the studio has them.' },
+  { path: '/newsroom', title: 'Newsroom', desc: 'Dated announcements, a short boilerplate, and logo files.' },
+  { path: '/roadmap', title: 'Roadmap', desc: 'Per-layer status: shipped, in alpha, building, or exploring. No dates.' },
+  { path: '/futures', title: 'Futures', desc: 'Speculation, labeled as such, tied to a stack layer.' },
+  { path: '/feed.xml', title: 'RSS', desc: 'Blog notes, newsroom items, and futures pieces.' },
   { path: '/contact', title: 'Contact', desc: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations.' },
 ];
 
@@ -131,6 +138,25 @@ async function buildBody(): Promise<string> {
     '',
     '## Recent Writing',
     ...blogLines,
+    '',
+    '## Newsroom',
+    ...newsItems.map((item) =>
+      fmtLine({ path: `/newsroom/${item.slug}`, title: item.title, desc: item.excerpt }),
+    ),
+    '',
+    '## Roadmap',
+    ...roadmapLayers.map((layer) =>
+      fmtLine({
+        path: `/roadmap/${layer.slug}`,
+        title: `${layer.name} (${layer.status})`,
+        desc: layer.summary,
+      }),
+    ),
+    '',
+    '## Futures (speculation)',
+    ...futures.map((piece) =>
+      fmtLine({ path: `/futures/${piece.slug}`, title: piece.title, desc: piece.excerpt }),
+    ),
     '',
     '## News & External Coverage',
     ...(newsLines.length ? newsLines : ['- (Sanity feed unavailable at render time — see /blog for the live index.)']),

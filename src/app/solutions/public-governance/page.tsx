@@ -9,7 +9,7 @@ export const metadata = {
 
 const PublicGovernancePage = () => {
   const stats = [
-    { value: '31%', label: 'Efficiency gap in spending (IMF)' },
+    { value: '~27%', label: 'Efficiency gap in spending (IMF)' },
     { value: '40%', label: 'Potential value-for-money gain (IMF)' },
     { value: '1/3', label: 'Uncollected global waste (World Bank)' },
     { value: '64%', label: 'Public trust median (OECD)' }
@@ -18,9 +18,9 @@ const PublicGovernancePage = () => {
   const challenges = [
     {
       title: 'The Efficiency Gap',
-      description: 'Governments face a structural gap where up to 39% of public spending fails to translate into optimal outcomes due to rigid budget structures and administrative friction.',
-      metric: '31-39%',
-      metricLabel: 'of spending is inefficient [IMF]'
+      description: 'The IMF figure used here is an efficiency gap of about 27%. Rigid budgets and missing records are the part a coordination layer can actually touch.',
+      metric: '~27%',
+      metricLabel: 'efficiency gap [IMF]'
     },
     {
       title: 'Value for Money Crisis',
@@ -88,7 +88,7 @@ const PublicGovernancePage = () => {
     <SolutionTemplate 
       eyebrow="Public Governance"
       title="Trust is a filing problem."
-      description="Close the 31% efficiency gap in public spending with a unified platform for governed resource allocation and verifiable citizen participation."
+      description="The IMF efficiency gap is about 27%. The work is a record of allocation someone outside the meeting can open."
       stats={stats}
       challenges={challenges}
       features={features}

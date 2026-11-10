@@ -18,8 +18,8 @@ const industries = [
     id: 'construction',
     title: 'Construction & Built Environment',
     description: 'Replace the 200-tool capex stack with one governed twin. Reconcile owners, GCs, and subs against a single live model.',
-    metric: '80%',
-    metricLabel: 'Megaproject Budget Overrun [McKinsey]',
+    metric: '0.4%',
+    metricLabel: 'Annual productivity growth, 2000–2024 [McKinsey]',
     href: '/industries/construction',
   },
   {
@@ -27,7 +27,7 @@ const industries = [
     title: 'Manufacturing & Industrial Production',
     description: '70% of Industry 4.0 pilots never scale. PrimusNeo gives you the contextualized IT/OT layer that ties OEE, ESG, and capex into one model.',
     metric: '70%',
-    metricLabel: 'Pilots Stuck in Purgatory [McKinsey]',
+    metricLabel: 'Pilots that never scale [McKinsey 2018]',
     href: '/industries/manufacturing',
   },
   {
@@ -74,8 +74,8 @@ const industries = [
     id: 'technology',
     title: 'Technology & Software',
     description: 'The governed coordination plane for AI-native organizations. Unify services, models, datasets, and contributors into one accountable layer.',
-    metric: '<10%',
-    metricLabel: 'Scaled AI in Any Function [Stanford HAI]',
+    metric: '8h+/wk',
+    metricLabel: 'Developer time lost to coordination [Atlassian]',
     href: '/industries/technology',
   },
   {
@@ -101,7 +101,7 @@ const crossCuttingChallenges = [
     title: 'The Coordination Tax',
     description: 'Every industry pays a hidden tax for missing coordination layers — wasted developer hours, blown budgets, stalled pilots, lost trust.',
     metric: '70%',
-    metricLabel: 'Industry 4.0 Pilots Fail to Scale [McKinsey]',
+    metricLabel: 'Industry 4.0 pilots that never scale [McKinsey 2018]',
   },
   {
     title: 'The Provenance Gap',

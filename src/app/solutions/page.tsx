@@ -34,9 +34,9 @@ const solutions = [
   {
     id: 'public-governance',
     title: 'Public Governance',
-    description: 'Close the 31% efficiency gap in public spending with transparent, citizen-led resource allocation.',
-    metric: '31%',
-    metricLabel: 'Efficiency Gap [IMF]',
+    description: 'Public spending has an efficiency gap of about 27% (IMF). The allocation still needs a record someone can open.',
+    metric: '~27%',
+    metricLabel: 'Efficiency gap [IMF]',
     href: '/solutions/public-governance'
   },
   {
@@ -111,8 +111,8 @@ const industryChallenges = [
   {
     title: 'The Governance Gap',
     description: 'Public and private governance systems are failing to adapt to complex, high-speed operational requirements.',
-    metric: '31%',
-    metricLabel: 'Efficiency Gap [IMF]'
+    metric: '~27%',
+    metricLabel: 'Efficiency gap [IMF]'
   }
 ];
 
