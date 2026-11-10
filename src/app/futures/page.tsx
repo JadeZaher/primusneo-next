@@ -18,6 +18,11 @@ export const metadata = {
     url: '/futures',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Futures | PrimusNeo',
+    description: 'Five to twenty years, written as a direction, not a delivery date.',
+  },
 };
 
 export default function FuturesPage() {

@@ -18,6 +18,11 @@ export const metadata = {
     url: '/newsroom',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Newsroom | PrimusNeo',
+    description: 'Announcements with dates and links. No invented launches.',
+  },
 };
 
 const logos = [

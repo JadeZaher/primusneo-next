@@ -13,6 +13,11 @@ export const metadata = {
     url: '/roadmap',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Roadmap | PrimusNeo',
+    description: 'Shipped, in alpha, building, or exploring. If it is not in a public repo or on the site, it is not a milestone.',
+  },
 };
 
 const statusLabel: Record<RoadmapStatus, string> = {

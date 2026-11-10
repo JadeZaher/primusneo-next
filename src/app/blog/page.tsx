@@ -18,6 +18,11 @@ export const metadata = {
     url: '/blog',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | PrimusNeo',
+    description: 'Builder notes and op-eds, with the footnotes attached.',
+  },
 };
 
 const kindLabel = {
