@@ -26,13 +26,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const essay = getEssay(slug);
   if (essay) {
+    const seoTitle = essay.seoTitle ?? essay.title;
     return {
-      title: essay.title,
+      title: seoTitle,
       description: essay.description,
       keywords: [essay.kicker, 'PrimusNeo', 'AMP', 'NEOS', 'AZOA', 'Fractal Engine'],
       alternates: { canonical: `/blog/${slug}` },
       openGraph: {
-        title: essay.title,
+        title: seoTitle,
         description: essay.description,
         type: 'article',
         url: `/blog/${slug}`,
@@ -40,7 +41,7 @@ export async function generateMetadata({
       },
       twitter: {
         card: 'summary_large_image',
-        title: essay.title,
+        title: seoTitle,
         description: essay.description,
       },
     };
