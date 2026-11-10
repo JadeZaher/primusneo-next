@@ -344,7 +344,7 @@ export const guides: Guide[] = [
       },
       {
         lead: 'Why the distinction exists:',
-        text: '"Idempotent methods are distinguished because the request can be repeated automatically if a communication failure occurs before the client is able to read the server\'s response." A PUT whose connection closes before any response is received may be retried on a new connection, "even if the original request succeeded, but the response was lost." By contrast, "A proxy MUST NOT automatically retry non-idempotent requests." "A client SHOULD NOT automatically retry a failed automatic retry."',
+        text: '"Idempotent methods are distinguished because the request can be repeated automatically if a communication failure occurs before the client is able to read the server\'s response." The same section\'s example is: "if a client sends a PUT request and the underlying connection is closed before any response is received, then the client can establish a new connection and retry the idempotent request." By contrast, "A proxy MUST NOT automatically retry non-idempotent requests." "A client SHOULD NOT automatically retry a failed automatic retry."',
       },
     ],
     sections: [
@@ -557,7 +557,7 @@ export const guides: Guide[] = [
     figures: [
       {
         lead: 'NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1, January 2023:',
-        text: '"The Framework is intended to be voluntary, rights-preserving, non-sector-specific, and use-case agnostic." The Core describes four functions — GOVERN, MAP, MEASURE, and MANAGE — with GOVERN applying "to all stages of organizations\' AI risk management processes and procedures." "Actions do not constitute a checklist, nor are they necessarily an ordered set of steps." "Risk management should be continuous, timely, and performed throughout the AI system lifecycle."',
+        text: '"The Framework is intended to be voluntary, rights-preserving, non-sector-specific, and use-case agnostic." The Core describes four functions — GOVERN, MAP, MEASURE, and MANAGE — with GOVERN applying "to all stages of organizations\' AI risk management processes and procedures." "Actions do not constitute a checklist, nor are they necessarily an ordered set of steps." "Risk management should be continuous, timely, and performed throughout the AI system lifecycle dimensions."',
       },
       {
         lead: 'Characteristics of trustworthy AI systems,',
