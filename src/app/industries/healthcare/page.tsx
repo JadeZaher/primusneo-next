@@ -4,7 +4,7 @@ import { ContrarianInsight, IndustrySources, PartnerNote, PARTNERS } from '../..
 
 export const metadata = {
   title: 'Healthcare & Life Sciences — Industries',
-  description: '$528B vanishes annually into US admin waste. PrimusNeo collapses the gap between care, consent, and capital onto one governed clinical twin.',
+  description: 'Wasteful US administrative spending was about 7.5–15% of national health spending in 2019, or $285–570 billion. Not all administration is waste. PrimusNeo collapses the gap between care, consent, and capital onto one governed clinical twin.',
   alternates: { canonical: '/industries/healthcare' },
   openGraph: {
     title: 'Healthcare & Life Sciences | PrimusNeo',
@@ -20,30 +20,29 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '$9.8T', label: 'Global health spend, 10.3% of GDP [WEF]' },
-  { value: '$30B+', label: 'Annual US loss to data fragmentation [West Health / industry]' },
-  { value: '$528B', label: 'US excess admin cost = 1.8% of GDP [Health Affairs]' },
-  { value: '~25%', label: 'US healthcare spend is wasteful [PGPF]' },
+  { value: '$9.8T', label: 'Global health spend in 2021, 10.3% of GDP [WEF, Aug 2024]' },
+  { value: '7.5–15%', label: 'Wasteful admin as a share of US national health spending, or $285–570B in 2019 [Health Affairs]' },
+  { value: '~25%', label: 'Of US healthcare spending considered wasteful [PGPF, 2023]' },
 ];
 
 const challenges = [
   {
     title: 'EHR & Device Fragmentation',
-    description: 'Patient data, device telemetry, and clinical workflows live in incompatible vaults; the US alone bleeds $30B+/yr to data fragmentation and ~$528B to excess admin.',
-    metric: '$30B+',
-    metricLabel: 'annual US loss to data fragmentation',
+    description: 'Patient data, device telemetry, and clinical workflows live in incompatible vaults. A 2013 device-interoperability savings estimate is not quoted here as a current annual loss.',
+    metric: '$9.8T',
+    metricLabel: 'global health spend in 2021 [WEF]',
   },
   {
     title: 'Care Coordination Inefficiency',
-    description: '~25% of US healthcare spend is wasteful; duplicated tests, missed handoffs, and re-admissions are the leading line items.',
-    metric: '$528B',
-    metricLabel: 'US excess admin [Health Affairs]',
+    description: 'Health Affairs puts wasteful administrative spending at about 7.5–15% of US national health spending in 2019, or $285–570 billion, and says not all administrative spending is waste. PGPF, citing a 2019 JAMA review, puts wasteful spending more broadly at about 25% of US healthcare spending. That wider net is not the admin range.',
+    metric: '7.5–15%',
+    metricLabel: 'wasteful US admin share, 2019 [Health Affairs]',
   },
   {
     title: 'Consent, Trust & Research Gap',
     description: 'Patients can&rsquo;t port their data, researchers can&rsquo;t verify cohort provenance, and pharma trials still rely on closed CRO silos.',
-    metric: '$9.8T',
-    metricLabel: 'global spend exposed to trust gap [WEF]',
+    metric: '~25%',
+    metricLabel: 'of US spend considered wasteful [PGPF, 2023]',
   },
 ];
 
@@ -62,7 +61,7 @@ const layers = [
 
 const useCase = {
   title: 'Patient-Owned Health Identity + Value-Based Care',
-  description: 'A health system rolls out PrimusNeo to unify EHRs, device telemetry, and patient consent. Patients carry their identity in AZOA; providers operate against a real-time care twin; payers settle value-based contracts in NEOS — attacking the $528B admin tax at its root.',
+  description: 'A health system rolls out PrimusNeo to unify EHRs, device telemetry, and patient consent. Patients carry their identity in AZOA; providers operate against a real-time care twin; payers settle value-based contracts in NEOS. The admin waste in view is the 2019 Health Affairs range, not a single point estimate.',
   outcomes: [
     'Portable patient identity & consent across providers',
     'Real-time care twin replaces fragmented EHR view',
@@ -72,11 +71,10 @@ const useCase = {
 };
 
 const sources = [
-  { org: 'World Economic Forum', year: '2024', title: 'Health spending takes up 10% of global GDP', href: 'https://www.weforum.org/stories/2024/08/healthcare-costs-digital-tech/' },
-  { org: 'Health Affairs', year: '2023', title: 'The Role of Administrative Waste in Excess US Health Spending', href: 'https://www.healthaffairs.org/content/briefs/role-administrative-waste-excess-us-health-spending' },
-  { org: 'Peter G. Peterson Foundation', year: '2024', title: 'Almost 25% of Healthcare Spending is Considered Wasteful', href: 'https://www.pgpf.org/article/almost-25-percent-of-healthcare-spending-is-considered-wasteful-heres-why/' },
+  { org: 'World Economic Forum', year: '2024', title: 'Health spending: $9.8T in 2021, 10.3% of global GDP (published 5 August 2024)', href: 'https://www.weforum.org/stories/2024/08/healthcare-costs-digital-tech/' },
+  { org: 'Health Affairs', year: '2022', title: 'The Role of Administrative Waste in Excess US Health Spending (6 October 2022, updated 1 November 2022)', href: 'https://www.healthaffairs.org/content/briefs/role-administrative-waste-excess-us-health-spending' },
+  { org: 'Peter G. Peterson Foundation', year: '2023', title: 'Almost 25% of Healthcare Spending is Considered Wasteful (updated 3 April 2023)', href: 'https://www.pgpf.org/article/almost-25-percent-of-healthcare-spending-is-considered-wasteful-heres-why/' },
   { org: 'Commonwealth Fund', year: '2024', title: 'Mirror, Mirror 2024 — Health System Performance', href: 'https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024' },
-  { org: 'West Health Institute (primary)', year: '2013', title: 'The Value of Medical Device Interoperability ($30B+/yr)', href: 'https://www.westhealth.org/press-release/new-analysis-by-west-health-institute-finds-medical-device-interoperability-could-save-more-than-30-billion-a-year/' },
   { org: 'Eric Topol (Scripps Research)', year: '2019', title: 'Deep Medicine — decentralized, patient-owned health data', href: 'https://drerictopol.com/portfolio/deep-medicine/' },
 ];
 
@@ -85,7 +83,7 @@ export default function HealthcareIndustryPage() {
     <SolutionTemplate
       eyebrow="Healthcare & Life Sciences"
       title="Portable identity, real-time care, outcome-based capital."
-      description="$528B vanishes annually into US admin waste. PrimusNeo collapses the gap between care, consent, and capital onto one governed clinical twin."
+      description="Wasteful US administrative spending was about 7.5–15% of national health spending in 2019, or $285–570 billion. Not all administration is waste. PrimusNeo collapses the gap between care, consent, and capital onto one governed clinical twin."
       stats={stats}
       challenges={challenges}
       features={features}

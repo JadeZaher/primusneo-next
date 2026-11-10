@@ -20,17 +20,17 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '0.4%', label: 'Annual productivity growth 2000-2024 [McKinsey]' },
-  { value: '9/10', label: 'Megaprojects over budget [Flyvbjerg]' },
-  { value: '$12T', label: 'Global construction spend 2024 [Next MSC]' },
+  { value: 'Flat', label: 'Construction productivity, for decades [McKinsey, 2015]' },
+  { value: '98%', label: 'Of megaprojects overrun by more than 30% [McKinsey, 2015]' },
+  { value: '9/10', label: 'Megaprojects over budget [Flyvbjerg, 2016]' },
 ];
 
 const challenges = [
   {
     title: 'Owner-Contractor-Sub Fragmentation',
     description: 'Capex projects fail at the seams between owners, GCs, specialty subs, and designers, where 200+ proprietary tools never speak.',
-    metric: '0.4%',
-    metricLabel: 'annual productivity growth [McKinsey]',
+    metric: 'Flat',
+    metricLabel: 'productivity for decades [McKinsey, 2015]',
   },
   {
     title: 'Cost & Schedule Blowout',
@@ -40,9 +40,9 @@ const challenges = [
   },
   {
     title: 'Capital & Trust Gap',
-    description: 'Owners can&rsquo;t verify what was actually built versus what was paid for, eroding lender confidence and inflating contingency reserves across the $12T sector.',
-    metric: '$12T',
-    metricLabel: 'annual construction spend [Next MSC]',
+    description: 'Owners can&rsquo;t verify what was actually built versus what was paid for, which is how contingency becomes a habit. A vendor market-size figure is not the citation for that.',
+    metric: '98%',
+    metricLabel: 'overrun by more than 30% [McKinsey, 2015]',
   },
 ];
 
@@ -71,10 +71,9 @@ const useCase = {
 };
 
 const sources = [
-  { org: 'McKinsey', year: '2024', title: 'The construction productivity imperative', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/the-construction-productivity-imperative' },
+  { org: 'McKinsey', year: '2015', title: 'The construction productivity imperative (1 July 2015)', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/the-construction-productivity-imperative' },
   { org: 'McKinsey MGI', year: '2017', title: 'Reinventing construction through a productivity revolution', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/reinventing-construction-through-a-productivity-revolution' },
   { org: 'McKinsey', year: '2020', title: 'The next normal in construction (executive summary)', href: 'https://www.mckinsey.com/~/media/mckinsey/industries/capital%20projects%20and%20infrastructure/our%20insights/the%20next%20normal%20in%20construction/executive-summary_the-next-normal-in-construction.pdf' },
-  { org: 'Next Move Strategy', year: '2024', title: 'Global Construction Market 2024', href: 'https://www.nextmsc.com/news/construction-market' },
   { org: 'ENR', year: '2024', title: 'Top 400 Contractors: firms feel pinch for profitability', href: 'https://www.enr.com/articles/58690-enrs-2024-top-400-contractors-firms-feel-pinch-for-profitability' },
   { org: 'Flyvbjerg (Oxford / SSRN)', year: '2016', title: 'The Iron Law of Megaprojects — 9 of 10 over budget', href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2742088' },
   { org: 'Flyvbjerg (Oxford / arXiv)', year: '2014', title: 'Megaproject management: strategic misrepresentation', href: 'https://arxiv.org/pdf/1409.0003' },
@@ -97,7 +96,7 @@ export default function ConstructionIndustryPage() {
       primaryCtaText="Talk to capital projects"
     >
       <ContrarianInsight attribution="PrimusNeo — Construction Brief">
-        The next decade&rsquo;s winning contractors won&rsquo;t out-build their rivals — they&rsquo;ll out-instrument them. The $12T construction industry is about to be re-priced by whichever capital pool can underwrite progress in real time instead of trusting monthly PDFs.
+        The next decade&rsquo;s winning contractors won&rsquo;t out-build their rivals — they&rsquo;ll out-instrument them. The industry gets re-priced by whichever capital pool can underwrite progress in real time instead of trusting monthly PDFs.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

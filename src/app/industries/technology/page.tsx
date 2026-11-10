@@ -66,7 +66,7 @@ const useCase = {
     'AI Act-ready model and data lineage by default',
     'Contributor attribution and credit at code/data granularity',
     'Real cost/quality view across multi-cloud, multi-model',
-    '8h/dev/week reclaimed from coordination friction',
+    'Coordination time is the friction the report measures, not hours this sketch gives back',
   ],
 };
 

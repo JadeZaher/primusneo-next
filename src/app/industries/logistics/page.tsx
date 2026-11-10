@@ -4,7 +4,7 @@ import { ContrarianInsight, IndustrySources } from '../../_components/IndustryEx
 
 export const metadata = {
   title: 'Logistics & Mobility — Industries',
-  description: 'One coordinated twin for every shipment, fleet, port, and customs lane. Write finance and compliance against the same evidence — across 12.7B tons of global trade.',
+  description: 'One coordinated twin for every shipment, fleet, port, and customs lane. UNCTAD counted 12,292 million tons of seaborne trade in 2023. The paperwork still changes hands as if the ship were the record.',
   alternates: { canonical: '/industries/logistics' },
   openGraph: {
     title: 'Logistics & Mobility | PrimusNeo',
@@ -20,30 +20,27 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '12.7B', label: 'Tons of seaborne trade 2024 [UNCTAD]' },
-  { value: '80%+', label: 'Of global trade by sea volume [UNCTAD]' },
-  { value: '10-15%', label: 'Logistics spend as share of GDP [Statista / Market.us]' },
-  { value: '$1.3T', label: 'Annual supply-chain inefficiency loss (industry est.)' },
+  { value: '12.3B', label: 'Tons of seaborne trade in 2023 (12,292 million tons) [UNCTAD]' },
 ];
 
 const challenges = [
   {
     title: 'Multi-Party Visibility Fragmentation',
     description: 'Cargo passes shippers, carriers, ports, customs, and 3PLs on disconnected systems; nobody owns the end-to-end picture.',
-    metric: '80%+',
-    metricLabel: 'global trade by sea, fragmented [UNCTAD]',
+    metric: '12.3B',
+    metricLabel: 'tons of seaborne trade in 2023 [UNCTAD]',
   },
   {
     title: 'Asset & Route OPEX Inefficiency',
-    description: 'Freight rates spiked in 2024 as Red Sea and Panama disruptions added ton-miles; idle assets and empty backhauls compound the bleed.',
-    metric: '12.7B',
-    metricLabel: 'tons of seaborne trade [UNCTAD]',
+    description: 'Red Sea and Panama disruptions in 2024 added distance and delay. Idle assets and empty backhauls compound the bleed. UNCTAD’s tonnage is not a price.',
+    metric: '12.3B',
+    metricLabel: 'tons in 2023, not a leakage rate [UNCTAD]',
   },
   {
     title: 'Provenance, Customs & ESG Trust Gap',
-    description: 'CBAM, deforestation rules, and origin verification still rely on paper and PDFs across 80%+ of global trade volume.',
-    metric: '10-15%',
-    metricLabel: 'logistics as share of GDP [Statista]',
+    description: 'CBAM, deforestation rules, and origin verification still rely on paper and PDFs. That is a habit, not a UNCTAD finding about how much trade moves by sea.',
+    metric: 'Paper',
+    metricLabel: 'still the customs file',
   },
 ];
 
@@ -74,8 +71,6 @@ const useCase = {
 const sources = [
   { org: 'UNCTAD', year: '2024', title: 'Review of Maritime Transport 2024', href: 'https://unctad.org/publication/review-maritime-transport-2024' },
   { org: 'UNCTAD', year: '2024', title: 'Maritime trade chapter (RMT 2024, PDF)', href: 'https://unctad.org/system/files/official-document/rmt2024ch1_en.pdf' },
-  { org: 'Market.us', year: '2024', title: 'Global Logistics Market 2024', href: 'https://market.us/report/global-logistics-market/' },
-  { org: 'Statista', year: '2024', title: 'Logistics industry worldwide — statistics', href: 'https://www.statista.com/topics/5691/logistics-industry-worldwide/' },
   { org: 'WTO', year: '2024', title: 'Global Trade Outlook and Statistics April 2024', href: 'https://www.wto.org/english/res_e/booksp_e/trade_outlook24_e.pdf' },
   { org: 'World Bank', year: '2023', title: 'Logistics Performance Index — country-by-country', href: 'https://lpi.worldbank.org/' },
   { org: 'Levinson (Princeton)', year: '2016', title: 'The Box — economic history of containerization', href: 'https://press.princeton.edu/books/paperback/9780691170817/the-box' },
@@ -86,7 +81,7 @@ export default function LogisticsIndustryPage() {
     <SolutionTemplate
       eyebrow="Logistics & Mobility"
       title="One coordinated twin for every shipment, fleet, port, and customs lane."
-      description="80%+ of global trade leaks evidence at every handoff. PrimusNeo gives shippers, carriers, and customs one live model — and writes finance and compliance against it."
+      description="Seaborne trade was 12,292 million tons in 2023. That is not a measure of evidence lost at the handoff. PrimusNeo gives shippers, carriers, and customs one live model — and writes finance and compliance against it."
       stats={stats}
       challenges={challenges}
       features={features}
@@ -97,7 +92,7 @@ export default function LogisticsIndustryPage() {
       primaryCtaText="Talk to logistics team"
     >
       <ContrarianInsight attribution="PrimusNeo — Logistics Brief">
-        Logistics platforms that try to win by digitizing one party will lose. The next trillion comes to whoever convenes <em>all</em> parties around a single twin — and writes finance, customs, and ESG against it.
+        Logistics platforms that try to win by digitizing one party will lose. The useful move is the one that convenes <em>all</em> parties around a single twin — and writes finance, customs, and ESG against it.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

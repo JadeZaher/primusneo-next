@@ -200,8 +200,8 @@ export const essays: Essay[] = [
         href: 'https://www.iea.org/reports/powering-artificial-intelligence/executive-summary',
       },
       {
-        label: 'IEA chart, renewable projects in connection queues, 2024',
-        href: 'https://www.iea.org/data-and-statistics/charts/capacity-of-renewable-energy-projects-in-connection-queues-2024',
+        label: 'IEA, Electricity Grids and Secure Energy Transitions — executive summary (2023)',
+        href: 'https://www.iea.org/reports/electricity-grids-and-secure-energy-transitions/executive-summary',
       },
       {
         label: 'NERC Level 2 Alert, Large Load Interconnection (9 September 2025)',
@@ -250,8 +250,8 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Renewables are in a queue of their own. The IEA’s 2024 chart of renewable projects waiting on a connection is the figure cited on our energy page: on the order of 3,000 GW. A project with a 2030 date is not a power plant. It is a calendar entry. ',
-          a('IEA queue chart', 'https://www.iea.org/data-and-statistics/charts/capacity-of-renewable-energy-projects-in-connection-queues-2024'),
+          'Renewables are in a queue of their own. The figure on our energy page is from the IEA’s 2023 grids report: at least 3,000 GW of renewable projects were waiting on a connection, 1,500 GW of them in advanced stages, equal to five times the solar and wind added in 2022. Queue data then covered countries with about half of global wind and solar capacity, so the true line is probably longer. A project with a 2030 date is not a power plant. It is a calendar entry. ',
+          a('IEA, Electricity Grids and Secure Energy Transitions (2023)', 'https://www.iea.org/reports/electricity-grids-and-secure-energy-transitions/executive-summary'),
           '.',
         ],
       },
@@ -955,7 +955,7 @@ export const essays: Essay[] = [
     sources: [
       {
         label:
-          'Huahui Lai and Xueyuan Deng, “Interoperability analysis of IFC-based data exchange between heterogeneous BIM software,” Journal of Civil Engineering and Management 24(7), 2018',
+          'Huahui Lai and Xueyuan Deng, “Interoperability analysis of IFC-based data exchange between heterogeneous BIM software,” Journal of Civil Engineering and Management 24(7), 2018, https://doi.org/10.3846/jcem.2018.6132',
         href: 'https://doi.org/10.3846/jcem.2018.6132',
       },
       {

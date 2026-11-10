@@ -20,7 +20,7 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '$12T', label: 'Hidden costs of global agrifood [FAO SOFA 2024]' },
+  { value: 'About $12T', label: 'Hidden costs of global agrifood, FAO newsroom on SOFA 2024' },
   { value: '13.2%', label: 'Post-harvest food loss [FAO]' },
   { value: '$170B', label: 'Annual smallholder financing gap [FAO / CSIS]' },
   { value: '8-10%', label: 'Share of global GHG from food loss [FAO]' },
@@ -42,8 +42,8 @@ const challenges = [
   {
     title: 'Provenance & ESG Trust Gap',
     description: 'Buyers, regulators (EUDR, CSRD) and consumers cannot verify deforestation-free, fair-labor, or carbon claims across fragmented supply layers.',
-    metric: '$12T',
-    metricLabel: 'hidden agrifood costs [FAO SOFA 2024]',
+    metric: 'About $12T',
+    metricLabel: 'hidden agrifood costs [FAO, 2024]',
   },
 ];
 
@@ -72,7 +72,7 @@ const useCase = {
 };
 
 const sources = [
-  { org: 'FAO', year: '2024', title: 'State of Food and Agriculture 2024 (SOFA)', href: 'https://sdg.iisd.org/news/sofa-2024-exposes-usd-12-trillion-in-true-costs-of-global-agrifood-systems/' },
+  { org: 'FAO', year: '2024', title: 'SOFA 2024 newsroom: hidden costs about $12 trillion a year (report refines this to 11.6 trillion 2020 PPP dollars)', href: 'https://www.fao.org/newsroom/detail/SOFA2024-8-trillion-in-annual-hidden-health-costs/' },
   { org: 'FAO', year: '2024', title: 'SDG Indicator 12.3.1 — Global food losses', href: 'https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/' },
   { org: 'FAO', year: '2024', title: 'Tackling food loss and waste', href: 'https://www.fao.org/newsroom/detail/tackling-food-loss-and-waste-from-the-farm-to-the-table-and-beyond/en' },
   { org: 'CSIS', year: '2024', title: 'Access to Finance for Smallholder Farmers', href: 'https://www.csis.org/analysis/access-finance-smallholder-farmers' },

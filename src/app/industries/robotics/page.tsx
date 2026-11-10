@@ -21,9 +21,7 @@ export const metadata = {
 
 const stats = [
   { value: '0', label: 'Universal interoperability standard [EU JRC]' },
-  { value: '91%', label: 'Waymo crash reduction vs human [Waymo Safety Impact]' },
-  { value: '71M+', label: 'Rider-only autonomous miles logged [Waymo]' },
-  { value: '$74.6B→$130B', label: 'Robotics integration market 2024-2030 [Grand View]' },
+  { value: '71.1M', label: 'Rider-only miles in Waymo’s safety-impact comparison' },
 ];
 
 const challenges = [
@@ -36,14 +34,14 @@ const challenges = [
   {
     title: 'Spatial Coordination Gap',
     description: 'Autonomous fleets in warehouses, sites, and cities have no shared map of static infrastructure, dynamic agents, or right-of-way rules — leading to deadlocks and recall events.',
-    metric: '71M+',
-    metricLabel: 'miles, still gated by jurisdiction',
+    metric: '71.1M',
+    metricLabel: 'rider-only miles [Waymo]. A 91% crash cut was only in a trade recap, so it is not repeated.',
   },
   {
     title: 'Accountability & Trust Gap',
     description: 'When a robot fails, no tamper-evident record links cause, decision, software version, and operator — slowing insurance, regulation, and public trust.',
-    metric: '$74.6B→$130B',
-    metricLabel: 'integration market 2024-2030 [Grand View]',
+    metric: 'Open',
+    metricLabel: 'the safety report, not a market-size slide',
   },
 ];
 
@@ -74,8 +72,6 @@ const useCase = {
 const sources = [
   { org: 'EU JRC', year: '2024', title: 'Robotics & Autonomous Systems — Rolling Plan 2024', href: 'https://interoperable-europe.ec.europa.eu/collection/rolling-plan-ict-standardisation/robotics-and-autonomous-systems-rp-2024' },
   { org: 'Waymo', year: '2025', title: 'Safety Impact (71M+ rider-only miles)', href: 'https://waymo.com/safety/impact/' },
-  { org: 'eWeek', year: '2025', title: 'Waymo&rsquo;s Driverless Cars Cut Serious Crashes by 91%', href: 'https://www.eweek.com/news/waymo-driverless-cars-serious-crashes/' },
-  { org: 'Grand View Research', year: '2024', title: 'Robotics System Integration Market — $74.6B (2024) → $130.4B (2030)', href: 'https://www.grandviewresearch.com/industry-analysis/robotics-system-integration-market-report' },
   { org: 'Rodney Brooks (MIT / Rethink)', year: '2017', title: 'Seven Deadly Sins of Predicting the Future of AI', href: 'https://rodneybrooks.com/the-seven-deadly-sins-of-predicting-the-future-of-ai/' },
   { org: 'Missy Cummings (IEEE Spectrum)', year: '2024', title: 'On autonomy safety and governance', href: 'https://spectrum.ieee.org/self-driving-cars/missy-cummings' },
   { org: 'Bradford (Columbia / GovAI)', year: '2024', title: 'The Brussels Effect & AI regulation', href: 'https://www.governance.ai/research-paper/brussels-effect-ai' },
