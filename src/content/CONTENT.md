@@ -48,7 +48,7 @@ Append an object to `newsItems`. Put the newest date first if you want it at the
 | `paragraphs` | Plain strings. One fact per paragraph is enough. |
 | `links` | Optional `{ label, href }` to the page, the repo, or the commit |
 
-Press boilerplate and logo files live in `src/app/newsroom/page.tsx` under the kit block. Change that copy only when the facts on the site change. There is no press email on the site; the kit points at `/contact`.
+Press boilerplate and logo files live in `src/app/newsroom/page.tsx` under the kit block. Change that copy only when the facts on the site change. There is no press email on the site; the kit points at `/contact`. That form stores the submission. See `docs/forms.md`.
 
 ## Roadmap — `roadmap.ts`
 
@@ -89,9 +89,9 @@ Route: `/papers` and `/papers/[slug]`.
 
 Append an object to `papers`. Put the newest date first if you want it at the top; the index also sorts by date.
 
-The landing page prints the summary, a short list of section titles, the page count, and a download button. The button is a direct link to the PDF. Do not put an email field in front of it. The contact forms on this site log to the console and do not store a submission, so a paper must not pretend to collect an address.
+The landing page prints the summary, a short list of section titles, the page count, and a download button. The button is a direct link to the PDF. Do not put an email field in front of it. A paper must not collect an address in exchange for the file.
 
-After the download, the page links to `/contact` (“Talk to us”) and mentions `/feed.xml`. That uses the form and the feed the site already has. It is not a gate, and it is not a new backend.
+After the download, the page links to `/contact` (“Talk to us”) and mentions `/feed.xml`. That is the same contact form the rest of the site uses, and the same feed. It is not a gate. The PDF stays a direct file. How the form is stored is `docs/forms.md`.
 
 | Field | What to put |
 |---|---|

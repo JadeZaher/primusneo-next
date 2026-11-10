@@ -3,6 +3,7 @@ import '../styles/globals.css';
 import React from 'react';
 import Script from 'next/script';
 import { Archivo, IBM_Plex_Mono } from 'next/font/google';
+import { AttributionCapture } from './_components/AttributionCapture';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
 
@@ -110,6 +111,7 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
       <body>
+      <AttributionCapture />
       <div className="min-h-screen bg-ink text-paper font-archivo">
         <NavBar />
         <main className="flex-1">
