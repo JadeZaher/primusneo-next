@@ -1,5 +1,6 @@
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
+import { guides } from '@/content/guides';
 import { newsItems } from '@/content/news';
 import { papers } from '@/content/papers';
 
@@ -41,6 +42,12 @@ export function GET() {
       date: paper.publishedAt,
       description: paper.description,
     })),
+    ...guides.map((guide) => ({
+      title: guide.title,
+      href: `/guides/${guide.slug}`,
+      date: guide.publishedAt,
+      description: guide.excerpt,
+    })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -48,7 +55,7 @@ export function GET() {
   <channel>
     <title>PrimusNeo</title>
     <link>${SITE_URL}</link>
-    <description>Builder notes, papers, newsroom items, and labeled speculation.</description>
+    <description>Builder notes, field guides, papers, newsroom items, and labeled speculation.</description>
     <language>en-us</language>
     ${items
       .map(

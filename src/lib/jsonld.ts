@@ -52,6 +52,7 @@ export function articleNode({
   description,
   path,
   datePublished,
+  dateModified,
   image,
   citations,
 }: {
@@ -59,6 +60,7 @@ export function articleNode({
   description: string;
   path: string;
   datePublished: string;
+  dateModified?: string;
   image?: string;
   citations?: Record<string, unknown>[];
 }) {
@@ -67,6 +69,7 @@ export function articleNode({
     headline,
     description,
     datePublished,
+    ...(dateModified ? { dateModified } : {}),
     mainEntityOfPage: absoluteUrl(path),
     url: absoluteUrl(path),
     image: image ?? DEFAULT_IMAGE,

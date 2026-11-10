@@ -1,6 +1,7 @@
 import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
+import { guides } from '@/content/guides';
 import { newsItems } from '@/content/news';
 import { papers } from '@/content/papers';
 import { roadmapLayers } from '@/content/roadmap';
@@ -62,7 +63,7 @@ const about = [
   { path: '/newsroom', title: 'Newsroom', desc: 'Dated announcements, a short boilerplate, and logo files.' },
   { path: '/roadmap', title: 'Roadmap', desc: 'Per-layer status: shipped, in alpha, building, or exploring. No dates.' },
   { path: '/futures', title: 'Futures', desc: 'Speculation, labeled as such, tied to a stack layer.' },
-  { path: '/feed.xml', title: 'RSS', desc: 'Blog notes, newsroom items, and futures pieces.' },
+  { path: '/feed.xml', title: 'RSS', desc: 'Blog notes, field guides, newsroom items, papers, and futures pieces.' },
   { path: '/contact', title: 'Contact', desc: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations. The form is the path. Email, phone, and the city are on the page.' },
   { path: '/privacy', title: 'Privacy', desc: 'Operated by Escherbridge, LLC. The contact form stores name, email, organization, message, page, referrer, UTM parameters, and user agent in Postgres.' },
   { path: '/terms', title: 'Terms', desc: 'Operator, contact, and Idaho governing law for primusneo.com. Disputes are resolved in the state or federal courts in Ada County, Idaho.' },
@@ -136,6 +137,20 @@ async function buildBody(): Promise<string> {
     '',
     '## Industries (sector-by-sector)',
     ...industries.map(fmtLine),
+    '',
+    '## Guides',
+    fmtLine({
+      path: '/guides',
+      title: 'Field guides',
+      desc: 'Five field definitions. The figures belong to the documents they quote. Not a survey, a certification, or a deployment.',
+    }),
+    ...guides.map((guide) =>
+      fmtLine({
+        path: `/guides/${guide.slug}`,
+        title: guide.title,
+        desc: guide.excerpt,
+      }),
+    ),
     '',
     '## About & Contact',
     ...about.map(fmtLine),
