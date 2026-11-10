@@ -194,7 +194,7 @@ const FractalEnginePage = () => {
           </div>
         </div>
       </section>
-      <RelatedWriting href="/blog/alpha-is-a-status-not-a-compliment" title="Alpha is a status, not a compliment" />
+      <RelatedWriting href="/newsroom/alpha-is-a-status-not-a-compliment" title="Alpha is a status, not a compliment" />
     </div>
   );
 };

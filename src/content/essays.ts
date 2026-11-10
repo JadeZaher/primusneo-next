@@ -693,7 +693,7 @@ export const essays: Essay[] = [
         kind: 'p',
         inlines: [
           'The habit is an unaudited plugin supply chain: whatever the registry served, the process runs, and the review happens in the postmortem. The better path is admission before execution. A signature, a sandbox, a role, and a default of no. We hold ourselves to the same sentence. Fractal Engine is alpha, and the plugin host is documented as failing closed — it does not load packages just because they are nearby. The signature field on older log rows is not there yet. That gap gets its own note, with the commits, because a critique that skips our own tree is just a mood. ',
-          a('Read it', '/blog/alpha-is-a-status-not-a-compliment'),
+          a('Read it', '/newsroom/alpha-is-a-status-not-a-compliment'),
           '.',
         ],
       },
@@ -705,7 +705,7 @@ export const essays: Essay[] = [
           'Fractal Engine is the organizational-memory layer, and it is alpha. The public README is specific: Rhai and WASM plugins sit in sandboxes, the desktop starts the plugin host, and it loads no packages automatically — admission fails closed. Assets are content-addressed with BLAKE3 and move as .hexon files. That is the path. It is not a finished castle. The op-log signature field on older rows is still a placeholder, which we would rather say here than in a footnote nobody opens. See ',
           a('Fractal Engine', '/fractal-engine'),
           ', the ',
-          a('alpha note', '/blog/alpha-is-a-status-not-a-compliment'),
+          a('alpha note', '/newsroom/alpha-is-a-status-not-a-compliment'),
           ', and ',
           a('developer ecosystems', '/solutions/developer-ecosystems'),
           '. ',
@@ -715,122 +715,6 @@ export const essays: Essay[] = [
       },
     ],
   },
-  {
-    slug: 'alpha-is-a-status-not-a-compliment',
-    title: 'Alpha is a status, not a compliment',
-    kicker: 'Building in the open',
-    publishedAt: '2026-11-09',
-    excerpt:
-      'Fractal Engine refuses to load a plugin it did not admit. It also still stores placeholder signatures on older log rows. Both sentences belong on the same page.',
-    description:
-      'An honest look at Fractal Engine in alpha: fail-closed plugin admission, BLAKE3 content addressing, and the op-log signature field that is not a signature yet, with links to the commits.',
-    sources: [
-      {
-        label: 'FractalEngine README — status, plugin host, known limitation',
-        href: 'https://github.com/Escherbridge/fractalengine/blob/main/README.md',
-      },
-      {
-        label: 'Commit 0b579b6 — extension platform merged, 9 Nov 2026',
-        href: 'https://github.com/Escherbridge/fractalengine/commit/0b579b6',
-      },
-      {
-        label: 'Commit f2adc8f — portal surface merged, 9 Nov 2026',
-        href: 'https://github.com/Escherbridge/fractalengine/commit/f2adc8f',
-      },
-      {
-        label: 'FractalEngine SECURITY.md',
-        href: 'https://github.com/Escherbridge/fractalengine/blob/main/SECURITY.md',
-      },
-      {
-        label: 'FractalEngine PURPOSE.md — a mirror, never a copy',
-        href: 'https://github.com/Escherbridge/fractalengine/blob/main/PURPOSE.md',
-      },
-    ],
-    blocks: [
-      {
-        kind: 'p',
-        inlines: [
-          'Alpha is a useful word that marketing departments keep trying to improve. It does not mean “almost done,” and it does not mean the applause is included. It means the thing runs, the edges are labeled, and anyone who pretends otherwise is writing fiction. This note is about our own tree.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'What already refuses',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Fractal Engine is a spatial analytics engine: a Bevy editor, an embedded SurrealDB, peer-to-peer replication over iroh, and a way to hand a query to DuckDB, GeoParquet, or Power BI without a connector SDK. Assets are content-addressed with BLAKE3. Maps and scenes travel as .hexon files. The plugin host runs Rhai and WASM in sandboxes against a stable API. The README’s status line is the one we are willing to repeat in public: the desktop starts that host and loads no plugin packages automatically. Admission fails closed. The relay binary does not host plugins at all. ',
-          a('README', 'https://github.com/Escherbridge/fractalengine/blob/main/README.md'),
-          '.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'That is the design decision worth keeping. A plugin is code that executes inside the record of a place. The safe default is not “try it and see.” The safe default is silence until someone with a role admits the package. On 9 November 2026 the extension-platform work merged to main (',
-          a('0b579b6', 'https://github.com/Escherbridge/fractalengine/commit/0b579b6'),
-          '), and the web-bundle portal surface followed it (',
-          a('f2adc8f', 'https://github.com/Escherbridge/fractalengine/commit/f2adc8f'),
-          '). The same week, the README’s “planned” list still mentioned that work. A status block that lags a merge is annoying. It is also a better problem than a status block that runs ahead of the code.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'What we will not pretend',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'The same README, and SECURITY.md, say the awkward part out loud. Operation-log entries have an ed25519 signature field. On the legacy write paths that field is a placeholder of zeros. Signed operations belong to the canonical log. Do not treat the op-log as an integrity guarantee yet. A field named signature that contains zeros is not a signature. It is a reservation. We would rather publish that than let a buyer discover it in a review they had to request. ',
-          a('SECURITY.md', 'https://github.com/Escherbridge/fractalengine/blob/main/SECURITY.md'),
-          '.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'PURPOSE.md makes the same kind of admission in a different register: the engine is a mirror, never a copy. A coordinate is rounded. A tile is sampled. A forecast is a guess with a confidence attached. Organizational memory that forgets it is a likeness becomes a very confident rumor. ',
-          a('PURPOSE.md', 'https://github.com/Escherbridge/fractalengine/blob/main/PURPOSE.md'),
-          '.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'The habit, and a better one',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'The industry habit is demo-ware with the serial numbers filed off: a pilot that cannot name what is gated, a plugin that runs because it was nearby, a log that looks signed because the column exists. The better path is a short list. Say what runs. Say what fails closed. Say which field is still zeros. Ship the refusal before you ship the marketplace. Alpha is allowed to be unfinished. It is not allowed to be vague.',
-        ],
-      },
-      {
-        kind: 'ul',
-        items: [
-          'Fail-closed admission is a feature you can point at. A zeroed signature is a bug you can point at. Both get a sentence.',
-          'A README that trails the merge by a day is a documentation lag. A README that claims the merge early is a different product.',
-          'Pre-1.0 builds are unsigned, and there is no macOS build. That is a distribution fact, not a teaser.',
-          'AZOA is in the same family of honesty: identity and revocable consent are in, real-value bridges stay off, and two governance actions remain in the not-enabled list until their reviews close.',
-        ],
-      },
-      {
-        kind: 'cta',
-        layer: 'Fractal Engine',
-        layerHref: '/fractal-engine',
-        inlines: [
-          'If you want the layer, it is ',
-          a('Fractal Engine', '/fractal-engine'),
-          ': organizational memory, alpha, local-first, with the limits written down. AMP is the operational runtime it sits beside. The plugin habit, from the outside, is in ',
-          a('the previous note', '/blog/the-plugin-was-already-inside'),
-          '. ',
-          a('Contact', '/contact'),
-          ' if you would like the limits read to you before the demo, which is the only order that makes any sense.',
-        ],
-      },
-    ],
-  },
-
   {
     slug: 'paid-twice-or-never',
     title: 'Paid twice, or never, is the same bug',
@@ -862,25 +746,13 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'A payment that times out is not a payment that failed. It is a payment whose outcome you do not know. Most systems treat that uncertainty as a reason to try again. That is how the same work gets paid twice, or not at all. They are the same bug, seen from opposite ends of the ledger.',
+          'A payment that times out is not a payment that failed. It is a payment whose outcome you do not know. Most systems treat that uncertainty as a reason to try again, which is how the same work gets paid twice, or not at all. They are the same bug, seen from opposite ends of the ledger, and nobody has to be cheating for it to happen. A timeout and a retry will do it.',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'Nobody has to be cheating. A timeout and a retry will do it.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. In Stripe\'s words, "For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including 500 errors." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'That is a test written down in advance: this request, once.',
+          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. In Stripe\'s words, "For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including 500 errors." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question. That is a test written down in advance: this request, once.',
         ],
       },
       {
@@ -936,20 +808,21 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Stripe documents that habit for card payments. The FedNow readiness guide documents it for instant settlement. AZOA is being built to keep the same kind of record for identity, consent, and settlement, and the dangerous path stays closed until that record is real. Paid twice, or never, is the same bug. The fix is not courage. It is a key, a status check, and a yes or a no you can find later.',
+          'Stripe documents that habit for card payments. The FedNow readiness guide documents it for instant settlement. AZOA is being built to keep the same kind of record for identity, consent, and settlement, and the dangerous path stays closed until that record is real. The same request should settle once, or not at all. The fix is a key, a status check, and a yes or a no you can find later.',
         ],
       },
     ],
   },
   {
     slug: 'the-file-opened-it-wasnt-the-building',
-    title: "The file opened. It wasn't the building.",
+    title: 'Opening the file is not the same as receiving the building',
     kicker: 'BIM',
     publishedAt: '2026-11-09',
+    dek: 'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
     excerpt:
-      "IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real. The handshake often isn't.",
+      'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
     description:
-      "IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real. The handshake often isn't.",
+      'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
     layer: 'Fractal Engine',
     layerHref: '/fractal-engine',
     sources: [
@@ -971,7 +844,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          "The usual handoff on a building project goes like this. One team exports a model. Another team imports it. The file opens. For a moment, it looks as if the building has traveled. Then a beam is missing, a wall has the wrong type, or a property that lived on an object in the first tool is sitting in a comment in the second. The file opened. It wasn't the building.",
+          'The usual handoff on a building project goes like this. One team exports a model. Another team imports it. The file opens, and for a moment it looks as if the building has traveled. Then a beam is missing, a wall has the wrong type, or a property that lived on an object in the first tool is sitting in a comment in the second. What arrived was a file, not the building.',
         ],
       },
       {
@@ -995,7 +868,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'The result is a file that validates and a building that does not survive the trip. Not an edge case. It is what happens when a schema is asked to do the work of an agreement.',
+          'The result is a file that validates and a building that does not survive the trip. That is not an edge case. It is what happens when a schema is asked to do the work of an agreement.',
         ],
       },
       {
@@ -1013,32 +886,20 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'PrimusNeo includes a spatial runtime (AMP) and a layer for organizational memory (Fractal Engine). I will not claim that either has solved IFC interchange. The public AMP SDK, in its README, is a toolkit for 3D, geospatial, and media runtimes. I have not found a public, documented IFC round-trip in the repositories I looked at. Fractal Engine, still in alpha, can store models as glTF with BLAKE3 hashes and keep object history. A hash will tell you whether a file changed. It will not tell you whether two tools understood it the same way. Those are useful facts. They are not a translation layer.',
+          'PrimusNeo includes a spatial runtime (AMP) and a layer for organizational memory (Fractal Engine). I will not claim that either has solved IFC interchange. The public AMP SDK, in its README, is a toolkit for 3D, geospatial, and media runtimes. I have not found a public, documented IFC round-trip in the repositories I looked at. Fractal Engine, still in alpha, can store models and hash a file and keep its history. Neither is an IFC translator. What they can offer, if they are useful here at all, is a record of what was sent, what arrived, and whether anyone accepted it. A hash of the file is a start. A list of objects that survived the trip, and a list of the ones that did not, would be better.',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'What would actually help is narrower. If a model is going to move between tools, or between a site and an office, someone has to keep a record of what was actually sent, what was actually received, and who accepted the result. A hash of the file is a start. A list of objects that survived the trip, and a list of the ones that did not, would be better. Until that record exists, an IFC export is a hope that the next program is generous.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Interchange standards are worth having. The alternative is emailing native files around a project and hoping the right plugin is installed, which is not an improvement. A standard, by itself, does not close the loop. The loop closes when the receiving tool can show, in a form the sending team can check, that the objects they care about arrived with their geometry, properties, and identifiers intact — or that they did not, in which case the handover is incomplete and should be treated as such.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'That is a duller story than a new format. It is also the one the 2018 tests were already telling. AMP can keep a spatial model in view; Fractal Engine, still in alpha, can hash a file and keep its history. Neither is an IFC translator. What they can offer is a record of what was sent, what arrived, and whether anyone accepted it. The file will keep opening. The question is whether the building came with it.',
+          'Interchange standards are worth having. The alternative is emailing native files around a project and hoping the right plugin is installed, which is not an improvement. A standard, by itself, does not close the loop. The loop closes when the receiving tool can show, in a form the sending team can check, that the objects they care about arrived with their geometry, properties, and identifiers intact — or that they did not, in which case the handover is incomplete and should be treated as such. That is a duller story than a new format, and it is the one the 2018 tests were already telling.',
         ],
       },
     ],
   },
   {
     slug: "pilot-purgatory",
-    title: "The demo worked. That was not the test.",
+    title: "Pilot purgatory: write the test before you build",
     seoTitle: "Pilot purgatory: write the test before you build",
     kicker: "Pilot purgatory",
     publishedAt: "2026-11-09",
@@ -1171,13 +1032,13 @@ export const essays: Essay[] = [
         note: "The lock-in version. The building is yours. The account is not.",
       },
       {
-        label: "The file opened. It wasn't the building.",
+        label: "Opening the file is not the same as receiving the building",
         href: "/blog/the-file-opened-it-wasnt-the-building",
         note: "A different failure. That note is a file you hold and two tools that disagree. This one is whether you hold the file.",
       },
       {
         label: "Alpha is a status, not a compliment",
-        href: "/blog/alpha-is-a-status-not-a-compliment",
+        href: "/newsroom/alpha-is-a-status-not-a-compliment",
         note: "Fractal Engine in alpha, with the limits written on the same page as the features.",
       },
     ],
@@ -1384,6 +1245,118 @@ export const essays: Essay[] = [
         kind: 'p',
         inlines: [
           "A jointly owned enterprise still has to decide things. The principles are clear about who is supposed to control those decisions. The rest is whether the control can be shown, later, in a form a member can read. If it cannot, the group may still be decent, and the account may still have a balance. It is not, in the sense that matters, governed. It is a chat that learned how to pay a bill.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'a-recommendation-still-needs-a-name',
+    title: 'A recommendation still needs a name on it',
+    kicker: 'Accountability',
+    publishedAt: '2026-11-10',
+    dek: 'When software produces a recommendation, accountability is not a label on the model. It is a record of who is responsible, what was measured, and how the thing will be watched after it is in use, as two public frameworks already say.',
+    excerpt:
+      'When software produces a recommendation, accountability is not a label on the model. It is a record of who is responsible, what was measured, and how the thing will be watched after it is in use, as two public frameworks already say.',
+    description:
+      'Accountability for an automated recommendation is a named record: who is responsible, what was measured, and how it will be watched, per NIST AI RMF and GAO.',
+    layer: 'NEOS',
+    layerHref: '/governance-platform',
+    related: [
+      {
+        label: 'Pilot purgatory: write the test before you build',
+        href: '/blog/pilot-purgatory',
+        note: 'The same habit, earlier. Write the test before anyone builds.',
+      },
+      {
+        label: 'ACT is not a vote',
+        href: 'https://neos.primusneo.com/blog/act-is-not-a-vote',
+      },
+      {
+        label: "Fail closed, or it isn't a control",
+        href: 'https://azoa.ardanova.com/notes/fail-closed-or-it-isnt-a-control',
+      },
+    ],
+    sources: [
+      {
+        label:
+          'NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1, January 2023',
+        href: 'https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf',
+      },
+      {
+        label: 'NIST AI RMF 1.0 DOI',
+        href: 'https://doi.org/10.6028/NIST.AI.100-1',
+      },
+      {
+        label:
+          'U.S. GAO, Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities, GAO-21-519SP, June 2021',
+        href: 'https://www.gao.gov/products/gao-21-519sp',
+      },
+      {
+        label:
+          'NIST, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, NIST AI 600-1, July 2024',
+        href: 'https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf',
+      },
+      {
+        label: 'NIST AI 600-1 DOI',
+        href: 'https://doi.org/10.6028/NIST.AI.600-1',
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          'When software produces a recommendation, accountability is not a label on the model. It is a record of who is responsible, what data went in, whether the output was checked against a stated goal, and how the thing will be watched after it is in use. Two public frameworks already say this in plain terms. Neither of them is a certification, and this essay does not claim that PrimusNeo, ',
+          a('NEOS', 'https://neos.primusneo.com'),
+          ', or ',
+          a('AZOA', 'https://azoa.ardanova.com'),
+          ' implements either one.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The National Institute of Standards and Technology published the ',
+          { t: 'Artificial Intelligence Risk Management Framework (AI RMF 1.0)', em: true },
+          ' in January 2023, as NIST AI 100-1. "As directed by the National Artificial Intelligence Initiative Act of 2020 (P.L. 116-283), the goal of the AI RMF is to offer a resource to the organizations designing, developing, deploying, or using AI systems to help manage the many risks of AI." "The Framework is intended to be voluntary, rights-preserving, non-sector-specific, and use-case agnostic." It is written to equip "organizations and individuals – referred to here as AI actors – with approaches that increase the trustworthiness of AI systems." Characteristics of trustworthy AI systems, in the document\'s list, "include valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy enhanced, and fair with their harmful biases managed." The Core describes four functions — GOVERN, MAP, MEASURE, and MANAGE — and GOVERN applies "to all stages of organizations\' AI risk management processes and procedures." "Actions do not constitute a checklist, nor are they necessarily an ordered set of steps." "Risk management should be continuous, timely, and performed throughout the AI system lifecycle."',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The U.S. Government Accountability Office published its own framework in June 2021, ',
+          {
+            t: 'Artificial Intelligence: An Accountability Framework for Federal Agencies and Other Entities',
+            em: true,
+          },
+          ' (GAO-21-519SP). "This framework is organized around four complementary principles, which address governance, data, performance, and monitoring." It is written for "federal agencies and other entities involved in the design, development, deployment, and continuous monitoring of AI systems," and it names the oversight problem directly: "AI systems pose unique challenges to such oversight because their inputs and operations are not always visible." Practice 1.1 asks the reader to "define clear goals and objectives for the AI system to ensure intended outcomes are achieved." Practice 1.2 asks them to "define clear roles, responsibilities, and delegation of authority for the AI system to ensure effective operations, timely corrections, and sustained oversight." This essay does not treat PrimusNeo as a federal system, and it does not treat the GAO document as a certificate anyone here holds.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The same four NIST functions have a published companion for generative systems. In July 2024, NIST issued ',
+          {
+            t: 'Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile',
+            em: true,
+          },
+          ' (NIST AI 600-1), "a cross-sectoral profile of and companion resource for the AI Risk Management Framework (AI RMF 1.0) for Generative AI." The AI RMF, the profile repeats, "is intended for voluntary use and to improve the ability of organizations to incorporate trustworthiness considerations into the design, development, use, and evaluation of AI products, services, and systems." A profile, in that document\'s wording, "is an implementation of the AI RMF functions, categories, and subcategories for a specific setting, application, or technology." The useful fact here is a narrow one: the same four functions have a voluntary companion, dated July 2024, for generative systems. This page does not summarize a risk catalogue it has not quoted.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'A recommendation that cannot name a person, a goal, and a way to check it later is not ready to run a place. That is the same habit as ',
+          a('writing the test before you build', '/blog/pilot-purgatory'),
+          ', applied after the system is in use. If a later paragraph needs a door into the stack, the already-public ones will do: ',
+          a('agreements and permissions', 'https://neos.primusneo.com'),
+          ', and a ',
+          a(
+            'control that fails closed',
+            'https://azoa.ardanova.com/notes/fail-closed-or-it-isnt-a-control',
+          ),
+          ' rather than waving through what it cannot verify. ',
+          a('ArdaNova', 'https://ardanova.com'),
+          ' is the workspace that keeps a record of work and of decisions on agreed terms. None of those pages is a claim that the frameworks above have been implemented. This is not legal advice.',
         ],
       },
     ],
