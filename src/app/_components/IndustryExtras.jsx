@@ -36,10 +36,10 @@ export const IndustrySources = ({ sources = [] }) => {
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Verifiable Sources"
-          title="Every stat on this page is cited."
+          title="The figures above have names."
           className="text-left mx-0 mb-12 max-w-3xl"
         >
-          We back our positioning with primary sources from McKinsey, the IEA, FAO, OECD, UNCTAD, Stanford HAI, the World Economic Forum, and government data portals. Click any link to verify.
+          The links below are the ones this page uses. Click any link to verify.
         </SectionHeader>
         <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {sources.map((s, i) => (

@@ -22,8 +22,6 @@ export const metadata = {
 const stats = [
   { value: '$16.8T', label: 'Global manufacturing value 2024 [UNIDO]' },
   { value: '70%', label: 'Industry 4.0 pilots that never scale [McKinsey 2018]' },
-  { value: '$50B', label: 'Annual unplanned downtime loss [Siemens / industry]' },
-  { value: '60-65%', label: 'Average OEE vs 85% world-class [Godlan]' },
 ];
 
 const challenges = [
@@ -35,9 +33,9 @@ const challenges = [
   },
   {
     title: 'OEE & Downtime Drag',
-    description: 'Average plant OEE sits at 60-65% against a world-class 85% benchmark, with unplanned downtime alone costing global manufacturers ~$50B/yr.',
-    metric: '$50B',
-    metricLabel: 'annual downtime cost',
+    description: 'Unplanned downtime is the expensive hour. The dollar figure and the OEE benchmark that used to sit here came from a lead-generation blog and a vendor page, not from Siemens. They are gone.',
+    metric: '70%',
+    metricLabel: 'of Industry 4.0 pilots never scale [McKinsey 2018]',
   },
   {
     title: 'Supply-Network Trust Gap',
@@ -75,8 +73,6 @@ const sources = [
   { org: 'UNIDO', year: '2024', title: 'World Manufacturing Production Q4 2024', href: 'https://stat.unido.org/portal/storage/file/publications/qiip/World_Manufacturing_Production_2024_Q4.pdf' },
   { org: 'McKinsey', year: '2018', title: 'How digital manufacturing can escape pilot purgatory', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/how-digital-manufacturing-can-escape-pilot-purgatory' },
   { org: 'McKinsey', year: '2024', title: 'It&rsquo;s the last IT/OT mile that matters', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/operations-blog/its-the-last-it-ot-mile-that-matters-in-avoiding-industry-40s-pilot-purgatory' },
-  { org: 'Siemens (industry)', year: '2024', title: 'Manufacturing downtime statistics 2024', href: 'https://manufacturingleadgeneration.com/manufacturing-downtime-statistics/' },
-  { org: 'Godlan', year: '2024', title: 'OEE Benchmarks by Industry', href: 'https://godlan.com/oee-benchmark-industry/' },
   { org: 'Acemoglu & Johnson (MIT)', year: '2023', title: 'Power and Progress — technology, governance, and shared prosperity', href: 'https://shapingwork.mit.edu/power-and-progress/' },
   { org: 'Mazzucato (UCL IIPP)', year: '2021', title: 'Mission Economy — mission-led industrial policy', href: 'https://marianamazzucato.com/books/mission-economy' },
 ];
@@ -97,7 +93,7 @@ export default function ManufacturingIndustryPage() {
       primaryCtaText="Book a plant assessment"
     >
       <ContrarianInsight attribution="PrimusNeo — Manufacturing Brief">
-        Industry 4.0 didn&rsquo;t fail — it just hit a coordination wall no point solution can solve. The next $1T of manufacturing value will accrue to whoever owns the <em>contextualized</em> data layer, not the sensors.
+        Industry 4.0 didn&rsquo;t fail — it just hit a coordination wall no point solution can solve. The advantage goes to whoever owns the <em>contextualized</em> data layer, not the sensors.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

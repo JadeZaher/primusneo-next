@@ -4,7 +4,7 @@ import { ContrarianInsight, IndustrySources, PartnerNote, PARTNERS } from '../..
 
 export const metadata = {
   title: 'Energy & Utilities — Industries',
-  description: '3,000 GW are stuck in queues while DERs proliferate outside utility visibility. PrimusNeo gives operators one twin of every asset, every electron, every claim.',
+  description: 'At least 3,000 GW of renewable projects were waiting on a connection in the IEA’s 2023 count, and that count covered countries with about half of global wind and solar capacity. DERs still proliferate outside utility visibility.',
   alternates: { canonical: '/industries/energy' },
   openGraph: {
     title: 'Energy & Utilities | PrimusNeo',
@@ -20,30 +20,29 @@ export const metadata = {
 };
 
 const stats = [
-  { value: '$3T+', label: 'Global energy investment 2024 [IEA]' },
-  { value: '$400B', label: 'Annual grid spend vs $1T on generation [IEA]' },
-  { value: '3,000GW', label: 'Renewables stuck in grid queues [IEA]' },
-  { value: '2030', label: 'Connection date for new UK queue entrants [IEA]' },
+  { value: '$3T+', label: 'Global energy investment set to exceed this in 2024, about $2T of it clean [IEA]' },
+  { value: '$400B', label: 'Grid spending expected in 2024, out of more than $3T total [IEA]' },
+  { value: '≥3,000 GW', label: 'Renewable projects waiting in 2023, at least; 1,500 GW advanced. Queue data covered about half of global wind and solar [IEA]' },
 ];
 
 const challenges = [
   {
     title: 'Generation-Grid Imbalance',
-    description: 'Capital pours into renewables at $1T/yr while grid spend lags at $400B, leaving 3,000 GW of projects waiting for connection.',
-    metric: '3,000GW',
-    metricLabel: 'stuck in queue [IEA]',
+    description: 'Global energy investment is set to exceed $3 trillion in 2024, with about $2 trillion going to clean energy. Grid spending, after years around $300 billion, is expected to hit about $400 billion in 2024. At least 3,000 GW of renewable projects were waiting on a connection.',
+    metric: '≥3,000 GW',
+    metricLabel: 'in queues in 2023, at least [IEA]',
   },
   {
     title: 'DER & Prosumer Coordination Gap',
     description: 'Millions of rooftop solar, EVs, batteries, and flexible loads operate outside utility visibility; OPEX of dispatch and balancing balloons.',
     metric: '$400B',
-    metricLabel: 'annual grid spend, half of need [IEA]',
+    metricLabel: 'grid spending expected in 2024 [IEA]',
   },
   {
     title: 'Stakeholder & ESG Trust Gap',
     description: 'Communities, regulators, and green-bond holders cannot independently verify emissions, curtailment, or community-benefit claims.',
     metric: '$3T+',
-    metricLabel: 'annual energy investment at stake [IEA]',
+    metricLabel: 'energy investment set to exceed this in 2024 [IEA]',
   },
 ];
 
@@ -74,7 +73,6 @@ const useCase = {
 const sources = [
   { org: 'IEA', year: '2024', title: 'World Energy Investment 2024', href: 'https://www.iea.org/reports/world-energy-investment-2024/overview-and-key-findings' },
   { org: 'IEA', year: '2023', title: 'Electricity Grids and Secure Energy Transitions', href: 'https://www.iea.org/reports/electricity-grids-and-secure-energy-transitions/executive-summary' },
-  { org: 'IEA', year: '2024', title: 'Renewable energy projects in connection queues 2024', href: 'https://www.iea.org/data-and-statistics/charts/capacity-of-renewable-energy-projects-in-connection-queues-2024' },
   { org: 'IEA', year: '2024', title: 'Renewables 2024 (executive summary)', href: 'https://www.iea.org/reports/renewables-2024/executive-summary' },
   { org: 'Lawrence Berkeley National Lab', year: '2025', title: 'Queued Up 2025 — US interconnection-queue characteristics', href: 'https://emp.lbl.gov/publications/queued-2025-edition-characteristics' },
   { org: 'Vaclav Smil (Science / AAAS)', year: '2018', title: 'On the slow reality of energy transitions', href: 'https://www.science.org/content/article/meet-vaclav-smil-man-who-has-quietly-shaped-how-world-thinks-about-energy' },
@@ -86,7 +84,7 @@ export default function EnergyIndustryPage() {
     <SolutionTemplate
       eyebrow="Energy & Utilities"
       title="The queue is not a power plant."
-      description="3,000 GW are stuck in queues while DERs proliferate outside utility visibility. PrimusNeo gives operators one twin of every asset, every electron, every claim."
+      description="At least 3,000 GW of renewable projects were waiting on a connection in the IEA’s 2023 count, and that count covered countries with about half of global wind and solar capacity. DERs still proliferate outside utility visibility."
       stats={stats}
       challenges={challenges}
       features={features}
