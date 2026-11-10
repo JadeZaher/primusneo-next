@@ -52,7 +52,7 @@ CREATE INDEX IF NOT EXISTS site_submissions_created_at_idx
 
 The production image starts with `npm run start`, which runs the migration and then `next start`. The migration runs at container start, not during the image build. The build still uses `SKIP_ENV_VALIDATION` and does not connect to Postgres.
 
-If `DATABASE_URL` is unset, the script logs that it skipped and the process still starts. If the URL is set and the SQL fails, the container exits and `next start` does not run. The script refuses to execute the file if it contains a drop, alter, rename, truncate, delete, update, insert, grant, or revoke.
+If `DATABASE_URL` is unset, the script logs that it skipped and the process still starts. If Postgres is unreachable or rejects the password, the script logs the error code and exits 0. `npm start` runs that script, then `next start`, so a failed migration does not take the site down. Pages still render. `POST /api/submissions` and `GET /api/admin/submissions` return 503 JSON, with no connection string and no stack, until the database accepts a connection. The script refuses to execute the file if it contains a drop, alter, rename, truncate, delete, update, insert, grant, or revoke.
 
 The same command can be run once by hand, from a shell that already has `DATABASE_URL`:
 
@@ -81,4 +81,4 @@ curl -sS 'https://primusneo.com/api/admin/submissions?since=2026-11-01T00:00:00.
   -H 'authorization: Bearer YOUR_SUBMISSIONS_ADMIN_TOKEN'
 ```
 
-A missing or wrong token is 401. An unset `SUBMISSIONS_ADMIN_TOKEN` is 503.
+A missing or wrong token is 401. An unset `SUBMISSIONS_ADMIN_TOKEN` is 503. A database the app cannot reach is also 503: `{"ok":false,"error":"unavailable"}` on the form route, and `{"error":"unavailable"}` on the admin route.

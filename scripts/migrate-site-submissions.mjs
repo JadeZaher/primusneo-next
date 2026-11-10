@@ -40,29 +40,55 @@ if (statements.length === 0) {
   process.exit(1);
 }
 
-const sql = postgres(url, {
-  max: 1,
-  connect_timeout: 15,
-  onnotice: () => {},
-  connection: { application_name: "primusneo-site-submissions-migrate" },
+// A dead database must not hold the container open. `npm start` runs Next after
+// this script, and a dropped socket otherwise reconnects without rejecting.
+const MIGRATION_DEADLINE_MS = 10_000;
+
+let sql;
+let timer;
+const timedOut = new Promise((_, reject) => {
+  timer = setTimeout(() => {
+    const error = new Error("site_submissions migration timed out");
+    error.code = "CONNECT_TIMEOUT";
+    reject(error);
+  }, MIGRATION_DEADLINE_MS);
 });
 
-let failed = false;
 try {
-  for (const statement of statements) {
-    console.log(`Applying: ${statement}`);
-    await sql.unsafe(statement);
-  }
+  sql = postgres(url, {
+    max: 1,
+    connect_timeout: 8,
+    onnotice: () => {},
+    connection: { application_name: "primusneo-site-submissions-migrate" },
+  });
+  const applying = (async () => {
+    for (const statement of statements) {
+      console.log(`Applying: ${statement}`);
+      await sql.unsafe(statement);
+    }
+  })();
+  // Promise.race handles the rejection that wins. The loser can still reject
+  // after sql.end(), and that second rejection must not crash the process.
+  void applying.catch(() => undefined);
+  await Promise.race([applying, timedOut]);
   console.log("site_submissions migration applied");
 } catch (error) {
-  failed = true;
   const code =
-    error && typeof error === "object" && "code" in error
+    error && typeof error === "object" && "code" in error && error.code
       ? String(error.code)
       : "unknown";
-  console.error(`site_submissions migration failed (${code})`);
+  console.error(
+    `site_submissions migration failed (${code}); the site will start without it`,
+  );
 } finally {
-  await sql.end({ timeout: 5 });
+  clearTimeout(timer);
+  if (sql) {
+    try {
+      await sql.end({ timeout: 2 });
+    } catch {
+      console.error(
+        "site_submissions migration could not close the connection",
+      );
+    }
+  }
 }
-
-if (failed) process.exit(1);
