@@ -30,6 +30,11 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        source: '/news/alpha-is-a-status-not-a-compliment',
+        destination: '/newsroom/alpha-is-a-status-not-a-compliment',
+        statusCode: 301,
+      },
+      {
         // Studio status note. The accountability essay is a different piece.
         source: '/blog/alpha-is-a-status-not-a-compliment',
         destination: '/newsroom/alpha-is-a-status-not-a-compliment',
