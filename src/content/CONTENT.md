@@ -1,6 +1,6 @@
 # Adding an entry
 
-Five sections are driven by files in this directory. The writing team adds an object, opens a pull request, and the page appears on the next deploy of `main`. No CMS step is required for these files. Sanity posts still show on the blog if the studio has them.
+Six sections are driven by files in this directory. The writing team adds an object, opens a pull request, and the page appears on the next deploy of `main`. No CMS step is required for these files. Sanity posts still show on the blog if the studio has them.
 
 Keep the voice dry and specific. Do not add raise amounts, valuations, or investor-model figures. Do not invent dates, customers, or statistics. If a claim is not on the site or in a public repo, leave it out or mark the roadmap cell `exploring`.
 
@@ -31,6 +31,37 @@ Append an object to the `essays` array.
 `inlines` are strings, `{ t, href }` for a link, or `{ t, em }` / `{ t, strong }` for emphasis. Internal links start with `/`. List items are strings or inline arrays.
 
 The page prints the dek, the body, the sources, then `related` when it is set. The article template ends every post with a closer: the layer link, plus Contact (`/contact`) and RSS (`/feed.xml`). Do not write that closer into the body. A `cta` block is still how an existing note names its layer in the prose. Say what the software does not do yet if that is the honest part. The sitemap, `/feed.xml`, and `/llms.txt` read this array. Do not register the URL by hand.
+
+## Guides — `guides.ts`
+
+Route: `/guides` and `/guides/[slug]`. This is a research section. It does not replace `/industries`.
+
+Append an object to the `guides` array. Keep the reviewed draft’s figures, quotations, and source URLs. If a fact-check correction arrives, change the figure or the URL in place. Do not rename a slug after publish.
+
+| Field | What to put |
+|---|---|
+| `slug` | URL segment |
+| `title` | The h1. Keep the draft headline. |
+| `seoTitle` | Full document title, including ` — Guides \| PrimusNeo`. The template does not add a second suffix. Keep it at 60 characters or fewer. |
+| `crumb` | Breadcrumb label. |
+| `eyebrow` | Short label, for example `Digital twins` |
+| `description` | Meta description, also used for Open Graph and Twitter. Use the draft’s line. |
+| `excerpt` | Index, feed, and `/llms.txt` line. The description is fine. |
+| `publishedAt` | `YYYY-MM-DD` |
+| `lastReviewed` | `YYYY-MM-DD`. The day the figures were checked. |
+| `metric` / `metricLabel` | The short figure on the index card. It has to be a label for a figure the child page quotes, not a new number. |
+| `cardDescription` | Two sentences for the index card, taken from the draft. |
+| `patternTitle` / `patternDescription` | The shared-question card on the index. Cite the same source the child cites. |
+| `lead` | Opening paragraphs. The first one is the standfirst. |
+| `figures` | The quoted passages. `{ lead, text }`. Keep the quotation. The page does not label them “Hero figures.” |
+| `sections` | `h2` and `p` blocks, same inline rules as the blog. |
+| `scenario` | The worked example. The page heading is “A situation like this.” |
+| `sources` | `{ label, href, title?, org?, year?, doi? }`. Every URL in the draft, including a DOI when the draft prints one. |
+| `sourceNote` | Optional. A sentence about a source that was not opened. It is not a citation. |
+| `siblings` | At least two other guides. `{ label, href, note? }`. |
+| `closing` | The draft’s last paragraphs, including Contact when the draft has it. |
+
+The page prints the standfirst, the quoted passages, the body, the situation, the sources, the siblings, then the closing. The sitemap, `/feed.xml`, and `/llms.txt` read this array. Do not register the URL by hand.
 
 ## Newsroom — `news.ts`
 

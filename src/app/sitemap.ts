@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
+import { guides } from '@/content/guides';
 import { newsItems } from '@/content/news';
 import { papers } from '@/content/papers';
 import { roadmapLayers } from '@/content/roadmap';
@@ -125,6 +126,26 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const guideIndexLastModified = guides.reduce(
+    (latest, guide) => (guide.lastReviewed > latest ? guide.lastReviewed : latest),
+    guides[0]?.lastReviewed ?? '2026-11-10',
+  );
+
+  const guideEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/guides`,
+      lastModified: new Date(guideIndexLastModified),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    ...guides.map((guide) => ({
+      url: `${SITE_URL}/guides/${guide.slug}`,
+      lastModified: new Date(guide.lastReviewed),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
   const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, updatedAt }) => ({
     url: `${SITE_URL}/news/${slug}`,
     lastModified: updatedAt ? new Date(updatedAt) : now,
@@ -132,5 +153,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsroomEntries, ...roadmapEntries, ...futureEntries, ...paperEntries, ...newsEntries];
+  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsroomEntries, ...roadmapEntries, ...futureEntries, ...paperEntries, ...guideEntries, ...newsEntries];
 }
