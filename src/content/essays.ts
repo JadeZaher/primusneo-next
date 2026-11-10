@@ -867,7 +867,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. After the first request is acknowledged, retrying with that key, in Stripe\'s words, "returns the originally saved status and body, regardless of whether the first request succeeded or failed." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question.',
+          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. In Stripe\'s words, "For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including 500 errors." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question.',
         ],
       },
       {
@@ -946,7 +946,7 @@ export const essays: Essay[] = [
     sources: [
       {
         label:
-          'Hang Lai and Yaohua Deng, “Data exchange problems of building information modeling in collaboration design on the architecture design of a resort hotel,” Journal of Civil Engineering and Management 24(7), 2018',
+          'Huahui Lai and Xueyuan Deng, “Interoperability analysis of IFC-based data exchange between heterogeneous BIM software,” Journal of Civil Engineering and Management 24(7), 2018',
         href: 'https://doi.org/10.3846/jcem.2018.6132',
       },
       {
@@ -974,19 +974,19 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Industry Foundation Classes, or IFC, is the usual answer to that assumption. It is a public schema for describing buildings so that architectural, structural, and other models can be exchanged without each team living in the same proprietary tool. In 2018, Hang Lai and Yaohua Deng published a paper in the Journal of Civil Engineering and Management that tested bidirectional, IFC-based exchange between architectural and structural models. The abstract is not optimistic. Current BIM software tools, they wrote, "cannot well interpret objects created by other discipline’s software." The errors in sharing and exchange came, in their account, from three places that are still familiar: diverse and specialized ways of representing objects; differences in how software interprets IFC objects; and different methods of defining and associating properties.',
+          'Industry Foundation Classes, or IFC, is the usual answer to that assumption. It is a public schema for describing buildings so that architectural, structural, and other models can be exchanged without each team living in the same proprietary tool. In 2018, Huahui Lai and Xueyuan Deng published a paper in the Journal of Civil Engineering and Management that tested bidirectional, IFC-based exchange among architectural, structural, and MEP models. The abstract is not optimistic. The fundamental causes, they wrote, are that "software tools cannot well interpret several objects belonging to other disciplines due to the difference in domain knowledge," and that "software tools have diverse methods to represent the same geometry, properties and relations, leading to inconsistent model data."',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'They also noted that versions of IFC, and differences among IFC-compatible tools, compound the problem. That last point is easy to treat as a vendor quarrel. It is more ordinary than that. A standard can be complete on paper and still underdetermined in practice. Geometry can be described more than one way. A property can be attached to an object, or to a type, or not attached at all. Two tools can both "support IFC" and still disagree about what a wall is.',
+          'Differences among IFC-compatible tools are easy to treat as a vendor quarrel. It is more ordinary than that. A standard can be complete on paper and still underdetermined in practice. Geometry can be described more than one way. A property can be attached to an object, or to a type, or not attached at all. Two tools can both "support IFC" and still disagree about what a wall is.',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'The result is a file that validates and a building that does not survive the trip. Completeness, interoperability, and object identification — the three issues Lai and Deng flag — are not edge cases. They are what happens when a schema is asked to do the work of an agreement.',
+          'The result is a file that validates and a building that does not survive the trip. Not an edge case. It is what happens when a schema is asked to do the work of an agreement.',
         ],
       },
       {
