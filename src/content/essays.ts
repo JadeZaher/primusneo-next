@@ -16,10 +16,26 @@ export type EssayBlock =
 
 export type EssaySource = { label: string; href: string };
 
+export type EssayLink = {
+  label: string;
+  href: string;
+  /** Why this page is listed. Optional. */
+  note?: string;
+};
+
 export type Essay = {
   slug: string;
   title: string;
+  /**
+   * Document `<title>`, Open Graph title, and Twitter title, before the
+   * ` | PrimusNeo` suffix. The h1 stays `title`. Keep the rendered title at
+   * 60 characters or fewer.
+   */
+  seoTitle?: string;
+  /** Standfirst under the headline. */
+  dek?: string;
   excerpt: string;
+  /** Meta description. For a search-targeted note, 155 characters or fewer. */
   description: string;
   publishedAt: string;
   kicker: string;
@@ -27,6 +43,8 @@ export type Essay = {
   layer?: string;
   /** Site layer page, or a `/roadmap/[slug]` section when the layer has no page of its own. */
   layerHref?: string;
+  /** Existing notes or papers. Real paths only. */
+  related?: EssayLink[];
   blocks: EssayBlock[];
   sources: EssaySource[];
 };
@@ -1005,6 +1023,357 @@ export const essays: Essay[] = [
         kind: 'p',
         inlines: [
           'That is a duller story than a new format. It is also the one the 2018 tests were already telling. AMP can keep a spatial model in view; Fractal Engine, still in alpha, can hash a file and keep its history. Neither is an IFC translator. What they can offer is a record of what was sent, what arrived, and whether anyone accepted it. The file will keep opening. The question is whether the building came with it.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: "pilot-purgatory",
+    title: "The demo worked. That was not the test.",
+    seoTitle: "Pilot purgatory: write the test before you build",
+    kicker: "Pilot purgatory",
+    publishedAt: "2026-11-09",
+    dek: "Pilot purgatory is what happens when a system works in a room with clean data and never has to work in the workflow that actually runs the place. Most failures sit in that handoff, not in the model. The fix is to write the test before you build.",
+    excerpt: "Pilot purgatory is what happens when a system works in a room with clean data and never has to work in the workflow that actually runs the place. Most failures sit in that handoff, not in the model. The fix is to write the test before you build.",
+    description: "Pilot purgatory is a demo that worked in a clean room and never had to meet the workflow. Write the test first. Stopping is an allowed result.",
+    layer: "AMP",
+    layerHref: "/amp",
+    related: [
+      {
+        label: "Why good work goes unbuilt",
+        href: "/papers/why-good-work-goes-unbuilt",
+        note: "The paper’s name for the same stall: write the test before anyone builds.",
+      },
+      {
+        label: "A digital twin shouldn't live in someone else's cloud",
+        href: "/blog/digital-twin-shouldnt-live-in-someone-elses-cloud",
+        note: "Names the habit. A pilot that never leaves the account it was demoed in.",
+      },
+      {
+        label: "Paid twice, or never, is the same bug",
+        href: "/blog/paid-twice-or-never",
+        note: "The same prior, on a ledger. The test is written before the system is allowed to act.",
+      },
+    ],
+    sources: [
+      {
+        label: "Preeti Singh, “Beyond Pilots: Making AI Pay Off Across The Whole Enterprise,” Forbes Business Council, November 5, 2026",
+        href: "https://www.forbes.com/councils/forbesbusinesscouncil/2026/11/05/beyond-pilots-making-ai-pay-off-across-the-whole-enterprise/",
+      },
+      {
+        label: "Toni Stork, “From AI pilot to production: How enterprises can cross the scaling threshold,” OMMAX, September 1, 2026",
+        href: "https://www.ommax.com/en_en/insights/industry-insights/from-ai-pilot-to-production-how-enterprises-can-cross-the-scaling-threshold",
+      },
+      {
+        label: "art-media-platform/amp.SDK (active upstream of the named AMP fork)",
+        href: "https://github.com/art-media-platform/amp.SDK",
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          "A pilot is a polite word for a demonstration that has been given a budget line. In a quiet room, with a patient audience and a dataset that has been cleaned for the occasion, the system does what it was asked to do. It looks as if it works. Then the work of putting it into the workflow that actually runs the place is left for later. Later is where a lot of projects go to live, indefinitely, under a name that sounds like progress: pilot purgatory.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The conversations have already moved on from whether the technology can perform. On November 5, 2026, Preeti Singh, writing in Forbes Business Council, put the question executives are asking in a single line: not whether the technology works, but where the business impact is. The essay is a contributed piece, not a news investigation, and the figures in it should be read that way. It cites Gartner as finding that, on average, only 41 percent of generative AI prototypes make it into production, and McKinsey's global AI survey as finding that more than 80 percent of respondents were still not seeing a tangible enterprise-level impact on earnings from generative AI. It also cites IDC as reporting that 42 percent of organizations worldwide find it difficult or impossible to accurately assess return on investment for digital and AI investments, pointing to inconsistent baselines and limited visibility into long-term impact.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "That last point is easy to skip past. It is the whole problem. If you did not write down, before anyone built anything, what would count as a result, you will not be able to say, a year later, whether you got one. A pilot that cannot name its test in advance is a demo that grades its own homework.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The failure, when it comes, usually does not arrive in the lab. On September 1, 2026, Toni Stork summarized the OMMAX AI Trends Report 2026, based on a Statista survey of 250 decision-makers in April and May 2026 across France, Germany, Italy, the Netherlands, and the UK, conducted for OMMAX, Ibexa, and Make. The report finds that 79 percent of AI failures occur during the pilot or in the transition from pilot to production. The largest single failure point is the post-pilot transition, cited by 44 percent of respondents whose organizations use AI beyond isolated tasks. Another 35 percent say initiatives most commonly fail during the pilot. Only 12 percent point to the idea stage, and 10 percent to the scaling stage.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Those numbers come from a particular survey, about a particular kind of software. They are still a useful map of a more general stall. A pilot is allowed to skip the unglamorous parts: the integration, the permissions, the data that is incomplete, the person who has to live with the result, the cost of running the thing when it is no longer a special project. Production is not allowed to skip them. Stork's article is plain about the gap. Integration complexity is the top barrier to stronger AI impact, cited by 40 percent of respondents, ahead of talent shortages and high costs or unclear ROI at 32 percent each, and fragmented data foundations at 30 percent. \"What appears to be a model problem,\" the article concludes, \"is often a system and coordination problem.\"",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The same piece offers a better definition of pilot purgatory than a graveyard of slide decks: \"If these requirements appear only after the pilot succeeds, the organization has not completed a pilot; it has deferred most of the product.\" The demo was never asked to survive contact with the systems, the people, or the measures that would have to carry it.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The report also finds that 65 percent of respondents said completed AI projects exceed their original budgets, and that 67 percent believe their infrastructure enables AI scaling even as integration, skills, ROI, and fragmented data remain major barriers. Confidence in the pipes is not the same thing as a path out of the room.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Nobody has to be kidding themselves. A pilot optimized for learning and demonstration will use a narrow dataset, a small user group, and a stand-alone interface. Those choices are reasonable when the question is \"can this work under defined conditions?\" They become a trap when a yes to that question is treated as a yes to \"can this deliver a result, repeatedly, in the workflow that already exists, at a cost someone will still defend next year?\" Those are different tests. If only the first one is written down, the second one is postponed, and the postponement gets a name.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The useful move is earlier, and duller, than a new model. Define the outcome, the baseline, and the stop condition before anyone builds. Include at least one realistic integration in the hypothesis, if the thing will have to talk to a real system. Use data that looks like production data, including the messy parts. Decide what the system is allowed to do, what needs a person, and how you will know if it failed. Then let the evidence decide, including the decision to stop. A stage gate without a stop condition does not decide anything.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "That is the lab method in plain language: match a real need with tools, write the test first, and let the result decide what happens next. PrimusNeo is organized as a clearing house and an innovation lab on that prior. It has not published a success rate for taking enterprise pilots into production.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "AMP, the operational runtime in the stack, is a public toolkit for putting a 3D, geospatial, and media model in view. Active releases live on art-media-platform/amp.SDK; plan-systems/amp.SDK is a fork whose last commit was in July 2025. The planet-scale runtime, amp.planet, is not public. A shared view of a site is not, by itself, an escape from pilot purgatory. It is one of the pieces a production-shaped pilot would actually need: a place where the people who have to live with the result can look at the same object, without the work existing only in a slide.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The demo will keep working in the room. The question is whether anyone wrote down, before the room was booked, what would have to be true outside it.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "local-first-digital-twin",
+    title: "A twin you can only open in their tab is a rental",
+    seoTitle: "Local-first digital twin: yours, not a rental",
+    kicker: "Local-first",
+    publishedAt: "2026-11-09",
+    dek: "A digital twin is a working likeness of a place or a process, kept in sync with the thing it represents. The definition does not say the likeness has to live on a vendor's server. If the model disappears when the login does, it was never yours.",
+    excerpt: "A digital twin is a working likeness of a place or a process, kept in sync with the thing it represents. The definition does not say the likeness has to live on a vendor's server. If the model disappears when the login does, it was never yours.",
+    description: "A local-first digital twin is a likeness you still have when the login does not. If it only opens in their tab, it was a rental with a nicer name.",
+    layer: "Fractal Engine",
+    layerHref: "/fractal-engine",
+    related: [
+      {
+        label: "A digital twin shouldn't live in someone else's cloud",
+        href: "/blog/digital-twin-shouldnt-live-in-someone-elses-cloud",
+        note: "The lock-in version. The building is yours. The account is not.",
+      },
+      {
+        label: "The file opened. It wasn't the building.",
+        href: "/blog/the-file-opened-it-wasnt-the-building",
+        note: "A different failure. That note is a file you hold and two tools that disagree. This one is whether you hold the file.",
+      },
+      {
+        label: "Alpha is a status, not a compliment",
+        href: "/blog/alpha-is-a-status-not-a-compliment",
+        note: "Fractal Engine in alpha, with the limits written on the same page as the features.",
+      },
+    ],
+    sources: [
+      {
+        label: "Alp Akcay, Stephan Biller, Boon Ping Gan, Christoph Laroque, and Guodong Shao, “Maintenance and Operations of Manufacturing Digital Twins,” Proceedings of the 2023 Winter Simulation Conference",
+        href: "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=936954",
+      },
+      {
+        label: "Martin Kleppmann, Adam Wiggins, Peter van Hardenberg, and Mark McGranaghan, “Local-first software: you own your data, in spite of the cloud,” Ink & Switch / Onward! 2019",
+        href: "https://www.inkandswitch.com/essay/local-first/",
+      },
+      {
+        label: "Escherbridge/fractalengine README",
+        href: "https://github.com/Escherbridge/fractalengine",
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          "Most products that call themselves a digital twin start with a quiet assumption. The model of the place — the terrain, the equipment, the sensor feeds, the decisions — will live on their servers. You get a browser tab, a login, and a bill. If the service is reachable, the likeness is there. If it is not, the likeness is gone, even if the place itself is fine.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "That is a convenient way to run a demo. It is a weak way to hold a working model of something you actually have to operate.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The phrase \"digital twin\" is used loosely, so it helps to start with a definition that is not a marketing page. In a 2023 Winter Simulation Conference panel paper, researchers including Guodong Shao of the National Institute of Standards and Technology restated the manufacturing definition from ISO 23247: a digital twin is a \"fit for purpose digital representation of an observable manufacturing element with synchronization between the element and its digital representation.\" The point of the sentence is not the brand. It is the two jobs. There is a representation, good enough for a purpose. And there is a way to keep that representation in agreement with the thing it stands for.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Notice what the definition does not say. It does not say the representation has to live in a vendor's datacenter. It does not say the authoritative copy is the one behind someone else's login. Synchronization is a requirement. Centralization is a design choice, and often an unexamined one.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A separate argument, older than the current wave of twin platforms, is about where the primary copy of work should sit. In 2019, Martin Kleppmann, Adam Wiggins, Peter van Hardenberg, and Mark McGranaghan set out a case for \"local-first software\": software that keeps collaboration without making a remote server the home of the work. Their opening is still the clearest version of the problem. Cloud apps make it easy to work from several devices. \"However, by centralizing data storage on servers, cloud apps also take away ownership and agency from users. If a service shuts down, the software stops functioning, and data created with that software is lost.\"",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "They treat the copy on your device as the primary copy. Servers can still exist, as secondary copies, to help with access from more than one machine. Among their ideals are that the network is optional, that the work should survive in the long term, and that the people who made it \"retain ultimate ownership and control.\" They were writing about documents, drawings, and other files a person makes. The same prior applies to a likeness of a place. If the twin is a working model, it should still be a working model on a day when the wide-area link is down, or when the vendor has changed its terms, or when the contract has ended and the export wizard is a support ticket.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Local-first is not nostalgia for a file on a laptop that nobody else can see. The 2019 essay is explicit that collaboration is part of the goal, not a feature to be given up in exchange for ownership. The question is which copy is in charge. In a cloud twin, an edit that does not reach the server \"didn't happen.\" In a local-first design, the edit happens on the machine in front of you, and synchronization follows when it can. For a model of a site, that difference is not philosophical. Sites have bad networks. They have shifts that do not wait for a spinner. They have people who need the current geometry, not a cached scene that might be stale and might be gone.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The 2023 panel paper makes a second, quieter point that is easy to miss in a product launch. A twin has a lifecycle of its own, \"starting from specifying the requirements of the digital twins until their decommissioning.\" The representation has to be maintained, or it stops being fit for purpose. A rental tab makes that maintenance look like someone else's problem, until the day the likeness and the place have drifted apart and nobody can say which one to trust. Ownership is not only the right to copy a file. It is the duty to notice when the file is no longer the thing.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Remote compute still has a job, and so do backups, and so does a second copy in a safe place. Kleppmann and colleagues called servers \"cloud peers\": a supporting role, not the source of truth. The point is narrower. If the only way to see the twin is to ask a vendor whether you may, then you do not have a twin. You have a visualization with a landlord.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "This is a different problem from a file that leaves one tool and arrives incomplete in another. Interchange can fail even when you do hold the file. The problem here is prior to that: whether you hold the file at all, and whether the software that makes it useful still runs when the service does not.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Fractal Engine, the organizational-memory layer in the PrimusNeo stack, is being built with that prior in mind. It is alpha. There is no versioned release. Its public README describes a 3D editor, models stored as glTF with BLAKE3 hashes, object history, peer-to-peer sync, and a plugin host that starts but does not auto-load packages. A hash will tell you whether a file changed. History will tell you that a change was recorded. Neither, by itself, makes a complete digital twin. The layer is not claimed to be running at a particular site. What it can offer is smaller: a place to keep a model and its memory on terms that do not begin with someone else's cloud.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A twin should be a likeness you can hold. Useful because it stays in sync with the thing it represents. Durable because the people who need it can still open it when the network is down, or the vendor is. Shareable because copies can travel without the original having to leave home. If it only exists in their tab, it was never yours. It was a rental with a nicer name.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "co-op-governance",
+    title: "Otherwise it's a group chat with a bank account",
+    seoTitle: "Co-op governance is a record, not a group chat",
+    kicker: "Co-op governance",
+    publishedAt: "2026-11-09",
+    dek: "A cooperative is supposed to be a jointly owned, democratically controlled enterprise, not a group of people who mean well in a thread. Governance is the record of who decided what, in a form members can still find later. Without that record, the bylaws are theater.",
+    excerpt: "A cooperative is supposed to be a jointly owned, democratically controlled enterprise, not a group of people who mean well in a thread. Governance is the record of who decided what, in a form members can still find later. Without that record, the bylaws are theater.",
+    description: "Cooperative governance is a record members can find later. A group chat with a bank account can pay a bill. It cannot show the vote.",
+    layer: "NEOS",
+    layerHref: "/governance-platform",
+    related: [
+      {
+        label: "Shared ownership, unshared minutes",
+        href: "/blog/shared-ownership-unshared-minutes",
+        note: "Housing co-ops, the same principle, and the same missing object: minutes a new member can find.",
+      },
+      {
+        label: "Otherwise it's a group chat with a bank account",
+        href: "/blog/otherwise-its-a-group-chat-with-a-bank-account",
+        note: "Same sentence, different room. That note is token turnout. This one is a cooperative’s bylaws.",
+      },
+      {
+        label: "Why good work goes unbuilt",
+        href: "/papers/why-good-work-goes-unbuilt",
+        note: "Includes the same problem for a cooperative: a record that outlives the people who were in the room.",
+      },
+    ],
+    sources: [
+      {
+        label: "International Cooperative Alliance, “Cooperative identity, values & principles” (Statement on the Cooperative Identity, 1995)",
+        href: "https://ica.coop/en/cooperatives/cooperative-identity",
+      },
+      {
+        label: "JadeZaher/NEOS",
+        href: "https://github.com/JadeZaher/NEOS",
+      },
+      {
+        label: "JadeZaher/neos-operating-system",
+        href: "https://github.com/JadeZaher/neos-operating-system",
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          "A cooperative can write a beautiful set of bylaws and still run on a group chat. The chat is where the budget was \"approved.\" The chat is where someone said they would talk to the bank. The chat is where, six months later, nobody can quite agree who decided, or whether the decision still holds, because the person who had the screenshot has left. The bank account is real. The governance is a feeling.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Otherwise it's a group chat with a bank account.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "That is not a joke about amateurs. It is what happens whenever ownership is treated as the hard sentence and the record of decisions is treated as paperwork to be done later. Later, in this case, is usually a crisis: a bill, a departure, a disagreement about a rule everyone thought had already been settled.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The International Cooperative Alliance, which stewards the Statement on the Cooperative Identity adopted in 1995, defines a cooperative as \"an autonomous association of persons united voluntarily to meet their common economic, social and cultural needs and aspirations through a jointly-owned and democratically-controlled enterprise.\" The second of its seven principles, Democratic Member Control, is more specific than a slogan. Cooperatives \"are democratic organisations controlled by their members, who actively participate in setting their policies and making decisions.\" Elected representatives \"are accountable to the membership.\" In primary cooperatives, \"members have equal voting rights (one member, one vote).\"",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A principle is a guideline, not a piece of software. It also is not a laminated poster. \"Actively participate in setting their policies and making decisions\" is a claim about a process that can be inspected. If a member who was not in the room cannot later find what was decided, by whom, and under what rule, then participation has happened in a sense, and accountability has not. The vote, if there was one, lived in the air.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The fifth principle, Education, Training, and Information, points at the same gap from the other side. Cooperatives \"provide education and training for their members, elected representatives, managers, and employees so they can contribute effectively to the development of their co-operatives.\" They also \"inform the general public… about the nature and benefits of co-operation.\" Information, in that sentence, is not a newsletter. It is how a member becomes able to exercise the control the second principle describes. A decision that cannot be found is a decision that cannot be taught, checked, or handed to the next board.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "The fourth principle, Autonomy and Independence, adds a practical test. Cooperatives \"are autonomous, self-help organisations controlled by their members.\" If they enter into agreements with other organisations, or raise capital from outside, \"they do so on terms that ensure democratic control by their members and maintain their cooperative autonomy.\" That is a sentence about contracts as well as about spirit. An agreement whose terms live only in a vendor's portal, or in one officer's inbox, is hard to reconcile with member control, because the members cannot see the thing they are supposed to be controlling.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "None of this requires a lecture about values. It requires a duller habit. Write down the decision. Write down who was entitled to make it. Write down what it binds, and for how long. Put that record somewhere members can get to it, not only the people who happened to be on the call. When the decision is later changed, record the change in the same place, rather than in a new thread that will be impossible to attach to the old one. Bylaws without that habit are a costume. A gathering without it is a social event that sometimes moves money.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "Theater, in this setting, is easy to recognize. It is a room that recites the principles and then cannot produce last year's budget vote. It is the board that is accountable in theory and unreachable in practice. It is the permissions model that says every member has a voice, while the shared drive is owned by a personal account. It is the appearance of democratic control without a trail.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A co-op does not need a new platform to be legitimate. Plenty of well-run co-ops have kept minutes in a binder for a century, and a binder you can find is better than a sophisticated system nobody can search. The test is not modernity. The test is whether a member, or a later board, can answer a plain question: what did we decide, and who was allowed to decide it?",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "NEOS is the layer in the PrimusNeo stack meant to hold agreements and permissions. Public repositories exist, including an umbrella project and a public operating-system fork. The umbrella has no root README, and the public materials do not apply a single maturity label such as alpha or beta. The layer is not claimed to be running at a particular site, or already in use by a particular council. The offer is the job, not a completed government in a box: a place where a decision, a permission, and a later change can leave a record that outlives the thread they were typed in.",
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          "A jointly owned enterprise still has to decide things. The principles are clear about who is supposed to control those decisions. The rest is whether the control can be shown, later, in a form a member can read. If it cannot, the group may still be decent, and the account may still have a balance. It is not, in the sense that matters, governed. It is a chat that learned how to pay a bill.",
         ],
       },
     ],

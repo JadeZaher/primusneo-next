@@ -1,11 +1,40 @@
 import Link from 'next/link';
 import Script from 'next/script';
 import { Inlines, PieceClose, ProseBlockView } from '@/app/_components/Prose';
-import type { Essay } from '@/content/essays';
+import type { Essay, EssayLink } from '@/content/essays';
 
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com'
 ).replace(/\/$/, '');
+
+function RelatedNotes({ items }: { items: EssayLink[] }) {
+  return (
+    <section className="mt-16 max-w-[68ch] border-t border-white/10 pt-8">
+      <h2 className="text-faint font-mono text-[11px] tracking-[0.22em] uppercase">
+        Related
+      </h2>
+      <ul className="mt-5 border-t border-white/10">
+        {items.map((item) => (
+          <li key={item.href} className="border-b border-white/10">
+            <Link
+              href={item.href}
+              className="group block py-5 transition-colors hover:bg-white/[0.02]"
+            >
+              <span className="group-hover:text-accent block text-[18px] leading-snug font-medium tracking-[-0.02em]">
+                {item.label}
+              </span>
+              {item.note ? (
+                <span className="text-mist mt-1 block text-sm leading-relaxed">
+                  {item.note}
+                </span>
+              ) : null}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
 
 function stackLayer(essay: Essay): { layer: string; href: string } | undefined {
   if (essay.layer && essay.layerHref)
@@ -55,13 +84,20 @@ export function EssayArticle({ essay }: { essay: Essay }) {
         >
           ← All notes
         </Link>
-        <header className="mt-10 max-w-[18ch]">
-          <div className="text-accent font-mono text-[11px] tracking-[0.22em] uppercase">
-            {essay.kicker}
+        <header className="mt-10">
+          <div className="max-w-[18ch]">
+            <div className="text-accent font-mono text-[11px] tracking-[0.22em] uppercase">
+              {essay.kicker}
+            </div>
+            <h1 className="mt-4 text-[clamp(40px,6vw,92px)] leading-[0.98] font-medium tracking-[-0.035em] text-balance">
+              {essay.title}
+            </h1>
           </div>
-          <h1 className="mt-4 text-[clamp(40px,6vw,92px)] leading-[0.98] font-medium tracking-[-0.035em] text-balance">
-            {essay.title}
-          </h1>
+          {essay.dek ? (
+            <p className="text-mist mt-8 max-w-[62ch] text-[18px] leading-[1.65]">
+              {essay.dek}
+            </p>
+          ) : null}
           <time
             dateTime={essay.publishedAt}
             className="text-faint mt-8 block font-mono text-[11px] tracking-[0.18em] uppercase"
@@ -120,6 +156,9 @@ export function EssayArticle({ essay }: { essay: Essay }) {
             ))}
           </ol>
         </section>
+        {essay.related && essay.related.length > 0 ? (
+          <RelatedNotes items={essay.related} />
+        ) : null}
         <PieceClose layer={layer?.layer} layerHref={layer?.href} />
       </article>
     </main>

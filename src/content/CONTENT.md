@@ -15,19 +15,22 @@ Append an object to the `essays` array.
 | Field | What to put |
 |---|---|
 | `slug` | URL segment |
-| `title` | The h1 |
-| `excerpt` | One or two sentences for the index |
-| `description` | SEO description |
+| `title` | The h1. Keep the draft headline, including its punctuation. |
+| `seoTitle` | Document `<title>`, Open Graph title, and Twitter title, before the ` \| PrimusNeo` suffix. The h1 stays `title`. Put the search phrase here. Keep `seoTitle` plus ` \| PrimusNeo` at 60 characters or fewer. |
+| `dek` | Standfirst under the headline. Use the draft summary, unchanged. |
+| `excerpt` | One or two sentences for the index, the feed, and `/llms.txt`. The summary is fine when that is the dek. |
+| `description` | Meta description, also used for Open Graph and Twitter. For a search-targeted note, 155 characters or fewer. |
 | `publishedAt` | `YYYY-MM-DD` |
 | `kicker` | Short label, for example `Digital twins` |
 | `blocks` | `p` (with `inlines`), `h2`, `ul`, and one `cta` |
 | `sources` | `{ label, href }` for every fact that is not ours |
 | `layer` | Optional. Stack layer the template closer links. A `cta` block supplies it when this is absent. |
 | `layerHref` | That layer’s page, or `/roadmap/[slug]` when the layer has no page of its own. |
+| `related` | Optional `{ label, href, note? }`. Existing notes or papers only. Real paths. Leave it off when nothing fits. |
 
 `inlines` are strings, `{ t, href }` for a link, or `{ t, em }` / `{ t, strong }` for emphasis. Internal links start with `/`. List items are strings or inline arrays.
 
-The article template ends every post with a closer: the layer link, plus Contact (`/contact`) and RSS (`/feed.xml`). Do not write that closer into the body. A `cta` block is still how an existing note names its layer in the prose. Say what the software does not do yet if that is the honest part.
+The page prints the dek, the body, the sources, then `related` when it is set. The article template ends every post with a closer: the layer link, plus Contact (`/contact`) and RSS (`/feed.xml`). Do not write that closer into the body. A `cta` block is still how an existing note names its layer in the prose. Say what the software does not do yet if that is the honest part. The sitemap, `/feed.xml`, and `/llms.txt` read this array. Do not register the URL by hand.
 
 ## Newsroom — `news.ts`
 
