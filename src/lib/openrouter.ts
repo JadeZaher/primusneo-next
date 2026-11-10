@@ -1,6 +1,9 @@
 import { env } from "~/env";
 
-export async function generateAIResponse(prompt: string, systemPrompt?: string) {
+export async function generateAIResponse(
+  prompt: string,
+  systemPrompt?: string,
+): Promise<string | null> {
   const apiKey = env.OPENROUTER_API_KEY;
   
   if (!apiKey) {
@@ -32,8 +35,11 @@ export async function generateAIResponse(prompt: string, systemPrompt?: string) 
       throw new Error(`OpenRouter API failed with status ${response.status}`);
     }
 
-    const data = await response.json();
-    return data.choices?.[0]?.message?.content || null;
+    const data = (await response.json()) as {
+      choices?: { message?: { content?: unknown } }[];
+    };
+    const content = data.choices?.[0]?.message?.content;
+    return typeof content === "string" ? content : null;
   } catch (error) {
     console.error("Error calling OpenRouter:", error);
     return null;

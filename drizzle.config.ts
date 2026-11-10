@@ -8,5 +8,7 @@ export default {
   dbCredentials: {
     url: env.DATABASE_URL,
   },
+  // `site_submissions` is outside this filter on purpose. Do not widen it to
+  // include that table, and do not run db:push or db:migrate against production.
   tablesFilter: ["primusneo-next_*"],
 } satisfies Config;

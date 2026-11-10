@@ -33,13 +33,13 @@ export async function processNewsItemWithAI(item: NewsItem) {
   `;
 
   const response = await generateAIResponse(userPrompt, SYSTEM_PROMPT);
-  
-  if (!response) return null;
+
+  if (typeof response !== "string") return null;
 
   try {
     // Attempt to parse JSON from the response
     // Sometimes AI adds markdown backticks, so we clean them
-    const cleanedResponse = response.replace(/```json|```/g, '').trim();
+    const cleanedResponse = response.replace(/```json|```/g, "").trim();
     return JSON.parse(cleanedResponse) as { title: string; excerpt: string; body: string };
   } catch (error) {
     console.error("Failed to parse AI response as JSON:", error);

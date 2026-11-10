@@ -8,6 +8,7 @@
     "check": "next lint && tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "db:migrate:submissions": "node scripts/migrate-site-submissions.mjs",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "dev": "next dev --turbo",
@@ -16,8 +17,9 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "start": "next start",
+    "start": "node scripts/migrate-site-submissions.mjs && next start",
     "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test src/server/submissions/logic.test.ts",
     "sanity:deploy": "sanity deploy",
     "sanity:start": "sanity start"
   },

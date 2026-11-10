@@ -1,5 +1,10 @@
 import { relations, sql } from "drizzle-orm";
-import { index, pgTableCreator, primaryKey } from "drizzle-orm/pg-core";
+import {
+  index,
+  pgTable,
+  pgTableCreator,
+  primaryKey,
+} from "drizzle-orm/pg-core";
 import { type AdapterAccount } from "next-auth/adapters";
 
 /**
@@ -96,6 +101,36 @@ export const sessions = createTable(
 export const sessionsRelations = relations(sessions, ({ one }) => ({
   user: one(users, { fields: [sessions.userId], references: [users.id] }),
 }));
+
+/**
+ * Public site form submissions. Intentionally NOT prefixed with `primusneo-next_`
+ * and intentionally outside drizzle-kit `tablesFilter`, so `db:push` / `db:generate`
+ * do not manage it. The only production DDL is `scripts/sql/001_site_submissions.sql`.
+ */
+export const siteSubmissions = pgTable(
+  "site_submissions",
+  (d) => ({
+    id: d.uuid("id").primaryKey().defaultRandom(),
+    createdAt: d
+      .timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    name: d.text("name"),
+    email: d.text("email").notNull(),
+    org: d.text("org"),
+    message: d.text("message").notNull(),
+    formId: d.text("form_id").notNull(),
+    sourcePage: d.text("source_page"),
+    referrer: d.text("referrer"),
+    utmSource: d.text("utm_source"),
+    utmMedium: d.text("utm_medium"),
+    utmCampaign: d.text("utm_campaign"),
+    utmTerm: d.text("utm_term"),
+    utmContent: d.text("utm_content"),
+    userAgent: d.text("user_agent"),
+  }),
+  (t) => [index("site_submissions_created_at_idx").on(t.createdAt)],
+);
 
 export const verificationTokens = createTable(
   "verification_token",

@@ -14,6 +14,8 @@ export const env = createEnv({
     AUTH_DISCORD_ID: z.string(),
     AUTH_DISCORD_SECRET: z.string(),
     DATABASE_URL: z.string().url(),
+    // Unset means GET /api/admin/submissions returns 503. Not required to build or to accept forms.
+    SUBMISSIONS_ADMIN_TOKEN: z.string().min(1).optional(),
     SANITY_API_TOKEN: z.string().optional(),
     OPENROUTER_API_KEY: z.string().optional(),
     NODE_ENV: z
@@ -39,6 +41,7 @@ export const env = createEnv({
     AUTH_DISCORD_ID: process.env.AUTH_DISCORD_ID,
     AUTH_DISCORD_SECRET: process.env.AUTH_DISCORD_SECRET,
     DATABASE_URL: process.env.DATABASE_URL,
+    SUBMISSIONS_ADMIN_TOKEN: process.env.SUBMISSIONS_ADMIN_TOKEN,
     SANITY_API_TOKEN: process.env.SANITY_API_TOKEN,
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
     NODE_ENV: process.env.NODE_ENV,
