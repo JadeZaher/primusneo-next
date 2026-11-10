@@ -1,24 +1,57 @@
 // src/app/layout.tsx
 import '../styles/globals.css';
 import React from 'react';
-import { Archivo, IBM_Plex_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import { operator, operatorPostalAddress } from '@/content/operator';
 import { AttributionCapture } from './_components/AttributionCapture';
 import NavBar from './_components/navigation/navbar';
 import Footer from './_components/navigation/footer';
 
-const archivo = Archivo({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-archivo-sans',
+// Self-hosted OFL files so the build does not fetch fonts.googleapis.com.
+// Archivo is one variable file; 400–600 is the previous weight list.
+// The unicode-range is the Google Fonts latin subset.
+const archivo = localFont({
+  src: '../fonts/Archivo-latin.woff2',
+  weight: '400 600',
+  style: 'normal',
   display: 'swap',
+  variable: '--font-archivo-sans',
+  adjustFontFallback: 'Arial',
+  declarations: [
+    { prop: 'font-family', value: 'Archivo' },
+    { prop: 'font-stretch', value: '100%' },
+    {
+      prop: 'unicode-range',
+      value:
+        'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+    },
+  ],
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-plex-mono',
+const plexMono = localFont({
+  src: [
+    {
+      path: '../fonts/IBMPlexMono-Regular-latin.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/IBMPlexMono-Medium-latin.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
   display: 'swap',
+  variable: '--font-plex-mono',
+  adjustFontFallback: 'Arial',
+  declarations: [
+    { prop: 'font-family', value: 'IBM Plex Mono' },
+    {
+      prop: 'unicode-range',
+      value:
+        'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+    },
+  ],
 });
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
