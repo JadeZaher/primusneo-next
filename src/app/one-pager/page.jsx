@@ -123,8 +123,15 @@ const OnePager = () => {
                     </div>
                     <span className={`text-3xl text-emerald-200 transition ${activeAccordion === index ? 'rotate-45' : ''}`}>+</span>
                   </button>
-                  <div className={`${activeAccordion === index ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300`}>
-                    <p className="border-t border-white/10 p-6 leading-8 text-gray-300">{layer.body}</p>
+                  <div className={`${activeAccordion === index ? 'max-h-[36rem] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden transition-all duration-300`}>
+                    <div className="border-t border-white/10 p-6 leading-8 text-gray-300">
+                      <p>{layer.body}</p>
+                      {layer.sites?.map((site) => (
+                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline-offset-4 hover:underline">
+                          {site.label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}

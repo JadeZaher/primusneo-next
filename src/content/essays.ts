@@ -392,7 +392,10 @@ export const essays: Essay[] = [
         layer: 'NEOS, with AZOA for identity',
         layerHref: '/governance-platform',
         inlines: [
-          'NEOS is the governance layer: councils, decision rights, contribution accounting, and records a new member can read without a guided tour. AZOA is the identity and consent layer — who may act, on what, until they revoke it — and it is pre-launch. Real-value settlement stays off until custody review; the consent model does not have to wait for a token to be useful. The creator-house writeup is ',
+          a('NEOS', 'https://neos.primusneo.com'),
+          ' is the governance layer: councils, decision rights, contribution accounting, and records a new member can read without a guided tour. ',
+          a('AZOA', 'https://azoa.ardanova.com'),
+          ' is the identity and consent layer — who may act, on what, until they revoke it — and it is pre-launch. Real-value settlement stays off until custody review; the consent model does not have to wait for a token to be useful. The creator-house writeup is ',
           a('community and cooperatives', '/solutions/community-coops'),
           '. The governance platform is ',
           a('here', '/governance-platform'),
@@ -483,7 +486,10 @@ export const essays: Essay[] = [
         layer: 'NEOS',
         layerHref: '/governance-platform',
         inlines: [
-          'NEOS is agreements and permissions: councils, holons, decision rights, contribution accounting, and a record that still makes sense after the people who were in the thread have left. It is meant to sit next to spatial evidence from AMP and identity from AZOA, not to replace a securities lawyer. If the treasury question is the one you actually have, the ',
+          a('NEOS', 'https://neos.primusneo.com'),
+          ' is agreements and permissions: councils, holons, decision rights, contribution accounting, and a record that still makes sense after the people who were in the thread have left. It is meant to sit next to spatial evidence from AMP and identity from ',
+          a('AZOA', 'https://azoa.ardanova.com'),
+          ', not to replace a securities lawyer. If the treasury question is the one you actually have, the ',
           a('governance platform', '/governance-platform'),
           ' and the ',
           a('web3 governance', '/solutions/web3-governance'),
@@ -590,7 +596,8 @@ export const essays: Essay[] = [
         layer: 'AZOA',
         layerHref: '/azoa',
         inlines: [
-          'AZOA is the identity, consent, and settlement layer. Self-sovereign identity and revocable consent grants are shipped and security-reviewed. Durable quests — a graph of steps that reconciles before it acts again, and does not double-spend — are built. The engine is pre-launch: real-value bridges stay off until production custody passes review. SurrealDB is the data engine, Apache-2.0, so the record is not a proprietary sidecar. Fractal Engine is where operational history is warehoused after the fact; AZOA is where the permission has to exist before the fact. Read ',
+          a('AZOA', 'https://azoa.ardanova.com'),
+          ' is the identity, consent, and settlement layer. Self-sovereign identity and revocable consent grants are shipped and security-reviewed. Durable quests — a graph of steps that reconciles before it acts again, and does not double-spend — are built. The engine is pre-launch: real-value bridges stay off until production custody passes review. SurrealDB is the data engine, Apache-2.0, so the record is not a proprietary sidecar. Fractal Engine is where operational history is warehoused after the fact; AZOA is where the permission has to exist before the fact. Read ',
           a('AZOA', '/azoa'),
           ' and the ',
           a('AI and spatial intelligence', '/solutions/ai-intelligence'),
@@ -909,7 +916,9 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'This is the point at which a company is tempted to announce that it has solved settlement. I will not. AZOA, the layer in the PrimusNeo stack meant to handle identity, consent, and settlement, is published as pre-launch. Its public repository calls that status "Alpha Gate." Real-value rails are off. The project\'s own README is clear that no provider currently implements the complete reviewed lock, mint, burn, and release path plus a production custody lifecycle, and that wallet creation is limited to a development simulation until a reviewed production custody adapter exists. Governance votes and credential revocation are listed among action types that are not enabled.',
+          'This is the point at which a company is tempted to announce that it has solved settlement. I will not. ',
+          a('AZOA', 'https://azoa.ardanova.com'),
+          ', the layer in the PrimusNeo stack meant to handle identity, consent, and settlement, is published as pre-launch. Its public repository calls that status "Alpha Gate." Real-value rails are off. The project\'s own README is clear that no provider currently implements the complete reviewed lock, mint, burn, and release path plus a production custody lifecycle, and that wallet creation is limited to a development simulation until a reviewed production custody adapter exists. Governance votes and credential revocation are listed among action types that are not enabled.',
         ],
       },
       {
@@ -1367,7 +1376,8 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          "NEOS is the layer in the PrimusNeo stack meant to hold agreements and permissions. Public repositories exist, including an umbrella project and a public operating-system fork. The umbrella has no root README, and the public materials do not apply a single maturity label such as alpha or beta. The layer is not claimed to be running at a particular site, or already in use by a particular council. The offer is the job, not a completed government in a box: a place where a decision, a permission, and a later change can leave a record that outlives the thread they were typed in.",
+          a('NEOS', 'https://neos.primusneo.com'),
+          " is the layer in the PrimusNeo stack meant to hold agreements and permissions. Public repositories exist, including an umbrella project and a public operating-system fork. The umbrella has no root README, and the public materials do not apply a single maturity label such as alpha or beta. The layer is not claimed to be running at a particular site, or already in use by a particular council. The offer is the job, not a completed government in a box: a place where a decision, a permission, and a later change can leave a record that outlives the thread they were typed in.",
         ],
       },
       {

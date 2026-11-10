@@ -48,6 +48,17 @@ const columns = [
   },
 ];
 
+const escherbridgeProjects = [
+  { href: 'https://primusneo.com', label: 'PrimusNeo, the lab' },
+  { href: 'https://neos.primusneo.com', label: 'NEOS, agreements and permissions' },
+  { href: 'https://azoa.ardanova.com', label: 'AZOA, identity, consent, and settlement' },
+  { href: 'https://ardanova.com', label: 'ArdaNova, a designed consumer, not a live deployment' },
+  { href: 'https://aevani.com', label: 'Aevani, for growers and makers' },
+  { href: 'https://plantgeo.aevani.com', label: 'PlantGeo, a 3D geospatial platform' },
+  { href: 'https://overseasgenai.com', label: 'OVERSEASGENAI, the venture shipyard' },
+  { href: 'https://glitxz.com', label: 'Glitxz, for work that is not finished yet' },
+];
+
 const FooterLink = ({ href, label, external }) =>
   external ? (
     <a
@@ -89,6 +100,18 @@ const Footer = () => {
           </nav>
         ))}
       </div>
+      <nav aria-label="An Escherbridge project" className="mx-auto mt-16 max-w-[1600px] border-t border-white/[0.08] pt-8">
+        <div className="font-mono text-[11px] tracking-[0.22em] text-faint">An Escherbridge project</div>
+        <ul className="mt-4 flex max-w-[88ch] flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
+          {escherbridgeProjects.map((project) => (
+            <li key={project.href}>
+              <a href={project.href} className="text-sm text-mist transition hover:text-paper">
+                {project.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <div className="mx-auto mt-16 max-w-[1600px] overflow-hidden" aria-hidden="true">
         <div className="select-none whitespace-nowrap text-[clamp(64px,11.5vw,208px)] font-semibold leading-[0.94] tracking-[-0.04em] text-[#15171B]">
           PRIMUSNEO

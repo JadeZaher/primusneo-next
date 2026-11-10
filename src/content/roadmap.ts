@@ -20,6 +20,8 @@ export type RoadmapLayer = {
   /** Product page on this site. */
   href: string;
   repo?: string;
+  /** Sister sites for this layer. Plain follow links. */
+  links?: { label: string; href: string }[];
   now: string[];
   next: string[];
   later: string[];
@@ -56,6 +58,7 @@ export const roadmapLayers: RoadmapLayer[] = [
       'Councils at Tie Town, a public skill stack, and a platform repo that has recorded a deployment. Not a claim that every skill is in the building.',
     href: '/governance-platform',
     repo: 'https://github.com/JadeZaher/NEOS',
+    links: [{ label: 'NEOS, agreements and permissions', href: 'https://neos.primusneo.com' }],
     now: [
       'Councils run at Tie Town [TX]. OmniOne, stewarded by Green Earth Vision, is the ecosystem named on the site.',
       'The operating-system repo is the skill stack: written agreements, authority that is scoped and expires, and decisions by advice, consent, and a reversible test.',
@@ -77,6 +80,10 @@ export const roadmapLayers: RoadmapLayer[] = [
       'Alpha Gate. The permission is shipped. The money movement is switched off until custody review.',
     href: '/azoa',
     repo: 'https://github.com/JadeZaher/azoa-autonomous-zones-of-action',
+    links: [
+      { label: 'AZOA, identity, consent, and settlement', href: 'https://azoa.ardanova.com' },
+      { label: 'ArdaNova, a designed consumer of this layer', href: 'https://ardanova.com' },
+    ],
     now: [
       'Self-sovereign identity and revocable consent are shipped and security-reviewed.',
       'Durable actions, the visual builder, and SurrealDB as the only data engine are in the repository. The license is Apache-2.0.',

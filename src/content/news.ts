@@ -31,6 +31,8 @@ export const newsItems: NewsItem[] = [
     ],
     links: [
       { label: 'The notes', href: '/blog' },
+      { label: 'NEOS, agreements and permissions', href: 'https://neos.primusneo.com' },
+      { label: 'AZOA, identity, consent, and settlement', href: 'https://azoa.ardanova.com' },
       { label: 'Site commit', href: 'https://github.com/JadeZaher/primusneo-next/commit/f1eef217ea735d7fc3a190a10ec2c753ab7684eb' },
     ],
   },
@@ -86,6 +88,7 @@ export const newsItems: NewsItem[] = [
     ],
     links: [
       { label: 'Governance platform', href: '/governance-platform' },
+      { label: 'NEOS, agreements and permissions', href: 'https://neos.primusneo.com' },
       { label: 'Public introduction commit', href: 'https://github.com/JadeZaher/NEOS/commit/eac6028' },
       { label: 'Operating system', href: 'https://github.com/JadeZaher/neos-operating-system' },
     ],
@@ -104,9 +107,11 @@ export const newsItems: NewsItem[] = [
     ],
     links: [
       { label: 'AZOA on the site', href: '/azoa' },
+      { label: 'AZOA, identity, consent, and settlement', href: 'https://azoa.ardanova.com' },
       { label: 'README', href: 'https://github.com/JadeZaher/azoa-autonomous-zones-of-action/blob/main/README.md' },
       { label: '1 November fix', href: 'https://github.com/JadeZaher/azoa-autonomous-zones-of-action/commit/da1a4b6' },
-      { label: 'ArdaNova', href: 'https://github.com/Escherbridge/Ardanova' },
+      { label: 'ArdaNova, a designed consumer of this layer', href: 'https://ardanova.com' },
+      { label: 'ArdaNova repository', href: 'https://github.com/Escherbridge/Ardanova' },
     ],
   },
 ];

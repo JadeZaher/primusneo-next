@@ -47,11 +47,35 @@ export const futures: FuturePiece[] = [
     layerHref: '/azoa',
     excerpt:
       'A speculation: agents that can act will be ordinary. The ones worth trusting will be the ones that can show the permission.',
-    paragraphs: [
-      'This is speculation. Agents will get better at finishing tasks. That sentence is the easy one. The interesting sentence is what a person can point at afterward.',
-      'Right now a demo can call a tool and return with a tone of competence. The permission is often a checkbox from signup, and the log is often the vendor’s. Public rules are already walking in this direction without our help. The EU AI Act’s record-keeping article asks high-risk systems to be able to log what they did. NIST’s AI Risk Management Framework keeps asking who owns the outcome. Neither of those is a product requirement we get to waive because the demo was charming.',
-      'The shape we are actually building is smaller than the speculation, and that is the point. AZOA is at Alpha Gate. Identity and a revocable consent grant are in. A claimed member can keep working under their own grant. Wallets are not minted into claimed accounts. Real-value settlement stays off until custody review. NEOS is the agreements side: who may decide what, written down, with authority that expires. An agent that can draft is not an agent that can approve. The grant is the difference.',
-      'Over five to twenty years, the ordinary case may be a person who never sees the model and still needs the receipt. Who allowed the tool. What it covered. Whether it was revoked while the task was running. A co-op, a clinic, or a site will care about that more than about the model’s name. If we do this well, the speculative part will feel dull: the demo and the permission will be different objects, and only one of them will move anything that matters. We are not there. The alpha gate is the honest version of the first step.',
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          'This is speculation. Agents will get better at finishing tasks. That sentence is the easy one. The interesting sentence is what a person can point at afterward.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Right now a demo can call a tool and return with a tone of competence. The permission is often a checkbox from signup, and the log is often the vendor’s. Public rules are already walking in this direction without our help. The EU AI Act’s record-keeping article asks high-risk systems to be able to log what they did. NIST’s AI Risk Management Framework keeps asking who owns the outcome. Neither of those is a product requirement we get to waive because the demo was charming.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'The shape we are actually building is smaller than the speculation, and that is the point. ',
+          { t: 'AZOA', href: 'https://azoa.ardanova.com' },
+          ' is at Alpha Gate. Identity and a revocable consent grant are in. A claimed member can keep working under their own grant. Wallets are not minted into claimed accounts. Real-value settlement stays off until custody review. ',
+          { t: 'NEOS', href: 'https://neos.primusneo.com' },
+          ' is the agreements side: who may decide what, written down, with authority that expires. An agent that can draft is not an agent that can approve. The grant is the difference.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Over five to twenty years, the ordinary case may be a person who never sees the model and still needs the receipt. Who allowed the tool. What it covered. Whether it was revoked while the task was running. A co-op, a clinic, or a site will care about that more than about the model’s name. If we do this well, the speculative part will feel dull: the demo and the permission will be different objects, and only one of them will move anything that matters. We are not there. The alpha gate is the honest version of the first step.',
+        ],
+      },
     ],
   },
 
