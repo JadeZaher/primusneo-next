@@ -87,7 +87,7 @@ const CommunityCoopsPage = () => {
   return (
     <SolutionTemplate 
       eyebrow="Community & Cooperatives"
-      title="Platforming the next generation."
+      title="A creator house still needs minutes."
       description="From creator houses to decentralized media, PrimusNeo provides the federated infrastructure to coordinate high-impact technical ecosystems."
       stats={stats}
       challenges={challenges}
@@ -95,6 +95,7 @@ const CommunityCoopsPage = () => {
       layers={layers}
       useCase={useCase}
       primaryCtaText="Consult on Creator Models"
+      relatedEssay={{ href: '/blog/shared-ownership-unshared-minutes', title: 'Shared ownership, unshared minutes' }}
     >
       <PartnerNote partners={[PARTNERS.opqpwr]} />
     </SolutionTemplate>

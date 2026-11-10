@@ -137,18 +137,15 @@ export default function IndustriesPage() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-[128px] animate-pulse delay-700" />
         </div>
 
-        <div className="mx-auto max-w-5xl text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold tracking-widest uppercase mb-8">
-            Sector-by-Sector Implementation
+        <div className="relative z-10 mx-auto max-w-5xl text-left">
+          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
+            Ten industries · one coordination layer
           </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.85] mb-8 text-glow-white">
-            ONE STACK. <br />
-            <span className="text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.5)]">TEN INDUSTRIES.</span>
-            <br />
-            <span className="text-white">DEPLOYED.</span>
+          <h1 className="max-w-[12ch] text-[clamp(48px,7vw,104px)] font-medium leading-[0.94] tracking-[-0.04em] text-paper">
+            Same failures. Different letterhead.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
-            From construction sites to capital markets, hospital floors to grid edges — PrimusNeo is the coordination layer where every industry’s most expensive failures get solved at the seams.
+          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-mist">
+            The figures on these pages are other people’s, with the links left on. We did not invent a market. Operators already buy the pieces. The missing part is the line between them.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <GradientButton href="#sectors">Explore the Sectors</GradientButton>

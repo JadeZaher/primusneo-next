@@ -1,4 +1,5 @@
 import { client } from '@/lib/sanity/client';
+import { essays } from '@/content/essays';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -72,13 +73,26 @@ async function buildBody(): Promise<string> {
     // Sanity unreachable at build/render time — static sections still ship.
   }
 
-  const blogLines = (posts ?? []).map((p) =>
+  const localLines = essays.map((essay) =>
     fmtLine({
-      path: `/blog/${p.slug}`,
-      title: p.title ?? p.slug,
-      desc: (p.excerpt ?? 'Long-form post from the PrimusNeo team.').replace(/\s+/g, ' ').trim(),
+      path: `/blog/${essay.slug}`,
+      title: essay.title,
+      desc: essay.excerpt,
     }),
   );
+  const sanitySlugs = new Set(essays.map((essay) => essay.slug));
+  const blogLines = [
+    ...localLines,
+    ...(posts ?? [])
+      .filter((p) => !sanitySlugs.has(p.slug))
+      .map((p) =>
+        fmtLine({
+          path: `/blog/${p.slug}`,
+          title: p.title ?? p.slug,
+          desc: (p.excerpt ?? 'Long-form post from the PrimusNeo team.').replace(/\s+/g, ' ').trim(),
+        }),
+      ),
+  ];
   const newsLines = (news ?? []).map((n) =>
     fmtLine({
       path: `/news/${n.slug}`,
@@ -116,7 +130,7 @@ async function buildBody(): Promise<string> {
     ...about.map(fmtLine),
     '',
     '## Recent Writing',
-    ...(blogLines.length ? blogLines : ['- (Sanity feed unavailable at render time — see /blog for the live index.)']),
+    ...blogLines,
     '',
     '## News & External Coverage',
     ...(newsLines.length ? newsLines : ['- (Sanity feed unavailable at render time — see /blog for the live index.)']),

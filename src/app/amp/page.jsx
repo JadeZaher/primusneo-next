@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import { GradientButton, InsightCard, NumberedCard, PillList, RelatedWriting, SectionHeader } from '../_components/marketing';
 import { partnerLogos } from '../_data/ecosystem';
 
 export const metadata = {
@@ -50,12 +50,12 @@ const AMPPage = () => {
         <div className="absolute left-0 top-0 -z-10 h-[560px] w-[640px] rounded-full bg-emerald-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div>
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">AMP</div>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              AMP: the operational runtime and Spatial OS for peer-to-peer coordination.
+            <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">AMP · Operational runtime</div>
+            <h1 className="max-w-[16ch] text-[clamp(40px,5vw,76px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+              A spatial OS for a site you can still reach.
             </h1>
-            <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              AMP has been building privacy-first, offline-capable spatial collaboration tools for years. Its PLAN 3D interface, data channels, swarm file sharing, and community OS workflows give PrimusNeo a proven foundation for spatial governance.
+            <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
+              AMP is the operational runtime. The public kit is <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/plan-systems/amp.SDK">amp.SDK</a>: a Go library for 3D geo-spatial apps, Unity and Unreal bindings, and content crates that ship apart from the app build. The lineage is PLAN 3D, in production since 2019, stewarded with PLAN Systems. It runs at Tie Town [TX].
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/azoa">AZOA integration</GradientButton>
@@ -63,9 +63,9 @@ const AMPPage = () => {
             </div>
           </div>
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl">
-            <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Maturity</div>
-            <p className="text-lg leading-8 text-gray-200">
-              AMP is not a concept. It is a working spatial operating system, running today at Tie Town [TX], with field-tested peer-to-peer infrastructure and years of development behind its architecture.
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">What is actually running</div>
+            <p className="text-lg leading-8 text-paper">
+              Tie Town [TX], a creator house in McDade, is the live deployment. The SDK is the developer surface for files, media, and spatial linking — secure by nested containers, not by a slogan. Offline and peer-to-peer workflows are the point of the runtime. They are not a demo mode you turn on when the wifi is theatrical.
             </p>
             <div className="mt-7">
               <PillList items={['Spatial OS', 'P2P networking', 'Offline-first', 'PLAN 3D', 'Data channels', 'Community governance']} />
@@ -169,6 +169,10 @@ const AMPPage = () => {
           </div>
         </div>
       </section>
+      <RelatedWriting
+        href="/blog/digital-twin-shouldnt-live-in-someone-elses-cloud"
+        title="A digital twin shouldn't live in someone else's cloud"
+      />
     </div>
   );
 };

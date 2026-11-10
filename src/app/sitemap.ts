@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { client } from '@/lib/sanity/client';
+import { essays } from '@/content/essays';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -69,12 +70,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }));
 
-  const blogEntries: MetadataRoute.Sitemap = posts.map(({ slug, updatedAt }) => ({
-    url: `${SITE_URL}/blog/${slug}`,
-    lastModified: updatedAt ? new Date(updatedAt) : now,
-    changeFrequency: 'weekly',
-    priority: 0.6,
+  const localEssayEntries: MetadataRoute.Sitemap = essays.map((essay) => ({
+    url: `${SITE_URL}/blog/${essay.slug}`,
+    lastModified: new Date(essay.publishedAt),
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }));
+
+  const blogEntries: MetadataRoute.Sitemap = posts
+    .filter(({ slug }) => !essays.some((essay) => essay.slug === slug))
+    .map(({ slug, updatedAt }) => ({
+      url: `${SITE_URL}/blog/${slug}`,
+      lastModified: updatedAt ? new Date(updatedAt) : now,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    }));
 
   const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, updatedAt }) => ({
     url: `${SITE_URL}/news/${slug}`,
@@ -83,5 +93,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...blogEntries, ...newsEntries];
+  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsEntries];
 }

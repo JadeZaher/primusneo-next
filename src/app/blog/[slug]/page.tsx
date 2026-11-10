@@ -1,9 +1,11 @@
 import { PortableText } from "@portabletext/react";
 import { portableTextComponents } from "@/app/_components/PortableTextComponents";
+import { EssayArticle } from "@/app/_components/EssayArticle";
 import { client } from "@/lib/sanity/client";
 import { POST_QUERY } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import type { Post } from "@/lib/sanity/types";
+import { essays, getEssay } from "@/content/essays";
 import Link from "next/link";
 import Script from "next/script";
 
@@ -11,13 +13,38 @@ const options = { next: { revalidate: 30 } };
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
+export function generateStaticParams() {
+  return essays.map((essay) => ({ slug: essay.slug }));
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await client.fetch<Post | null>(POST_QUERY, { slug }, options);
+  const essay = getEssay(slug);
+  if (essay) {
+    return {
+      title: essay.title,
+      description: essay.description,
+      keywords: [essay.kicker, 'PrimusNeo', 'AMP', 'NEOS', 'AZOA', 'Fractal Engine'],
+      alternates: { canonical: `/blog/${slug}` },
+      openGraph: {
+        title: essay.title,
+        description: essay.description,
+        type: 'article',
+        url: `/blog/${slug}`,
+        publishedTime: essay.publishedAt,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: essay.title,
+        description: essay.excerpt,
+      },
+    };
+  }
+  const post = await client.fetch<Post | null>(POST_QUERY, { slug }, options).catch(() => null);
   if (!post) {
     return {
       title: 'Post not found',
@@ -52,7 +79,11 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const resolvedParams = await params;
-  const post = await client.fetch<Post | null>(POST_QUERY, resolvedParams, options);
+  const essay = getEssay(resolvedParams.slug);
+  if (essay) {
+    return <EssayArticle essay={essay} />;
+  }
+  const post = await client.fetch<Post | null>(POST_QUERY, resolvedParams, options).catch(() => null);
   
   if (!post) {
     return (

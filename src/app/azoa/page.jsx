@@ -50,9 +50,9 @@ const AzoaPage = () => {
         <div className="absolute right-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-cyan-400/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
           <div className="relative z-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">AZOA — Autonomous Zones of Action</div>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              Financial workflows that are dynamic — and strictly structured.
+            <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">AZOA · Identity, consent, settlement</div>
+            <h1 className="max-w-[16ch] text-[clamp(40px,5vw,72px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+              Dynamic where it helps. Strict where money moves.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
               AZOA is the open-source engine on PrimusNeo&rsquo;s federation rails. Describe a multi-step process — who acts, what moves, under what conditions, in what order — and AZOA runs it durably to completion, settling value across whichever rails the workflow touches: blockchains, fiat, or both.
@@ -64,9 +64,9 @@ const AzoaPage = () => {
           </div>
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
             <DreadShape volume={1} id="19" className="absolute -right-6 -bottom-6 opacity-20 rotate-45" size={140} />
-            <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Pre-launch</div>
-            <p className="text-lg leading-8 text-gray-200">
-              AZOA is pre-launch (Alpha Gate). Self-sovereign identity and revocable consent are shipped and security-reviewed. Durable quests, a visual quest builder and SurrealDB as the sole data engine are built, with thousands of automated tests written across engine, SDK and interface. Real-value bridges stay off by default until production custody passes review.
+            <div className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Alpha Gate</div>
+            <p className="text-lg leading-8 text-paper">
+              Pre-launch. Identity and revocable consent are shipped and security-reviewed. Durable actions, the visual builder, and SurrealDB as the only data engine are in. Real-value bridges stay off, and wallet creation outside development is simulated. Governance tally and credential revocation stay in the not-enabled list until their reviews close. <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/Escherbridge/Ardanova">ArdaNova</a> is a designed consumer of the settlement layer, not a live deployment, and it has made no token offering.
             </p>
             <div className="mt-7 relative z-10">
               <PillList items={['Exactly-once by construction', 'Fail closed', 'Reconcile, never guess', 'Escalate to a human']} />

@@ -87,7 +87,7 @@ const PublicGovernancePage = () => {
   return (
     <SolutionTemplate 
       eyebrow="Public Governance"
-      title="Restoring trust through technical transparency."
+      title="Trust is a filing problem."
       description="Close the 31% efficiency gap in public spending with a unified platform for governed resource allocation and verifiable citizen participation."
       stats={stats}
       challenges={challenges}

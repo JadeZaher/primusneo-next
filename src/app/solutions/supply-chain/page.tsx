@@ -86,7 +86,7 @@ const SupplyChainPage = () => {
   return (
     <SolutionTemplate 
       eyebrow="Supply Chain & Logistics"
-      title="Resolving the global visibility crisis."
+      title="The shipment and the story disagree."
       description="Turn fragmented supply chains into coordinated networks with a unified layer for spatial tracking and governed multi-party logistics."
       stats={stats}
       challenges={challenges}

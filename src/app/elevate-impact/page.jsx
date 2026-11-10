@@ -53,16 +53,16 @@ const ElevateImpactPage = () => {
 
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="relative z-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.4em] text-emerald-400">Elevate Impact</div>
-            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white text-glow-green md:text-6xl">
-              Research that the people <span className="text-emerald-300">affected</span> help design.
+            <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Elevate Impact · Research enablement · Live</div>
+            <h1 className="max-w-[14ch] text-[clamp(40px,5vw,76px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+              The people affected help design the study.
             </h1>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400">
-              Elevate Impact is the research-enablement module of the PrimusNeo stack: a collaboration intelligence platform that prioritises trust. Design lives on the platform. Execution does not.
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-mist">
+              Elevate Impact is the research partner and a module of the stack, live in production with the sickle cell community. Design lives on the platform. Execution does not. The public record is on the site and on LinkedIn. Connecting it to AMP, NEOS, AZOA, and Fractal Engine is in build, which is a different sentence from “connected.”
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <GradientButton href="https://elevateimpact.com/">Visit Elevate Impact</GradientButton>
-              <GradientButton href="/contact" variant="secondary">Talk to us</GradientButton>
+              <GradientButton href="https://elevateimpact.com/">elevateimpact.com</GradientButton>
+              <GradientButton href="https://www.linkedin.com/company/elevateimpact" variant="secondary">LinkedIn</GradientButton>
             </div>
           </div>
 

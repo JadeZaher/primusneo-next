@@ -13,36 +13,36 @@ export const stackIndex = [
   {
     index: 'L—01',
     name: 'AMP',
-    tag: 'SPATIAL OS',
-    summary: 'Offline-capable, privacy-first spatial collaboration on the ground.',
+    tag: 'OPERATIONAL RUNTIME',
+    summary: 'Spatial OS for the site. Public kit: amp.SDK. Live at Tie Town [TX].',
     href: '/amp',
   },
   {
     index: 'L—02',
     name: 'NEOS',
-    tag: 'GOVERNANCE',
-    summary: 'Decision rights, councils, and contribution accounting that outlive teams.',
+    tag: 'AGREEMENTS & PERMISSIONS',
+    summary: 'Written agreements, scoped authority, and decisions that outlive the chat.',
     href: '/governance-platform',
   },
   {
     index: 'L—03',
     name: 'AZOA',
-    tag: 'FEDERATION RAILS',
-    summary: 'Identity, consent, and durable quests settling value across chain and fiat rails.',
+    tag: 'IDENTITY, CONSENT, SETTLEMENT',
+    summary: 'Open engine. Consent is in. Real-value bridges stay off until review.',
     href: '/azoa',
   },
   {
     index: 'L—04',
     name: 'Fractal Engine',
-    tag: 'INTELLIGENCE',
-    summary: 'Field telemetry turned into durable, shareable insight.',
+    tag: 'ORGANIZATIONAL MEMORY',
+    summary: 'Local-first spatial analytics. Alpha, with the limits written down.',
     href: '/fractal-engine',
   },
   {
     index: 'L—05',
     name: 'Elevate Impact',
-    tag: 'RESEARCH',
-    summary: 'Questions turned into finished, expert-checked study designs, with the community at the table.',
+    tag: 'RESEARCH ENABLEMENT',
+    summary: 'Live with the sickle cell community. Study design with the people affected at the table.',
     href: '/elevate-impact',
   },
 ];
@@ -138,6 +138,13 @@ export const layerShowcase = [
 
 export const ecosystemPartners = [
   {
+    name: 'Elevate Impact',
+    href: 'https://elevateimpact.com/',
+    role: 'Research enablement · Stack module',
+    body: 'The research partner. Live with the sickle cell community: patients join as co-designers, never as subjects. LinkedIn carries the public record; the four-layer connection is in build.',
+    linkedin: 'https://www.linkedin.com/company/elevateimpact',
+  },
+  {
     name: 'PLAN Systems',
     href: 'https://plan-systems.org/',
     image: partnerLogos.amp,
@@ -167,12 +174,6 @@ export const ecosystemPartners = [
   },
   // No logo assets for the entries below; consumers must render a wordmark when `image` is absent.
   {
-    name: 'Elevate Impact',
-    href: 'https://elevateimpact.com/',
-    role: 'Research enablement · Stack module',
-    body: 'Turns research questions into finished study designs, live with the sickle cell community, where patients join as co-designers, never as subjects. Links to the stack are in build.',
-  },
-  {
     name: 'OVERSEASGENAI',
     href: 'https://overseasgenai.com/',
     role: 'Venture shipyard',
@@ -181,7 +182,7 @@ export const ecosystemPartners = [
   {
     name: 'OPQPWR',
     href: 'https://opqpwr.com/',
-    role: 'Infrastructure · On-prem',
+    role: 'Physical layer · On-prem',
     body: 'Opaque Power builds field-deployable racks for power, AI compute, storage, cooling and communications. The starting partner on the path to running the stack on owned, bare-metal hardware.',
   },
 ];

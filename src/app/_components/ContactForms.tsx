@@ -213,7 +213,7 @@ export const MultiStepContactForm = () => {
         {submitStatus.success && (
           <button 
             onClick={() => window.location.href = '/'}
-            className="mt-6 bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300 text-black font-bold py-2 px-6 rounded-lg shadow-[0_0_32px_rgba(74,222,128,0.22)] hover:scale-105 transition-all"
+            className="mt-6 bg-paper px-6 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-accent hover:text-white"
           >
             Return Home
           </button>
@@ -258,14 +258,14 @@ export const MultiStepContactForm = () => {
             <button
               type="button"
               onClick={nextStep}
-              className="flex-1 bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300 text-black font-bold py-3 px-6 rounded-lg shadow-[0_0_32px_rgba(74,222,128,0.22)] hover:scale-[1.02] hover:opacity-95 transition-all transform"
+              className="flex-1 bg-paper py-3 px-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-accent hover:text-white"
             >
               Next
             </button>
           ) : (
             <button 
               type="submit" 
-              className="flex-1 bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300 text-black font-bold py-3 px-6 rounded-lg shadow-[0_0_32px_rgba(74,222,128,0.22)] hover:scale-[1.02] hover:opacity-95 transition-all transform"
+              className="flex-1 bg-paper py-3 px-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-accent hover:text-white"
             >
               Send Inquiry
             </button>
@@ -349,7 +349,7 @@ export const InlineContactForm = () => {
       />
       <button 
         type="submit" 
-        className="w-full bg-gradient-to-r from-emerald-300 via-lime-300 to-cyan-300 text-black font-bold py-3 rounded-lg shadow-[0_0_32px_rgba(74,222,128,0.22)] hover:scale-[1.01] hover:opacity-95 transition-all transform"
+        className="w-full bg-paper py-3 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-accent hover:text-white"
       >
         Send Quick Message
       </button>

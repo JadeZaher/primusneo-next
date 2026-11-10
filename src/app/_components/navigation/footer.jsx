@@ -84,8 +84,8 @@ const Footer = () => {
       </div>
       <div className="mx-auto mt-5 flex max-w-[1600px] flex-wrap justify-between gap-3 border-t border-white/[0.08] pt-5 font-mono text-[11px] tracking-[0.16em] text-faint">
         <span>© {new Date().getFullYear()} PRIMUSNEO</span>
-        <span>GOVERNANCE FOR THE NEXT BUILD CYCLE</span>
-        <span>36.17°N / 86.78°W</span>
+        <span>PROOF OVER PROMISES</span>
+        <span>TIE TOWN [TX] · 30.28°N / 97.24°W</span>
       </div>
     </footer>
   );

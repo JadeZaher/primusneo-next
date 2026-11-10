@@ -86,8 +86,9 @@ const AIIntelligencePage = () => {
 
   return (
     <SolutionTemplate 
+      relatedEssay={{ href: '/blog/an-agent-without-a-permission', title: 'An agent without a permission' }}
       eyebrow="AI & Spatial Intelligence"
-      title="Moving from words to worlds."
+      title="The demo is not the record."
       description="Resolve the data silo crisis and break the $1B barrier with federated infrastructure for the next generation of Physical AI."
       stats={stats}
       challenges={challenges}
