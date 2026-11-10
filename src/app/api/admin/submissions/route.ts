@@ -1,6 +1,5 @@
 import { desc, gte } from "drizzle-orm";
 
-import { env } from "~/env";
 import { siteSubmissions } from "~/server/db/schema";
 import { adminAuthStatus } from "~/server/submissions/admin-auth";
 import { submissionJson } from "~/server/submissions/http";
@@ -12,10 +11,16 @@ const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
 
 export async function GET(request: Request) {
-  const status = adminAuthStatus(
-    request.headers.get("authorization"),
-    env.SUBMISSIONS_ADMIN_TOKEN,
-  );
+  let token: string | undefined;
+  try {
+    const { env } = await import("~/env");
+    token = env.SUBMISSIONS_ADMIN_TOKEN;
+  } catch {
+    console.error("submission read failed");
+    return submissionJson(503, { error: "unavailable" });
+  }
+
+  const status = adminAuthStatus(request.headers.get("authorization"), token);
   if (status === 503) {
     return submissionJson(503, { error: "unavailable" });
   }
@@ -47,19 +52,21 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { db } = await import("~/server/db");
-    const rows = since
-      ? await db
-          .select()
-          .from(siteSubmissions)
-          .where(gte(siteSubmissions.createdAt, since))
-          .orderBy(desc(siteSubmissions.createdAt))
-          .limit(limit)
-      : await db
-          .select()
-          .from(siteSubmissions)
-          .orderBy(desc(siteSubmissions.createdAt))
-          .limit(limit);
+    const { withSubmissionsDb } = await import("~/server/submissions/db");
+    const rows = await withSubmissionsDb((db) =>
+      since
+        ? db
+            .select()
+            .from(siteSubmissions)
+            .where(gte(siteSubmissions.createdAt, since))
+            .orderBy(desc(siteSubmissions.createdAt))
+            .limit(limit)
+        : db
+            .select()
+            .from(siteSubmissions)
+            .orderBy(desc(siteSubmissions.createdAt))
+            .limit(limit),
+    );
 
     return submissionJson(200, {
       submissions: rows.map((row) => ({

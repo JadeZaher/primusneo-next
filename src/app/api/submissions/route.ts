@@ -40,22 +40,24 @@ export async function POST(request: Request) {
     : null;
 
   try {
-    const { db } = await import("~/server/db");
-    await db.insert(siteSubmissions).values({
-      name: parsed.data.name,
-      email: parsed.data.email,
-      org: parsed.data.org,
-      message: parsed.data.message,
-      formId: parsed.data.formId,
-      sourcePage: parsed.data.sourcePage,
-      referrer: parsed.data.referrer,
-      utmSource: parsed.data.utmSource,
-      utmMedium: parsed.data.utmMedium,
-      utmCampaign: parsed.data.utmCampaign,
-      utmTerm: parsed.data.utmTerm,
-      utmContent: parsed.data.utmContent,
-      userAgent,
-    });
+    const { withSubmissionsDb } = await import("~/server/submissions/db");
+    await withSubmissionsDb((db) =>
+      db.insert(siteSubmissions).values({
+        name: parsed.data.name,
+        email: parsed.data.email,
+        org: parsed.data.org,
+        message: parsed.data.message,
+        formId: parsed.data.formId,
+        sourcePage: parsed.data.sourcePage,
+        referrer: parsed.data.referrer,
+        utmSource: parsed.data.utmSource,
+        utmMedium: parsed.data.utmMedium,
+        utmCampaign: parsed.data.utmCampaign,
+        utmTerm: parsed.data.utmTerm,
+        utmContent: parsed.data.utmContent,
+        userAgent,
+      }),
+    );
   } catch {
     console.error("submission insert failed");
     return submissionJson(503, { ok: false, error: "unavailable" });

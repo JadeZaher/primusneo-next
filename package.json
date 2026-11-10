@@ -17,9 +17,9 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "start": "node scripts/migrate-site-submissions.mjs && next start",
+    "start": "node scripts/migrate-site-submissions.mjs; next start",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test src/server/submissions/logic.test.ts",
+    "test": "node --experimental-strip-types --test src/server/submissions/logic.test.ts scripts/migrate-site-submissions.test.mjs",
     "sanity:deploy": "sanity deploy",
     "sanity:start": "sanity start"
   },

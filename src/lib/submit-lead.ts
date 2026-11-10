@@ -19,6 +19,7 @@ export async function submitLead(input: LeadInput): Promise<SubmitResult> {
     response = await fetch("/api/submissions", {
       method: "POST",
       headers: { "content-type": "application/json" },
+      signal: AbortSignal.timeout(15_000),
       body: JSON.stringify({
         name: input.name,
         email: input.email,
