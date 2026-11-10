@@ -132,7 +132,7 @@ void test('field guides keep the reviewed drafts hooked up', () => {
   assert.ok(twins);
   assert.match(
     guideText(twins),
-    /does not claim a live twin, a deployment, or an NIST's 2021 digital twin report implementation/,
+    /does not claim a live twin, a deployment, or an implementation that follows NIST IR 8356/,
   );
 
   const ai = guides.find((guide) => guide.slug === 'ai-rmf-accountability');

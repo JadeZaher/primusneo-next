@@ -79,7 +79,7 @@ export const guides: Guide[] = [
         a('Ground truth with a receipt, which is more than most digital twins can say', '/blog/digital-twin-shouldnt-live-in-someone-elses-cloud'),
         ', is a house line that already belongs next to this subject; it is quoted once here, and the argument under it is NIST\'s.',
       ),
-      p('NIST\'s 2021 digital twin report, February 2025, opening definition: "A digital twin (DT) is an electronic representation of a real-world entity; providing the capability to evaluate this entity. A digital twin can emulate both physical things (e.g., buildings, electronics, living things), and non-physical things (e.g., processes, conceptual models)."'),
+      p('NIST\'s digital twin report (IR 8356, February 2025), opening definition: "A digital twin (DT) is an electronic representation of a real-world entity; providing the capability to evaluate this entity. A digital twin can emulate both physical things (e.g., buildings, electronics, living things), and non-physical things (e.g., processes, conceptual models)."'),
       p('The same report on the interoperability limit: "The full benefits of digital twin technology will require interoperable definitions, tools, and standards as well as early consideration of digital twin" issues. The sentence is quoted only through the words actually on the page; the rest of a cut-off line is not invented here.'),
       p('NIST\'s 14 February 2025 news release restates the same idea: the report "introduces the concept of a digital twin (DT), which is an electronic representation of a real-world physical (e.g., buildings, electronics, living things) or non-physical (e.g., processes, conceptual models) entity."'),
     ],
@@ -109,7 +109,7 @@ export const guides: Guide[] = [
         ' is the sector sibling where a built-environment twin is often proposed.',
       ),
       p(
-        'PrimusNeo does not claim a live twin, a deployment, or an NIST\'s 2021 digital twin report implementation. ',
+        'PrimusNeo does not claim a live twin, a deployment, or an implementation that follows NIST IR 8356. ',
         a('NEOS', 'https://neos.primusneo.com'),
         ', ',
         a('AZOA', 'https://azoa.ardanova.com'),
@@ -186,7 +186,7 @@ export const guides: Guide[] = [
       p('A building information model that cannot be opened later is not an exchange. "Send the IFC" is not a complete instruction. The record has to name the schema that was actually used, and someone has to keep a file that actually opens.'),
       p('This is a field note about naming the exchange, not a claim that PrimusNeo hosts models. It quotes the opened National BIM Standard–United States Version 3 reference-standards chapter. It does not name a later IFC release, because the official buildingSMART IFC page and the ISO 16739-1 catalogue page both returned HTTP 403 from the research network on 10 November 2026 and were not opened. A current official IFC version is not announced here from memory or from a search snippet.'),
       p('The National Institute of Building Sciences hosts the National BIM Standard–United States (NBIMS-US™). The opened landing page describes NBIMS-US as providing "consensus-based standards" and "Defining BIM uses, requirements, planning and documentation for information exchanges to deliver best business practices for the entire built environment." The same landing lists both NBIMS-US V4 and NBIMS-US V3. This page is explicit about quoting V3 chapter 2.2; it does not invent V4\'s schema list.'),
-      p('The U.S. National BIM Standard, in an earlier version, points to the February 2006 Industry Foundation Class schema, known as IFC 2X3. "The scope of ISO 16739, Industry Foundation Class (IFC) 2X3, February 2006, authored by buildingSMART International, is to provide a neutral exchange format based on STEP/XML." "The approved exchanges within NBIMS-US™ is IFC 2X3."'),
+      p('The U.S. National BIM Standard (NBIMS-US Version 3, section 2.2) points to the February 2006 Industry Foundation Class schema, known as IFC 2X3. "The scope of ISO 16739, Industry Foundation Class (IFC) 2X3, February 2006, authored by buildingSMART International, is to provide a neutral exchange format based on STEP/XML." "The approved exchanges within NBIMS-US™ is IFC 2X3."'),
     ],
     figures: [
     ],
@@ -686,7 +686,7 @@ export const guides: Guide[] = [
         '. It is not a second practice list, not a penetration-test page, and not a certification PrimusNeo holds.',
       ),
       p('NIST\'s Secure Software Development Framework, Secure Software Development Framework (SSDF) Version 1.1: Recommendations for Mitigating the Risk of Software Vulnerabilities, February 2022. Authors: Murugiah Souppaya, Karen Scarfone, Donna Dodson. The document "recommends the Secure Software Development Framework (SSDF) – a core set of high-level secure software development practices that can be integrated into each SDLC implementation." Following those practices "should help software producers reduce the number of vulnerabilities in released software, reduce the potential impact of the exploitation of undetected or unaddressed vulnerabilities, and address the root causes of" those vulnerabilities — only complete sentences are used here.'),
-      p('The CSRC publication page: "Few software development life cycle (SDLC) models explicitly address software security in detail, so secure software development practices usually need to be added to each SDLC model to ensure that the software being developed is well-secured." Date published: February 2022; supersedes a NIST companion paper on the same framework (23 April 2020).'),
+      p('The CSRC publication page: "Few software development life cycle (SDLC) models explicitly address software security in detail, so secure software development practices usually need to be added to each SDLC model to ensure that the software being developed is well-secured." Date published: February 2022; supersedes NIST\'s companion white paper on the same framework (CSWP 13, 23 April 2020).'),
     ],
     figures: [
     ],
@@ -824,16 +824,16 @@ export const guides: Guide[] = [
     lastReviewed: '2026-11-10',
     metric: 'IR 8356',
     metricLabel: 'NIST, February 2025 — a process or a conceptual model can be a twin',
-    cardDescription: 'NIST\'s 2021 digital twin report is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to What is a digital twin, not a second opening definition, and not a vulnerability write-up.',
+    cardDescription: 'NIST\'s digital twin report (IR 8356, February 2025) is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to What is a digital twin, not a second opening definition, and not a vulnerability write-up.',
     patternTitle: 'A process can be the entity',
     patternDescription: 'NIST IR 8356 says a digital twin can emulate processes and conceptual models, not only buildings. The full benefits still require interoperable definitions and early consideration of cybersecurity and trust.',
     lead: [
       p(
-        'NIST\'s 2021 digital twin report is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to ',
+        'NIST\'s digital twin report (IR 8356, February 2025) is explicit that a digital twin can emulate non-physical things — "processes, conceptual models" — as well as physical ones, and that the full benefits "will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." If the entity being represented is a process or a conceptual model, NIST still calls that a twin — and still requires a representation you can evaluate. This is a companion to ',
         a('What is a digital twin', '/guides/digital-twins'),
         ', not a second opening definition, and not a vulnerability write-up.',
       ),
-      p('NIST\'s 2021 digital twin report, Security and Trust Considerations for Digital Twin Technology, February 2025. "A digital twin (DT) is an electronic representation of a real-world entity; providing the capability to evaluate this entity. A digital twin can emulate both physical things (e.g., buildings, electronics, living things), and non-physical things (e.g., processes, conceptual models)." "The full benefits of digital twin technology will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." That is the complete sentence. A cut-off version appeared in a source note on the batch-1 brief; this page uses the complete line.'),
+      p('NIST\'s digital twin report (IR 8356, February 2025), Security and Trust Considerations for Digital Twin Technology. "A digital twin (DT) is an electronic representation of a real-world entity; providing the capability to evaluate this entity. A digital twin can emulate both physical things (e.g., buildings, electronics, living things), and non-physical things (e.g., processes, conceptual models)." "The full benefits of digital twin technology will require interoperable definitions, tools, and standards as well as early consideration of digital twin cybersecurity and trust." That is the complete sentence. A cut-off version appeared in a source note on the batch-1 brief; this page uses the complete line.'),
       p('NIST\'s 14 February 2025 news release restates that a twin may represent "a real-world physical (e.g., buildings, electronics, living things) or non-physical (e.g., processes, conceptual models) entity."'),
     ],
     figures: [
