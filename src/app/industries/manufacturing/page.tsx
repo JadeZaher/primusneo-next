@@ -16,7 +16,7 @@ export const metadata = {
 
 const stats = [
   { value: '$16.8T', label: 'Global manufacturing value 2024 [UNIDO]' },
-  { value: '70%', label: 'Industry 4.0 pilots stuck in purgatory [McKinsey]' },
+  { value: '70%', label: 'Industry 4.0 pilots that never scale [McKinsey 2018]' },
   { value: '$50B', label: 'Annual unplanned downtime loss [Siemens / industry]' },
   { value: '60-65%', label: 'Average OEE vs 85% world-class [Godlan]' },
 ];
@@ -26,7 +26,7 @@ const challenges = [
     title: 'IT/OT Last-Mile Fragmentation',
     description: 'A typical mid-size plant runs 200+ devices on competing protocols; data never reaches a contextualized layer, so 70% of Industry 4.0 pilots never scale.',
     metric: '70%',
-    metricLabel: 'pilots stuck in purgatory [McKinsey]',
+    metricLabel: 'never scale [McKinsey 2018]',
   },
   {
     title: 'OEE & Downtime Drag',
@@ -68,7 +68,7 @@ const useCase = {
 
 const sources = [
   { org: 'UNIDO', year: '2024', title: 'World Manufacturing Production Q4 2024', href: 'https://stat.unido.org/portal/storage/file/publications/qiip/World_Manufacturing_Production_2024_Q4.pdf' },
-  { org: 'McKinsey', year: '2023', title: 'How digital manufacturing can escape pilot purgatory', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/how-digital-manufacturing-can-escape-pilot-purgatory' },
+  { org: 'McKinsey', year: '2018', title: 'How digital manufacturing can escape pilot purgatory', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/how-digital-manufacturing-can-escape-pilot-purgatory' },
   { org: 'McKinsey', year: '2024', title: 'It&rsquo;s the last IT/OT mile that matters', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/operations-blog/its-the-last-it-ot-mile-that-matters-in-avoiding-industry-40s-pilot-purgatory' },
   { org: 'Siemens (industry)', year: '2024', title: 'Manufacturing downtime statistics 2024', href: 'https://manufacturingleadgeneration.com/manufacturing-downtime-statistics/' },
   { org: 'Godlan', year: '2024', title: 'OEE Benchmarks by Industry', href: 'https://godlan.com/oee-benchmark-industry/' },

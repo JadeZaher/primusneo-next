@@ -4,7 +4,7 @@ import { ContrarianInsight, IndustrySources } from '../../_components/IndustryEx
 
 export const metadata = {
   title: 'Technology & Software — Industries',
-  description: '78% of orgs ship AI; under 10% scale it. PrimusNeo unifies your services, models, datasets, and contributors into one accountable operating layer.',
+  description: 'Services, models, datasets, and contributors on one accountable layer. The cited friction is developer time lost to coordination.',
   alternates: { canonical: '/industries/technology' },
   openGraph: {
     title: 'Technology & Software | PrimusNeo',
@@ -16,7 +16,6 @@ export const metadata = {
 
 const stats = [
   { value: '78%', label: 'Organizations now using AI [Stanford HAI]' },
-  { value: '<10%', label: 'Have fully scaled AI in any function [Stanford HAI]' },
   { value: '$252B', label: 'Global private AI investment 2024 [Stanford HAI]' },
   { value: '8h+/wk', label: 'Developer time lost to coordination [Atlassian DX]' },
 ];
@@ -24,9 +23,9 @@ const stats = [
 const challenges = [
   {
     title: 'Ecosystem Fragmentation',
-    description: '78% of orgs use AI but <10% have scaled it in any function; model, data, and tool stacks splinter faster than coordination layers can keep up.',
-    metric: '<10%',
-    metricLabel: 'scaled in any function [Stanford HAI]',
+    description: 'Model, data, and tool stacks splinter faster than the coordination around them.',
+    metric: '78%',
+    metricLabel: 'organizations using AI [Stanford HAI]',
   },
   {
     title: 'Developer Coordination Drag',
@@ -80,7 +79,7 @@ export default function TechnologyIndustryPage() {
     <SolutionTemplate
       eyebrow="Technology & Software"
       title="The governed coordination plane for AI-native software organizations."
-      description="78% of orgs ship AI; under 10% scale it. PrimusNeo unifies your services, models, datasets, and contributors into one accountable operating layer."
+      description="Services, models, datasets, and contributors on one accountable layer. Developer time lost to coordination is the friction we cite."
       stats={stats}
       challenges={challenges}
       features={features}
