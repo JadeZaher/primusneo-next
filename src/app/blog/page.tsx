@@ -1,103 +1,77 @@
-import Link from "next/link";
-import { client } from "@/lib/sanity/client";
-import { POSTS_QUERY, NEWS_QUERY } from "@/lib/sanity/queries";
-import { urlFor } from "@/lib/sanity/image";
-import type { Post, News } from "@/lib/sanity/types";
+import Link from 'next/link';
+import { loadWritingIndex } from '@/lib/writing';
 
 export const metadata = {
-  title: 'Intelligence & Updates',
-  description: 'Long-form essays, deep dives, and AI-curated updates on federated infrastructure, NEOS governance, AZOA, and spatial OS development.',
+  title: 'Notes',
+  description:
+    'Op-eds on digital-twin lock-in, grid queues, cooperative records, treasuries, agent consent, and plugin supply chains. Sources linked. No unnamed statistics.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Intelligence & Updates | PrimusNeo',
-    description: 'Long-form essays and AI-curated updates on federated infrastructure and governed coordination.',
+    title: 'Notes | PrimusNeo',
+    description: 'Researched notes on the coordination problems the stack is for, with the citations attached.',
     url: '/blog',
     type: 'website',
   },
 };
 
-const options = { next: { revalidate: 30 } };
+const kindLabel = {
+  essay: 'Note',
+  post: 'Post',
+  news: 'News',
+} as const;
 
 export default async function BlogPage() {
-  const [posts, newsItems] = await Promise.all([
-    client.fetch<Post[]>(POSTS_QUERY, {}, options),
-    client.fetch<News[]>(NEWS_QUERY, {}, options)
-  ]);
-
-  // Combine and sort by date
-  const allItems = [
-    ...posts.map(p => ({ ...p, _kind: 'post' as const })),
-    ...newsItems.map(n => ({ ...n, _kind: 'news' as const }))
-  ].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+  const items = await loadWritingIndex();
 
   return (
-    <main className="min-h-screen w-full pt-32 pb-16 px-8">
-      <div className="mx-auto" style={{ width: '80vw' }}>
-        <h1 className="text-5xl font-bold mb-12 text-center text-glow">Intelligence & Updates</h1>
-        {allItems.length > 0 ? (
-          <div className="space-y-8">
-            {allItems.map((item) => {
-              const isNews = item._kind === 'news';
-              const imageUrl = !isNews && item.image
-                ? urlFor(item.image)?.width(400).height(300).url()
-                : "/images/logo-primus-neo.png";
-              
-              const href = isNews ? `/news/${item.slug.current}` : `/blog/${item.slug.current}`;
+    <main className="bg-ink text-paper">
+      <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Notes</div>
+        <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">
+          Proof, with the footnotes attached.
+        </h1>
+        <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-mist">
+          Arguments about problems that already have public sources. Each one ends by naming the layer that
+          applies, and the layer that does not get to take credit.
+        </p>
+      </header>
 
-              return (
-                <Link 
-                  href={href}
-                  key={item._id}
-                  className="group hover:no-underline block"
-                >
-                  <article className="bg-black/50 rounded-xl overflow-hidden border border-border/40 transition-all duration-200 hover:border-border/80 hover:shadow-lg">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/3 relative bg-zinc-900/50 flex items-center justify-center">
-                        <img
-                          src={imageUrl}
-                          alt={item.title}
-                          className={`object-cover ${!isNews ? 'w-full h-full min-h-[250px]' : 'h-24 w-auto opacity-40'} transition-transform duration-200 group-hover:scale-105`}
-                        />
-                      </div>
-                      <div className="md:w-2/3 p-8">
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-3">
-                            {isNews && item.isAiGenerated && (
-                              <span className="bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border border-emerald-500/20">
-                                AI Curated
-                              </span>
-                            )}
-                            <time className="text-sm text-muted-foreground block">
-                              {new Date(item.publishedAt).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                              })}
-                            </time>
-                            {isNews && item.sourceName && (
-                              <span className="text-xs text-muted-foreground/60">
-                                via {item.sourceName}
-                              </span>
-                            )}
-                          </div>
-                          <h2 className="text-2xl font-semibold group-hover:text-primary text-glow transition-colors">
-                            {item.title}
-                          </h2>
-                          <p className="text-muted-foreground leading-relaxed line-clamp-3">
-                            {item.excerpt}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </Link>
-              );
-            })}
-          </div>
+      <section className="mx-auto max-w-[1600px] border-t border-white/10 px-7">
+        {items.length > 0 ? (
+          items.map((item, index) => (
+            <Link
+              key={item.id}
+              href={item.href}
+              className="group grid gap-4 border-b border-white/10 py-9 transition-colors hover:bg-white/[0.02] md:grid-cols-[120px_minmax(0,1.4fr)_minmax(0,1fr)] md:items-baseline md:gap-8 md:px-2"
+            >
+              <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+                <span className="text-accent">{String(index + 1).padStart(2, '0')}</span>
+                <span className="mt-2 block">
+                  {new Date(item.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    timeZone: 'UTC',
+                  })}
+                </span>
+              </div>
+              <div>
+                <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+                  {kindLabel[item.kind]}
+                  {item.isAiGenerated ? ' · AI curated' : ''}
+                  {item.sourceName ? ` · ${item.sourceName}` : ''}
+                </div>
+                <h2 className="text-[clamp(26px,3vw,40px)] font-medium leading-tight tracking-[-0.03em] group-hover:text-accent">
+                  {item.title}
+                </h2>
+              </div>
+              <p className="text-sm leading-relaxed text-mist">{item.excerpt}</p>
+            </Link>
+          ))
         ) : (
-          <p className="text-center text-muted-foreground">No updates found.</p>
+          <p className="py-20 text-mist">Nothing on the desk yet.</p>
         )}
-      </div>
+      </section>
     </main>
   );
 }

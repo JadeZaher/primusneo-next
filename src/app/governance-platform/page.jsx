@@ -55,12 +55,12 @@ const GovernancePlatformPage = () => {
         <div className="absolute left-0 top-0 -z-10 h-[620px] w-[620px] rounded-full bg-emerald-500/10 blur-3xl" />
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div className="relative z-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Governance platform</div>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-              A governance operating system for software solutions.
+            <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">NEOS · Agreements & permissions</div>
+            <h1 className="max-w-[14ch] text-[clamp(40px,5vw,76px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+              Otherwise it is a group chat with a bank account.
             </h1>
-            <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              PrimusNeo uses AMP spatial context, AMP peer-to-peer community tooling, OmniOne’s NEOS governance ecosystem, AZOA interoperability, Escherbridge delivery, and Fractal Engine intelligence to help ambitious projects become governable, fundable, and shippable.
+            <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
+              NEOS is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. OmniOne, stewarded by Green Earth Vision, is the first ecosystem on the skills. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>

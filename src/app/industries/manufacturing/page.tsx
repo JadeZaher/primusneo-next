@@ -80,7 +80,7 @@ export default function ManufacturingIndustryPage() {
   return (
     <SolutionTemplate
       eyebrow="Manufacturing & Industrial Production"
-      title="Escape pilot purgatory. Run your plants on one governed twin."
+      title="Most pilots never leave the pilot."
       description="70% of Industry 4.0 pilots never scale because the IT/OT last mile is unsolved. PrimusNeo gives you the contextualized layer that ties OEE, ESG, and capex to one live model."
       stats={stats}
       challenges={challenges}

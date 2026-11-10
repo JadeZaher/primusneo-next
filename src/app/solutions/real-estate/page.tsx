@@ -85,8 +85,9 @@ const RealEstatePage = () => {
 
   return (
     <SolutionTemplate 
+      relatedEssay={{ href: '/blog/digital-twin-shouldnt-live-in-someone-elses-cloud', title: "A digital twin shouldn't live in someone else's cloud" }}
       eyebrow="Real Estate & Property"
-      title="The operating system for high-impact real-world assets."
+      title="The building and the spreadsheet disagree."
       description="Resolve the $1.8 trillion data fragmentation crisis in construction and real estate with a unified layer for spatial coordination and governed ownership."
       stats={stats}
       challenges={challenges}

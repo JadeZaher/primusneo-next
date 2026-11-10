@@ -9,7 +9,7 @@ import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem'
 export const metadata = {
   title: 'Federated Operational Infrastructure',
   description:
-    'One source of truth for the real world. PrimusNeo coordinates digital twins, governance, identity, and analytics through shared interfaces — a modular stack for environments that cannot afford to fail.',
+    'The Technology Innovation Lab. Many timelines, one line: AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Tie Town [TX] is live.',
 };
 
 const tickerItems =
@@ -18,23 +18,33 @@ const tickerItems =
 const operatingModel = [
   {
     step: '01',
-    title: 'Map the vision',
-    body: 'An ambitious thesis becomes layers, stakeholders, requirements, and measurable outcomes.',
+    title: 'Understand the need',
+    body: 'The people who live with the problem describe it. A clearing house is a table, not a funnel.',
   },
   {
     step: '02',
-    title: 'Design governance',
-    body: 'Councils, holons, and contribution rules — defined in NEOS before complexity sets in.',
+    title: 'Form the team',
+    body: 'Knowledge, tools, and a delivery partner. Each one named before anyone builds.',
   },
   {
     step: '03',
-    title: 'Build the tooling',
-    body: 'AMP, AZOA, dashboards, and existing software integrated into workflows people actually use.',
+    title: 'Define the test',
+    body: 'The question and its measures, written down before the first version exists.',
   },
   {
     step: '04',
-    title: 'Operate and evolve',
-    body: 'Performance and community signals feed a living intelligence layer, not a static report.',
+    title: 'Build a first version',
+    body: 'Existing tools where they fit. New ones where they do not. Alpha is allowed to say which is which.',
+  },
+  {
+    step: '05',
+    title: 'Review the evidence',
+    body: 'Against the baseline, in the open. Useful results earn the next step. The others stop.',
+  },
+  {
+    step: '06',
+    title: 'Put it to work',
+    body: 'A tool, a partnership, a study people can use, or a company. The record stays either way.',
   },
 ];
 
@@ -80,16 +90,16 @@ const Home = () => {
 
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-end px-7 pb-12">
           <div className="mb-6 font-mono text-[11px] tracking-[0.24em] text-mist">
-            FEDERATED OPERATIONAL INFRASTRUCTURE
+            THE TECHNOLOGY INNOVATION LAB
           </div>
           <h1 className="max-w-[14ch] text-balance text-[clamp(48px,7.4vw,132px)] font-medium leading-[0.98] tracking-[-0.035em]">
-            One source of truth for the real world.
+            Many timelines. One line.
           </h1>
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
             <p className="max-w-[52ch] text-[17px] leading-relaxed text-mist">
-              PrimusNeo coordinates digital twins, governance, identity, and
-              analytics through shared interfaces — a modular stack for
-              environments that cannot afford to fail.
+              People who live with a problem, tools that might meet it, and a
+              place to test. Then the evidence decides. Tie Town [TX] is that
+              place, and it is already on.
             </p>
             <div className="pointer-events-auto flex gap-3">
               <PrimaryCta href="/one-pager">EXPLORE THE STACK</PrimaryCta>
@@ -194,10 +204,10 @@ const Home = () => {
           <div className="mb-16 flex flex-wrap items-baseline justify-between gap-4">
             <MonoLabel>04 — Operating Model</MonoLabel>
             <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
-              From idea to governed ecosystem.
+              A clearing house, then a lab.
             </h2>
           </div>
-          <div className="grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
             {operatingModel.map((item, i) => (
               <div key={item.step} className="bg-ink">
                 <Reveal delay={i * 80} className="h-full">

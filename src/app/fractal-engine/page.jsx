@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, RelatedWriting, SectionHeader } from '../_components/marketing';
 
 export const metadata = {
   title: 'Fractal Engine — Analytics for Federated Infrastructure',
@@ -53,12 +53,12 @@ const FractalEnginePage = () => {
 
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="relative z-10">
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.4em] text-emerald-400">Fractal Engine</div>
-            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white text-glow-green md:text-6xl">
-              Intelligence for <span className="text-emerald-300">Federated</span> Infrastructure.
+            <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Fractal Engine · Organizational memory · Alpha</div>
+            <h1 className="max-w-[14ch] text-[clamp(40px,5vw,76px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+              A mirror with the limits written on it.
             </h1>
-            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-gray-400">
-              Fractal Engine is the analytical backbone for the PrimusNeo stack, turning operational data from AMP and AZOA into historical insights, spatial reporting, and infrastructure intelligence.
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-mist">
+              Local-first spatial analytics from <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/Escherbridge/fractalengine">Escherbridge</a>: a Bevy editor, SurrealDB, iroh between peers, BLAKE3-addressed assets, .hexon packages, and BI egress to DuckDB, GeoParquet, or Power BI. Plugins are Rhai and WASM. Admission fails closed. The op-log signature field on older rows is still zeros. Alpha means we say both.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/amp">Spatial OS (AMP)</GradientButton>
@@ -77,7 +77,7 @@ const FractalEnginePage = () => {
             <div className="absolute bottom-6 left-6 right-6">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
-                <span className="text-xs font-mono uppercase tracking-widest text-white/70">Live Ingestion Stream: Hexon v1.0.0</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">Alpha · local-first · .hexon</span>
               </div>
             </div>
           </div>
@@ -188,12 +188,13 @@ const FractalEnginePage = () => {
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             <NumberedCard number="01" title="Ingest">Collects real-time operational telemetry from AMP and identity/provider data from AZOA.</NumberedCard>
-            <NumberedCard number="02" title="Warehouse">Stores data in append-only, content-addressed historical archives for auditability and provenance.</NumberedCard>
-            <NumberedCard number="03" title="Analyze">Processes data via WASM-based plugins to generate spatial, financial, and operational insights.</NumberedCard>
-            <NumberedCard number="04" title="Report">Feeds insights back to PrimusNeo councils and operational dashboards for informed decision-making.</NumberedCard>
+            <NumberedCard number="02" title="Warehouse">SurrealDB on the machine you are sitting at. Assets addressed with BLAKE3. Older op-log signature fields are still placeholders.</NumberedCard>
+            <NumberedCard number="03" title="Admit">Rhai and WASM plugins, sandboxed. The host starts. Packages do not load until they are admitted.</NumberedCard>
+            <NumberedCard number="04" title="Hand off">Copy a query for DuckDB, GeoParquet, or Power BI. No connector SDK. The mirror is still not the site.</NumberedCard>
           </div>
         </div>
       </section>
+      <RelatedWriting href="/blog/alpha-is-a-status-not-a-compliment" title="Alpha is a status, not a compliment" />
     </div>
   );
 };

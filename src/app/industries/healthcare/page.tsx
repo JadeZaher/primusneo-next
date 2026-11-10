@@ -89,7 +89,7 @@ export default function HealthcareIndustryPage() {
       primaryCtaText="Talk to clinical team"
     >
       <ContrarianInsight attribution="PrimusNeo — Healthcare Brief">
-        Healthcare&rsquo;s productivity crisis isn&rsquo;t a clinical problem — it&rsquo;s an <em>identity</em> problem. The system that puts patients in control of their own portable health graph will quietly out-perform every vertically integrated incumbent.
+        The clinical work is hard enough when the chart lives in six buildings. Portable identity is the unglamorous version of a breakthrough. The people the record is about should be able to see who opened it.
       </ContrarianInsight>
       <PartnerNote partners={[PARTNERS.elevateImpact]} />
       <IndustrySources sources={sources} />

@@ -81,7 +81,7 @@ export default function GovernanceIndustryPage() {
   return (
     <SolutionTemplate
       eyebrow="Governance & Public Sector"
-      title="Restore trust with verifiable spend, identity, and participation."
+      title="A PDF is not a receipt."
       description="Half of citizens perceive widespread corruption. PrimusNeo gives governments tamper-evident procurement, portable citizen identity, and programmable participation — at city, regional, and national scale."
       stats={stats}
       challenges={challenges}

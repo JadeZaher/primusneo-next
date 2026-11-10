@@ -80,7 +80,7 @@ export default function EnergyIndustryPage() {
   return (
     <SolutionTemplate
       eyebrow="Energy & Utilities"
-      title="The operating system for grid-edge coordination and verified green."
+      title="The queue is not a power plant."
       description="3,000 GW are stuck in queues while DERs proliferate outside utility visibility. PrimusNeo gives operators one twin of every asset, every electron, every claim."
       stats={stats}
       challenges={challenges}
@@ -88,9 +88,10 @@ export default function EnergyIndustryPage() {
       layers={layers}
       useCase={useCase}
       primaryCtaText="Talk to utility team"
+      relatedEssay={{ href: '/blog/the-queue-is-not-a-plan', title: 'The queue is not a plan' }}
     >
       <ContrarianInsight attribution="PrimusNeo — Energy Brief">
-        The energy transition is no longer a generation problem — it&rsquo;s a coordination problem. Whichever utility can govern millions of distributed agents in real time will quietly out-earn every gigawatt-scale developer waiting in a 2030 queue.
+        Generation is not the part sitting in the queue. A connection date does not charge anything tonight. The useful question is what the site can see, shed, and record while it waits.
       </ContrarianInsight>
       <PartnerNote partners={[PARTNERS.opqpwr]} />
       <IndustrySources sources={sources} />

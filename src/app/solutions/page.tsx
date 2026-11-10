@@ -130,21 +130,15 @@ export default function SolutionsPage() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px] animate-pulse delay-700" />
         </div>
 
-        <div className="mx-auto max-w-5xl text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold tracking-widest uppercase mb-8 animate-pulse">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-            </span>
-            Operational Reality Check
+        <div className="relative z-10 mx-auto max-w-5xl text-left">
+          <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
+            Proof over promises
           </div>
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.85] mb-8 text-glow-white">
-            THE ERA OF <br />
-            <span className="text-red-500 drop-shadow-[0_0_20px_rgba(239,68,68,0.6)] uppercase">Promises</span> <br />
-            <span className="text-white">IS OVER.</span>
+          <h1 className="max-w-[14ch] text-[clamp(48px,7vw,104px)] font-medium leading-[0.94] tracking-[-0.04em] text-paper">
+            The promise was always a slide.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
-            Fragmented systems and disconnected governance are no longer sustainable. PrimusNeo provides the coordination layer for real-world operational ecosystems.
+          <p className="mt-8 max-w-3xl text-xl leading-relaxed text-mist">
+            These are coordination problems with published price tags. Pick the one that matches the room you are actually in. Tie Town [TX] is the room we can walk through.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <GradientButton href="#challenges">View the Challenges</GradientButton>

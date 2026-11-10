@@ -87,7 +87,7 @@ const ImpactInvestingPage = () => {
   return (
     <SolutionTemplate 
       eyebrow="Impact Investing"
-      title="Restoring value through verifiable impact."
+      title="Impact, with a receipt."
       description="Resolve the $1.5 trillion trust crisis in impact investing with federated infrastructure that turns promises into provable operational intelligence."
       stats={stats}
       challenges={challenges}

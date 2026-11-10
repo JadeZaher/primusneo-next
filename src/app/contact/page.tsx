@@ -15,15 +15,16 @@ export const metadata = {
 
 const Contact = () => {
   return (
-    <div className="bg-black text-white min-h-screen vite-grid pt-24 pb-16 px-4">
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-glow">
-              Contact PrimusNeo
+    <div className="min-h-screen bg-ink px-4 pb-16 pt-28 text-paper">
+      <section className="px-4 py-16">
+        <div className="mx-auto max-w-7xl">
+          <header className="mb-12">
+            <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Contact</div>
+            <h1 className="mt-4 max-w-[14ch] text-[clamp(40px,6vw,84px)] font-medium leading-[0.98] tracking-[-0.035em]">
+              Tell us the environment.
             </h1>
-            <p className="mt-4 text-lg text-gray-400 max-w-2xl mx-auto">
-              Tell us about your environment — we&apos;ll come back with a pilot path tailored to your stack.
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-mist">
+              We will say which layer applies, and which one does not. A pilot that cannot name its test is a tour.
             </p>
           </header>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -42,7 +43,7 @@ const Contact = () => {
                 className="rounded-2xl shadow-2xl max-w-full h-auto mb-8 border border-gray-800"
               />
               <div className="text-center lg:text-left space-y-4">
-                <h2 className="text-xl font-semibold text-green-400">Why PrimusNeo?</h2>
+                <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">What you are walking into</h2>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />

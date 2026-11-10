@@ -86,8 +86,9 @@ const DeveloperEcosystemsPage = () => {
 
   return (
     <SolutionTemplate 
+      relatedEssay={{ href: '/blog/the-plugin-was-already-inside', title: 'The plugin was already inside' }}
       eyebrow="Developer Ecosystems"
-      title="Eliminating the coordination tax."
+      title="A plugin that runs on arrival."
       description="Resolve the crisis of API sprawl and developer toil with federated infrastructure designed for high-scale architectural coordination."
       stats={stats}
       challenges={challenges}

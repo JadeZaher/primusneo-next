@@ -64,12 +64,12 @@ const OnePager = () => {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
             <div>
-              <div className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Executive Summary</div>
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-gray-200 text-glow-green md:text-5xl">
-                Federated Operational Infrastructure for Real-World Systems
+              <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">The stack</div>
+              <h1 className="max-w-[14ch] text-[clamp(40px,5vw,72px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
+                Many timelines. One line.
               </h1>
-              <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-                PrimusNeo is an AI-assisted builder ecosystem coordinating interoperable operational infrastructure for real-world environments. We create one operational source of truth with many interoperable interfaces and deployment pathways.
+              <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
+                PrimusNeo is the technology innovation lab: a clearing house that finds the people, and a lab that runs the test. Four layers, four stewards, plus Elevate Impact for research. No single company owns the fabric. Tie Town [TX] is where it already runs.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <GradientButton href="/governance-platform">Governance platform</GradientButton>
