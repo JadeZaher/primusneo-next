@@ -53,15 +53,15 @@ Append an object to the `guides` array. Keep the reviewed draft’s figures, quo
 | `cardDescription` | Two sentences for the index card, taken from the draft. |
 | `patternTitle` / `patternDescription` | The shared-question card on the index. Cite the same source the child cites. |
 | `lead` | Opening paragraphs. The first one is the standfirst. |
-| `figures` | Hero figures. `{ lead, text }`. Keep the quotation. |
+| `figures` | The quoted passages. `{ lead, text }`. Keep the quotation. The page does not label them “Hero figures.” |
 | `sections` | `h2` and `p` blocks, same inline rules as the blog. |
-| `scenario` | The worked example. The page labels it “An illustrative scenario.” |
+| `scenario` | The worked example. The page heading is “A situation like this.” |
 | `sources` | `{ label, href, title?, org?, year?, doi? }`. Every URL in the draft, including a DOI when the draft prints one. |
 | `sourceNote` | Optional. A sentence about a source that was not opened. It is not a citation. |
 | `siblings` | At least two other guides. `{ label, href, note? }`. |
 | `closing` | The draft’s last paragraphs, including Contact when the draft has it. |
 
-The page prints the standfirst, the hero figures, the body, the illustrative scenario, the sources, the siblings, then the closing. The sitemap, `/feed.xml`, and `/llms.txt` read this array. Do not register the URL by hand.
+The page prints the standfirst, the quoted passages, the body, the situation, the sources, the siblings, then the closing. The sitemap, `/feed.xml`, and `/llms.txt` read this array. Do not register the URL by hand.
 
 ## Newsroom — `news.ts`
 

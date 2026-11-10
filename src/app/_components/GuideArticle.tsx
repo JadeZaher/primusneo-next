@@ -142,22 +142,11 @@ export function GuideArticle({ guide }: { guide: Guide }) {
             <ProseBlockView key={index} block={block} />
           ))}
 
-          <section className="mt-14">
-            <h2 className="mb-4 text-[clamp(26px,3vw,40px)] font-medium leading-tight tracking-[-0.03em] text-paper">
-              Hero figures
-            </h2>
-            <p className="text-glow text-[clamp(36px,4vw,56px)] font-medium leading-none tracking-[-0.04em] text-paper">
-              {guide.metric}
+          {guide.figures.map((figure) => (
+            <p key={figure.lead} className="mb-6">
+              {figure.lead} {figure.text}
             </p>
-            <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">{guide.metricLabel}</p>
-            <ul className="mt-8 space-y-6 border-l border-white/15 pl-5 text-paper">
-              {guide.figures.map((figure) => (
-                <li key={figure.lead}>
-                  <strong className="font-medium text-paper">{figure.lead}</strong> {figure.text}
-                </li>
-              ))}
-            </ul>
-          </section>
+          ))}
 
           {guide.sections.map((block, index) => (
             <ProseBlockView key={index} block={block} />
@@ -165,7 +154,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
 
           <section className="mt-14">
             <h2 className="mb-4 text-[clamp(26px,3vw,40px)] font-medium leading-tight tracking-[-0.03em] text-paper">
-              An illustrative scenario
+              A situation like this
             </h2>
             <p className="mb-6">{guide.scenario}</p>
           </section>
@@ -173,7 +162,6 @@ export function GuideArticle({ guide }: { guide: Guide }) {
 
         <section className="mt-16 max-w-[68ch] border-t border-white/10 pt-8">
           <h2 className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Sources</h2>
-          <p className="mt-5 text-sm leading-relaxed text-mist">Every stat on this page is cited.</p>
           <SourceList sources={guide.sources} />
           {guide.sourceNote ? <p className="mt-5 text-sm leading-relaxed text-mist">{guide.sourceNote}</p> : null}
         </section>

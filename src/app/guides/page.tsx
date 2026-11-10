@@ -158,36 +158,12 @@ export default function GuidesPage() {
       </section>
 
       <section className="border-t border-white/10 px-7 py-20">
-        <div className="mx-auto max-w-[1600px]">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Hero figures</h2>
-          <div className="mt-10 space-y-12">
-            {guides.map((guide) => (
-              <article key={guide.slug} className="max-w-[68ch]">
-                <h3 className="text-2xl font-medium tracking-[-0.02em]">
-                  <Link href={`/guides/${guide.slug}`} className="hover:text-accent">
-                    {guide.title}
-                  </Link>
-                </h3>
-                <ul className="mt-5 space-y-4 border-l border-white/15 pl-5 text-[16px] leading-relaxed text-mist">
-                  {guide.figures.map((figure) => (
-                    <li key={figure.lead}>
-                      <strong className="font-medium text-paper">{figure.lead}</strong> {figure.text}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-white/10 px-7 py-20">
         <div className="mx-auto max-w-[68ch]">
           <h2 className="text-[clamp(28px,3vw,44px)] font-medium leading-tight tracking-[-0.03em]">
-            An illustrative scenario
+            A situation like this
           </h2>
           <p className="mt-6 text-[17px] leading-relaxed text-mist">
-            Each guide includes one worked example under this label. It is not a customer, a charge, or a deployment.
+            Each guide includes one. It is not a customer, a charge, or a deployment.
           </p>
         </div>
       </section>
@@ -195,7 +171,6 @@ export default function GuidesPage() {
       <section className="border-t border-white/10 px-7 py-20">
         <div className="mx-auto max-w-[68ch]">
           <h2 className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Sources</h2>
-          <p className="mt-5 text-sm leading-relaxed text-mist">Every stat on this page is cited.</p>
           <SourceList sources={sources} />
         </div>
       </section>

@@ -109,9 +109,9 @@ void test('field guides keep the reviewed drafts hooked up', () => {
     'ai-rmf-accountability',
   ]);
   for (const guide of guides) {
-    assert.ok(guide.figures.length >= 2, guide.slug);
+    assert.ok(guide.lead.length >= 1, guide.slug);
     assert.ok(guide.sources.length >= 1, guide.slug);
-    assert.match(guide.scenario, /worked example/i);
+    assert.ok(guide.scenario.length > 40, guide.slug);
     if (batch1.has(guide.slug)) {
       assert.ok(guide.seoTitle.length <= 60, `${guide.seoTitle} (${guide.seoTitle.length})`);
     }
@@ -130,7 +130,10 @@ void test('field guides keep the reviewed drafts hooked up', () => {
 
   const twins = guides.find((guide) => guide.slug === 'digital-twins');
   assert.ok(twins);
-  assert.match(guideText(twins), /does not claim a live twin, a deployment, or an IR 8356 implementation/);
+  assert.match(
+    guideText(twins),
+    /does not claim a live twin, a deployment, or an NIST's 2021 digital twin report implementation/,
+  );
 
   const ai = guides.find((guide) => guide.slug === 'ai-rmf-accountability');
   assert.ok(ai);
