@@ -42,6 +42,8 @@ const columns = [
       { href: 'https://overseasgenai.com/', label: 'OVERSEASGENAI ↗', external: true },
       { href: 'https://opqpwr.com/', label: 'OPQPWR ↗', external: true },
       { href: '/contact', label: 'Contact ↗' },
+      { href: '/privacy', label: 'Privacy' },
+      { href: '/terms', label: 'Terms' },
     ],
   },
 ];

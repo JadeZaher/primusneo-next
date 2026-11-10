@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { MultiStepContactForm } from '../_components/ContactForms';
+import { OperatorLine } from '../_components/OperatorLine';
+import { operator } from '@/content/operator';
 
 export const metadata = {
   title: 'Contact',
@@ -30,6 +32,10 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <MultiStepContactForm />
+              <p className="mt-6 text-sm leading-relaxed text-mist">
+                The form is the path we read. The other way is email, phone, or the mailbox:{' '}
+                <OperatorLine />. {operator.contactName}, {operator.entity}.
+              </p>
             </div>
 
             <div className="order-1 lg:order-2 flex flex-col items-center">
