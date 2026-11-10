@@ -25,6 +25,7 @@ const platformItems = [
 
 const writingItems = [
   { href: '/blog', label: 'Blog', desc: 'Builder notes and op-eds' },
+  { href: '/papers', label: 'Papers', desc: 'White papers. The PDF downloads directly.' },
   { href: '/newsroom', label: 'Newsroom', desc: 'Dated announcements and the press kit' },
   { href: '/roadmap', label: 'Roadmap', desc: 'Now, next, later. No dates.' },
   { href: '/futures', label: 'Futures', desc: 'Speculation, labeled as such' },
@@ -249,6 +250,7 @@ const Navbar = () => {
               <MobileLink href="/" onClick={closeMenu}>Home</MobileLink>
               <MobileLink href="/one-pager" onClick={closeMenu}>Stack Overview</MobileLink>
               <MobileLink href="/blog" onClick={closeMenu}>Blog</MobileLink>
+              <MobileLink href="/papers" onClick={closeMenu}>Papers</MobileLink>
               <MobileLink href="/newsroom" onClick={closeMenu}>Newsroom</MobileLink>
               <MobileLink href="/roadmap" onClick={closeMenu}>Roadmap</MobileLink>
               <MobileLink href="/futures" onClick={closeMenu}>Futures</MobileLink>

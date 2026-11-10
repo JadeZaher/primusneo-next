@@ -3,6 +3,7 @@ import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { newsItems } from '@/content/news';
+import { papers } from '@/content/papers';
 import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
@@ -19,6 +20,7 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: '/ico-marketing', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/contact', changeFrequency: 'yearly', priority: 0.7 },
   { path: '/blog', changeFrequency: 'daily', priority: 0.8 },
+  { path: '/papers', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/newsroom', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/roadmap', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/futures', changeFrequency: 'monthly', priority: 0.6 },
@@ -114,6 +116,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
+  const paperEntries: MetadataRoute.Sitemap = papers.map((paper) => ({
+    url: `${SITE_URL}/papers/${paper.slug}`,
+    lastModified: new Date(paper.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, updatedAt }) => ({
     url: `${SITE_URL}/news/${slug}`,
     lastModified: updatedAt ? new Date(updatedAt) : now,
@@ -121,5 +130,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsroomEntries, ...roadmapEntries, ...futureEntries, ...newsEntries];
+  return [...staticEntries, ...localEssayEntries, ...blogEntries, ...newsroomEntries, ...roadmapEntries, ...futureEntries, ...paperEntries, ...newsEntries];
 }

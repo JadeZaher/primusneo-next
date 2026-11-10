@@ -25,6 +25,7 @@ const columns = [
     heading: 'WRITING',
     links: [
       { href: '/blog', label: 'Blog' },
+      { href: '/papers', label: 'Papers' },
       { href: '/newsroom', label: 'Newsroom' },
       { href: '/roadmap', label: 'Roadmap' },
       { href: '/futures', label: 'Futures' },

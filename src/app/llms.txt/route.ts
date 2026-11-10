@@ -2,6 +2,7 @@ import { client } from '@/lib/sanity/client';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { newsItems } from '@/content/news';
+import { papers } from '@/content/papers';
 import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
@@ -57,6 +58,7 @@ const industries = [
 const about = [
   { path: '/', title: 'PrimusNeo Home', desc: 'Federated operational infrastructure for real-world environments.' },
   { path: '/blog', title: 'Blog', desc: 'Builder notes and op-eds. Sanity posts appear in the same index when the studio has them.' },
+  { path: '/papers', title: 'Papers', desc: 'White papers. The page is the summary. The PDF downloads directly, with no email gate.' },
   { path: '/newsroom', title: 'Newsroom', desc: 'Dated announcements, a short boilerplate, and logo files.' },
   { path: '/roadmap', title: 'Roadmap', desc: 'Per-layer status: shipped, in alpha, building, or exploring. No dates.' },
   { path: '/futures', title: 'Futures', desc: 'Speculation, labeled as such, tied to a stack layer.' },
@@ -138,6 +140,15 @@ async function buildBody(): Promise<string> {
     '',
     '## Recent Writing',
     ...blogLines,
+    '',
+    '## Papers',
+    ...papers.map((paper) =>
+      fmtLine({
+        path: `/papers/${paper.slug}`,
+        title: paper.title,
+        desc: `${paper.kicker}. ${paper.pages} pages. ${paper.description}`,
+      }),
+    ),
     '',
     '## Newsroom',
     ...newsItems.map((item) =>
