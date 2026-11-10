@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { JsonLd } from '../_components/JsonLd';
 import { WritingNav } from '../_components/WritingNav';
 import { newsItems } from '@/content/news';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 export const metadata = {
   title: 'Newsroom',
@@ -16,6 +18,11 @@ export const metadata = {
     url: '/newsroom',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Newsroom | PrimusNeo',
+    description: 'Announcements with dates and links. No invented launches.',
+  },
 };
 
 const logos = [
@@ -28,6 +35,20 @@ const items = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
 export default function NewsroomPage() {
   return (
     <main className="bg-ink text-paper">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'Newsroom',
+            description: 'Announcements with dates and links. No invented launches.',
+            path: '/newsroom',
+            items: items.map((item) => ({ name: item.title, path: `/newsroom/${item.slug}` })),
+          }),
+          breadcrumbList([
+            { name: 'Home', path: '/' },
+            { name: 'Newsroom', path: '/newsroom' },
+          ]),
+        )}
+      />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Newsroom</div>
         <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">

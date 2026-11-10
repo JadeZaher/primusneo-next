@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/finance',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Finance & Investing | PrimusNeo',
+    description: 'Where capital markets meet the real-world asset, live.',
+  },
 };
 
 const stats = [
@@ -86,6 +91,8 @@ export default function FinanceIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/finance"
+      sources={sources}
       primaryCtaText="Talk to capital markets"
     >
       <ContrarianInsight attribution="PrimusNeo — Capital Markets Brief">

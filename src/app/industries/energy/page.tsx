@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/energy',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Energy & Utilities | PrimusNeo',
+    description: 'The operating system for grid-edge coordination and verified green.',
+  },
 };
 
 const stats = [
@@ -87,6 +92,8 @@ export default function EnergyIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/energy"
+      sources={sources}
       primaryCtaText="Talk to utility team"
       relatedEssay={{ href: '/blog/the-queue-is-not-a-plan', title: 'The queue is not a plan' }}
     >

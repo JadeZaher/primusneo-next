@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/technology',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Technology & Software | PrimusNeo',
+    description: 'The governed coordination plane for AI-native software organizations.',
+  },
 };
 
 const stats = [
@@ -85,6 +90,8 @@ export default function TechnologyIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/technology"
+      sources={sources}
       primaryCtaText="Brief our platform team"
     >
       <ContrarianInsight attribution="PrimusNeo — Tech Industry Brief">

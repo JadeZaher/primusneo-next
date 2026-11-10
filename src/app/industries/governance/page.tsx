@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/governance',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Governance & Public Sector | PrimusNeo',
+    description: 'Restore trust with verifiable spend, identity, and participation.',
+  },
 };
 
 const stats = [
@@ -88,6 +93,8 @@ export default function GovernanceIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/governance"
+      sources={sources}
       primaryCtaText="Brief our public team"
     >
       <ContrarianInsight attribution="PrimusNeo — Public Sector Brief">

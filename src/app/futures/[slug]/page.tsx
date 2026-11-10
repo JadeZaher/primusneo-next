@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import { EntryArticle } from '@/app/_components/EntryArticle';
 import { futures, getFuture } from '@/content/futures';
-
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
+import { articleNode, breadcrumbList, citationWorks, graph } from '@/lib/jsonld';
 
 export function generateStaticParams() {
   return futures.map((piece) => ({ slug: piece.slug }));
@@ -45,16 +44,20 @@ export default async function FuturePage({ params }: { params: Promise<{ slug: s
       sources={piece.sources}
       links={[{ label: 'Roadmap', href: '/roadmap' }]}
       close={{ layer: piece.layer, layerHref: piece.layerHref }}
-      jsonLd={{
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: piece.title,
-        description: piece.excerpt,
-        datePublished: piece.date,
-        mainEntityOfPage: `${SITE_URL}/futures/${piece.slug}`,
-        author: { '@type': 'Organization', name: 'PrimusNeo', url: SITE_URL },
-        citation: piece.sources?.map((source) => source.href),
-      }}
+      jsonLd={graph(
+        articleNode({
+          headline: piece.title,
+          description: piece.excerpt,
+          path: `/futures/${piece.slug}`,
+          datePublished: piece.date,
+          citations: piece.sources ? citationWorks(piece.sources) : undefined,
+        }),
+        breadcrumbList([
+          { name: 'Home', path: '/' },
+          { name: 'Futures', path: '/futures' },
+          { name: piece.title, path: `/futures/${piece.slug}` },
+        ]),
+      )}
     />
   );
 }

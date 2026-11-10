@@ -1,15 +1,23 @@
 import React from 'react';
+import Link from 'next/link';
+import { JsonLd } from '../_components/JsonLd';
 import { SectionHeader, GradientButton, DreadShape, ChallengeCard } from '../_components/marketing';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 export const metadata = {
   title: 'Industries — Sector-by-Sector Implementation',
-  description: 'Ten industry implementations of the PrimusNeo stack — from construction and manufacturing to robotics, energy, healthcare, and capital markets. Sourced stats, real use cases, deployable today.',
+  description: 'Ten industries, one coordination layer. The figures on these pages are other people’s, with the links left on. We did not invent a market.',
   alternates: { canonical: '/industries' },
   openGraph: {
-    title: 'Industries | PrimusNeo Sector Implementations',
-    description: 'Ten industries, one coordination layer. AMP, NEOS, AZOA, and Fractal Engine deployed sector by sector.',
+    title: 'Industries | PrimusNeo',
+    description: 'Ten industries, one coordination layer. The figures on these pages are other people’s, with the links left on. We did not invent a market.',
     url: '/industries',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Industries | PrimusNeo',
+    description: 'Ten industries, one coordination layer. The figures on these pages are other people’s, with the links left on. We did not invent a market.',
   },
 };
 
@@ -126,6 +134,20 @@ const crossCuttingChallenges = [
 export default function IndustriesPage() {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-emerald-500/30">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'Industries',
+            description: metadata.description,
+            path: '/industries',
+            items: industries.map((industry) => ({ name: industry.title, path: industry.href })),
+          }),
+          breadcrumbList([
+            { name: 'Home', path: '/' },
+            { name: 'Industries', path: '/industries' },
+          ]),
+        )}
+      />
       {/* Hero */}
       <section className="relative isolate overflow-hidden border-b border-white/5 px-4 py-32 md:py-64">
         <DreadShape volume={5} id="02" className="absolute left-[5%] top-[18%] opacity-15 rotate-12" size={120} />
@@ -138,6 +160,11 @@ export default function IndustriesPage() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-5xl text-left">
+          <nav aria-label="Breadcrumb" className="mb-8 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+            <Link href="/" className="hover:text-paper">Home</Link>
+            <span className="px-2" aria-hidden="true">/</span>
+            <span className="text-mist">Industries</span>
+          </nav>
           <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
             Ten industries · one coordination layer
           </div>
@@ -163,7 +190,7 @@ export default function IndustriesPage() {
             title="Every industry pays a coordination tax."
             className="text-left mx-0 mb-20"
           >
-            We surveyed ten sectors with $30T+ in combined annual spend. The names of the failures change. The shape does not.
+            The names of the failures change. The shape does not. Each figure in the cards is cited on its child page.
           </SectionHeader>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -190,7 +217,7 @@ export default function IndustriesPage() {
             title="Industry-specific implementation paths"
             className="text-left mx-0 mb-20"
           >
-            Ten sectors. Same four-layer stack — AMP, NEOS, AZOA, Fractal Engine — deployed against the failure modes that actually move the P&amp;L.
+            Ten sectors. The same four layers — AMP, NEOS, AZOA, Fractal Engine — described against the failure modes on the child pages.
           </SectionHeader>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">

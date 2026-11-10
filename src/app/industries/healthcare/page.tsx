@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/healthcare',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Healthcare & Life Sciences | PrimusNeo',
+    description: 'Portable identity, real-time care, outcome-based capital.',
+  },
 };
 
 const stats = [
@@ -86,6 +91,8 @@ export default function HealthcareIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/healthcare"
+      sources={sources}
       primaryCtaText="Talk to clinical team"
     >
       <ContrarianInsight attribution="PrimusNeo — Healthcare Brief">

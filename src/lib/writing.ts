@@ -31,7 +31,7 @@ export async function loadSanityWriting(): Promise<{ posts: Post[]; news: News[]
 export function essayCards(): WritingCard[] {
   return essays.map((essay) => ({
     id: `essay-${essay.slug}`,
-    title: essay.title,
+    title: essay.seoTitle ?? essay.title,
     excerpt: essay.excerpt,
     publishedAt: essay.publishedAt,
     href: `/blog/${essay.slug}`,

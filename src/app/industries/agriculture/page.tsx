@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/agriculture',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agriculture & Food Systems | PrimusNeo',
+    description: 'Banking, provenance, and yield — on one field-to-fork model.',
+  },
 };
 
 const stats = [
@@ -87,6 +92,8 @@ export default function AgricultureIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/agriculture"
+      sources={sources}
       primaryCtaText="Talk to agrifood team"
     >
       <ContrarianInsight attribution="PrimusNeo — Agriculture Brief">

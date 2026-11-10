@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/construction',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Construction & Built Environment | PrimusNeo',
+    description: 'The coordination layer for the world&rsquo;s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
+  },
 };
 
 const stats = [
@@ -87,6 +92,8 @@ export default function ConstructionIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/construction"
+      sources={sources}
       primaryCtaText="Talk to capital projects"
     >
       <ContrarianInsight attribution="PrimusNeo — Construction Brief">

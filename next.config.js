@@ -24,6 +24,16 @@ const nextConfig = {
         destination: '/azoa',
         permanent: true,
       },
+      {
+        source: '/news',
+        destination: '/newsroom',
+        statusCode: 301,
+      },
+      {
+        source: '/research',
+        destination: '/industries',
+        statusCode: 301,
+      },
     ];
   },
   typescript: {

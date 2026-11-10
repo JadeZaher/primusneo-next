@@ -10,6 +10,12 @@ export const metadata = {
   title: 'Federated Operational Infrastructure',
   description:
     'The Technology Innovation Lab. Many timelines, one line: AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Tie Town [TX] is live.',
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': '/feed.xml',
+    },
+  },
 };
 
 const tickerItems =

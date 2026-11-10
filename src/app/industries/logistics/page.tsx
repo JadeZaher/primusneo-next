@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/logistics',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Logistics & Mobility | PrimusNeo',
+    description: 'One coordinated twin for every shipment, fleet, port, and customs lane.',
+  },
 };
 
 const stats = [
@@ -87,6 +92,8 @@ export default function LogisticsIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/logistics"
+      sources={sources}
       primaryCtaText="Talk to logistics team"
     >
       <ContrarianInsight attribution="PrimusNeo — Logistics Brief">

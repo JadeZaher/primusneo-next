@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { JsonLd } from '../_components/JsonLd';
 import { WritingNav } from '../_components/WritingNav';
 import { futures } from '@/content/futures';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 
 export const metadata = {
   title: 'Futures',
@@ -16,11 +18,30 @@ export const metadata = {
     url: '/futures',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Futures | PrimusNeo',
+    description: 'Five to twenty years, written as a direction, not a delivery date.',
+  },
 };
 
 export default function FuturesPage() {
   return (
     <main className="bg-ink text-paper">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'Futures',
+            description: 'Five to twenty years, written as a direction, not a delivery date.',
+            path: '/futures',
+            items: futures.map((piece) => ({ name: piece.title, path: `/futures/${piece.slug}` })),
+          }),
+          breadcrumbList([
+            { name: 'Home', path: '/' },
+            { name: 'Futures', path: '/futures' },
+          ]),
+        )}
+      />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Futures</div>
         <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">

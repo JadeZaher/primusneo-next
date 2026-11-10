@@ -12,6 +12,11 @@ export const metadata = {
     url: '/industries/robotics',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Robotics & Autonomous Systems | PrimusNeo',
+    description: 'The coordination protocol for every robot that shares physical space.',
+  },
 };
 
 const stats = [
@@ -87,6 +92,8 @@ export default function RoboticsIndustryPage() {
       features={features}
       layers={layers}
       useCase={useCase}
+      path="/industries/robotics"
+      sources={sources}
       primaryCtaText="Coordinate a fleet"
     >
       <ContrarianInsight attribution="PrimusNeo — Robotics Brief">

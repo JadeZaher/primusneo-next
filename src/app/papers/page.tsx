@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { JsonLd } from "../_components/JsonLd";
 import { WritingNav } from "../_components/WritingNav";
 import { papers } from "@/content/papers";
+import { breadcrumbList, collectionNode, graph } from "@/lib/jsonld";
 
 const listed = [...papers].sort((a, b) =>
   b.publishedAt.localeCompare(a.publishedAt),
@@ -45,6 +47,24 @@ export const metadata = {
 export default function PapersPage() {
   return (
     <main className="bg-ink text-paper">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: "Papers",
+            description:
+              "The long version, with the page count on it. The file does not ask for an email.",
+            path: "/papers",
+            items: listed.map((paper) => ({
+              name: paper.title,
+              path: `/papers/${paper.slug}`,
+            })),
+          }),
+          breadcrumbList([
+            { name: "Home", path: "/" },
+            { name: "Papers", path: "/papers" },
+          ]),
+        )}
+      />
       <header className="mx-auto max-w-[1600px] px-7 pt-32 pb-16 md:pt-40">
         <div className="text-faint font-mono text-[11px] tracking-[0.22em] uppercase">
           Papers
