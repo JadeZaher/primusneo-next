@@ -48,7 +48,7 @@ Append an object to `newsItems`. Put the newest date first if you want it at the
 | `paragraphs` | Plain strings. One fact per paragraph is enough. |
 | `links` | Optional `{ label, href }` to the page, the repo, or the commit |
 
-Press boilerplate and logo files live in `src/app/newsroom/page.tsx` under the kit block. Change that copy only when the facts on the site change. The kit points at `/contact`. That page also lists the operator email, phone, and mailing address. The form stores the submission. See `docs/forms.md`. Operator, privacy, and terms live at `/contact`, `/privacy`, and `/terms`.
+Press boilerplate and logo files live in `src/app/newsroom/page.tsx` under the kit block. Change that copy only when the facts on the site change. The kit points at `/contact`. That page also lists the operator email, phone, and city. The form stores the submission. See `docs/forms.md`. Operator, privacy, and terms live at `/contact`, `/privacy`, and `/terms`.
 
 ## Roadmap — `roadmap.ts`
 

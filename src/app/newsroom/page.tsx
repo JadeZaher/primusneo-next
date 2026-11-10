@@ -103,7 +103,7 @@ export default function NewsroomPage() {
               <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://ardanova.com">ArdaNova</a> is a designed consumer of the settlement layer, not a live deployment, and it has made no token offering.
             </p>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-mist">
-              For press, use the contact form and say it is for press. The operator&apos;s email, phone, and mailing address are on that page.
+              For press, use the contact form and say it is for press. The operator&apos;s email, phone, and city are on that page.
             </p>
             <Link
               href="/contact"

@@ -63,7 +63,7 @@ const about = [
   { path: '/roadmap', title: 'Roadmap', desc: 'Per-layer status: shipped, in alpha, building, or exploring. No dates.' },
   { path: '/futures', title: 'Futures', desc: 'Speculation, labeled as such, tied to a stack layer.' },
   { path: '/feed.xml', title: 'RSS', desc: 'Blog notes, newsroom items, and futures pieces.' },
-  { path: '/contact', title: 'Contact', desc: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations. The form is the path. Email, phone, and the mailing address are on the page.' },
+  { path: '/contact', title: 'Contact', desc: 'Talk to the PrimusNeo team about pilots, partnerships, and integrations. The form is the path. Email, phone, and the city are on the page.' },
   { path: '/privacy', title: 'Privacy', desc: 'Operated by Escherbridge, LLC. The contact form stores name, email, organization, message, page, referrer, UTM parameters, and user agent in Postgres.' },
   { path: '/terms', title: 'Terms', desc: 'Operator, contact, and Idaho governing law for primusneo.com. Disputes are resolved in the state or federal courts in Ada County, Idaho.' },
 ];

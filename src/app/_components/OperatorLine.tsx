@@ -14,7 +14,7 @@ export function OperatorLine() {
         {operator.phoneDisplay}
       </a>
       {", "}
-      {operator.street}, {operator.locality}
+      {operator.locality}
     </>
   );
 }

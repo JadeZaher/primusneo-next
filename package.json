@@ -19,7 +19,7 @@
     "preview": "next build && next start",
     "start": "node scripts/migrate-site-submissions.mjs; next start",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test src/server/submissions/logic.test.ts scripts/migrate-site-submissions.test.mjs",
+    "test": "node --experimental-strip-types --test src/server/submissions/logic.test.ts scripts/migrate-site-submissions.test.mjs src/content/operator.test.ts",
     "sanity:deploy": "sanity deploy",
     "sanity:start": "sanity start"
   },
