@@ -1,6 +1,6 @@
 # Adding an entry
 
-Four sections are driven by files in this directory. The writing team adds an object, opens a pull request, and the page appears on the next deploy of `main`. No CMS step is required for these files. Sanity posts still show on the blog if the studio has them.
+Five sections are driven by files in this directory. The writing team adds an object, opens a pull request, and the page appears on the next deploy of `main`. No CMS step is required for these files. Sanity posts still show on the blog if the studio has them.
 
 Keep the voice dry and specific. Do not add raise amounts, valuations, or investor-model figures. Do not invent dates, customers, or statistics. If a claim is not on the site or in a public repo, leave it out or mark the roadmap cell `exploring`.
 
@@ -79,6 +79,36 @@ Append an object to `futures`. The page always prints a speculation label. You d
 | `sources` | `{ label, href }` for every source on the draft. |
 
 `horizon` can be the year the piece names, such as `2035`. The page always prints a speculation label above the body. The template closer links `layerHref` and adds Contact and RSS. Point `layerHref` at a layer page on this site, or at `/roadmap/[slug]` when that is the section we have.
+
+## Papers — `papers.ts`
+
+Route: `/papers` and `/papers/[slug]`.
+
+Append an object to `papers`. Put the newest date first if you want it at the top; the index also sorts by date.
+
+The landing page prints the summary, a short list of section titles, the page count, and a download button. The button is a direct link to the PDF. Do not put an email field in front of it. The contact forms on this site log to the console and do not store a submission, so a paper must not pretend to collect an address.
+
+After the download, the page links to `/contact` (“Talk to us”) and mentions `/feed.xml`. That uses the form and the feed the site already has. It is not a gate, and it is not a new backend.
+
+| Field | What to put |
+|---|---|
+| `slug` | URL segment |
+| `kicker` | Short label, for example `White paper no. 1` |
+| `title` | The h1 |
+| `dek` | The subtitle. Use the paper’s own line. Keep the attribution if a number is in it. |
+| `summary` | The paragraph on the page. Do not add a finding the paper does not make. |
+| `description` | SEO description. A shortening of the summary, cut on a sentence. |
+| `publishedAt` | `YYYY-MM-DD`. The file date, or the day it went on the site if the paper only names a month. |
+| `dateLabel` | Optional. What to print when the paper says `November 2026` and not a day. |
+| `pages` | Page count of the PDF you are linking. Count the file. |
+| `format` | Optional. `US Letter` if the file says so. |
+| `cover` | `{ src, width, height, alt }`. `src` is a path under `public/`. The page and the Open Graph image both use it. |
+| `pdf` | Path under `public/papers/`. |
+| `inside` | Section titles from the PDF. A few is enough. Do not paraphrase them into new claims. |
+| `layers` | Optional `{ label, href, note? }`. Stack pages this paper actually discusses: the layer page and, where the site keeps status, the roadmap section (`/roadmap` and `/roadmap/[slug]`). Omit the field and that part of Related does not render. |
+| `related` | Optional `{ label, href, note? }`. Two or three essays or other notes that share the subject. Omit the field and that part of Related does not render. |
+
+`layers` and `related` are optional so the next paper gets the Related block, the contact link, and the direct download without a new template. Leave either field off when there is nothing honest to point at.
 
 ## After you add one
 

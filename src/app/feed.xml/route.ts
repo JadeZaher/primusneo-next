@@ -1,6 +1,7 @@
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { newsItems } from '@/content/news';
+import { papers } from '@/content/papers';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -34,6 +35,12 @@ export function GET() {
       date: piece.date,
       description: piece.excerpt,
     })),
+    ...papers.map((paper) => ({
+      title: paper.title,
+      href: `/papers/${paper.slug}`,
+      date: paper.publishedAt,
+      description: paper.description,
+    })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -41,7 +48,7 @@ export function GET() {
   <channel>
     <title>PrimusNeo</title>
     <link>${SITE_URL}</link>
-    <description>Builder notes, newsroom items, and labeled speculation.</description>
+    <description>Builder notes, papers, newsroom items, and labeled speculation.</description>
     <language>en-us</language>
     ${items
       .map(
