@@ -121,10 +121,10 @@ export default function PaidTwicePage() {
           <p>
             A payment that times out is not a payment that failed. It is a
             payment whose outcome you do not know. Most systems treat that
-            uncertainty as a reason to try again. That is how the same work gets
-            paid twice, or not at all. They are the same bug, seen from opposite
-            ends of the ledger. Nobody has to be cheating. A timeout and a retry
-            will do it.
+            uncertainty as a reason to try again, which is how the same work
+            gets paid twice, or not at all. They are the same bug, seen from
+            opposite ends of the ledger, and nobody has to be cheating for it
+            to happen. A timeout and a retry will do it.
           </p>
           <p>
             <a
@@ -262,8 +262,7 @@ export default function PaidTwicePage() {
           </p>
           <p>
             This demo does not call AZOA, a bank, or a network. The fix in the
-            note is not courage. It is a key, a status check, and a yes or a no
-            you can find later.
+            note is a key, a status check, and a yes or a no you can find later.
           </p>
         </div>
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">

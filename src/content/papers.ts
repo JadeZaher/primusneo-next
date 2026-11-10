@@ -155,7 +155,7 @@ export const papers: Paper[] = [
       },
       {
         label: "Alpha is a status, not a compliment",
-        href: "/blog/alpha-is-a-status-not-a-compliment",
+        href: "/newsroom/alpha-is-a-status-not-a-compliment",
         note: "What “not finished” looks like when it is written down. The paper does the same for the stack.",
       },
     ],

@@ -37,6 +37,55 @@ export const newsItems: NewsItem[] = [
     ],
   },
   {
+    slug: 'alpha-is-a-status-not-a-compliment',
+    title: 'Alpha is a status, not a compliment',
+    date: '2026-11-09',
+    kicker: 'Fractal Engine',
+    excerpt:
+      'Fractal Engine refuses to load a plugin it did not admit. It also still stores placeholder signatures on older log rows. Both sentences belong on the same page.',
+    paragraphs: [
+      'Alpha is a useful word that marketing departments keep trying to improve. It does not mean “almost done,” and it does not mean the applause is included. It means the thing runs, the edges are labeled, and anyone who pretends otherwise is writing fiction. This note is about our own tree.',
+      'What already refuses',
+      'Fractal Engine is a spatial analytics engine: a Bevy editor, an embedded SurrealDB, peer-to-peer replication over iroh, and a way to hand a query to DuckDB, GeoParquet, or Power BI without a connector SDK. Assets are content-addressed with BLAKE3. Maps and scenes travel as .hexon files. The plugin host runs Rhai and WASM in sandboxes against a stable API. The README’s status line is the one we are willing to repeat in public: the desktop starts that host and loads no plugin packages automatically. Admission fails closed. The relay binary does not host plugins at all.',
+      'That is the design decision worth keeping. A plugin is code that executes inside the record of a place. The safe default is not “try it and see.” The safe default is silence until someone with a role admits the package. On 9 November 2026 the extension-platform work merged to main (0b579b6), and the web-bundle portal surface followed it (f2adc8f). The same week, the README’s “planned” list still mentioned that work. A status block that lags a merge is annoying. It is also a better problem than a status block that runs ahead of the code.',
+      'What we will not pretend',
+      'The same README, and SECURITY.md, say the awkward part out loud. Operation-log entries have an ed25519 signature field. On the legacy write paths that field is a placeholder of zeros. Signed operations belong to the canonical log. Do not treat the op-log as an integrity guarantee yet. A field named signature that contains zeros is not a signature. It is a reservation. We would rather publish that than let a buyer discover it in a review they had to request.',
+      'PURPOSE.md makes the same kind of admission in a different register: the engine is a mirror, never a copy. A coordinate is rounded. A tile is sampled. A forecast is a guess with a confidence attached. Organizational memory that forgets it is a likeness becomes a very confident rumor.',
+      'The habit, and a better one',
+      'The industry habit is demo-ware with the serial numbers filed off: a pilot that cannot name what is gated, a plugin that runs because it was nearby, a log that looks signed because the column exists. The better path is a short list. Say what runs. Say what fails closed. Say which field is still zeros. Ship the refusal before you ship the marketplace. Alpha is allowed to be unfinished. It is not allowed to be vague.',
+      'Fail-closed admission is a feature you can point at. A zeroed signature is a bug you can point at. Both get a sentence.',
+      'A README that trails the merge by a day is a documentation lag. A README that claims the merge early is a different product.',
+      'Pre-1.0 builds are unsigned, and there is no macOS build. That is a distribution fact, not a teaser.',
+      'AZOA is in the same family of honesty: identity and revocable consent are in, real-value bridges stay off, and two governance actions remain in the not-enabled list until their reviews close.',
+      'If you want the layer, it is Fractal Engine: organizational memory, alpha, local-first, with the limits written down. AMP is the operational runtime it sits beside. The plugin habit, from the outside, is in the previous note. Contact if you would like the limits read to you before the demo, which is the only order that makes any sense.',
+    ],
+    links: [
+      { label: 'Fractal Engine on the site', href: '/fractal-engine' },
+      {
+        label: 'README',
+        href: 'https://github.com/Escherbridge/fractalengine/blob/main/README.md',
+      },
+      {
+        label: 'Extension platform merge, 0b579b6',
+        href: 'https://github.com/Escherbridge/fractalengine/commit/0b579b6',
+      },
+      {
+        label: 'Portal surface merge, f2adc8f',
+        href: 'https://github.com/Escherbridge/fractalengine/commit/f2adc8f',
+      },
+      {
+        label: 'SECURITY.md',
+        href: 'https://github.com/Escherbridge/fractalengine/blob/main/SECURITY.md',
+      },
+      {
+        label: 'PURPOSE.md',
+        href: 'https://github.com/Escherbridge/fractalengine/blob/main/PURPOSE.md',
+      },
+      { label: 'The plugin was already inside', href: '/blog/the-plugin-was-already-inside' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
     slug: 'fractal-engine-stays-alpha',
     title: 'Fractal Engine stays alpha',
     date: '2026-11-09',
