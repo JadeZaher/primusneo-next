@@ -146,7 +146,25 @@ export function EssayArticle({ essay }: { essay: Essay }) {
         {essay.related && essay.related.length > 0 ? (
           <RelatedNotes items={essay.related} />
         ) : null}
-        <PieceClose layer={layer?.layer} layerHref={layer?.href} />
+        <PieceClose
+          layer={layer?.layer}
+          layerHref={layer?.href}
+          eyebrow={layer ? 'Where the stack fits' : 'Next step'}
+          title={layer ? undefined : 'Test the coordination failures in practice'}
+          note={
+            essay.slug === 'paid-twice-or-never'
+              ? 'Try the browser-only retry simulator to see why timeouts without idempotency keys double-settle or silently drop.'
+              : 'Run the interactive retry simulator or dig into the primary specification field guides.'
+          }
+          primaryHref={essay.slug === 'paid-twice-or-never' ? '/demos/paid-twice' : '/guides'}
+          primaryLabel={
+            essay.slug === 'paid-twice-or-never' ? 'Run Paid-Twice simulator' : 'Explore field guides'
+          }
+          secondaryHref={essay.slug === 'paid-twice-or-never' ? '/guides/idempotent-requests' : '/demos/paid-twice'}
+          secondaryLabel={
+            essay.slug === 'paid-twice-or-never' ? 'Read Idempotent Requests guide' : 'Run Paid-Twice simulator'
+          }
+        />
       </article>
     </main>
   );

@@ -51,14 +51,29 @@ export default async function BlogPage() {
         )}
       />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Blog</div>
-        <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">
-          Builder notes and op-eds.
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">Engineering Blog</div>
+        <h1 className="mt-5 max-w-[14ch] text-balance text-[clamp(48px,7vw,104px)] font-medium leading-[0.94] tracking-[-0.04em]">
+          How systems break—and what holds state.
         </h1>
-        <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-mist">
-          Arguments about problems that already have public sources. Each one ends by naming the layer that
-          applies, and the layer that does not get to take credit. Studio posts, when they exist, sit in the same list.
+        <p className="mt-8 max-w-[58ch] text-[17px] leading-relaxed text-mist">
+          Candid engineering notes on retry bugs, local-first custody, county GIS handoffs, and software accountability
+          across organizations. Each post traces an operational failure to primary sources and names the architectural
+          boundary responsible.
         </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/demos/paid-twice"
+            className="inline-flex items-center justify-center bg-paper px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink transition-colors duration-300 hover:bg-accent hover:text-white"
+          >
+            Run Paid-Twice simulator
+          </Link>
+          <Link
+            href="/guides"
+            className="inline-flex items-center justify-center border border-white/25 px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.14em] text-paper transition-colors duration-300 hover:border-accent hover:text-accent"
+          >
+            Explore field guides
+          </Link>
+        </div>
         <WritingNav current="/blog" />
       </header>
 

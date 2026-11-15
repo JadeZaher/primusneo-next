@@ -68,29 +68,61 @@ export function ProseBlockView({ block }: { block: ProseBlock }) {
 export function PieceClose({
   layer,
   layerHref,
+  eyebrow = 'Where the stack fits',
+  title,
+  note,
+  primaryHref = '/demos/paid-twice',
+  primaryLabel = 'Run Paid-Twice simulator',
+  secondaryHref = '/guides',
+  secondaryLabel = 'Explore field guides',
 }: {
   layer?: string;
   layerHref?: string;
+  eyebrow?: string;
+  title?: string;
+  note?: string;
+  primaryHref?: string;
+  primaryLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
 }) {
   return (
     <aside className="bg-ink-deep text-paper mt-16 max-w-[68ch] border border-white/15 px-7 py-8">
+      <div className="text-accent font-mono text-[11px] tracking-[0.22em] uppercase">
+        {eyebrow}
+      </div>
       {layer && layerHref ? (
-        <>
-          <div className="text-accent font-mono text-[11px] tracking-[0.22em] uppercase">
-            Where the stack fits
-          </div>
-          <h2 className="mt-3 text-[clamp(28px,3vw,44px)] leading-tight font-medium tracking-[-0.03em]">
-            <Link href={layerHref} className="hover:text-accent">
-              {layer}
-            </Link>
-          </h2>
-        </>
+        <h2 className="mt-3 text-[clamp(28px,3vw,44px)] leading-tight font-medium tracking-[-0.03em]">
+          <Link href={layerHref} className="hover:text-accent">
+            {layer}
+          </Link>
+        </h2>
+      ) : title ? (
+        <h2 className="mt-3 text-[clamp(26px,3vw,40px)] leading-tight font-medium tracking-[-0.03em]">
+          {title}
+        </h2>
+      ) : null}
+      {note ? (
+        <p className="text-mist mt-4 max-w-[56ch] text-[16px] leading-relaxed">
+          {note}
+        </p>
       ) : null}
       <div className="mt-6 flex flex-wrap gap-3">
-        <GradientButton href="/contact">Contact</GradientButton>
-        <GradientButton href="/feed.xml" variant="secondary">
-          RSS
+        <GradientButton href={primaryHref}>{primaryLabel}</GradientButton>
+        <GradientButton href={secondaryHref} variant="secondary">
+          {secondaryLabel}
         </GradientButton>
+      </div>
+      <div className="text-faint mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-4 font-mono text-[11px] tracking-[0.16em] uppercase">
+        <Link href="/papers/why-good-work-goes-unbuilt" className="hover:text-paper">
+          White Paper #1
+        </Link>
+        <Link href="/contact" className="hover:text-paper">
+          Contact engineering
+        </Link>
+        <Link href="/feed.xml" className="hover:text-paper">
+          RSS
+        </Link>
       </div>
     </aside>
   );

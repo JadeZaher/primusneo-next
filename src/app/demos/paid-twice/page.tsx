@@ -89,17 +89,21 @@ export default function PaidTwicePage() {
           {title}
         </h1>
         <p className="text-mist mt-6 max-w-[62ch] text-lg leading-relaxed">
-          A payer sends 40 demo units to a payee. The network drops the request
-          or the reply. You choose the next move: retry, give up, or ask the
-          ledger. The table shows whether that pays once, twice, or not at all.
+          A request leaves the browser to settle 40 demo units, and the network drops either the request or the reply.
+          Retry blindly and you risk charging twice; give up blindly and the ledger drifts out of sync. Step through
+          both failure paths below, then turn on idempotency keys and status reconciliation to watch how a boundary
+          keeps settlement exactly-once.
         </p>
         <p className="text-mist mt-4 max-w-[62ch] text-[15px] leading-relaxed">
-          It pairs with the note{" "}
+          Pairs with the engineering note{" "}
           <Link href={POST_PATH} className={linkClass}>
             {title}
+          </Link>{" "}
+          and our{" "}
+          <Link href="/guides/idempotent-requests" className={linkClass}>
+            Idempotent Requests field guide
           </Link>
-          . A timeout is not a decision. This page lets you make the usual
-          mistakes on purpose, and then turn on the habit that stops them.
+          .
         </p>
       </header>
 
@@ -265,15 +269,26 @@ export default function PaidTwicePage() {
             note is a key, a status check, and a yes or a no you can find later.
           </p>
         </div>
-        <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
-          <Link href="/roadmap/azoa" className={textButton}>
-            AZOA on the roadmap
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/guides/idempotent-requests" className={textButton}>
+            Field guide: idempotent requests
+          </Link>
+          <Link href="/guides" className={textButton}>
+            All ten field guides
+          </Link>
+        </div>
+        <div className="text-faint mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-4 font-mono text-[11px] uppercase tracking-[0.14em]">
+          <Link href={POST_PATH} className={linkClass}>
+            Engineering essay
           </Link>
           <Link href="/azoa" className={linkClass}>
-            AZOA layer page
+            AZOA layer
           </Link>
-          <Link href={POST_PATH} className={linkClass}>
-            The note
+          <Link href="/roadmap/azoa" className={linkClass}>
+            AZOA roadmap
+          </Link>
+          <Link href="/contact" className={linkClass}>
+            Talk to engineering
           </Link>
         </div>
       </section>

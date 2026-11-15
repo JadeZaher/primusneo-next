@@ -9,7 +9,7 @@ import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem'
 export const metadata = {
   title: 'Federated Operational Infrastructure',
   description:
-    'The Technology Innovation Lab. Many timelines, one line: AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Tie Town [TX] is live.',
+    'PrimusNeo builds local-first operational infrastructure, shared decision records, and verifiable execution — AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Live with Tie Town [TX].',
   alternates: {
     canonical: '/',
     types: {
@@ -96,20 +96,21 @@ const Home = () => {
 
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-end px-7 pb-12">
           <div className="mb-6 font-mono text-[11px] tracking-[0.24em] text-mist">
-            THE TECHNOLOGY INNOVATION LAB
+            OPERATIONAL INFRASTRUCTURE · TIE TOWN [TX]
           </div>
-          <h1 className="max-w-[14ch] text-balance text-[clamp(48px,7.4vw,132px)] font-medium leading-[0.98] tracking-[-0.035em]">
-            Many timelines. One line.
+          <h1 className="max-w-[15ch] text-balance text-[clamp(48px,7.4vw,124px)] font-medium leading-[0.98] tracking-[-0.035em]">
+            Software that outlives its vendor.
           </h1>
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
-            <p className="max-w-[52ch] text-[17px] leading-relaxed text-mist">
-              People who live with a problem, tools that might meet it, and a
-              place to test. Then the evidence decides. Tie Town [TX] is that
-              place, and it is already on.
+            <p className="max-w-[56ch] text-[17px] leading-relaxed text-mist">
+              Operational software shouldn&rsquo;t break when two organizations share a workflow or a SaaS vendor
+              disappears five years in. PrimusNeo builds local-first coordination, verifiable records, and durable
+              execution tested against real physical stakes in Tie Town, Texas—starting with systems where state stays
+              legible under your own custody.
             </p>
-            <div className="pointer-events-auto flex gap-3">
-              <PrimaryCta href="/one-pager">EXPLORE THE STACK</PrimaryCta>
-              <SecondaryCta href="/contact">TALK TO US</SecondaryCta>
+            <div className="pointer-events-auto flex flex-wrap gap-3">
+              <PrimaryCta href="/guides">EXPLORE FIELD GUIDES</PrimaryCta>
+              <SecondaryCta href="/demos/paid-twice">RUN PAID-TWICE SIMULATOR</SecondaryCta>
             </div>
           </div>
         </div>
@@ -137,16 +138,15 @@ const Home = () => {
           <div>
             <Reveal>
               <h2 className="max-w-[24ch] text-balance text-[clamp(32px,4.2vw,72px)] font-medium leading-[1.08] tracking-[-0.03em]">
-                Infrastructure fails when data fragments and governance
-                disconnects.
+                Systems break in the handoffs between teams, schemas, and budgets.
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-10 max-w-[58ch] text-[17px] leading-relaxed text-mist">
-                We do not build one monolithic platform. We maintain one
-                operational source of truth with many interoperable interfaces
-                — and the governance to steward it over decades, not demo
-                cycles.
+                Most projects don&rsquo;t fail because a single service crashed—they fail when a SaaS export strips
+                field metadata, a webhook retries twice without an idempotency boundary, or a 99-year land trust loses
+                why a council made a rule five years ago. PrimusNeo separates runtime, agreements, settlement, and
+                organizational memory so every layer can be audited and kept under your own custody.
               </p>
             </Reveal>
           </div>
@@ -339,13 +339,27 @@ const Home = () => {
         </div>
         <Reveal>
           <h2 className="mx-auto max-w-[16ch] text-balance text-[clamp(40px,6vw,104px)] font-medium leading-none tracking-[-0.035em]">
-            Build on governed ground.
+            Build on durable ground.
           </h2>
         </Reveal>
         <Reveal delay={120}>
           <div className="mt-14 flex flex-wrap justify-center gap-3">
-            <PrimaryCta href="/contact">GET STARTED</PrimaryCta>
+            <PrimaryCta href="/contact">TALK TO ENGINEERING</PrimaryCta>
             <SecondaryCta href="/one-pager">VIEW THE STACK</SecondaryCta>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+            <Link href="/demos/paid-twice" className="hover:text-accent">
+              Paid-Twice simulator
+            </Link>
+            <Link href="/guides" className="hover:text-accent">
+              Ten field guides
+            </Link>
+            <Link href="/blog" className="hover:text-accent">
+              Engineering blog
+            </Link>
+            <Link href="/papers/why-good-work-goes-unbuilt" className="hover:text-accent">
+              White Paper #1
+            </Link>
           </div>
         </Reveal>
       </section>

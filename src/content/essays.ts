@@ -726,6 +726,23 @@ export const essays: Essay[] = [
       'A timeout is not a decision. Most payout systems treat a missing reply as a reason to try again, which is how the same work gets paid twice, or not at all.',
     layer: 'AZOA',
     layerHref: '/azoa',
+    related: [
+      {
+        label: 'Run the Paid-Twice interactive simulator',
+        href: '/demos/paid-twice',
+        note: 'Break a browser-only retry flow on purpose, then enable idempotency keys.',
+      },
+      {
+        label: 'Field guide: Idempotent HTTP requests',
+        href: '/guides/idempotent-requests',
+        note: 'Where RFC 9110 §9.2.2 draws the line between PUT/DELETE and unkeyed POST.',
+      },
+      {
+        label: 'Why durable execution beats optimistic retries',
+        href: '/blog/durable-execution-beats-optimistic-retries',
+        note: 'Sagas, checkpoints, and crash windows across multi-step workflows.',
+      },
+    ],
     sources: [
       {
         label: 'Stripe Docs, Idempotent requests',
@@ -808,7 +825,11 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Stripe documents that habit for card payments. The FedNow readiness guide documents it for instant settlement. AZOA is being built to keep the same kind of record for identity, consent, and settlement, and the dangerous path stays closed until that record is real. The same request should settle once, or not at all. The fix is a key, a status check, and a yes or a no you can find later.',
+          'Stripe documents that habit for card payments. The FedNow readiness guide documents it for instant settlement. AZOA is being built to keep the same kind of record for identity, consent, and settlement, and the dangerous path stays closed until that record is real. The same request should settle once, or not at all. The fix is a key, a status check, and a yes or a no you can find later. You can also trace both failure modes hands-on in our ',
+          a('Paid-Twice interactive simulator', '/demos/paid-twice'),
+          ' or read the underlying specification boundary in ',
+          a('Idempotent HTTP requests', '/guides/idempotent-requests'),
+          '.',
         ],
       },
     ],
@@ -1263,6 +1284,16 @@ export const essays: Essay[] = [
     layerHref: '/governance-platform',
     related: [
       {
+        label: 'Field guide: AI accountability (NIST AI RMF & GAO)',
+        href: '/guides/ai-rmf-accountability',
+        note: 'Primary framework quotes across GOVERN, MAP, MEASURE, and MANAGE.',
+      },
+      {
+        label: 'Field guide: What to log when software recommends',
+        href: '/guides/recommendation-lineage',
+        note: 'The five fields—goal, input, validation check, owner, and monitoring.',
+      },
+      {
         label: 'Pilot purgatory: write the test before you build',
         href: '/blog/pilot-purgatory',
         note: 'The same habit, earlier. Write the test before anyone builds.',
@@ -1357,6 +1388,221 @@ export const essays: Essay[] = [
           ' rather than waving through what it cannot verify. ',
           a('ArdaNova', 'https://ardanova.com'),
           ' is the workspace that keeps a record of work and of decisions on agreed terms. None of those pages is a claim that the frameworks above have been implemented. This is not legal advice.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'durable-execution-beats-optimistic-retries',
+    title: 'Why durable execution beats optimistic retries',
+    seoTitle: 'Why durable execution beats optimistic retries',
+    kicker: 'Distributed State',
+    publishedAt: '2026-11-14',
+    dek: 'In-memory retry queues work right up until a container restarts between two commits. Without persisted step checkpoints and compensating boundaries, optimistic retries either double-apply state or leave multi-party work half-finished.',
+    excerpt:
+      'In-memory retry queues work right up until a container restarts between two commits. How persisted checkpoints, RFC 9110 boundaries, and sagas hold state across crashes.',
+    description:
+      'Why in-memory retry loops double-execute across restarts—and how idempotency keys, sagas, and fail-closed checkpoints hold multi-step state.',
+    layer: 'AZOA',
+    layerHref: '/azoa',
+    related: [
+      {
+        label: 'Run the Paid-Twice interactive simulator',
+        href: '/demos/paid-twice',
+        note: 'Simulate dropped network replies, retry loops, and idempotent status checks.',
+      },
+      {
+        label: 'Field guide: Idempotent HTTP requests',
+        href: '/guides/idempotent-requests',
+        note: 'What RFC 9110 §9.2.2 guarantees—and what application keys still have to store.',
+      },
+      {
+        label: 'Paid twice, or never, is the same bug',
+        href: '/blog/paid-twice-or-never',
+        note: 'Why payment timeouts cannot be treated as failed requests.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Hector Garcia-Molina and Kenneth Salem, "Sagas," Princeton University / ACM SIGMOD 1987',
+        href: 'http://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf',
+      },
+      {
+        label: 'IETF, RFC 9110: HTTP Semantics (§9.2.2 Idempotent Methods), June 2022',
+        href: 'https://www.rfc-editor.org/rfc/rfc9110.html',
+      },
+      {
+        label: 'Stripe Docs, Idempotent requests',
+        href: 'https://docs.stripe.com/api/idempotent_requests',
+      },
+      {
+        label: 'AZOA README (JadeZaher/azoa-autonomous-zones-of-action)',
+        href: 'https://github.com/JadeZaher/azoa-autonomous-zones-of-action',
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          'Most coordination bugs do not show up when everything returns HTTP 200 in 40 milliseconds. They appear in the narrow gap between two side effects: your worker reserves an allocation in Postgres or SurrealDB, fires an outbound HTTP POST to settle the second step, and takes a SIGTERM from an orchestrator deploy two hundred milliseconds before the response socket finishes writing.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'If your workflow state lived only inside an in-memory promise chain or an auto-requeueing job message, the surviving worker only knows the job restarted. Without a persisted per-step transition record and an idempotent boundary on the downstream receiver, that worker either replays step two and creates duplicate state, or assumes step two already failed and leaves step one orphaned forever.',
+        ],
+      },
+      { kind: 'h2', text: 'Where optimistic queues crack under pressure' },
+      {
+        kind: 'p',
+        inlines: [
+          'Engineers often try to patch that crash window with aggressive queue retries. Yet RFC 9110 (§9.2.2) explicitly separates safe, idempotent methods (GET, PUT, DELETE) from non-idempotent POST operations—and goes so far as to state that a proxy must not automatically retry non-idempotent requests. Retrying blindly at the transport layer moves an uncertainty problem downstream until something with money or custody attached notices twice.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Stripe’s API design tackles half the seam with client-supplied idempotency keys cached against request parameters so duplicate POST attempts return the recorded result instead of running twice. Even then, idempotency keys alone do not coordinate multi-step chains where step A commits in one system and step C declines three seconds later inside another organization’s stack.',
+        ],
+      },
+      { kind: 'h2', text: 'Sagas and explicit checkpoints' },
+      {
+        kind: 'p',
+        inlines: [
+          'Back in 1987, Hector Garcia-Molina and Kenneth Salem formalized why long-lived workflows break standard database locks in their paper "Sagas": instead of pretending two independent systems can sit inside one atomic lock, a saga breaks a multi-step flow into persisted sub-transactions where each forward commit pairs with a recorded compensating step—or an explicit halt—if a later stage fails.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'Applied cleanly in application code, durable execution means three unglamorous habits before a workflow touches external state: persist the intent key before dispatching outbound work, reconcile downstream status rather than guessing after timeouts, and fail closed whenever permissions or custody checks come back ambiguous. You can poke directly at how naive retries compare to keyed reconciliation inside our ',
+          a('Paid-Twice interactive simulator', '/demos/paid-twice'),
+          '.',
+        ],
+      },
+      { kind: 'h2', text: 'Trade-offs we leave explicit' },
+      {
+        kind: 'p',
+        inlines: [
+          'Durable workflows carry real engineering overhead. Every step needs deterministic schemas, compensating behavior has to be designed upfront rather than hand-waved in catch blocks, and stuck states require human operator visibility instead of silent retry loops. In ',
+          a('AZOA', '/azoa'),
+          ', workflows persist state graphs in SurrealDB and keep real-value rails switched off under Alpha Gate while production custody adapters remain under review—because gating an unverified bridge beats debugging duplicate transfers after cutover.',
+        ],
+      },
+      {
+        kind: 'cta',
+        layer: 'AZOA',
+        layerHref: '/azoa',
+        inlines: [
+          'Walk through retry failures hands-on in the ',
+          a('Paid-Twice simulator', '/demos/paid-twice'),
+          ', or inspect the protocol boundary in ',
+          a('Idempotent HTTP requests', '/guides/idempotent-requests'),
+          '.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'application-file-formats-outlive-vendors',
+    title: 'Application file formats outlive software vendors',
+    seoTitle: 'File formats that outlive software vendors',
+    kicker: 'Custody & Storage',
+    publishedAt: '2026-11-14',
+    dek: 'Land trusts, building handovers, and local stewardship records run on decades-long clocks. Why open, single-file application formats and explicit ADRs protect state long after a cloud vendor sunsets.',
+    excerpt:
+      'Long-lived operational records need storage formats you can still inspect twenty years after a SaaS vendor disappears. Why open schemas and local-first custody hold up.',
+    description:
+      'Why county maps, 99-year trust logs, and CAD exports vanish inside proprietary SaaS—and how open application file formats preserve custody.',
+    layer: 'AMP',
+    layerHref: '/amp',
+    related: [
+      {
+        label: 'Field guide: What is local-first software',
+        href: '/guides/local-first-software',
+        note: 'Keeping the device copy primary while servers handle sync and relays.',
+      },
+      {
+        label: 'Field guide: BIM and IFC file exchange',
+        href: '/guides/bim-ifc-exchange',
+        note: 'Why unpinned schema exports silently corrupt building handoffs.',
+      },
+      {
+        label: 'Field guide: Architecture decision records',
+        href: '/guides/architecture-decision-records',
+        note: 'Leaving future maintainers the forces behind every storage choice.',
+      },
+    ],
+    sources: [
+      {
+        label: 'SQLite Consortium, SQLite As An Application File Format',
+        href: 'https://www.sqlite.org/appfileformat.html',
+      },
+      {
+        label: 'Martin Kleppmann et al., "Local-first software: You own your data, in spite of the cloud," Ink & Switch, April 2019',
+        href: 'https://www.inkandswitch.com/essay/local-first/',
+      },
+      {
+        label: 'National Institute of Building Sciences, National BIM Standard–United States (NBIMS-US)',
+        href: 'https://www.nibs.org/nbims',
+      },
+      {
+        label: 'Michael Nygard, "Documenting Architecture Decisions," 15 November 2011',
+        href: 'https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions',
+      },
+    ],
+    blocks: [
+      {
+        kind: 'p',
+        inlines: [
+          'Hardware wears out in five to ten years; SaaS companies pivot or shut down even faster. Yet physical infrastructure—a utility pipe map, a residential cooperative’s maintenance history, a 99-year community land lease, or construction inspection geometry built at Tie Town [TX]—outlives almost every web startup hired to host it.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'When teams store operational memory exclusively inside a multi-tenant cloud workspace with proprietary binary blobs or lossy CSV exports, institutional continuity fails in silence. Five years after handoff, a board changes treasurers, an API token expires, and "export everything" drops the relational links explaining why a culvert easement was amended or which inspector signed off on a structural revision.',
+        ],
+      },
+      { kind: 'h2', text: 'Why inspectable application formats age gracefully' },
+      {
+        kind: 'p',
+        inlines: [
+          'The SQLite project’s essay "SQLite As An Application File Format" lays out an unflashy test that most enterprise software still fails: can someone open your artifact thirty years from now using standard tools without booting your defunct application stack? Storing structured operational state inside self-contained, cross-platform, transactional database files—or explicitly pinned open exchange formats—turns backups from a vendor rescue mission into copying one inspectable file.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'That durability model reinforces what Ink & Switch argued in their 2019 local-first software essay: keep the copy on the operator’s own storage canonical while remote servers assist multi-device synchronization. And when teams exchange specialized geometry instead of relational tables, NBIMS-US demonstrates the exact same necessity—pinning schema revisions such as IFC 2X3 instead of trusting generic ".ifc" exports that later parsers misread.',
+        ],
+      },
+      { kind: 'h2', text: 'The hidden half: schema evolution and why decisions were made' },
+      {
+        kind: 'p',
+        inlines: [
+          'Owning raw files does not automatically make data effortless to evolve. Forward-only migrations, conflict merging between disconnected devices, and stamping format metadata (like SQLite’s PRAGMA application_id) all demand clear invariants. Just as critical, as Michael Nygard documented in 2011, engineers inheriting a schema need short Architecture Decision Records explaining why a column or state transition cannot simply be normalized away without breaking field assumptions.',
+        ],
+      },
+      {
+        kind: 'p',
+        inlines: [
+          'None of this eliminates cloud relays, collaborative sync, or audit logs. It simply puts custody back where the operational clock lives—so an organization owns both its state and the plain reasons behind it.',
+        ],
+      },
+      {
+        kind: 'cta',
+        layer: 'AMP',
+        layerHref: '/amp',
+        inlines: [
+          'Read our ',
+          a('Local-first software', '/guides/local-first-software'),
+          ' and ',
+          a('BIM and IFC exchange', '/guides/bim-ifc-exchange'),
+          ' field guides, or test coordination state breaks in the ',
+          a('Paid-Twice simulator', '/demos/paid-twice'),
+          '.',
         ],
       },
     ],

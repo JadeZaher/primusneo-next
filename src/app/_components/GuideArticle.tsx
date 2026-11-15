@@ -187,7 +187,19 @@ export function GuideArticle({ guide }: { guide: Guide }) {
             <ProseBlockView key={index} block={block} />
           ))}
         </div>
-        <PieceClose />
+        <PieceClose
+          eyebrow="Interactive failure lab"
+          title="Test a dropped reply before it costs twice"
+          note={
+            guide.slug === 'idempotent-requests'
+              ? 'Break a retry flow on purpose in the browser: watch a naive retry double-settle, then enable idempotency keys and status reconciliation.'
+              : 'Even outside payment rails, uncoordinated retries split shared state across services. Step through the failure and the guard in your browser.'
+          }
+          primaryHref="/demos/paid-twice"
+          primaryLabel="Run Paid-Twice simulator"
+          secondaryHref="/guides"
+          secondaryLabel="All field guides"
+        />
       </article>
     </main>
   );
