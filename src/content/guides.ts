@@ -565,7 +565,7 @@ export const guides: Guide[] = [
         ' when external engineering vendors transfer live systems to internal operators.',
       ),
       h2('Scope and boundaries'),
-      p('Nygard\'s doc/arch/ layout, Rails example, and Markdown format are his conventions—They are not a PrimusNeo rule, and teams can organize files wherever maintainers look. This guide does not invent rework-savings metrics, and It is not a certification.'),
+      p('Nygard\'s doc/arch/ layout, Rails example, and Markdown format are his conventions. They are not a PrimusNeo rule, and teams can organize files wherever maintainers look. This guide does not invent rework-savings metrics. It is not a certification.'),
     ],
     scenario: 'An engineer simplifies a settlement consumer to retry failed POSTs automatically, unaware a three-year-old gateway quirk causes double debits—because the original guard lived only in a closed Slack thread instead of a decision record.',
     sources: [

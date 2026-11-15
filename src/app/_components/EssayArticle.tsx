@@ -44,7 +44,8 @@ function stackLayer(essay: Essay): { layer: string; href: string } | undefined {
 }
 
 export function EssayArticle({ essay }: { essay: Essay }) {
-  const layer = stackLayer(essay);
+  const hasInlineStackCta = essay.blocks.some((block) => block.kind === 'cta');
+  const closeLayer = hasInlineStackCta ? undefined : stackLayer(essay);
   const path = `/blog/${essay.slug}`;
   const jsonLd = graph(
     articleNode({
@@ -147,10 +148,10 @@ export function EssayArticle({ essay }: { essay: Essay }) {
           <RelatedNotes items={essay.related} />
         ) : null}
         <PieceClose
-          layer={layer?.layer}
-          layerHref={layer?.href}
-          eyebrow={layer ? 'Where the stack fits' : 'Next step'}
-          title={layer ? undefined : 'Test the coordination failures in practice'}
+          layer={closeLayer?.layer}
+          layerHref={closeLayer?.href}
+          eyebrow={closeLayer ? 'Where the stack fits' : 'Next step'}
+          title={closeLayer ? undefined : 'Put these systems patterns to work'}
           note={
             essay.slug === 'paid-twice-or-never'
               ? 'Try the browser-only retry simulator to see why timeouts without idempotency keys double-settle or silently drop.'
