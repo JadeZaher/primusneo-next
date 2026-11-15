@@ -8,14 +8,16 @@ export const metadata = {
   alternates: { canonical: '/industries/construction' },
   openGraph: {
     title: 'Construction & Built Environment | PrimusNeo',
-    description: 'The coordination layer for the world&rsquo;s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
+    description: 'The coordination layer for the world’s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
     url: '/industries/construction',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Construction & Built Environment | PrimusNeo',
-    description: 'The coordination layer for the world&rsquo;s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
+    description: 'The coordination layer for the world’s largest, most fragmented industry — owners, GCs, and subs on one live twin.',
   },
 };
 
@@ -40,7 +42,7 @@ const challenges = [
   },
   {
     title: 'Capital & Trust Gap',
-    description: 'Owners can&rsquo;t verify what was actually built versus what was paid for, which is how contingency becomes a habit. A vendor market-size figure is not the citation for that.',
+    description: 'Owners can’t verify what was actually built versus what was paid for, which is how contingency becomes a habit. A vendor market-size figure is not the citation for that.',
     metric: '98%',
     metricLabel: 'overrun by more than 30% [McKinsey, 2015]',
   },
@@ -55,13 +57,13 @@ const features = [
 const layers = [
   { title: 'AMP Spatial OS', description: 'Live 3D site maps overlaid with crane telemetry, drone scans, and BIM clash detection — replacing the daily PDF markup cycle GCs still run on.' },
   { title: 'NEOS Governance', description: 'Programmable change-order approval flows, sub-cert workflows, and JV voting rights tied directly to milestone completion on the twin.' },
-  { title: 'AZOA Identity', description: 'Persistent identity for every trade, inspector, and asset class, so a welder&rsquo;s qualification or a beam&rsquo;s mill cert travels with the work, not the binder.' },
+  { title: 'AZOA Identity', description: 'Persistent identity for every trade, inspector, and asset class, so a welder’s qualification or a beam’s mill cert travels with the work, not the binder.' },
   { title: 'Fractal Engine', description: 'Predictive cost-to-complete and schedule-risk modeling that surfaces budget blowout 6+ months before a quantity surveyor would catch it.' },
 ];
 
 const useCase = {
   title: 'Owner-Controlled Megaproject Coordination',
-  description: 'A public infrastructure owner replaces a 40-tool capex stack with one PrimusNeo workspace that links design, 50+ sub-contractors, and quarterly draw cycles. Every RFI, change order, and inspection lands on the twin and triggers governed payments — turning the program into an auditable, live financial instrument.',
+  description: 'A public infrastructure owner would replace a 40-tool capex stack with one PrimusNeo workspace that links design, 50+ sub-contractors, and quarterly draw cycles. Every RFI, change order, and inspection would land on the twin and trigger governed payments. The program would read as an auditable, live financial instrument.',
   outcomes: [
     'Single twin replaces fragmented BIM / ERP / PM stack',
     'NEOS-governed draw releases tied to verified progress',
@@ -84,7 +86,7 @@ export default function ConstructionIndustryPage() {
   return (
     <SolutionTemplate
       eyebrow="Construction & Built Environment"
-      title="The coordination layer for the world&rsquo;s largest, most fragmented industry."
+      title="The coordination layer for the world’s largest, most fragmented industry."
       description="Replace the 200-tool capex stack with one governed twin. Reconcile owners, GCs, and subs against a single live model — and finally underwrite progress in real time."
       stats={stats}
       challenges={challenges}
@@ -96,7 +98,7 @@ export default function ConstructionIndustryPage() {
       primaryCtaText="Talk to capital projects"
     >
       <ContrarianInsight attribution="PrimusNeo — Construction Brief">
-        The next decade&rsquo;s winning contractors won&rsquo;t out-build their rivals — they&rsquo;ll out-instrument them. The industry gets re-priced by whichever capital pool can underwrite progress in real time instead of trusting monthly PDFs.
+        The next decade’s winning contractors won’t out-build their rivals — they’ll out-instrument them. The industry gets re-priced by whichever capital pool can underwrite progress in real time instead of trusting monthly PDFs.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

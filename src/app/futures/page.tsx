@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Crumbs } from '../_components/Crumbs';
 import { JsonLd } from '../_components/JsonLd';
 import { WritingNav } from '../_components/WritingNav';
 import { futures } from '@/content/futures';
@@ -43,6 +44,7 @@ export default function FuturesPage() {
         )}
       />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
+        <Crumbs items={[{ href: '/', label: 'Home' }, { label: 'Futures' }]} />
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Futures</div>
         <h1 className="mt-5 max-w-[12ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">
           Speculation, labeled as such.

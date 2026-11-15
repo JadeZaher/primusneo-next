@@ -1,10 +1,19 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
+const solutionTitle = 'Community & Cooperatives';
+const solutionDescription = 'Empower localized coordination and resolve governance resilience issues. PrimusNeo provides the federated infrastructure for sustainable communities and cooperatives.';
+
 export const metadata = {
-  title: 'Community & Cooperatives',
-  description: 'Empower localized coordination and resolve governance resilience issues. PrimusNeo provides the federated infrastructure for sustainable communities and cooperatives.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/community-coops',
+  }),
 };
 
 const CommunityCoopsPage = () => {

@@ -97,7 +97,7 @@ export default function GuidesPage() {
           Most multi-party software fails in the boring gaps between teams: two services disagree on whether a payment
           settled, a building export drops half its attributes at handoff, or an AI tool makes a call nobody can trace
           back to a responsible owner. These ten field guides unpack the specifications and real failure modes behind
-          PrimusNeo&rsquo;s architecture—from idempotent retries and local-first custody to verifiable state
+          PrimusNeo's architecture—from idempotent retries and local-first custody to verifiable state
           transitions—with primary sources linked directly on every guide.
         </p>
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-faint">

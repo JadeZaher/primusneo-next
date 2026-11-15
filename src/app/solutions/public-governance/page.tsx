@@ -1,10 +1,19 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
+const solutionTitle = 'Government & Public Sector';
+const solutionDescription = 'Enhance public trust and operational efficiency through governed transparency. Tools for civic engagement, public infrastructure management, and accountable governance.';
+
 export const metadata = {
-  title: 'Government & Public Sector',
-  description: 'Enhance public trust and operational efficiency through governed transparency. Tools for civic engagement, public infrastructure management, and accountable governance.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/public-governance',
+  }),
 };
 
 const PublicGovernancePage = () => {

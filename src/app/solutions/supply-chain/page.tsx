@@ -1,9 +1,18 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
+const solutionTitle = 'Supply Chain & Logistics';
+const solutionDescription = 'Optimize global supply chains with real-time tracking, digital twins, and governed coordination. Enhance transparency and reduce fragmentation in complex logistics networks.';
+
 export const metadata = {
-  title: 'Supply Chain & Logistics',
-  description: 'Optimize global supply chains with real-time tracking, digital twins, and governed coordination. Enhance transparency and reduce fragmentation in complex logistics networks.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/supply-chain',
+  }),
 };
 
 const SupplyChainPage = () => {

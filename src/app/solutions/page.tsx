@@ -1,9 +1,18 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SectionHeader, GradientButton, InsightCard, MetricCard, DreadShape, ChallengeCard } from '../_components/marketing';
 
+const solutionTitle = 'Solutions — Federated Operational Infrastructure';
+const solutionDescription = 'Proof over promises. PrimusNeo is the coordination layer for real-world operational ecosystems, resolving structural fragmentation across ten critical sectors.';
+
 export const metadata = {
-  title: 'Solutions — Federated Operational Infrastructure',
-  description: 'Proof over promises. PrimusNeo is the coordination layer for real-world operational ecosystems, resolving structural fragmentation across ten critical sectors.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions',
+  }),
 };
 
 const solutions = [

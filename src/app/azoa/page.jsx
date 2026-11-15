@@ -55,7 +55,7 @@ const AzoaPage = () => {
               Dynamic where it helps. Strict where money moves.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-gray-300">
-              <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a> is the open-source engine on PrimusNeo&rsquo;s federation rails. Describe a multi-step process — who acts, what moves, under what conditions, in what order — and AZOA runs it durably to completion, settling value across whichever rails the workflow touches: blockchains, fiat, or both.
+              <a className="underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a> is the open-source engine on PrimusNeo's federation rails. Describe a multi-step process — who acts, what moves, under what conditions, in what order — and AZOA runs it durably to completion, settling value across whichever rails the workflow touches: blockchains, fiat, or both.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/amp">AMP integration</GradientButton>

@@ -1,9 +1,18 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
+const solutionTitle = 'Institutional Capital';
+const solutionDescription = 'Access high-fidelity real-world asset portfolios and resolve liquidity bottlenecks. PrimusNeo provides the federated infrastructure for institutional tokenization and asset management.';
+
 export const metadata = {
-  title: 'Institutional Capital',
-  description: 'Access high-fidelity real-world asset portfolios and resolve liquidity bottlenecks. PrimusNeo provides the federated infrastructure for institutional tokenization and asset management.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/institutional-investment',
+  }),
 };
 
 const InstitutionalInvestmentPage = () => {

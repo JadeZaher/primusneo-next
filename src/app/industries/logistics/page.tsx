@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Logistics & Mobility | PrimusNeo',
     description: 'One coordinated twin for every shipment, fleet, port, and customs lane.',
     url: '/industries/logistics',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -59,7 +61,7 @@ const layers = [
 
 const useCase = {
   title: 'Multi-Party Cargo Twin',
-  description: 'A global shipper, its carriers, and its key customers operate on PrimusNeo. Each container has identity in AZOA; each milestone signs to NEOS; AMP shows the real-time movement twin and Fractal predicts exceptions before they hit. Trade finance, CBAM, and insurance execute on the same verified evidence.',
+  description: 'A global shipper, its carriers, and its key customers would operate on PrimusNeo. Each container would have identity in AZOA; each milestone would sign to NEOS; AMP would show the movement twin and Fractal would predict exceptions before they hit. Trade finance, CBAM, and insurance would execute on the same verified evidence.',
   outcomes: [
     'End-to-end visibility across all carriers and 3PLs',
     'Trade finance releases on verified milestone events',

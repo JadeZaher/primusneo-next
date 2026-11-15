@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Healthcare & Life Sciences | PrimusNeo',
     description: 'Portable identity, real-time care, outcome-based capital.',
     url: '/industries/healthcare',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -40,7 +42,7 @@ const challenges = [
   },
   {
     title: 'Consent, Trust & Research Gap',
-    description: 'Patients can&rsquo;t port their data, researchers can&rsquo;t verify cohort provenance, and pharma trials still rely on closed CRO silos.',
+    description: 'Patients can’t port their data, researchers can’t verify cohort provenance, and pharma trials still rely on closed CRO silos.',
     metric: '~25%',
     metricLabel: 'of US spend considered wasteful [PGPF, 2023]',
   },
@@ -61,7 +63,7 @@ const layers = [
 
 const useCase = {
   title: 'Patient-Owned Health Identity + Value-Based Care',
-  description: 'A health system rolls out PrimusNeo to unify EHRs, device telemetry, and patient consent. Patients carry their identity in AZOA; providers operate against a real-time care twin; payers settle value-based contracts in NEOS. The admin waste in view is the 2019 Health Affairs range, not a single point estimate.',
+  description: 'A health system would roll PrimusNeo out to unify EHRs, device telemetry, and patient consent. Patients would carry their identity in AZOA; providers would operate against a real-time care twin; payers would settle value-based contracts in NEOS. The admin waste in view is the 2019 Health Affairs range, not a single point estimate.',
   outcomes: [
     'Portable patient identity & consent across providers',
     'Real-time care twin replaces fragmented EHR view',

@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Technology & Software | PrimusNeo',
     description: 'The governed coordination plane for AI-native software organizations.',
     url: '/industries/technology',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -53,7 +55,7 @@ const features = [
 ];
 
 const layers = [
-  { title: 'AMP Spatial OS', description: 'Architecture twin: services, agents, data pipelines, and infra rendered as one coordinated map — the &ldquo;platform engineering&rdquo; missing layer.' },
+  { title: 'AMP Spatial OS', description: 'Architecture twin: services, agents, data pipelines, and infra rendered as one coordinated map — the “platform engineering” missing layer.' },
   { title: 'NEOS Governance', description: 'Programmable release gates, contribution accounting, and revenue/credit splits for code, datasets, and agent runs.' },
   { title: 'AZOA Identity', description: 'Verifiable identity for every contributor, model, dataset, and agent — solving attribution, AI Act lineage, and supply-chain attestation in one move.' },
   { title: 'Fractal Engine', description: 'Cost, latency, quality, and reliability analytics across multi-model, multi-cloud, multi-team deployments.' },
@@ -61,7 +63,7 @@ const layers = [
 
 const useCase = {
   title: 'Governed AI & Developer Platform',
-  description: 'A scale-up running 30+ services across multiple clouds and model providers unifies them on PrimusNeo. NEOS gates releases and routes contribution credit; AZOA signs every model, dataset, and contributor; Fractal surfaces real cost and quality across the stack — turning platform engineering into a governed asset.',
+  description: 'A scale-up running 30+ services across multiple clouds and model providers would unify them on PrimusNeo. NEOS would gate releases and route contribution credit; AZOA would sign every model, dataset, and contributor; Fractal would surface real cost and quality across the stack, turning platform engineering into a governed asset.',
   outcomes: [
     'AI Act-ready model and data lineage by default',
     'Contributor attribution and credit at code/data granularity',
@@ -76,7 +78,7 @@ const sources = [
   { org: 'Varoufakis', year: '2023', title: 'Technofeudalism: What Killed Capitalism (overview)', href: 'https://chrishedges.substack.com/p/technofeudalism-what-killed-capitalism' },
   { org: 'Carlota Perez', year: 'ongoing', title: 'Technological Revolutions and Financial Capital — installation vs deployment', href: 'https://carlotaperez.org/publications/' },
   { org: 'Weyl, Ohlhaver & Buterin', year: '2022', title: 'Decentralized Society: Soulbound Tokens (DeSoc)', href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105763' },
-  { org: 'VentureBeat', year: '2025', title: 'Stanford&rsquo;s AI Index: 5 critical insights', href: 'https://venturebeat.com/ai/stanfords-ai-index-5-critical-insights-reshaping-enterprise-tech-strategy' },
+  { org: 'VentureBeat', year: '2025', title: 'Stanford’s AI Index: 5 critical insights', href: 'https://venturebeat.com/ai/stanfords-ai-index-5-critical-insights-reshaping-enterprise-tech-strategy' },
 ];
 
 export default function TechnologyIndustryPage() {
@@ -95,7 +97,7 @@ export default function TechnologyIndustryPage() {
       primaryCtaText="Brief our platform team"
     >
       <ContrarianInsight attribution="PrimusNeo — Tech Industry Brief">
-        The bottleneck in software stopped being compute and stopped being talent — it&rsquo;s now <em>coordination</em>. The companies that ship will be those that treat their architecture, their contributors, and their AI agents as governed first-class citizens of one operating system.
+        The bottleneck in software stopped being compute and stopped being talent — it’s now <em>coordination</em>. The companies that ship will be those that treat their architecture, their contributors, and their AI agents as governed first-class citizens of one operating system.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

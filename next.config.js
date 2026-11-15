@@ -45,6 +45,11 @@ const nextConfig = {
         destination: '/industries',
         statusCode: 301,
       },
+      {
+        source: '/rss.xml',
+        destination: '/feed.xml',
+        statusCode: 301,
+      },
     ];
   },
   typescript: {

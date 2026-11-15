@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Crumbs } from '@/app/_components/Crumbs';
 import { WritingNav } from '@/app/_components/WritingNav';
 import { getRoadmapLayer, roadmapLayers, type RoadmapStatus } from '@/content/roadmap';
 
@@ -46,6 +47,13 @@ export default async function RoadmapLayerPage({ params }: { params: Promise<{ s
   return (
     <main className="bg-ink text-paper">
       <article className="mx-auto max-w-[1600px] px-7 pb-24 pt-32">
+        <Crumbs
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/roadmap', label: 'Roadmap' },
+            { label: layer.name },
+          ]}
+        />
         <Link
           href="/roadmap"
           className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint hover:text-paper"

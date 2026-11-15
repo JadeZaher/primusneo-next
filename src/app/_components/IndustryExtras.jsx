@@ -14,9 +14,9 @@ export const ContrarianInsight = ({ children, attribution = 'PrimusNeo Industry 
         Contrarian Insight
       </div>
       <blockquote className="text-2xl font-medium leading-relaxed text-white md:text-4xl md:leading-[1.2]">
-        <span className="text-emerald-400">&ldquo;</span>
+        <span className="text-emerald-400">"</span>
         {children}
-        <span className="text-emerald-400">&rdquo;</span>
+        <span className="text-emerald-400">"</span>
       </blockquote>
       <div className="mt-8 text-xs font-bold uppercase tracking-[0.3em] text-emerald-300/70">
         — {attribution}

@@ -2,20 +2,35 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeroScene from './_components/3d/HeroScene';
+import { JsonLd } from './_components/JsonLd';
 import Reveal from './_components/Reveal';
 import LayerShowcase from './_components/LayerShowcase';
 import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem';
+import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
+import { pageMeta } from '@/lib/seo';
+
+const homeTitle = 'Federated Operational Infrastructure | PrimusNeo';
+const homeDescription =
+  'PrimusNeo builds local-first operational infrastructure, shared decision records, and verifiable execution — AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Live with Tie Town [TX].';
+
+const homeItems = [
+  { name: 'AMP', path: '/amp' },
+  { name: 'NEOS', path: '/governance-platform' },
+  { name: 'AZOA', path: '/azoa' },
+  { name: 'Fractal Engine', path: '/fractal-engine' },
+  { name: 'Elevate Impact', path: '/elevate-impact' },
+  { name: 'Industries', path: '/industries' },
+  { name: 'Guides', path: '/guides' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Newsroom', path: '/newsroom' },
+  { name: 'Papers', path: '/papers' },
+  { name: 'Contact', path: '/contact' },
+];
 
 export const metadata = {
-  title: 'Federated Operational Infrastructure',
-  description:
-    'PrimusNeo builds local-first operational infrastructure, shared decision records, and verifiable execution — AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Live with Tie Town [TX].',
-  alternates: {
-    canonical: '/',
-    types: {
-      'application/rss+xml': '/feed.xml',
-    },
-  },
+  title: { absolute: homeTitle },
+  description: homeDescription,
+  ...pageMeta({ title: homeTitle, description: homeDescription, path: '/', rss: true }),
 };
 
 const tickerItems =
@@ -90,6 +105,17 @@ const SecondaryCta = ({ href, children }: { href: string; children: React.ReactN
 const Home = () => {
   return (
     <div className="bg-ink text-paper selection:bg-accent selection:text-white">
+      <JsonLd
+        data={graph(
+          collectionNode({
+            name: 'PrimusNeo',
+            description: homeDescription,
+            path: '/',
+            items: homeItems,
+          }),
+          breadcrumbList([{ name: 'Home', path: '/' }]),
+        )}
+      />
       {/* Hero — WebGL timeline collapse over a digital-twin ground grid */}
       <section className="relative h-svh min-h-[680px] overflow-hidden bg-ink">
         <HeroScene className="absolute inset-0 h-full w-full" />
@@ -103,7 +129,7 @@ const Home = () => {
           </h1>
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
             <p className="max-w-[56ch] text-[17px] leading-relaxed text-mist">
-              Operational software shouldn&rsquo;t break when two organizations share a workflow or a SaaS vendor
+              Operational software shouldn't break when two organizations share a workflow or a SaaS vendor
               disappears five years in. PrimusNeo builds local-first coordination, verifiable records, and durable
               execution tested against real physical stakes in Tie Town, Texas—starting with systems where state stays
               legible under your own custody.
@@ -143,7 +169,7 @@ const Home = () => {
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-10 max-w-[58ch] text-[17px] leading-relaxed text-mist">
-                Most projects don&rsquo;t fail because a single service crashed—they fail when a SaaS export strips
+                Most projects don't fail because a single service crashed—they fail when a SaaS export strips
                 field metadata, a webhook retries twice without an idempotency boundary, or a 99-year land trust loses
                 why a council made a rule five years ago. PrimusNeo separates runtime, agreements, settlement, and
                 organizational memory so every layer can be audited and kept under your own custody.

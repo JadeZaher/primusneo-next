@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Crumbs } from "../_components/Crumbs";
 import { JsonLd } from "../_components/JsonLd";
 import { WritingNav } from "../_components/WritingNav";
 import { papers } from "@/content/papers";
@@ -66,6 +67,7 @@ export default function PapersPage() {
         )}
       />
       <header className="mx-auto max-w-[1600px] px-7 pt-32 pb-16 md:pt-40">
+        <Crumbs items={[{ href: "/", label: "Home" }, { label: "Papers" }]} />
         <div className="text-faint font-mono text-[11px] tracking-[0.22em] uppercase">
           Papers
         </div>

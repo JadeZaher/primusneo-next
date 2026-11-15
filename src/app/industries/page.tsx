@@ -7,7 +7,10 @@ import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 export const metadata = {
   title: 'Industries — Sector-by-Sector Implementation',
   description: 'Ten industries, one coordination layer. The figures on these pages are other people’s, with the links left on. We did not invent a market.',
-  alternates: { canonical: '/industries' },
+  alternates: {
+    canonical: '/industries',
+    types: { 'application/rss+xml': '/feed.xml' },
+  },
   openGraph: {
     title: 'Industries | PrimusNeo',
     description: 'Ten industries, one coordination layer. The figures on these pages are other people’s, with the links left on. We did not invent a market.',

@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Energy & Utilities | PrimusNeo',
     description: 'The operating system for grid-edge coordination and verified green.',
     url: '/industries/energy',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -61,7 +63,7 @@ const layers = [
 
 const useCase = {
   title: 'Grid-Edge Coordination & Verified Green',
-  description: 'A utility unifies substation telemetry, DER inverters, and EV chargers on PrimusNeo&rsquo;s twin. NEOS dispatches flexibility under verified community-benefit rules; AZOA issues per-MWh provenance that satisfies CBAM, RE100 buyers, and green-bond covenants.',
+  description: 'A utility would unify substation telemetry, DER inverters, and EV chargers on PrimusNeo’s twin. NEOS would dispatch flexibility under verified community-benefit rules; AZOA would issue per-MWh provenance that satisfies CBAM, RE100 buyers, and green-bond covenants.',
   outcomes: [
     'DER visibility from substation to inverter',
     'Cryptographically verifiable green energy attributes',

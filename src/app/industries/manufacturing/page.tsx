@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Manufacturing & Industrial Production | PrimusNeo',
     description: 'Escape pilot purgatory. Run your plants on one governed twin tying OEE, ESG, and capex into a single contextualized layer.',
     url: '/industries/manufacturing',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -54,13 +56,13 @@ const features = [
 const layers = [
   { title: 'AMP Spatial OS', description: 'Plant-floor digital twin combining CAD, PLC telemetry, MES events, and worker location — the contextualized data layer Industry 4.0 pilots keep failing to build.' },
   { title: 'NEOS Governance', description: 'Programmable approval flows for change control, MOC, supplier qualification, and shop-floor lockout/tagout — replacing email + spreadsheet audit trails.' },
-  { title: 'AZOA Identity', description: 'Cross-tier supplier identity so a casting from a tier-3 forge carries verified mill, ESG, and conflict-mineral attestations into the OEM&rsquo;s MES.' },
+  { title: 'AZOA Identity', description: 'Cross-tier supplier identity so a casting from a tier-3 forge carries verified mill, ESG, and conflict-mineral attestations into the OEM’s MES.' },
   { title: 'Fractal Engine', description: 'Predictive OEE, energy intensity, scrap, and downtime modeling tied to live spatial events, not month-end reports.' },
 ];
 
 const useCase = {
   title: 'Multi-Plant OEE Governance',
-  description: 'A discrete manufacturer with 12 plants unifies MES, PLC, and energy telemetry on PrimusNeo&rsquo;s twin. OEE, scrap, and Scope 3 emissions flow into NEOS-governed capex committees, replacing 8-pilot purgatory with one operating system that scales across the network.',
+  description: 'A discrete manufacturer with 12 plants would unify MES, PLC, and energy telemetry on PrimusNeo’s twin. OEE, scrap, and Scope 3 emissions would flow into NEOS-governed capex committees, replacing 8-pilot purgatory with one operating system that scales across the network.',
   outcomes: [
     'IT/OT last-mile resolved across 12 plants',
     'OEE lift visible in the same model used by operators',
@@ -72,7 +74,7 @@ const useCase = {
 const sources = [
   { org: 'UNIDO', year: '2024', title: 'World Manufacturing Production Q4 2024', href: 'https://stat.unido.org/portal/storage/file/publications/qiip/World_Manufacturing_Production_2024_Q4.pdf' },
   { org: 'McKinsey', year: '2018', title: 'How digital manufacturing can escape pilot purgatory', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/how-digital-manufacturing-can-escape-pilot-purgatory' },
-  { org: 'McKinsey', year: '2024', title: 'It&rsquo;s the last IT/OT mile that matters', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/operations-blog/its-the-last-it-ot-mile-that-matters-in-avoiding-industry-40s-pilot-purgatory' },
+  { org: 'McKinsey', year: '2024', title: 'It’s the last IT/OT mile that matters', href: 'https://www.mckinsey.com/capabilities/operations/our-insights/operations-blog/its-the-last-it-ot-mile-that-matters-in-avoiding-industry-40s-pilot-purgatory' },
   { org: 'Acemoglu & Johnson (MIT)', year: '2023', title: 'Power and Progress — technology, governance, and shared prosperity', href: 'https://shapingwork.mit.edu/power-and-progress/' },
   { org: 'Mazzucato (UCL IIPP)', year: '2021', title: 'Mission Economy — mission-led industrial policy', href: 'https://marianamazzucato.com/books/mission-economy' },
 ];
@@ -93,7 +95,7 @@ export default function ManufacturingIndustryPage() {
       primaryCtaText="Book a plant assessment"
     >
       <ContrarianInsight attribution="PrimusNeo — Manufacturing Brief">
-        Industry 4.0 didn&rsquo;t fail — it just hit a coordination wall no point solution can solve. The advantage goes to whoever owns the <em>contextualized</em> data layer, not the sensors.
+        Industry 4.0 didn’t fail — it just hit a coordination wall no point solution can solve. The advantage goes to whoever owns the <em>contextualized</em> data layer, not the sensors.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>
