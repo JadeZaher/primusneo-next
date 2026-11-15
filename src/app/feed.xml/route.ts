@@ -1,8 +1,12 @@
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { guides } from '@/content/guides';
+import { industryPages } from '@/content/industries';
 import { newsItems } from '@/content/news';
 import { papers } from '@/content/papers';
+
+/** The date printed on the industry pages. Not a launch day. */
+const INDUSTRY_REVIEWED = '2026-11-10';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
@@ -48,6 +52,12 @@ export function GET() {
       date: guide.publishedAt,
       description: guide.excerpt,
     })),
+    ...industryPages.map((industry) => ({
+      title: industry.title,
+      href: `/industries/${industry.slug}`,
+      date: INDUSTRY_REVIEWED,
+      description: 'Sector note. The figures on the page are other people’s, with the links left on.',
+    })),
   ].sort((a, b) => b.date.localeCompare(a.date));
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -55,7 +65,7 @@ export function GET() {
   <channel>
     <title>PrimusNeo</title>
     <link>${SITE_URL}</link>
-    <description>Builder notes, field guides, papers, newsroom items, and labeled speculation.</description>
+    <description>Builder notes, field guides, industry pages, papers, newsroom items, and labeled speculation.</description>
     <language>en-us</language>
     ${items
       .map(

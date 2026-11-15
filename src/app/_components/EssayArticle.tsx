@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Crumbs } from '@/app/_components/Crumbs';
 import { JsonLd } from '@/app/_components/JsonLd';
 import { Inlines, PieceClose, ProseBlockView } from '@/app/_components/Prose';
 import type { Essay, EssayLink } from '@/content/essays';
@@ -66,6 +67,13 @@ export function EssayArticle({ essay }: { essay: Essay }) {
     <main className="bg-ink text-paper">
       <JsonLd data={jsonLd} />
       <article className="mx-auto max-w-[1600px] px-7 pt-32 pb-24">
+        <Crumbs
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/blog', label: 'Blog' },
+            { label: essay.title },
+          ]}
+        />
         <Link
           href="/blog"
           className="text-faint hover:text-paper font-mono text-[11px] tracking-[0.18em] uppercase transition-colors"
@@ -86,17 +94,20 @@ export function EssayArticle({ essay }: { essay: Essay }) {
               {essay.dek}
             </p>
           ) : null}
-          <time
-            dateTime={essay.publishedAt}
-            className="text-faint mt-8 block font-mono text-[11px] tracking-[0.18em] uppercase"
-          >
-            {new Date(essay.publishedAt).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              timeZone: 'UTC',
-            })}
-          </time>
+          <p className="text-faint mt-8 font-mono text-[11px] tracking-[0.18em] uppercase">
+            Escherbridge
+            <span className="px-2" aria-hidden="true">
+              ·
+            </span>
+            <time dateTime={essay.publishedAt}>
+              {new Date(essay.publishedAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                timeZone: 'UTC',
+              })}
+            </time>
+          </p>
         </header>
 
         <div className="text-mist mt-16 max-w-[68ch] text-[18px] leading-[1.65]">

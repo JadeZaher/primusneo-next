@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Crumbs } from '@/app/_components/Crumbs';
 import { JsonLd } from '@/app/_components/JsonLd';
 import { PieceClose, ProseBlockView } from '@/app/_components/Prose';
 import type { EssaySource, ProseBlock } from '@/content/essays';
@@ -37,6 +38,13 @@ export function EntryArticle({
     <main className="bg-ink text-paper">
       <JsonLd data={jsonLd} />
       <article className="mx-auto max-w-[1600px] px-7 pt-32 pb-24">
+        <Crumbs
+          items={[
+            { href: '/', label: 'Home' },
+            { href: sectionHref, label: sectionLabel },
+            { label: title },
+          ]}
+        />
         <Link
           href={sectionHref}
           className="text-faint hover:text-paper font-mono text-[11px] tracking-[0.18em] uppercase transition-colors"
@@ -50,17 +58,20 @@ export function EntryArticle({
           <h1 className="mt-4 text-[clamp(40px,6vw,88px)] leading-[0.98] font-medium tracking-[-0.035em] text-balance">
             {title}
           </h1>
-          <time
-            dateTime={date}
-            className="text-faint mt-8 block font-mono text-[11px] tracking-[0.18em] uppercase"
-          >
-            {new Date(date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-              timeZone: 'UTC',
-            })}
-          </time>
+          <p className="text-faint mt-8 font-mono text-[11px] tracking-[0.18em] uppercase">
+            Escherbridge
+            <span className="px-2" aria-hidden="true">
+              ·
+            </span>
+            <time dateTime={date}>
+              {new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                timeZone: 'UTC',
+              })}
+            </time>
+          </p>
         </header>
         {banner ? (
           <p className="text-accent mt-10 max-w-[62ch] border border-white/15 px-5 py-4 font-mono text-[12px] tracking-[0.14em] uppercase">

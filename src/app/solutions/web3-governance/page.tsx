@@ -1,9 +1,18 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
+const solutionTitle = 'Web3 & DAO Governance';
+const solutionDescription = 'Scale your DAO or Web3 organization with NEOS-backed decision trails, holonic team structures, and contribution accounting. Governance that works for the real world.';
+
 export const metadata = {
-  title: 'Web3 & DAO Governance',
-  description: 'Scale your DAO or Web3 organization with NEOS-backed decision trails, holonic team structures, and contribution accounting. Governance that works for the real world.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/web3-governance',
+  }),
 };
 
 const Web3GovernancePage = () => {

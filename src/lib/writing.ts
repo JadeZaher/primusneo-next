@@ -12,6 +12,8 @@ export type WritingCard = {
   publishedAt: string;
   href: string;
   kind: 'essay' | 'post' | 'news';
+  /** Essay kicker. Sanity rows do not have one. */
+  topic?: string;
   sourceName?: string;
   isAiGenerated?: boolean;
 };
@@ -36,6 +38,7 @@ export function essayCards(): WritingCard[] {
     publishedAt: essay.publishedAt,
     href: `/blog/${essay.slug}`,
     kind: 'essay',
+    topic: essay.kicker,
   }));
 }
 

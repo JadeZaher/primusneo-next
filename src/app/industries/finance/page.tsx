@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Finance & Investing | PrimusNeo',
     description: 'Where capital markets meet the real-world asset, live.',
     url: '/industries/finance',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -52,7 +54,7 @@ const features = [
 ];
 
 const layers = [
-  { title: 'AMP Spatial OS', description: 'Real-world asset twin — a building&rsquo;s occupancy, a wind farm&rsquo;s output, a port&rsquo;s throughput — directly readable by the security backing it.' },
+  { title: 'AMP Spatial OS', description: 'Real-world asset twin — a building’s occupancy, a wind farm’s output, a port’s throughput — directly readable by the security backing it.' },
   { title: 'NEOS Governance', description: 'Programmable cap tables, covenants, waterfalls, and LP voting that execute on verified asset performance, not quarterly PDFs.' },
   { title: 'AZOA Identity', description: 'Portable investor, issuer, and counterparty identity — one KYC, every venue, with selective disclosure.' },
   { title: 'Fractal Engine', description: 'Cross-asset risk, NAV, and ESG analytics drawn from spatial + financial data — for allocators, auditors, and regulators.' },
@@ -60,7 +62,7 @@ const layers = [
 
 const useCase = {
   title: 'Institutional RWA Issuance & Servicing',
-  description: 'An asset manager issues a tokenized infrastructure fund on PrimusNeo. Each underlying asset has a live twin; NEOS automates distributions on verified performance; AZOA handles investor identity once across all venues — collapsing operational cost into the same model that issues the security.',
+  description: 'An asset manager would issue a tokenized infrastructure fund on PrimusNeo. Each underlying asset would have a live twin; NEOS would automate distributions on verified performance; AZOA would handle investor identity once across venues, collapsing operational cost into the same model that issues the security.',
   outcomes: [
     'Distribution waterfalls execute on verified twin signals',
     'One KYC across global investor base',
@@ -92,7 +94,7 @@ export default function FinanceIndustryPage() {
       primaryCtaText="Talk to capital markets"
     >
       <ContrarianInsight attribution="PrimusNeo — Capital Markets Brief">
-        The &ldquo;tokenization&rdquo; thesis isn&rsquo;t about putting old assets on new rails — it&rsquo;s about putting <em>real-world signals</em> directly inside the security. Funds that can underwrite a building or a wind farm against its live twin will out-allocate funds still reading quarterly statements.
+        The “tokenization” thesis isn’t about putting old assets on new rails — it’s about putting <em>real-world signals</em> directly inside the security. Funds that can underwrite a building or a wind farm against its live twin will out-allocate funds still reading quarterly statements.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

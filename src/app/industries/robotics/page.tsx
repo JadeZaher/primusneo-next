@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Robotics & Autonomous Systems | PrimusNeo',
     description: 'The coordination protocol for every robot that shares physical space.',
     url: '/industries/robotics',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -27,7 +29,7 @@ const stats = [
 const challenges = [
   {
     title: 'Protocol Fragmentation',
-    description: 'Every major OEM (ABB, Kuka, Comau, Fanuc) runs proprietary languages and stacks; multi-vendor fleets can&rsquo;t coordinate without expensive bespoke integration.',
+    description: 'Every major OEM (ABB, Kuka, Comau, Fanuc) runs proprietary languages and stacks; multi-vendor fleets can’t coordinate without expensive bespoke integration.',
     metric: '0',
     metricLabel: 'universal interop standard [EU JRC]',
   },
@@ -48,7 +50,7 @@ const challenges = [
 const features = [
   { eyebrow: 'Operations', title: 'Vendor-Neutral Fleet Coordination', description: 'AMP + Fractal give multi-OEM fleets a shared spatial layer above ROS, NVIDIA Isaac, and proprietary stacks.' },
   { eyebrow: 'Capital', title: 'Insurable Autonomy', description: 'NEOS + AZOA produce signed decision trails that underwriters, regulators, and operators can read post-incident.' },
-  { eyebrow: 'Trust', title: 'Right-of-Way Governance', description: 'NEOS programs shared rules of the road (warehouse aisle, hospital corridor, sidewalk) that every vendor&rsquo;s robot must respect.' },
+  { eyebrow: 'Trust', title: 'Right-of-Way Governance', description: 'NEOS programs shared rules of the road (warehouse aisle, hospital corridor, sidewalk) that every vendor’s robot must respect.' },
 ];
 
 const layers = [
@@ -60,7 +62,7 @@ const layers = [
 
 const useCase = {
   title: 'Mixed-Fleet Site Operating System',
-  description: 'A warehouse operator running AMRs from three vendors, ABB arms, and Boston Dynamics quadrupeds unifies them on PrimusNeo&rsquo;s spatial OS. NEOS enforces right-of-way; AZOA signs every decision; Fractal predicts deadlocks before they happen.',
+  description: 'A warehouse operator running AMRs from three vendors, ABB arms, and Boston Dynamics quadrupeds would unify them on PrimusNeo’s spatial OS. NEOS would enforce right-of-way; AZOA would sign every decision; Fractal would predict deadlocks before they happen.',
   outcomes: [
     'Vendor lock-in eliminated across robot fleet',
     'Insurable, signed decision trail per agent',
@@ -93,7 +95,7 @@ export default function RoboticsIndustryPage() {
       primaryCtaText="Coordinate a fleet"
     >
       <ContrarianInsight attribution="PrimusNeo — Robotics Brief">
-        The robotics industry is repeating PC-era format wars while shipping into shared physical space. The winner won&rsquo;t be a robot maker — it&rsquo;ll be whoever owns the coordination layer between them, the same way TCP/IP ate the proprietary networks.
+        The robotics industry is repeating PC-era format wars while shipping into shared physical space. The winner won’t be a robot maker — it’ll be whoever owns the coordination layer between them, the same way TCP/IP ate the proprietary networks.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

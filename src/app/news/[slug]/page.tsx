@@ -4,6 +4,8 @@ import { client } from "@/lib/sanity/client";
 import { NEWS_ITEM_QUERY } from "@/lib/sanity/queries";
 import type { News } from "@/lib/sanity/types";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Crumbs } from "@/app/_components/Crumbs";
 import { JsonLd } from "@/app/_components/JsonLd";
 import { articleNode, breadcrumbList, graph } from "@/lib/jsonld";
 
@@ -49,16 +51,7 @@ export default async function NewsItemPage({
   const resolvedParams = await params;
   const newsItem = await client.fetch<News | null>(NEWS_ITEM_QUERY, resolvedParams, options);
   
-  if (!newsItem) {
-    return (
-      <main className="container mx-auto min-h-screen max-w-3xl p-8">
-        <Link href="/blog" className="hover:underline">
-          Back to updates
-        </Link>
-        <h1 className="text-4xl font-bold mb-8">News item not found</h1>
-      </main>
-    );
-  }
+  if (!newsItem) notFound();
 
   const path = `/news/${newsItem.slug.current}`;
   const articleJsonLd = graph(
@@ -81,11 +74,18 @@ export default async function NewsItemPage({
   return (
     <main className="container mx-auto min-h-screen max-w-4xl pt-32 pb-16 px-8">
       <JsonLd data={articleJsonLd} />
+      <Crumbs
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/newsroom", label: "Newsroom" },
+          { label: newsItem.title },
+        ]}
+      />
       <Link
-        href="/blog"
+        href="/newsroom"
         className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-8"
       >
-        ← Back to updates
+        ← Newsroom
       </Link>
 
       <article className="prose prose-invert prose-lg max-w-none">
@@ -96,13 +96,18 @@ export default async function NewsItemPage({
                 AI Curated
               </span>
             )}
-            <time className="text-muted-foreground text-lg">
-              {new Date(newsItem.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </time>
+            <p className="text-muted-foreground text-lg">
+              Escherbridge
+              {" · "}
+              <time dateTime={newsItem.publishedAt}>
+                {new Date(newsItem.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  timeZone: 'UTC',
+                })}
+              </time>
+            </p>
           </div>
           <h1 className="text-5xl font-bold mb-6 leading-tight text-glow">{newsItem.title}</h1>
           

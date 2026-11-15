@@ -10,7 +10,9 @@ export const metadata = {
     title: 'Agriculture & Food Systems | PrimusNeo',
     description: 'Banking, provenance, and yield — on one field-to-fork model.',
     url: '/industries/agriculture',
-    type: 'website',
+    type: 'article',
+    publishedTime: '2026-11-10',
+    modifiedTime: '2026-11-10',
   },
   twitter: {
     card: 'summary_large_image',
@@ -62,7 +64,7 @@ const layers = [
 
 const useCase = {
   title: 'EUDR-Compliant Origin Network',
-  description: 'A coffee or cocoa exporter onboards 50,000 smallholders onto PrimusNeo. Each plot is mapped, each harvest signed, each shipment carries a verifiable deforestation-free passport — unlocking EU market access and ~$170B of latent smallholder finance.',
+  description: 'A coffee or cocoa exporter would onboard 50,000 smallholders onto PrimusNeo. Each plot would be mapped, each harvest signed, each shipment would carry a verifiable deforestation-free passport, aimed at EU market access and the ~$170B of latent smallholder finance already cited on this page.',
   outcomes: [
     'Plot-level EUDR / CSRD compliance, audit-ready',
     'Smallholder credit history bankable by lenders',
@@ -97,7 +99,7 @@ export default function AgricultureIndustryPage() {
       primaryCtaText="Talk to agrifood team"
     >
       <ContrarianInsight attribution="PrimusNeo — Agriculture Brief">
-        Agriculture&rsquo;s productivity ceiling isn&rsquo;t agronomic — it&rsquo;s coordination. The smallholders feeding a third of the planet are the world&rsquo;s largest unbanked, unverified production network. Whoever gives them identity wins the next farm bill.
+        Agriculture’s productivity ceiling isn’t agronomic — it’s coordination. The smallholders feeding a third of the planet are the world’s largest unbanked, unverified production network. Whoever gives them identity wins the next farm bill.
       </ContrarianInsight>
       <IndustrySources sources={sources} />
     </SolutionTemplate>

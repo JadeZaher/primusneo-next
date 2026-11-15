@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Crumbs } from '../_components/Crumbs';
 import { WritingNav } from '../_components/WritingNav';
 import { roadmapLayers, type RoadmapStatus } from '@/content/roadmap';
 
@@ -31,6 +32,7 @@ export default function RoadmapPage() {
   return (
     <main className="bg-ink text-paper">
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
+        <Crumbs items={[{ href: '/', label: 'Home' }, { label: 'Roadmap' }]} />
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Roadmap</div>
         <h1 className="mt-5 max-w-[14ch] text-balance text-[clamp(48px,7vw,112px)] font-medium leading-[0.94] tracking-[-0.04em]">
           Now, next, later. No calendar.

@@ -1,10 +1,19 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
+const solutionTitle = 'Smart Infrastructure & IoT';
+const solutionDescription = 'Connect physical assets with digital intelligence. Manage smart cities, industrial IoT, and decentralized infrastructure with real-time spatial OS and digital twins.';
+
 export const metadata = {
-  title: 'Smart Infrastructure & IoT',
-  description: 'Connect physical assets with digital intelligence. Manage smart cities, industrial IoT, and decentralized infrastructure with real-time spatial OS and digital twins.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/smart-infrastructure',
+  }),
 };
 
 const SmartInfrastructurePage = () => {

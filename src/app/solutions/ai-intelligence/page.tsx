@@ -1,10 +1,19 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
+const solutionTitle = 'AI & Spatial Intelligence';
+const solutionDescription = 'Break through the $1B training barrier and resolve the data silo crisis. PrimusNeo provides the federated infrastructure for Large World Models and Physical AI.';
+
 export const metadata = {
-  title: 'AI & Spatial Intelligence',
-  description: 'Break through the $1B training barrier and resolve the data silo crisis. PrimusNeo provides the federated infrastructure for Large World Models and Physical AI.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/ai-intelligence',
+  }),
 };
 
 const AIIntelligencePage = () => {

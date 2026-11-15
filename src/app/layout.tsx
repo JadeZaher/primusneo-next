@@ -89,7 +89,14 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    images: ['/images/ampheader.png'],
+    images: [
+      {
+        url: '/images/ampheader.png',
+        width: 1200,
+        height: 630,
+        alt: 'PrimusNeo — Federated Operational Infrastructure',
+      },
+    ],
   },
   manifest: '/manifest.json',
   robots: {

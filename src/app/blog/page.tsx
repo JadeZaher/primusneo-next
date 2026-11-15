@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Crumbs } from '../_components/Crumbs';
 import { JsonLd } from '../_components/JsonLd';
 import { WritingNav } from '../_components/WritingNav';
 import { loadWritingIndex } from '@/lib/writing';
@@ -31,8 +32,18 @@ const kindLabel = {
   news: 'News',
 } as const;
 
-export default async function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ topic?: string }>;
+}) {
+  const { topic } = await searchParams;
   const items = await loadWritingIndex();
+  const topics = [...new Set(items.flatMap((item) => (item.topic ? [item.topic] : [])))].sort((a, b) =>
+    a.localeCompare(b),
+  );
+  const active = topic && topics.includes(topic) ? topic : undefined;
+  const shown = active ? items.filter((item) => item.topic === active) : items;
 
   return (
     <main className="bg-ink text-paper">
@@ -42,7 +53,7 @@ export default async function BlogPage() {
             name: 'Blog',
             description: 'Builder notes and op-eds, with the footnotes attached.',
             path: '/blog',
-            items: items.map((item) => ({ name: item.title, path: item.href })),
+            items: shown.map((item) => ({ name: item.title, path: item.href })),
           }),
           breadcrumbList([
             { name: 'Home', path: '/' },
@@ -51,6 +62,7 @@ export default async function BlogPage() {
         )}
       />
       <header className="mx-auto max-w-[1600px] px-7 pb-16 pt-32 md:pt-40">
+        <Crumbs items={[{ href: '/', label: 'Home' }, { label: 'Blog' }]} />
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">Engineering Blog</div>
         <h1 className="mt-5 max-w-[14ch] text-balance text-[clamp(48px,7vw,104px)] font-medium leading-[0.94] tracking-[-0.04em]">
           How systems break—and what holds state.
@@ -75,11 +87,32 @@ export default async function BlogPage() {
           </Link>
         </div>
         <WritingNav current="/blog" />
+        <nav aria-label="Topics" className="mt-8 flex flex-wrap gap-x-4 gap-y-2">
+          <Link
+            href="/blog"
+            aria-current={active ? undefined : 'page'}
+            className={`font-mono text-[11px] uppercase tracking-[0.16em] ${active ? 'text-faint hover:text-paper' : 'text-accent'}`}
+          >
+            All
+          </Link>
+          {topics.map((label) => (
+            <Link
+              key={label}
+              href={`/blog?topic=${encodeURIComponent(label)}`}
+              aria-current={active === label ? 'page' : undefined}
+              className={`font-mono text-[11px] uppercase tracking-[0.16em] ${
+                active === label ? 'text-accent' : 'text-faint hover:text-paper'
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
       </header>
 
       <section className="mx-auto max-w-[1600px] border-t border-white/10 px-7">
-        {items.length > 0 ? (
-          items.map((item, index) => (
+        {shown.length > 0 ? (
+          shown.map((item, index) => (
             <Link
               key={item.id}
               href={item.href}
@@ -98,7 +131,7 @@ export default async function BlogPage() {
               </div>
               <div>
                 <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
-                  {kindLabel[item.kind]}
+                  {item.topic ?? kindLabel[item.kind]}
                   {item.isAiGenerated ? ' · AI curated' : ''}
                   {item.sourceName ? ` · ${item.sourceName}` : ''}
                 </div>
@@ -110,7 +143,7 @@ export default async function BlogPage() {
             </Link>
           ))
         ) : (
-          <p className="py-20 text-mist">Nothing on the desk yet.</p>
+          <p className="py-20 text-mist">{active ? 'Nothing filed under that label.' : 'Nothing on the desk yet.'}</p>
         )}
       </section>
     </main>

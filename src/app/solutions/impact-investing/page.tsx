@@ -1,10 +1,19 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 import { PartnerNote, PARTNERS } from '../../_components/IndustryExtras';
 
+const solutionTitle = 'Impact Investing';
+const solutionDescription = 'Verify real-world outcomes and resolve the greenwashing crisis. PrimusNeo provides the federated infrastructure for transparent, data-driven impact investing.';
+
 export const metadata = {
-  title: 'Impact Investing',
-  description: 'Verify real-world outcomes and resolve the greenwashing crisis. PrimusNeo provides the federated infrastructure for transparent, data-driven impact investing.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/impact-investing',
+  }),
 };
 
 const ImpactInvestingPage = () => {

@@ -9,7 +9,14 @@ import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
-const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']; priority: number }[] = [
+const INDUSTRY_REVIEWED = '2026-11-10';
+
+const staticRoutes: {
+  path: string;
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
+  priority: number;
+  lastModified?: string;
+}[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1.0 },
   { path: '/one-pager', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/amp', changeFrequency: 'monthly', priority: 0.9 },
@@ -41,17 +48,17 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: '/solutions/institutional-investment', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/solutions/developer-ecosystems', changeFrequency: 'monthly', priority: 0.8 },
   // Industries pillar
-  { path: '/industries', changeFrequency: 'monthly', priority: 0.9 },
-  { path: '/industries/construction', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/manufacturing', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/agriculture', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/robotics', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/energy', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/governance', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/finance', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/technology', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/healthcare', changeFrequency: 'monthly', priority: 0.8 },
-  { path: '/industries/logistics', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/industries', changeFrequency: 'monthly', priority: 0.9, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/construction', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/manufacturing', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/agriculture', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/robotics', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/energy', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/governance', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/finance', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/technology', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/healthcare', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
+  { path: '/industries/logistics', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
 ];
 
 const POSTS_SITEMAP_QUERY = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`;
@@ -72,12 +79,11 @@ async function fetchSanitySlugs(): Promise<{ posts: SanitySlugRow[]; news: Sanit
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const { posts, news } = await fetchSanitySlugs();
 
-  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(({ path, changeFrequency, priority }) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map(({ path, changeFrequency, priority, lastModified }) => ({
     url: `${SITE_URL}${path}`,
-    lastModified: now,
+    ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
     changeFrequency,
     priority,
   }));
@@ -93,8 +99,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter(({ slug }) => !essays.some((essay) => essay.slug === slug))
     .map(({ slug, updatedAt }) => ({
       url: `${SITE_URL}/blog/${slug}`,
-      lastModified: updatedAt ? new Date(updatedAt) : now,
-      changeFrequency: 'weekly',
+      ...(updatedAt ? { lastModified: new Date(updatedAt) } : {}),
+      changeFrequency: 'weekly' as const,
       priority: 0.6,
     }));
 
@@ -107,7 +113,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const roadmapEntries: MetadataRoute.Sitemap = roadmapLayers.map((layer) => ({
     url: `${SITE_URL}/roadmap/${layer.slug}`,
-    lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: 0.5,
   }));
@@ -148,8 +153,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const newsEntries: MetadataRoute.Sitemap = news.map(({ slug, updatedAt }) => ({
     url: `${SITE_URL}/news/${slug}`,
-    lastModified: updatedAt ? new Date(updatedAt) : now,
-    changeFrequency: 'weekly',
+    ...(updatedAt ? { lastModified: new Date(updatedAt) } : {}),
+    changeFrequency: 'weekly' as const,
     priority: 0.6,
   }));
 

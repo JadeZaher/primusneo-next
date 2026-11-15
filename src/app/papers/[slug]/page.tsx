@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Crumbs } from "@/app/_components/Crumbs";
 import { JsonLd } from "@/app/_components/JsonLd";
 import { WritingNav } from "@/app/_components/WritingNav";
 import { getPaper, papers, type PaperLink } from "@/content/papers";
@@ -128,6 +129,13 @@ export default async function PaperPage({
       />
 
       <header className="mx-auto max-w-[1600px] px-7 pt-32 pb-12 md:pt-40">
+        <Crumbs
+          items={[
+            { href: "/", label: "Home" },
+            { href: "/papers", label: "Papers" },
+            { label: paper.title },
+          ]}
+        />
         <Link
           href="/papers"
           className="text-faint hover:text-paper font-mono text-[11px] tracking-[0.18em] uppercase transition-colors"
@@ -144,7 +152,9 @@ export default async function PaperPage({
           {paper.dek}
         </p>
         <p className="text-faint mt-6 font-mono text-[11px] tracking-[0.16em] uppercase">
-          {when}
+          Escherbridge
+          {" · "}
+          <time dateTime={paper.publishedAt}>{when}</time>
           {" · "}
           {paper.pages} pages
           {paper.format ? ` · ${paper.format}` : ""}

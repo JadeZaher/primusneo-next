@@ -1,9 +1,18 @@
 import React from 'react';
+import { pageMeta } from '@/lib/seo';
 import { SolutionTemplate } from '../../_components/SolutionTemplate';
 
+const solutionTitle = 'Real Estate & Property Development';
+const solutionDescription = 'Transform property development with digital twins, spatial intelligence, and governed asset management. Coordinate construction, operations, and fractional ownership on one platform.';
+
 export const metadata = {
-  title: 'Real Estate & Property Development',
-  description: 'Transform property development with digital twins, spatial intelligence, and governed asset management. Coordinate construction, operations, and fractional ownership on one platform.',
+  title: solutionTitle,
+  description: solutionDescription,
+  ...pageMeta({
+    title: `${solutionTitle} | PrimusNeo`,
+    description: solutionDescription,
+    path: '/solutions/real-estate',
+  }),
 };
 
 const RealEstatePage = () => {
