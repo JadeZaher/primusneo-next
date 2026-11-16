@@ -85,9 +85,8 @@ const Footer = () => {
             PRIMUS—NEO<span className="text-accent">.</span>
           </div>
           <p className="mt-4 max-w-[34ch] text-sm leading-relaxed text-mist">
-            Federated operational infrastructure for real-world environments —
-            AMP, NEOS, AZOA, and Fractal Engine in one governed stack, with
-            Elevate Impact for research.
+            The technology innovation lab for organizations that want clear structure, less friction, real insight and
+            oversight they can trust. AMP, NEOS, AZOA and Fractal Engine, with Elevate Impact for research.
           </p>
         </div>
         {columns.map((column) => (
