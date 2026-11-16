@@ -27,7 +27,7 @@ export const newsItems: NewsItem[] = [
     paragraphs: [
       'On 10 November 2026 the marketing site on main changed its front door. The line is “Many timelines. One line.” The lab steps are on the page. The layer names match the ones we actually use: AMP for the operational runtime, NEOS for agreements and permissions, AZOA for identity, consent, and settlement, Fractal Engine for organizational memory, Elevate Impact for research enablement.',
       'The long notes are TypeScript in the repo, rendered next to anything the Sanity studio already holds. They cite public sources. They also say where our own software is alpha, including the parts that are not finished.',
-      'Tie Town, in McDade, Texas, is still the first live deployment. That was true before this change. The footer now uses that site’s coordinates, 30.28°N / 97.24°W.',
+      'Tie Town, in McDade, Texas, is still the first live site. That was true before this change. The footer now uses that site’s coordinates, 30.28°N / 97.24°W.',
     ],
     links: [
       { label: 'The notes', href: '/blog' },
@@ -133,7 +133,7 @@ export const newsItems: NewsItem[] = [
     paragraphs: [
       'On 4 November 2026 the NEOS governance platform repository recorded a deployed public introduction, and an About-navigation follow-up. The same day it recorded a verified member tutorial rollout. Those are commit messages, not a press tour. They mean the platform repo is tracking a deployment, not a slide.',
       'On our site, NEOS is agreements and permissions. The operating-system repository is the skill stack: agreements written down, authority that is scoped and expires, and decisions by advice, consent, and a reversible test. Tie Town [TX] is the first live site.',
-      'This note does not claim that every skill in that stack is in use at the creator house. The councils are the deployment we state. The catalog is the repo.',
+      'This note does not claim that every skill in that stack is in use at the creator house. The catalog is the repo.',
     ],
     links: [
       { label: 'Governance platform', href: '/governance-platform' },

@@ -368,7 +368,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Tie Town, in McDade, Texas, is our first live deployment. It is a media and creator house, not a housing authority and not a claim about the 614,000. It is the reference for what we mean by a governed workplace: one operational record, roles that are written down, and a stack that does not require the founder to narrate the building.',
+          'Tie Town, in McDade, Texas, is our first live site. It is a media and creator house, not a housing authority and not a claim about the 614,000. It is the reference for what we mean by a governed workplace: one operational record, roles that are written down, and a stack that does not require the founder to narrate the building.',
         ],
       },
       {

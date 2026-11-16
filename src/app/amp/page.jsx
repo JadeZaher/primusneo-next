@@ -55,7 +55,7 @@ const AMPPage = () => {
               A spatial OS for a site you can still reach.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-              AMP is the operational runtime. The public kit is <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/plan-systems/amp.SDK">amp.SDK</a>: a Go library for 3D geo-spatial apps, Unity and Unreal bindings, and content crates that ship apart from the app build. The lineage is PLAN 3D, in production since 2019, stewarded with PLAN Systems. Tie Town [TX] is the first live site.
+              AMP is the operational runtime. The public kit is <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/art-media-platform/amp.SDK">amp.SDK</a>: a Go library for 3D geo-spatial apps, Unity and Unreal bindings, and content crates that ship apart from the app build. The lineage is PLAN 3D, in production since 2019, stewarded with PLAN Systems. Tie Town [TX] is the first live site.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/azoa">AZOA integration</GradientButton>

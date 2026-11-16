@@ -101,7 +101,7 @@ export default function NewsroomPage() {
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-mist">
               PrimusNeo is the technology innovation lab behind a federated stack: AMP, the operational runtime;{' '}
               <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a>, agreements and permissions;{' '}
-              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a>, identity, consent, and settlement; Fractal Engine, organizational memory. Elevate Impact is the research-enablement module, live with the sickle cell community. Tie Town, in McDade, Texas, is the first live deployment. OVERSEASGENAI is the venture shipyard. OPQPWR is the named on-prem partner. No on-prem deployment of the stack is running.{' '}
+              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://azoa.ardanova.com">AZOA</a>, identity, consent, and settlement; Fractal Engine, organizational memory. Elevate Impact is the research-enablement module, live with the sickle cell community. Tie Town, in McDade, Texas, is the first live site. OVERSEASGENAI is the venture shipyard. OPQPWR is the named on-prem partner. No on-prem deployment of the stack is running.{' '}
               <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://ardanova.com">ArdaNova</a> is a designed consumer of the settlement layer, not a live deployment, and it has made no token offering.
             </p>
             <p className="mt-6 max-w-[58ch] text-[17px] leading-relaxed text-mist">

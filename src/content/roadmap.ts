@@ -43,7 +43,7 @@ export const roadmapLayers: RoadmapLayer[] = [
       'The lineage named in the SDK is PLAN 3D, in production since 2019.',
     ],
     next: [
-      'Nothing beyond the public kit and the Tie Town deployment is scheduled on this page.',
+      'Nothing beyond the public kit and the first live site at Tie Town is scheduled on this page.',
     ],
     later: [
       'Exploring: a single story for moving a twin off whoever hosts it. The site argues for it. The SDK does not list it as a milestone.',
