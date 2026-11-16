@@ -110,9 +110,7 @@ const Footer = () => {
         </ul>
       </nav>
       <div className="mx-auto mt-16 max-w-[1600px] overflow-hidden" aria-hidden="true">
-        <div className="select-none whitespace-nowrap text-[clamp(64px,11.5vw,208px)] font-semibold leading-[0.94] tracking-[-0.04em] text-[#15171B]">
-          PRIMUSNEO
-        </div>
+        <div className="select-none whitespace-nowrap text-[clamp(64px,11.5vw,208px)] font-semibold leading-[0.94] tracking-[-0.04em] text-[#15171B] before:content-['PRIMUSNEO']" />
       </div>
       <div className="mx-auto mt-5 flex max-w-[1600px] flex-wrap justify-between gap-3 border-t border-white/[0.08] pt-5 font-mono text-[11px] tracking-[0.16em] text-faint">
         <span>© {new Date().getFullYear()} PRIMUSNEO</span>

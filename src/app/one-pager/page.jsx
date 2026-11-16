@@ -127,7 +127,7 @@ const OnePager = () => {
                     <div className="border-t border-white/10 p-6 leading-8 text-gray-300">
                       <p>{layer.body}</p>
                       {layer.sites?.map((site) => (
-                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline-offset-4 hover:underline">
+                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline underline-offset-4">
                           {site.label}
                         </a>
                       ))}
