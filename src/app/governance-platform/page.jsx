@@ -2,13 +2,17 @@ import Image from 'next/image';
 import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
 import { ecosystemPartners, outcomePillars, platformLayers } from '../_data/ecosystem';
 
+const governanceTitle = 'NEOS · Decision Rights and Oversight for Organizations';
+const governanceDescription =
+  'NEOS keeps a plain record of who decides what, what was agreed and who contributed, so leaders and boards can see how the organization is running without chasing it down.';
+
 export const metadata = {
-  title: 'NEOS Governance Platform — Councils, Decision Rights, Contribution Accounting',
-  description: 'A governance operating system for software, infrastructure, and asset ecosystems: councils, holons, decision records, contribution accounting, and spatial evidence.',
+  title: { absolute: governanceTitle },
+  description: governanceDescription,
   alternates: { canonical: '/governance-platform' },
   openGraph: {
-    title: 'NEOS Governance Platform | PrimusNeo',
-    description: 'Programmable councils, decision rights, and contribution accounting backed by spatial evidence.',
+    title: { absolute: governanceTitle },
+    description: governanceDescription,
     url: '/governance-platform',
     type: 'website',
   },
@@ -21,7 +25,7 @@ const governanceFlows = [
   },
   {
     title: 'NEOS backend governance',
-    body: 'Use OmniOne’s governance ecosystem as the backend pattern for holonic organization, E.T.H.O.S. alignment, contribution structures, collective accountability, and operational records.',
+    body: 'Use NEOS as the backend pattern for holonic organization, E.T.H.O.S. alignment, contribution structures, collective accountability, and operational records.',
   },
   {
     title: 'Asset and data governance',
@@ -60,7 +64,7 @@ const GovernancePlatformPage = () => {
               Otherwise it is a group chat with a bank account.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. OmniOne, stewarded by Green Earth Vision, is the first ecosystem on the skills. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
+              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>
@@ -147,7 +151,7 @@ const GovernancePlatformPage = () => {
         <DreadShape volume={1} id="12" className="absolute left-[20%] bottom-0 opacity-5" size={160} />
         <div className="mx-auto max-w-7xl relative z-10">
           <SectionHeader eyebrow="Partner roles" title="Who powers the governance ecosystem">
-            PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims. Research decisions and their evidence will run through <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Elevate Impact</a>, the research module, once its integration with NEOS (in build) lands.
+            PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims. Research decisions and their evidence will run through <a href="/elevate-impact" className="text-emerald-300 underline underline-offset-4">Elevate Impact</a>, the research module, once its integration with NEOS (in build) lands.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
             {ecosystemPartners.map((partner, i) => (

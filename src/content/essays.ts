@@ -164,7 +164,7 @@ export const essays: Essay[] = [
         layer: 'AMP',
         layerHref: '/amp',
         inlines: [
-          'AMP gives a site one shared, private picture of itself, and it keeps working when the internet doesn\'t. It is running at Tie Town in McDade, Texas. When an organization wants the history and not just the live view, the record passes to Fractal Engine. For sites that want the computers on their own floor, OPQPWR is the hardware partner. That partnership is a start, not a claim that a substation is already on the rack. If your twin has to survive a vendor, ',
+          'AMP gives a site one shared, private picture of itself, and it keeps working when the internet doesn\'t. Tie Town in McDade, Texas, is the first live site. When an organization wants the history and not just the live view, the record passes to Fractal Engine. For sites that want the computers on their own floor, OPQPWR is the hardware partner. That partnership is a start, not a claim that a substation is already on the rack. If your twin has to survive a vendor, ',
           a('tell us about the site', '/contact'),
           '.',
         ],
@@ -725,7 +725,7 @@ export const essays: Essay[] = [
       },
       {
         label: 'plan-systems/amp.SDK README',
-        href: 'https://github.com/plan-systems/amp.SDK',
+        href: 'https://github.com/art-media-platform/amp.SDK',
       },
       {
         label: 'Escherbridge/fractalengine README',
@@ -1291,7 +1291,7 @@ export const essays: Essay[] = [
     sources: [
       {
         label: 'Hector Garcia-Molina and Kenneth Salem, "Sagas," Princeton University / ACM SIGMOD 1987',
-        href: 'http://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf',
+        href: 'https://www.cs.cornell.edu/andru/cs711/2002fa/reading/sagas.pdf',
       },
       {
         label: 'IETF, RFC 9110: HTTP Semantics (§9.2.2 Idempotent Methods), June 2022',

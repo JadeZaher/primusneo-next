@@ -50,7 +50,7 @@
   --color-ink-deep: #060708;   /* recessed surface */
   --color-paper: #E8E9EB;      /* primary text */
   --color-mist: #8A8F98;       /* secondary text */
-  --color-faint: #55595F;      /* micro-labels, indices */
+  --color-faint: #9AA0A8;      /* micro-labels, indices; 7.42:1 on #0B0C0E */
   --color-accent: #4D6BFF;     /* single accent */
 
   /* Border radius */
@@ -73,10 +73,21 @@
   animation: marquee 36s linear infinite;
 }
 
+.animate-marquee[data-paused='true'] {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;
   }
+}
+
+/* Header Industries link is an anchor beside menu buttons. The shared trigger
+   style clears the outline, so restore a paper ring on keyboard focus. */
+nav.fixed a[href="/industries"]:focus-visible {
+  outline: 2px solid var(--color-paper);
+  outline-offset: 2px;
 }
 
 /* Keyframes for animations */

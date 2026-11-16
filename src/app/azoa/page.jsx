@@ -107,7 +107,7 @@ const AzoaPage = () => {
                 One structured seam across chain and fiat
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Algorand, Solana and Ethereum providers plug in via the ChainProvider interface, DEXes via DexAdapter, and fiat through an idempotent, KYC-gated bridge seam. SurrealDB is the sole data engine — real-world state is the source of truth, so balances are read, never stored — with S3-compatible buckets as the only other storage surface. Because the engine is Apache-2.0, nodes can be self-hosted, including on-prem hardware through infrastructure partner <a href="https://opqpwr.com" target="_blank" rel="noreferrer" className="text-emerald-300 underline-offset-4 hover:underline">OPQPWR</a>; that partnership is a starting point, not a running deployment.
+                Algorand, Solana and Ethereum providers plug in via the ChainProvider interface, DEXes via DexAdapter, and fiat through an idempotent, KYC-gated bridge seam. SurrealDB is the sole data engine — real-world state is the source of truth, so balances are read, never stored — with S3-compatible buckets as the only other storage surface. Because the engine is Apache-2.0, nodes can be self-hosted, including on-prem hardware through infrastructure partner <a href="https://opqpwr.com" target="_blank" rel="noreferrer" className="text-emerald-300 underline underline-offset-4">OPQPWR</a>; that partnership is a starting point, not a running deployment.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {rails.map((rail) => (

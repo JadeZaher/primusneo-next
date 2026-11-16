@@ -15,8 +15,6 @@ const columns = [
   {
     heading: 'CAPITAL & SECTORS',
     links: [
-      { href: '/fractionalization', label: 'Fractionalization' },
-      { href: '/ico-marketing', label: 'Capital Design' },
       { href: '/industries', label: 'Industries' },
       { href: '/solutions', label: 'Solutions' },
     ],
@@ -37,7 +35,6 @@ const columns = [
     heading: 'NETWORK',
     links: [
       { href: 'https://plan-systems.org/', label: 'PLAN Systems ↗', external: true },
-      { href: 'https://www.greenearthvision.org/omnione-1', label: 'OmniOne / NEOS ↗', external: true },
       { href: 'https://escherbridge.com/', label: 'Escherbridge ↗', external: true },
       { href: 'https://elevateimpact.com/', label: 'Elevate Impact ↗', external: true },
       { href: 'https://overseasgenai.com/', label: 'OVERSEASGENAI ↗', external: true },

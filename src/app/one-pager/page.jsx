@@ -6,43 +6,43 @@ import { ecosystemPartners, platformLayers } from '../_data/ecosystem';
 
 const productOfferings = [
   {
-    title: 'Operational Digital Twin Infrastructure',
-    content: 'Deploy infrastructure visualization, telemetry systems, operational dashboards, machine interfaces, remote controls, and local AI operational environments.',
+    title: 'See the whole site',
+    content: 'A live picture of your sites, equipment and work, with dashboards the people running the place can actually use, on computers you control.',
   },
   {
-    title: 'AI-Assisted Coordination Environment',
-    content: 'Provides contributor coordination, agreement memory, scoped permissions, operational routing, organizational continuity, and deployment governance tooling.',
+    title: 'Structure that survives turnover',
+    content: 'Who is responsible for what, what was agreed, and who is allowed to do which job, kept in one place so the organization doesn\'t reset every time someone leaves.',
   },
   {
-    title: 'Builder Ecosystem + Charter Framework',
-    content: 'Enables federated builder networks, interoperable working groups, deployment charters, contributor ecosystems, and project federation.',
+    title: 'Partners working from one charter',
+    content: 'Working groups, contractors and partner organizations can work from one written charter, so handoffs between them stop being where projects go missing.',
   },
   {
-    title: 'Analytics + Infrastructure Intelligence',
-    content: 'Fractal-style operational intelligence including forecasting, infrastructure analysis, investment intelligence, operational warehousing, and digital twin reporting.',
+    title: 'Insight from your own work',
+    content: 'Forecasts, site analysis and reports built from the record of what actually happened, rather than from what the plan assumed.',
   },
   {
-    title: 'Value Rails + Incentive Systems',
-    content: 'AZOA provides self-sovereign identity and consent, durable quest workflows, token and reward flows, and settlement rails across blockchain and fiat. Pre-launch.',
+    title: 'Approvals a board can check',
+    content: 'AZOA walks work through its approval steps and records who consented to what. Anything involving real money stays switched off until it has been reviewed. Pre-launch.',
   },
   {
     title: 'Research Enablement',
-    content: 'Elevate Impact, the stack’s research module, turns questions into finished, expert-checked study designs. It is live in production with the sickle cell community; integration with the four layers is in build.',
+    content: 'Elevate Impact, PrimusNeo\'s research partner, turns questions into finished, expert-checked study designs. It is live in production with the sickle cell community; its connection to the other four parts is still being built.',
   },
 ];
 
 const marketFocus = [
   {
     title: 'Phase 1',
-    body: 'Regenerative campuses, land projects, eco-villages, retreat centers, cooperative developments, infrastructure pilots, smart campuses, off-grid environments, builder collectives.',
+    body: 'Land projects, campuses, eco-villages, retreat centers, co-op developments, off-grid sites and builder collectives, where a small group runs a real place and needs the decisions to hold.',
   },
   {
     title: 'Phase 2',
-    body: 'Industrial facilities, municipalities, utilities, emergency response systems, logistics campuses, infrastructure operators.',
+    body: 'Industrial sites, municipalities, utilities, emergency services, logistics campuses and other operators who answer to a council or a board.',
   },
   {
     title: 'Phase 3',
-    body: 'Enterprise operational infrastructure, distributed manufacturing, smart city coordination, large-scale infrastructure ecosystems.',
+    body: 'Large companies, manufacturers spread over many sites, and cities coordinating many departments at once.',
   },
 ];
 
@@ -64,26 +64,26 @@ const OnePager = () => {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
             <div>
-              <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">The stack</div>
+              <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">On one page</div>
               <h1 className="max-w-[14ch] text-[clamp(40px,5vw,72px)] font-medium leading-[0.98] tracking-[-0.035em] text-paper">
                 Many timelines. One line.
               </h1>
               <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-                PrimusNeo is the technology innovation lab: a clearing house that finds the people, and a lab that runs the test. Four layers, four stewards, plus Elevate Impact for research. No single company owns the fabric. Tie Town [TX] is where it already runs.
+                Every organization runs on several timelines at once: the plan, the work that is actually happening, and what the budget can carry. PrimusNeo is the technology innovation lab that pulls them into one line. The clearing house finds the people who live with the problem, and the lab runs the test. Four parts handle structure, friction, insight and oversight, Elevate Impact handles research, and no single company owns all of it. Tie Town [TX] is where it already runs.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <GradientButton href="/governance-platform">Governance platform</GradientButton>
-                <GradientButton href="/fractionalization" variant="secondary">Fractionalization model</GradientButton>
+                <GradientButton href="/governance-platform">How decisions get made</GradientButton>
+                <GradientButton href="/contact" variant="secondary">Talk to us</GradientButton>
               </div>
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
               <DreadShape volume={5} id="12" className="absolute -right-4 -top-4 opacity-20" size={80} />
               <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">The Problem</div>
               <p className="text-lg leading-8 text-gray-200">
-                Most real-world infrastructure systems fail because operational data is fragmented, governance is disconnected from operations, contributors lack coordination, and institutional memory is lost.
+                Most real-world projects don't fail for lack of a good idea. They fail because the information is scattered across tools, decisions get made in one room and carried out in another, contributors can't tell who is doing what, and the reasons behind past decisions leave with whoever made them.
               </p>
               <div className="mt-7">
-                <PillList items={['Monolithic SaaS lock-in', 'Fragmented IoT systems', 'Disconnected analytics', 'Centralized cloud dependence', 'Unclear contributor coordination']} />
+                <PillList items={['Locked in to one vendor', 'Equipment and tools that don\'t talk to each other', 'Reports nobody connects', 'Everything on someone else\'s servers', 'Nobody sure who is doing what']} />
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ const OnePager = () => {
       <section className="px-4 py-20 relative">
         <DreadShape volume={1} id="11" className="absolute -left-10 top-1/2 opacity-5 -rotate-45" size={180} />
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="The Solution" title="A Federated Operational Ecosystem Architecture">
-            Instead of creating one monolithic platform, PrimusNeo coordinates specialized systems through shared interfaces, schemas, file formats, and permissions.
+          <SectionHeader eyebrow="How it fits together" title="Specialists that work together, not one system that does everything">
+            Instead of selling you one giant platform, PrimusNeo gets a few specialized parts to work together through shared agreements, shared records and clear permissions. Each part can be replaced or audited on its own, which is more than most giant platforms can say.
           </SectionHeader>
           <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
              <div className="space-y-4">
@@ -138,12 +138,12 @@ const OnePager = () => {
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 relative overflow-hidden">
                 <DreadShape volume={5} id="15" className="absolute -right-10 -bottom-10 opacity-10" size={200} />
-                <h3 className="mb-4 text-2xl font-bold text-white">Competitive Advantage</h3>
+                <h3 className="mb-4 text-2xl font-bold text-white">Why it holds up</h3>
                 <p className="mb-6 leading-8 text-gray-300">
-                  The advantage is not one application. The advantage is federated interoperability. Most competitors either centralize everything or fragment everything. PrimusNeo coordinates specialization without fragmentation.
+                  The advantage isn't one application. Most options either put everything in one vendor's hands or scatter it across a dozen tools nobody connects. PrimusNeo lets each part do its own job while the organization keeps one record of who decided what and why.
                 </p>
                 <ul className="space-y-3 relative z-10">
-                  {['Local-first architecture', 'Peer-to-peer operational systems', 'Modular specialization', 'AI-assisted organizational memory', 'Agreement-based coordination', 'Interoperable digital twins', 'Operational provenance', 'Permission-aware ecosystems'].map((item) => (
+                  {['Your records stay on your own computers', 'Keeps working when the internet doesn\'t', 'Parts you can swap without starting over', 'Decisions that survive team turnover', 'Work organized around written agreements', 'A live picture of your sites and assets', 'A trail showing where every number came from', 'Clear permissions for who can do what'].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-gray-400">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                       {item}
@@ -158,8 +158,8 @@ const OnePager = () => {
       <section className="px-4 py-20 bg-white/[0.02] relative overflow-hidden">
         <DreadShape volume={1} id="03" className="absolute right-0 top-0 opacity-5" size={160} />
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="Core Product Offerings" title="What PrimusNeo Enables">
-            The ecosystem separates concerns into interoperable layers, creating modular deployments and enterprise flexibility.
+          <SectionHeader eyebrow="What you can do with it" title="Four jobs, and research">
+            Each part does one job well, so an organization can start with the job that hurts most and add the rest when it is ready.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {productOfferings.map((offering) => (
@@ -172,8 +172,8 @@ const OnePager = () => {
       <section className="px-4 py-20 relative">
         <DreadShape volume={5} id="09" className="absolute left-0 bottom-0 opacity-10" size={180} />
         <div className="mx-auto max-w-7xl">
-          <SectionHeader eyebrow="Market Focus" title="Scaling from Communities to Cities">
-            PrimusNeo evolves toward a scalable coordination architecture for real-world civilization infrastructure.
+          <SectionHeader eyebrow="Who it is for" title="Starting with communities, and growing from there">
+            We start where the stakes are real and the organization is small enough to learn from, then take what works to larger operators. These are the kinds of organizations we have in mind, not a client list.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-3">
             {marketFocus.map((phase) => (
@@ -190,19 +190,19 @@ const OnePager = () => {
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Tie Town [TX]</div>
               <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                The First Active Deployment
+                The first place it runs
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Tie Town [TX], a media and creator house in McDade, Texas, is the first active operational deployment and the reference architecture. It demonstrates real-world operational coordination to validate architecture, interoperability, digital twin systems, and governance coordination.
+                Tie Town [TX], a media and creator house in McDade, Texas, is where PrimusNeo runs first. It is where we find out whether the decision rights hold, whether the handoffs got easier, and whether the record tells the people running it anything useful, before we suggest any of it to someone else.
               </p>
               <div className="mt-8">
-                  <GradientButton href="/contact">Join the Federation</GradientButton>
+                  <GradientButton href="/contact">Talk to us</GradientButton>
               </div>
             </div>
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl">
-              <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">Revenue Model</div>
+              <div className="mb-4 text-sm uppercase tracking-[0.28em] text-emerald-300">How we are paid</div>
               <p className="text-lg leading-8 text-gray-200">
-                A sustainable ecosystem built on enterprise deployments, infrastructure licensing, coordination subscriptions, integration contracts, and analytics services. Secondary streams include training, certification, and marketplace integrations.
+                Organizations pay us to set it up at their sites, to license the software, for an ongoing subscription, for the work of connecting it to the systems they already use, and for analysis. Training and certification come later.
               </p>
             </div>
           </div>
@@ -212,16 +212,26 @@ const OnePager = () => {
       <section className="px-4 pb-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Partners" title="Who builds with PrimusNeo" />
-          <div className="grid gap-6 md:grid-cols-3">
-            <InsightCard title="Elevate Impact">
-              Research module. Patients join as co-designers, never as subjects. <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Learn more</a>.
-            </InsightCard>
-            <InsightCard title="OVERSEASGENAI">
-              Agentic venture shipyard led by Ahmad Darwish with Escherbridge: idea, grilled, modelled, built, shipped, judged. Carries lab results that justify a company into a venture.
-            </InsightCard>
-            <InsightCard title="OPQPWR">
-              Infrastructure partner for self-service, on-prem, bare-metal deployments: field-deployable racks of power, compute, storage and communications. A starting partnership, not a running deployment.
-            </InsightCard>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
+            {ecosystemPartners.map((partner, i) => (
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className={`group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07] ${i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'} ${i === ecosystemPartners.length - 1 && ecosystemPartners.length % 2 === 1 ? 'md:col-span-2 lg:col-span-4' : ''}`}>
+                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  {partner.image ? (
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="rounded-xl object-contain p-2"
+                    />
+                  ) : (
+                    <span className="font-mono text-sm uppercase tracking-[0.22em] text-white/80">{partner.name}</span>
+                  )}
+                </div>
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
+                <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
+                <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>

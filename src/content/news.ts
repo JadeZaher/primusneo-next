@@ -132,7 +132,7 @@ export const newsItems: NewsItem[] = [
       'NEOS, our platform for agreements and decisions, published a public introduction. Councils at Tie Town were already what our site said it was for.',
     paragraphs: [
       'On 4 November 2026 the NEOS governance platform repository recorded a deployed public introduction, and an About-navigation follow-up. The same day it recorded a verified member tutorial rollout. Those are commit messages, not a press tour. They mean the platform repo is tracking a deployment, not a slide.',
-      'On our site, NEOS is agreements and permissions. The operating-system repository is the skill stack: agreements written down, authority that is scoped and expires, and decisions by advice, consent, and a reversible test. OmniOne, stewarded by Green Earth Vision, is the ecosystem named there. Councils run at Tie Town [TX].',
+      'On our site, NEOS is agreements and permissions. The operating-system repository is the skill stack: agreements written down, authority that is scoped and expires, and decisions by advice, consent, and a reversible test. Councils run at Tie Town [TX].',
       'This note does not claim that every skill in that stack is in use at the creator house. The councils are the deployment we state. The catalog is the repo.',
     ],
     links: [
