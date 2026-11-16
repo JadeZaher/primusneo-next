@@ -94,7 +94,6 @@ const Web3GovernancePage = () => {
 
   return (
     <SolutionTemplate
-      relatedEssay={{ href: '/blog/otherwise-its-a-group-chat-with-a-bank-account', title: "Otherwise it's a group chat with a bank account" }} 
       eyebrow="Web3 & DAO Governance"
       title="A vote is not a constitution."
       description="Resolve the 17% participation crisis and mitigate governance concentration with a unified platform for secure, transparent, and delegated coordination."

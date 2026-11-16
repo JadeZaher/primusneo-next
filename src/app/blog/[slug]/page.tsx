@@ -3,7 +3,7 @@ import { portableTextComponents } from "@/app/_components/PortableTextComponents
 import { EssayArticle } from "@/app/_components/EssayArticle";
 import { PieceClose } from "@/app/_components/Prose";
 import { client } from "@/lib/sanity/client";
-import { POST_QUERY } from "@/lib/sanity/queries";
+import { isExcludedCmsPost, POST_QUERY } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 import type { Post } from "@/lib/sanity/types";
 import { essays, getEssay } from "@/content/essays";
@@ -25,6 +25,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (isExcludedCmsPost(slug)) {
+    return {
+      title: "Post not found",
+      robots: { index: false, follow: false },
+    };
+  }
   const essay = getEssay(slug);
   if (essay) {
     const seoTitle = essay.seoTitle ?? essay.title;
@@ -82,6 +88,7 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const resolvedParams = await params;
+  if (isExcludedCmsPost(resolvedParams.slug)) notFound();
   const essay = getEssay(resolvedParams.slug);
   if (essay) {
     return <EssayArticle essay={essay} />;

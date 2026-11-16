@@ -19,11 +19,11 @@ export type NewsItem = {
 export const newsItems: NewsItem[] = [
   {
     slug: 'notes-are-in-the-repo',
-    title: 'The notes are in the repo',
+    title: 'The site says what we do, in our own words',
     date: '2026-11-10',
     kicker: 'Site',
     excerpt:
-      'The public site restated the stack in the lab’s own words and started publishing builder notes from the codebase.',
+      'The site now describes the lab in its own words and has started publishing short notes from the people building it.',
     paragraphs: [
       'On 10 November 2026 the marketing site on main changed its front door. The line is “Many timelines. One line.” The lab steps are on the page. The layer names match the ones we actually use: AMP for the operational runtime, NEOS for agreements and permissions, AZOA for identity, consent, and settlement, Fractal Engine for organizational memory, Elevate Impact for research enablement.',
       'The long notes are TypeScript in the repo, rendered next to anything the Sanity studio already holds. They cite public sources. They also say where our own software is alpha, including the parts that are not finished.',
@@ -42,7 +42,7 @@ export const newsItems: NewsItem[] = [
     date: '2026-11-09',
     kicker: 'Fractal Engine',
     excerpt:
-      'Fractal Engine refuses to load a plugin it did not admit. It also still stores placeholder signatures on older log rows. Both sentences belong on the same page.',
+      'Fractal Engine refuses to run an add-on it has not approved. One older part of its record still has a placeholder where a signature should be. Both facts belong on the same page.',
     paragraphs: [
       'Alpha is a useful word that marketing departments keep trying to improve. It does not mean “almost done,” and it does not mean the applause is included. It means the thing runs, the edges are labeled, and anyone who pretends otherwise is writing fiction. This note is about our own tree.',
       'What already refuses',
@@ -81,7 +81,7 @@ export const newsItems: NewsItem[] = [
         label: 'PURPOSE.md',
         href: 'https://github.com/Escherbridge/fractalengine/blob/main/PURPOSE.md',
       },
-      { label: 'The plugin was already inside', href: '/blog/the-plugin-was-already-inside' },
+      { label: 'The risk was already inside the building', href: '/blog/the-plugin-was-already-inside' },
       { label: 'Contact', href: '/contact' },
     ],
   },
@@ -91,7 +91,7 @@ export const newsItems: NewsItem[] = [
     date: '2026-11-09',
     kicker: 'Fractal Engine',
     excerpt:
-      'The extension platform and the portal surface merged to main. The engine is still pre-1.0, and the old signature field is still zeros.',
+      'Fractal Engine gained its add-on system and its web portal. It is still early, and the placeholder signature is still there.',
     paragraphs: [
       'On 9 November 2026 two tracks merged to the Fractal Engine main branch: the extension platform, and the web-bundle portal surface on top of it. The public README still describes the project as alpha. That word is doing real work.',
       'What the README says works includes a Bevy editor, embedded SurrealDB, BLAKE3-addressed assets, .hexon map packages, peer-to-peer replication over iroh, and BI egress toward DuckDB, GeoParquet, or Power BI. The plugin host runs Rhai and WASM in sandboxes. The desktop starts that host and loads no packages on its own. Admission fails closed. The relay does not host plugins.',
@@ -129,7 +129,7 @@ export const newsItems: NewsItem[] = [
     date: '2026-11-04',
     kicker: 'NEOS',
     excerpt:
-      'The governance platform repository recorded a deployed public introduction. Councils at Tie Town were already the claim on our site.',
+      'NEOS, our platform for agreements and decisions, published a public introduction. Councils at Tie Town were already what our site said it was for.',
     paragraphs: [
       'On 4 November 2026 the NEOS governance platform repository recorded a deployed public introduction, and an About-navigation follow-up. The same day it recorded a verified member tutorial rollout. Those are commit messages, not a press tour. They mean the platform repo is tracking a deployment, not a slide.',
       'On our site, NEOS is agreements and permissions. The operating-system repository is the skill stack: agreements written down, authority that is scoped and expires, and decisions by advice, consent, and a reversible test. OmniOne, stewarded by Green Earth Vision, is the ecosystem named there. Councils run at Tie Town [TX].',
@@ -148,7 +148,7 @@ export const newsItems: NewsItem[] = [
     date: '2026-11-01',
     kicker: 'AZOA',
     excerpt:
-      'Identity and revocable consent are in. Real-value bridges are not. A November fix refused to mint wallets into claimed accounts.',
+      'AZOA now records who someone is and what they agreed to, and lets them take that agreement back. Anything that moves real money is still switched off. A November fix closed a gap in how accounts were set up.',
     paragraphs: [
       'AZOA’s own README calls the status pre-launch, Alpha Gate. Self-sovereign identity and revocable consent are shipped and security-reviewed. Durable actions, the visual builder, and SurrealDB as the only data engine are in the tree. Real-value bridges stay off. Wallet creation outside development is simulated. Governance tally and credential revocation remain in the not-enabled list until their reviews close.',
       'On 1 November 2026 a fix on the tenant track said relinquish is claimed-only, the consent copy stays minimal, and wallets are not minted into claimed accounts. Two days earlier, a claimed member was given a way to keep working under their own grant. That is the shape of the alpha: the permission is real, the money movement is not switched on.',

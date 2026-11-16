@@ -1,4 +1,5 @@
 import { client } from '@/lib/sanity/client';
+import { excludedCmsPostGroq, isExcludedCmsPost } from '@/lib/sanity/queries';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { guides } from '@/content/guides';
@@ -8,7 +9,7 @@ import { roadmapLayers } from '@/content/roadmap';
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://primusneo.com').replace(/\/$/, '');
 
-const POSTS_LLMS_QUERY = `*[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...50]{ title, "slug": slug.current, excerpt }`;
+const POSTS_LLMS_QUERY = `*[_type == "post" && defined(slug.current) && ${excludedCmsPostGroq}] | order(publishedAt desc)[0...50]{ title, "slug": slug.current, excerpt }`;
 const NEWS_LLMS_QUERY = `*[_type == "news" && defined(slug.current)] | order(publishedAt desc)[0...30]{ title, "slug": slug.current, excerpt, sourceName }`;
 
 type SanityPostRow = { title?: string; slug: string; excerpt?: string };
@@ -96,7 +97,7 @@ async function buildBody(): Promise<string> {
   const blogLines = [
     ...localLines,
     ...(posts ?? [])
-      .filter((p) => !sanitySlugs.has(p.slug))
+      .filter((p) => !sanitySlugs.has(p.slug) && !isExcludedCmsPost(p.slug))
       .map((p) =>
         fmtLine({
           path: `/blog/${p.slug}`,

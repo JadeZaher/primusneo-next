@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // The built-in slash redirect is registered ahead of these rules, so a
+  // trailing-slash URL would 308 to the bare slug and only then 301 to /blog.
+  // Skipping it lets the retired posts 301 in one hop. The catch-all below
+  // keeps the same slash strip for every other path.
+  skipTrailingSlashRedirect: true,
   images: {
     // Local SVG assets (stack schematics, partner logos) go through next/image.
     dangerouslyAllowSVG: true,
@@ -44,6 +49,33 @@ const nextConfig = {
         source: '/research',
         destination: '/industries',
         statusCode: 301,
+      },
+      {
+        // Retired essay. Nothing else should redirect here.
+        source: '/blog/otherwise-its-a-group-chat-with-a-bank-account',
+        destination: '/blog',
+        statusCode: 301,
+      },
+      {
+        source: '/blog/otherwise-its-a-group-chat-with-a-bank-account/',
+        destination: '/blog',
+        statusCode: 301,
+      },
+      {
+        // Retired CMS post. The Studio row is left in place.
+        source: '/blog/first-among-equals',
+        destination: '/blog',
+        statusCode: 301,
+      },
+      {
+        source: '/blog/first-among-equals/',
+        destination: '/blog',
+        statusCode: 301,
+      },
+      {
+        source: '/:path+/',
+        destination: '/:path+',
+        permanent: true,
       },
       {
         source: '/rss.xml',

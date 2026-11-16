@@ -1,5 +1,5 @@
 import { client } from '@/lib/sanity/client';
-import { NEWS_QUERY, POSTS_QUERY } from '@/lib/sanity/queries';
+import { isExcludedCmsPost, NEWS_QUERY, POSTS_QUERY } from '@/lib/sanity/queries';
 import type { News, Post } from '@/lib/sanity/types';
 import { essays } from '@/content/essays';
 
@@ -46,14 +46,16 @@ export async function loadWritingIndex(): Promise<WritingCard[]> {
   const { posts, news } = await loadSanityWriting();
   const cards: WritingCard[] = [
     ...essayCards(),
-    ...posts.map((post) => ({
-      id: post._id,
-      title: post.title,
-      excerpt: post.excerpt,
-      publishedAt: post.publishedAt,
-      href: `/blog/${post.slug.current}`,
-      kind: 'post' as const,
-    })),
+    ...posts
+      .filter((post) => !isExcludedCmsPost(post.slug.current))
+      .map((post) => ({
+        id: post._id,
+        title: post.title,
+        excerpt: post.excerpt,
+        publishedAt: post.publishedAt,
+        href: `/blog/${post.slug.current}`,
+        kind: 'post' as const,
+      })),
     ...news.map((item) => ({
       id: item._id,
       title: item.title,
