@@ -192,5 +192,4 @@ export const outcomePillars = [
   'WASM extension ecosystem',
   'Fractal Engine intelligence',
   'P2P community tooling',
-  'Asset-backed fractionalization',
 ];
