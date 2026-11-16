@@ -5,6 +5,7 @@ import HeroScene from './_components/3d/HeroScene';
 import { JsonLd } from './_components/JsonLd';
 import Reveal from './_components/Reveal';
 import LayerShowcase from './_components/LayerShowcase';
+import Ticker from './_components/Ticker';
 import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem';
 import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 import { pageMeta } from '@/lib/seo';
@@ -151,12 +152,7 @@ const Home = () => {
       </section>
 
       {/* Ticker */}
-      <div className="overflow-hidden border-y border-white/[0.08] bg-ink py-3.5">
-        <div className="flex w-max animate-marquee whitespace-nowrap font-mono text-[11px] tracking-[0.22em] text-faint">
-          <span className="pr-12">{tickerItems}</span>
-          <span className="pr-12">{tickerItems}</span>
-        </div>
-      </div>
+      <Ticker items={tickerItems} />
 
       {/* 01 — Thesis */}
       <section className="bg-ink px-7 py-32 md:py-36">

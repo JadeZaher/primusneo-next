@@ -131,7 +131,6 @@ export default function LayerShowcase({ layers = [] }) {
               key={layer.href}
               type="button"
               onClick={() => go(i)}
-              aria-label={`Show ${layer.tab}`}
               aria-current={isActive}
               className={`group relative overflow-hidden px-5 py-4 text-left transition-colors ${
                 spansRow ? 'sm:col-span-2 lg:col-span-1' : ''
