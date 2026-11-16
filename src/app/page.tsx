@@ -367,7 +367,7 @@ const Home = () => {
         </div>
         <Reveal>
           <h2 className="mx-auto max-w-[16ch] text-balance text-[clamp(40px,6vw,104px)] font-medium leading-none tracking-[-0.035em]">
-            Build on durable ground.
+            Build on governed ground.
           </h2>
         </Reveal>
         <Reveal delay={120}>
