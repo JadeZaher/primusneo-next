@@ -34,16 +34,16 @@ export const roadmapLayers: RoadmapLayer[] = [
     role: 'Operational runtime',
     status: 'shipped',
     summary:
-      'The spatial OS. The public kit is amp.SDK. The runtime people can point at is Tie Town [TX].',
+      'The spatial OS. The public kit is amp.SDK. Tie Town [TX] is the first live site.',
     href: '/amp',
     repo: 'https://github.com/plan-systems/amp.SDK',
     now: [
-      'Runs at Tie Town, a creator house in McDade, Texas. PLAN Systems stewards the runtime.',
+      'Tie Town, a creator house in McDade, Texas, is the first live site. PLAN Systems stewards the runtime.',
       'The public SDK is a Go library for 3D geo-spatial apps, with Unity and Unreal bindings and content crates that ship apart from the app build.',
       'The lineage named in the SDK is PLAN 3D, in production since 2019.',
     ],
     next: [
-      'Nothing beyond the public kit and the Tie Town deployment is scheduled on this page.',
+      'Nothing beyond the public kit and the first live site at Tie Town is scheduled on this page.',
     ],
     later: [
       'Exploring: a single story for moving a twin off whoever hosts it. The site argues for it. The SDK does not list it as a milestone.',
@@ -55,7 +55,7 @@ export const roadmapLayers: RoadmapLayer[] = [
     role: 'Agreements and permissions',
     status: 'shipped',
     summary:
-      'Councils at Tie Town, a public skill stack, and a platform repo that has recorded a deployment. Not a claim that every skill is in the building.',
+      'Tie Town [TX] is the first live site. A public skill stack and a platform repo that has recorded a deployment. Not a claim that every skill is in the building.',
     href: '/governance-platform',
     repo: 'https://github.com/JadeZaher/NEOS',
     links: [{ label: 'NEOS, agreements and permissions', href: 'https://neos.primusneo.com' }],

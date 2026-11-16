@@ -5,7 +5,7 @@ import { operator } from '@/content/operator';
 
 export const metadata = {
   title: 'Contact',
-  description: 'Talk to the PrimusNeo team about governed deployments, fractionalization structures, and spatial OS integrations — pilots, partnerships, and integrations.',
+  description: 'Talk to the PrimusNeo team about governed deployments and spatial OS integrations — pilots, partnerships, and integrations.',
   alternates: { canonical: '/contact' },
   openGraph: {
     title: 'Contact PrimusNeo',
@@ -54,10 +54,6 @@ const Contact = () => {
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                     Bespoke Spatial Computing Solutions
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />
-                    Advanced Fractionalization Protocols
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full" />

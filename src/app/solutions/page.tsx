@@ -69,7 +69,7 @@ const solutions = [
     title: 'Community & Cooperatives',
     description: 'Platforming next-generation technologies through creator-centric operational infrastructure.',
     metric: 'ACTIVE',
-    metricLabel: 'Deployment: Tie Town [TX]',
+    metricLabel: 'First live site: Tie Town [TX]',
     href: '/solutions/community-coops'
   },
   {
@@ -248,9 +248,9 @@ export default function SolutionsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Active Deployment</h4>
+              <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">First live site</h4>
               <h3 className="text-2xl font-bold mb-4">Tie Town [TX]</h3>
-              <p className="text-gray-400 leading-relaxed">A media and creator house in McDade, Texas: the first active operational deployment and the reference architecture for every layer.</p>
+              <p className="text-gray-400 leading-relaxed">A media and creator house in McDade, Texas: the first live site and the reference architecture for every layer.</p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
               <h4 className="text-emerald-400 font-bold mb-4 uppercase tracking-widest text-xs">Live Research Module</h4>

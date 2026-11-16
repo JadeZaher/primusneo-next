@@ -89,7 +89,7 @@ export const papers: Paper[] = [
       {
         label: "AMP",
         href: "/amp",
-        note: "Operational runtime. The spatial OS, live at Tie Town [TX].",
+        note: "Operational runtime. The spatial OS. Tie Town [TX] is the first live site.",
       },
       {
         label: "NEOS",
@@ -114,12 +114,12 @@ export const papers: Paper[] = [
       {
         label: "AMP on the roadmap",
         href: "/roadmap/amp",
-        note: "Shipped. The runtime people can point at is Tie Town.",
+        note: "Shipped. Tie Town [TX] is the first live site.",
       },
       {
         label: "NEOS on the roadmap",
         href: "/roadmap/neos",
-        note: "Shipped. Councils at Tie Town. Not every skill is claimed as in use.",
+        note: "Shipped. Tie Town [TX] is the first live site. Not every skill is claimed as in use.",
       },
       {
         label: "AZOA on the roadmap",

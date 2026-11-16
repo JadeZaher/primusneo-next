@@ -64,11 +64,10 @@ const GovernancePlatformPage = () => {
               Otherwise it is a group chat with a bank account.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
+              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. Tie Town [TX] is the first live site. Capital does not purchase the decision. That is a rule, not a toast.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>
-              <GradientButton href="/fractionalization" variant="secondary">Fractionalization model</GradientButton>
             </div>
           </div>
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 backdrop-blur-xl relative overflow-hidden">
@@ -108,7 +107,7 @@ const GovernancePlatformPage = () => {
                 Governance is backed by systems, not slide decks
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Each layer has a job. Together they let partners, contributors, investors, and operators see how decisions connect to software, assets, spatial context, and outcomes.
+                Each layer has a job. Together they let owners, operators and boards see how decisions connect to software, assets, spatial context, and outcomes.
               </p>
             </div>
             <div className="grid gap-5">
@@ -181,7 +180,7 @@ const GovernancePlatformPage = () => {
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.045] p-8 md:p-12 relative overflow-hidden">
           <DreadShape volume={1} id="01" className="absolute -right-10 -bottom-10 opacity-15 rotate-12" size={140} />
           <SectionHeader eyebrow="Launch sequence" title="How PrimusNeo takes a project from vision to governed delivery" className="mb-10">
-            Every project can start small and grow into deeper governance, fractionalization, spatial intelligence, and interoperability as it proves traction.
+            Every project can start small and grow into deeper governance, spatial intelligence, and interoperability as it proves traction.
           </SectionHeader>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative z-10">
             <NumberedCard number="01" title="Discover">Map stakeholders, assets, incentives, risks, and technical constraints.</NumberedCard>

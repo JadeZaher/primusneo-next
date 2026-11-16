@@ -18,7 +18,7 @@ export const metadata = {
 
 const CommunityCoopsPage = () => {
   const stats = [
-    { value: '01', label: 'Active Operational Deployment (Tie Town)' },
+    { value: '01', label: 'First live site (Tie Town)' },
     { value: '42%', label: 'Skills lost during contributor attrition' },
     { value: '$830B', label: 'Annual loss to governance breakdowns' },
     { value: '200h', label: 'Average time to replace key contributors' }
@@ -86,7 +86,7 @@ const CommunityCoopsPage = () => {
     title: 'Tie Town: Media & Creator House',
     description: 'Based in McDade, Texas, Tie Town uses PrimusNeo as its operational foundation to platform next-generation technologies and coordinate creator workstreams.',
     outcomes: [
-      'Active operational deployment in McDade, Texas',
+      'First live site in McDade, Texas',
       'Unified coordination for high-scale media production',
       'Verifiable contributor memory via Fractal Engine',
       'Programmatic access control for creator facilities'

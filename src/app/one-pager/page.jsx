@@ -69,7 +69,7 @@ const OnePager = () => {
                 Many timelines. One line.
               </h1>
               <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-                Every organization runs on several timelines at once: the plan, the work that is actually happening, and what the budget can carry. PrimusNeo is the technology innovation lab that pulls them into one line. The clearing house finds the people who live with the problem, and the lab runs the test. Four parts handle structure, friction, insight and oversight, Elevate Impact handles research, and no single company owns all of it. Tie Town [TX] is where it already runs.
+                Every organization runs on several timelines at once: the plan, the work that is actually happening, and what the budget can carry. PrimusNeo is the technology innovation lab that pulls them into one line. The clearing house finds the people who live with the problem, and the lab runs the test. Four parts handle structure, friction, insight and oversight, Elevate Impact handles research, and no single company owns all of it. Tie Town [TX] is the first live site.
               </p>
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <GradientButton href="/governance-platform">How decisions get made</GradientButton>
@@ -127,7 +127,7 @@ const OnePager = () => {
                     <div className="border-t border-white/10 p-6 leading-8 text-gray-300">
                       <p>{layer.body}</p>
                       {layer.sites?.map((site) => (
-                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline-offset-4 hover:underline">
+                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline underline-offset-4">
                           {site.label}
                         </a>
                       ))}
@@ -190,10 +190,10 @@ const OnePager = () => {
             <div>
               <div className="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Tie Town [TX]</div>
               <h2 className="mt-4 text-4xl font-bold text-white text-glow md:text-5xl">
-                The first place it runs
+                The first live site
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-300">
-                Tie Town [TX], a media and creator house in McDade, Texas, is where PrimusNeo runs first. It is where we find out whether the decision rights hold, whether the handoffs got easier, and whether the record tells the people running it anything useful, before we suggest any of it to someone else.
+                Tie Town [TX], a media and creator house in McDade, Texas, is the first live site. It is where we find out whether the decision rights hold, whether the handoffs got easier, and whether the record tells the people running it anything useful, before we suggest any of it to someone else.
               </p>
               <div className="mt-8">
                   <GradientButton href="/contact">Talk to us</GradientButton>

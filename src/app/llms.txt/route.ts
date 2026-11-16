@@ -24,22 +24,15 @@ const platform = [
   { path: '/elevate-impact', title: 'Elevate Impact', desc: 'Research module: turns questions into expert-checked study designs. Live with the sickle cell community; integration with the four layers is in build.' },
 ];
 
-const capital = [
-  { path: '/fractionalization', title: 'Fractionalization', desc: 'Asset-backed ownership and participation models for real-world assets.' },
-  { path: '/ico-marketing', title: 'Asset-Backed Participation', desc: 'Compliance-first capital design; subject to securities law and counsel.' },
-];
-
 const solutions = [
   { path: '/solutions', title: 'Solutions Overview', desc: 'Coordination problems PrimusNeo resolves across 10 critical sectors.' },
   { path: '/solutions/real-estate', title: 'Real Estate & Property', desc: 'Digital twins and governed ownership for the $1.85T construction data crisis.' },
-  { path: '/solutions/smart-infrastructure', title: 'Smart Infrastructure', desc: 'Bridging the $15T global infrastructure investment gap with predictive coordination.' },
   { path: '/solutions/supply-chain', title: 'Supply Chain & Logistics', desc: 'Closing the 94% multi-party visibility gap with spatial tracking and governed logic.' },
   { path: '/solutions/public-governance', title: 'Public Governance', desc: 'Citizen-led resource allocation and transparent public spending.' },
   { path: '/solutions/web3-governance', title: 'Web3 & DAO Governance', desc: 'Quadratic logic and delegated accountability against whale dominance.' },
   { path: '/solutions/ai-intelligence', title: 'AI & Spatial Intelligence', desc: 'Distributed physical-AI simulations against data silos and training-cost barriers.' },
   { path: '/solutions/community-coops', title: 'Community & Cooperatives', desc: 'Creator-centric operational infrastructure for next-generation cooperatives.' },
   { path: '/solutions/impact-investing', title: 'Impact Investing', desc: 'Immutable spatial trails and automated ESG reporting for verifiable outcomes.' },
-  { path: '/solutions/institutional-investment', title: 'Institutional Capital', desc: 'Governed liquidity and high-fidelity data for large-scale RWA portfolios.' },
   { path: '/solutions/developer-ecosystems', title: 'Developer Ecosystems', desc: 'Modular PrimusNeo stack for high-scale coordination apps.' },
 ];
 
@@ -117,7 +110,7 @@ async function buildBody(): Promise<string> {
   return [
     '# PrimusNeo',
     '',
-    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (operational runtime / Spatial OS), NEOS (agreements and permissions), AZOA (Autonomous Zones of Action: self-sovereign identity and consent, durable workflows, and settlement across blockchain and fiat; pre-launch, Apache-2.0), and Fractal Engine (intelligence and organizational memory). Elevate Impact is the research module (live sickle cell deployment; integration with the four layers in build). Tie Town [TX] is the first active operational deployment. LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
+    '> Federated operational infrastructure for real-world environments. PrimusNeo is the coordination layer that resolves structural fragmentation in construction, supply chains, governance, capital markets, and emerging AI/robotics ecosystems. The stack is composed of four interoperable layers: AMP (operational runtime / Spatial OS), NEOS (agreements and permissions), AZOA (Autonomous Zones of Action: self-sovereign identity and consent, durable workflows, and settlement across blockchain and fiat; pre-launch, Apache-2.0), and Fractal Engine (intelligence and organizational memory). Elevate Impact is the research module (live sickle cell deployment; integration with the four layers in build). Tie Town [TX] is the first live site. LLM crawlers, agents, and researchers are explicitly welcome — this file is a curated map for autonomous exploration.',
     '',
     '## Stack & Platform',
     ...platform.map(fmtLine),
@@ -128,9 +121,6 @@ async function buildBody(): Promise<string> {
     '- Elevate Impact: research module.',
     '- OVERSEASGENAI: agentic venture shipyard.',
     '- OPQPWR: infrastructure partner for on-prem, bare-metal deployments (starting partnership).',
-    '',
-    '## Capital',
-    ...capital.map(fmtLine),
     '',
     '## Solutions (problem-by-problem)',
     ...solutions.map(fmtLine),

@@ -73,6 +73,17 @@ const nextConfig = {
         statusCode: 301,
       },
       {
+        // Retired page. /solutions is the live index.
+        source: '/ico-marketing',
+        destination: '/solutions',
+        statusCode: 301,
+      },
+      {
+        source: '/ico-marketing/',
+        destination: '/solutions',
+        statusCode: 301,
+      },
+      {
         source: '/:path+/',
         destination: '/:path+',
         permanent: true,
