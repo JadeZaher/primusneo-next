@@ -9,9 +9,9 @@ import { ecosystemPartners, layerShowcase, stackIndex } from './_data/ecosystem'
 import { breadcrumbList, collectionNode, graph } from '@/lib/jsonld';
 import { pageMeta } from '@/lib/seo';
 
-const homeTitle = 'Federated Operational Infrastructure | PrimusNeo';
+const homeTitle = 'PrimusNeo · Many timelines, one line';
 const homeDescription =
-  'PrimusNeo builds local-first operational infrastructure, shared decision records, and verifiable execution — AMP, NEOS, AZOA, Fractal Engine, and Elevate Impact. Live with Tie Town [TX].';
+  'PrimusNeo is the technology innovation lab that helps organizations structure themselves for success, remove the friction between teams, turn their own work into insight, and keep oversight in plain view. Live with Tie Town [TX].';
 
 const homeItems = [
   { name: 'AMP', path: '/amp' },
@@ -34,7 +34,7 @@ export const metadata = {
 };
 
 const tickerItems =
-  'DIGITAL TWINS · FEDERATED GOVERNANCE · P2P ANALYTICS · AI ORGANIZATIONAL MEMORY · AGREEMENT COORDINATION · MODULAR INTEROPERABILITY · RESEARCH ENABLEMENT · CRYPTO INCENTIVES · ';
+  'CLEAR DECISION RIGHTS · FEWER HANDOFF FAILURES · INSIGHT FROM EVERYDAY WORK · OVERSIGHT WITHOUT MICROMANAGING · DECISIONS THAT SURVIVE TURNOVER · TOOLS THAT FIT WHAT YOU ALREADY USE · RESEARCH WITH THE PEOPLE AFFECTED ·';
 
 const operatingModel = [
   {
@@ -55,7 +55,7 @@ const operatingModel = [
   {
     step: '04',
     title: 'Build a first version',
-    body: 'Existing tools where they fit. New ones where they do not. Alpha is allowed to say which is which.',
+    body: 'Existing tools where they fit. New ones where they do not. The first version is allowed to say which is which.',
   },
   {
     step: '05',
@@ -71,11 +71,11 @@ const operatingModel = [
 
 const outcomes = [
   'Decision trails that survive team turnover',
-  'Digital twins connecting assets, spaces, and analytics',
-  'Fractional ownership and contribution accounting',
-  'Open and closed source governance patterns',
-  'Interoperable APIs for enterprise and community tools',
-  'Spatial AI context for construction, land, logistics, and community',
+  'A live picture of your sites, your assets and the work happening in them',
+  'A fair record of who contributed what',
+  'Governance that fits an open community or a private company',
+  'Tools that work with the systems you already pay for',
+  'Insight tied to real places, for construction, land, logistics and community work',
 ];
 
 const MonoLabel = ({ children }: { children: React.ReactNode }) => (
@@ -122,30 +122,31 @@ const Home = () => {
 
         <div className="pointer-events-none absolute inset-0 flex flex-col justify-end px-7 pb-12">
           <div className="mb-6 font-mono text-[11px] tracking-[0.24em] text-mist">
-            OPERATIONAL INFRASTRUCTURE · TIE TOWN [TX]
+            THE TECHNOLOGY INNOVATION LAB · TIE TOWN [TX]
           </div>
           <h1 className="max-w-[15ch] text-balance text-[clamp(48px,7.4vw,124px)] font-medium leading-[0.98] tracking-[-0.035em]">
-            Software that outlives its vendor.
+            Many timelines. One line.
           </h1>
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
             <p className="max-w-[56ch] text-[17px] leading-relaxed text-mist">
-              Operational software shouldn't break when two organizations share a workflow or a SaaS vendor
-              disappears five years in. PrimusNeo builds local-first coordination, verifiable records, and durable
-              execution tested against real physical stakes in Tie Town, Texas—starting with systems where state stays
-              legible under your own custody.
+              Every organization is living out several futures at once: the one in the plan, the one the team is quietly
+              working toward, and the one the budget can actually pay for. We help owners, operators and boards pull
+              them into one line by setting up who decides what, clearing the friction between teams, turning everyday
+              work into insight, and keeping oversight where the people responsible can see it. Tie Town, Texas, is
+              where we test that, and it is already running.
             </p>
             <div className="pointer-events-auto flex flex-wrap gap-3">
-              <PrimaryCta href="/guides">EXPLORE FIELD GUIDES</PrimaryCta>
-              <SecondaryCta href="/demos/paid-twice">RUN PAID-TWICE SIMULATOR</SecondaryCta>
+              <PrimaryCta href="/contact">TALK TO US</PrimaryCta>
+              <SecondaryCta href="/one-pager">SEE HOW WE WORK</SecondaryCta>
             </div>
           </div>
         </div>
 
         <div className="pointer-events-none absolute left-7 top-24 font-mono text-[10px] tracking-[0.2em] text-faint">
-          N_TIMELINES: MANY → 1
+          MANY TIMELINES → ONE LINE
         </div>
         <div className="pointer-events-none absolute right-7 top-24 font-mono text-[10px] tracking-[0.2em] text-faint">
-          SPATIAL_OS // ONLINE
+          TIE TOWN [TX] // LIVE
         </div>
       </section>
 
@@ -164,15 +165,16 @@ const Home = () => {
           <div>
             <Reveal>
               <h2 className="max-w-[24ch] text-balance text-[clamp(32px,4.2vw,72px)] font-medium leading-[1.08] tracking-[-0.03em]">
-                Systems break in the handoffs between teams, schemas, and budgets.
+                Plans rarely fail in the boardroom. They fail in the handoff after it.
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-10 max-w-[58ch] text-[17px] leading-relaxed text-mist">
-                Most projects don't fail because a single service crashed—they fail when a SaaS export strips
-                field metadata, a webhook retries twice without an idempotency boundary, or a 99-year land trust loses
-                why a council made a rule five years ago. PrimusNeo separates runtime, agreements, settlement, and
-                organizational memory so every layer can be audited and kept under your own custody.
+                A decision leaves the room, passes through three teams, two budgets and a vendor, and arrives at the
+                people doing the work with nobody quite sure who made it or why. A land trust meant to last 99 years
+                can forget within five why its council made a rule. We work on that gap: who owns which decision, where
+                work stalls between teams, what the organization can actually learn about itself, and how the people
+                responsible keep watch without sitting in every meeting.
               </p>
             </Reveal>
           </div>
@@ -183,9 +185,9 @@ const Home = () => {
       <section className="bg-ink px-7 pb-32 md:pb-36">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-12 flex flex-wrap items-baseline justify-between gap-4">
-            <MonoLabel>02 — Architecture</MonoLabel>
+            <MonoLabel>02 — What we do</MonoLabel>
             <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
-              Four coordination layers and a research module.
+              Four jobs every organization has, and a research partner.
             </h2>
           </div>
           <div className="border-b border-white/10">
@@ -229,9 +231,9 @@ const Home = () => {
       <section className="border-t border-white/[0.06] bg-ink-deep px-7 py-28 md:py-32">
         <div className="mx-auto max-w-[1600px]">
           <div className="mb-14 flex flex-wrap items-baseline justify-between gap-4">
-            <MonoLabel>03 — Field View</MonoLabel>
+            <MonoLabel>03 — The tour</MonoLabel>
             <h2 className="text-[clamp(28px,3vw,48px)] font-medium tracking-[-0.03em]">
-              Step into each layer.
+              Walk through each part.
             </h2>
           </div>
           <LayerShowcase layers={layerShowcase} />
@@ -281,9 +283,9 @@ const Home = () => {
             </Reveal>
             <Reveal delay={100}>
               <p className="mb-12 mt-8 max-w-[48ch] leading-relaxed text-mist">
-                PrimusNeo is the connective layer between vision, capital,
-                contributors, software, and real-world outcomes — easier to
-                govern, fund, ship, evaluate, and explain.
+                PrimusNeo connects the people with the vision, the people doing the work, the money behind it and the
+                results on the ground, so the whole effort is easier to run, to fund, to deliver, to measure and to
+                explain to a board.
               </p>
             </Reveal>
             <Reveal delay={160}>
@@ -295,7 +297,7 @@ const Home = () => {
                   className="object-cover opacity-80"
                 />
                 <div className="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/50">
-                  FIELD_STILL // DIGITAL TWIN
+                  TIE TOWN [TX] · SITE VIEW
                 </div>
               </div>
             </Reveal>
@@ -370,21 +372,21 @@ const Home = () => {
         </Reveal>
         <Reveal delay={120}>
           <div className="mt-14 flex flex-wrap justify-center gap-3">
-            <PrimaryCta href="/contact">TALK TO ENGINEERING</PrimaryCta>
-            <SecondaryCta href="/one-pager">VIEW THE STACK</SecondaryCta>
+            <PrimaryCta href="/contact">TALK TO US</PrimaryCta>
+            <SecondaryCta href="/one-pager">SEE HOW IT FITS TOGETHER</SecondaryCta>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
             <Link href="/demos/paid-twice" className="hover:text-accent">
-              Paid-Twice simulator
+              See how a payment gets paid twice
             </Link>
             <Link href="/guides" className="hover:text-accent">
-              Ten field guides
+              Field guides
             </Link>
             <Link href="/blog" className="hover:text-accent">
-              Engineering blog
+              Blog
             </Link>
             <Link href="/papers/why-good-work-goes-unbuilt" className="hover:text-accent">
-              White Paper #1
+              White paper: Why good work goes unbuilt
             </Link>
           </div>
         </Reveal>

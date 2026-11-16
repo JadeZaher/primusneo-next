@@ -57,7 +57,7 @@ const industries = [
 ];
 
 const about = [
-  { path: '/', title: 'PrimusNeo Home', desc: 'Federated operational infrastructure for real-world environments.' },
+  { path: '/', title: 'PrimusNeo Home', desc: 'The technology innovation lab. Many timelines, one line.' },
   { path: '/blog', title: 'Blog', desc: 'Builder notes and op-eds. Sanity posts appear in the same index when the studio has them.' },
   { path: '/papers', title: 'Papers', desc: 'White papers. The page is the summary. The PDF downloads directly, with no email gate.' },
   { path: '/newsroom', title: 'Newsroom', desc: 'Dated announcements, a short boilerplate, and logo files.' },

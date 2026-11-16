@@ -166,7 +166,7 @@ const organizationJsonLd = {
       subOrganization: sisterOrganizations.filter((site) => site.name === 'NEOS' || site.name === 'AZOA'),
       sameAs: ['https://escherbridge.com/', 'https://plan-systems.org/'],
       description:
-        'Federated operational infrastructure for real-world environments — coordinating digital twins, governance, identity, and spatial analytics. Operated by Escherbridge, LLC.',
+        'The technology innovation lab that helps organizations structure for success, remove friction, generate insight and provide oversight. Operated by Escherbridge, LLC.',
     },
     {
       '@type': 'WebSite',
