@@ -212,16 +212,26 @@ const OnePager = () => {
       <section className="px-4 pb-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Partners" title="Who builds with PrimusNeo" />
-          <div className="grid gap-6 md:grid-cols-3">
-            <InsightCard title="Elevate Impact">
-              Research module. Patients join as co-designers, never as subjects. <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Learn more</a>.
-            </InsightCard>
-            <InsightCard title="OVERSEASGENAI">
-              Agentic venture shipyard led by Ahmad Darwish with Escherbridge: idea, grilled, modelled, built, shipped, judged. Carries lab results that justify a company into a venture.
-            </InsightCard>
-            <InsightCard title="OPQPWR">
-              Infrastructure partner for self-service, on-prem, bare-metal deployments: field-deployable racks of power, compute, storage and communications. A starting partnership, not a running deployment.
-            </InsightCard>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
+            {ecosystemPartners.map((partner, i) => (
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className={`group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07] ${i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'} ${i === ecosystemPartners.length - 1 && ecosystemPartners.length % 2 === 1 ? 'md:col-span-2 lg:col-span-4' : ''}`}>
+                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  {partner.image ? (
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="rounded-xl object-contain p-2"
+                    />
+                  ) : (
+                    <span className="font-mono text-sm uppercase tracking-[0.22em] text-white/80">{partner.name}</span>
+                  )}
+                </div>
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
+                <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
+                <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>
