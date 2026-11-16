@@ -50,38 +50,38 @@ export const stackIndex = [
 export const platformLayers = [
   {
     eyebrow: 'Layer 01',
-    title: 'AMP — Operational Runtime / Spatial OS',
-    partner: 'Spatial OS and community networks',
-    body: 'Offline-capable, privacy-first spatial collaboration on the ground — PLAN 3D interfaces and community OS workflows. Integrates standalone or with the full stack.',
+    title: 'AMP — one picture of the site',
+    partner: 'Removing friction on the ground',
+    body: 'A shared, private view of a real place and the work happening in it, so the crew on site and the people off site see the same thing. It keeps working when the signal drops, and it runs on its own or alongside the other parts.',
   },
   {
     eyebrow: 'Layer 02',
-    title: 'NEOS Governance',
+    title: 'NEOS — who decides, written down',
     partner: 'Backend governance ecosystem — OmniOne',
-    body: 'Decision rights, councils, contribution accounting, project charters, and holonic organization that outlive the teams that define them.',
-    sites: [{ href: 'https://neos.primusneo.com', label: 'NEOS, agreements and permissions' }],
+    body: 'Who has the authority to decide what, how councils and project charters work, and a fair record of who contributed what. It is written down so it outlasts the people who wrote it.',
+    sites: [{ href: 'https://neos.primusneo.com', label: 'NEOS, agreements and decision rights' }],
   },
   {
     eyebrow: 'Layer 03',
     title: 'AZOA (Autonomous Zones of Action)',
-    partner: 'Federation rails — workflows & settlement',
-    body: 'Self-sovereign identity and consent, durable quest workflows, and settlement rails across blockchain and fiat — the structured seam that moves value through the stack, with SurrealDB as its sole data engine. ArdaNova is a designed consumer of this layer, not a live deployment, and it has made no token offering.',
+    partner: 'Oversight and approvals',
+    body: 'Walks each piece of work through its approval steps and keeps a record of who agreed to what, in a form a board can read afterward. Anything that moves real money stays switched off until it has been reviewed. ArdaNova, a workspace for shared work, is designed to run on AZOA. It is not live yet. It has made no token offering.',
     sites: [
-      { href: 'https://azoa.ardanova.com', label: 'AZOA, identity, consent, and settlement' },
-      { href: 'https://ardanova.com', label: 'ArdaNova, a designed consumer of this layer' },
+      { href: 'https://azoa.ardanova.com', label: 'AZOA, approvals and consent' },
+      { href: 'https://ardanova.com', label: 'ArdaNova, designed to run on AZOA' },
     ],
   },
   {
     eyebrow: 'Layer 04',
-    title: 'Fractal Engine',
-    partner: 'Intelligence layer — Escherbridge',
-    body: 'Field telemetry turned into durable, shareable insight. Built by Escherbridge to ingest and share data through AMP’s realtime operational systems.',
+    title: 'Fractal Engine — what the work is telling you',
+    partner: 'Generating insight, built by Escherbridge',
+    body: 'Turns the day-to-day record of a site into history you can look back on and early signals worth acting on. Built by Escherbridge to work with AMP. It is early, and the limits are written down.',
   },
   {
     eyebrow: 'Layer 05',
     title: 'Elevate Impact',
-    partner: 'Research enablement — Elevate Impact',
-    body: 'Turns research questions into finished, expert-checked study designs, with the community at the table. Live in production with the sickle cell community; links to the four layers are in build.',
+    partner: 'Research with the people affected',
+    body: 'Turns research questions into finished, expert-checked study designs, with the community at the table. Live in production with the sickle cell community; its connection to the other four parts is still being built.',
   },
 ];
 
