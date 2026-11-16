@@ -87,7 +87,7 @@ export const futures: FuturePiece[] = [
     layer: 'AMP',
     layerHref: '/amp',
     excerpt:
-      'A speculation, tied to AMP, about what happens when the working model of a place no longer has to leave it — written against what is already true about electricity, queues, and local-first software.',
+      'A speculation, tied to AMP, about what happens when the working model of a place no longer has to leave it — written against what is already true about electricity, the wait to connect to the grid, and software that keeps working on site.',
     sources: [
       {
         label:

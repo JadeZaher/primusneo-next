@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { client } from '@/lib/sanity/client';
+import { excludedCmsPostGroq, isExcludedCmsPost } from '@/lib/sanity/queries';
 import { essays } from '@/content/essays';
 import { futures } from '@/content/futures';
 import { guides } from '@/content/guides';
@@ -61,7 +62,7 @@ const staticRoutes: {
   { path: '/industries/logistics', changeFrequency: 'monthly', priority: 0.8, lastModified: INDUSTRY_REVIEWED },
 ];
 
-const POSTS_SITEMAP_QUERY = `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`;
+const POSTS_SITEMAP_QUERY = `*[_type == "post" && defined(slug.current) && ${excludedCmsPostGroq}]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`;
 const NEWS_SITEMAP_QUERY = `*[_type == "news" && defined(slug.current)]{ "slug": slug.current, "updatedAt": coalesce(_updatedAt, publishedAt) }`;
 
 type SanitySlugRow = { slug: string; updatedAt?: string };
@@ -96,7 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const blogEntries: MetadataRoute.Sitemap = posts
-    .filter(({ slug }) => !essays.some((essay) => essay.slug === slug))
+    .filter(({ slug }) => !isExcludedCmsPost(slug) && !essays.some((essay) => essay.slug === slug))
     .map(({ slug, updatedAt }) => ({
       url: `${SITE_URL}/blog/${slug}`,
       ...(updatedAt ? { lastModified: new Date(updatedAt) } : {}),

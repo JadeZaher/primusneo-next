@@ -60,7 +60,7 @@ export const essays: Essay[] = [
     excerpt:
       "A twin that only exists inside one vendor's account is a model of your building with the keys in someone else's pocket.",
     description:
-      "Vendor-specific digital-twin platforms make the model hard to move and harder to run at the edge. Notes from KTWIN, Twin2Clouds, NIST IR 8356, and McKinsey, and what a local-first spatial OS changes.",
+      "A digital twin is a working model of your site. When it only lives in one vendor's account, the contract decides who has it. What researchers, NIST and McKinsey say about that trap.",
     sources: [
       {
         label: 'Pimentel et al., KTWIN — arXiv:2408.01635',
@@ -99,11 +99,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'The KTWIN paper, a serverless Kubernetes design for digital twins, puts the complaint in plain language: existing platforms are ',
-          'mostly vendor-specific',
-          ', and moving a solution to another stack takes “a considerable amount of rework.” The same paper notes that because the offerings live mostly in the cloud, there is not enough room to move services to the edge, closer to the thing being twinned. Their proposed answer is dull in the useful way: open standards, containers, and a cluster you can run on-prem, at the edge, or in a cloud you picked. ',
-          a('Read KTWIN', 'https://arxiv.org/html/2408.01635v3'),
-          '.',
+          'Researchers who designed an open digital-twin platform called KTWIN say it plainly: most existing platforms are tied to one vendor, and moving to another takes "a considerable amount of rework." Because those platforms live almost entirely in the vendor\'s data centers, there is also little room to run the model on or near the site itself. Their answer is dull in the useful way: open standards, and a setup you can run on your own premises or with a provider you picked.',
         ],
       },
       {
@@ -165,13 +161,11 @@ export const essays: Essay[] = [
       },
       {
         kind: 'cta',
-        layer: 'AMP, the spatial OS',
+        layer: 'AMP',
         layerHref: '/amp',
         inlines: [
-          'AMP is the operational runtime: PLAN 3D, data channels, swarm file sharing, and peer-to-peer networking that is built to work offline, not as a demo mode. It is running at Tie Town in McDade, Texas — a creator house, not a slogan. Scenes move as Hexon archives: content-addressed blobs (BLAKE3), signed manifests, and a path into Fractal Engine when you want the history, not just the live view. For sites that want the machines on their own floor, OPQPWR is the on-prem infrastructure partner. That partnership is a start, not a claim that a utility substation is already on the rack. If the twin has to survive a vendor, start with ',
-          a('AMP', '/amp'),
-          ' and ',
-          a('tell us the site', '/contact'),
+          'AMP gives a site one shared, private picture of itself, and it keeps working when the internet doesn\'t. It is running at Tie Town in McDade, Texas. When an organization wants the history and not just the live view, the record passes to Fractal Engine. For sites that want the computers on their own floor, OPQPWR is the hardware partner. That partnership is a start, not a claim that a substation is already on the rack. If your twin has to survive a vendor, ',
+          a('tell us about the site', '/contact'),
           '.',
         ],
       },
@@ -185,7 +179,7 @@ export const essays: Essay[] = [
     excerpt:
       'Data centers want more electricity than the wires were introduced to. Renewables are waiting in the same line. A connection date is not resilience.',
     description:
-      'IEA figures on data-center electricity, connection queues, and non-firm access, plus NERC’s 2025 large-load alert. Local coordination is the unglamorous half of the energy story.',
+      'Data centers want more electricity than the grid was built to deliver, and the line to connect is long. Why local coordination is the unglamorous half of the energy story.',
     sources: [
       {
         label: 'IEA, Energy and AI — Energy demand from AI',
@@ -305,7 +299,7 @@ export const essays: Essay[] = [
     excerpt:
       'The United States has hundreds of thousands of cooperative homes and a very thin public record of how they decide things. Trust is a filing problem.',
     description:
-      'San Francisco Fed counts of housing cooperatives and community land trusts, HUD Section 213, and the cooperative principle of member control — and why the minutes matter as much as the mortgage.',
+      'Housing co-ops and community land trusts are a small, real part of American housing. Their member control depends on minutes as much as the mortgage.',
     sources: [
       {
         label: 'Federal Reserve Bank of San Francisco, Homeownership beyond single-family (November 2024)',
@@ -407,108 +401,14 @@ export const essays: Essay[] = [
     ],
   },
   {
-    slug: 'otherwise-its-a-group-chat-with-a-bank-account',
-    title: "Otherwise it's a group chat with a bank account",
-    kicker: 'Treasuries',
-    publishedAt: '2026-11-03',
-    excerpt:
-      'A vote almost nobody attends, over a treasury made of the token the vote dilutes, is not a constitution. It is a chat with a treasury.',
-    description:
-      'Coinbase Institutional’s November 2024 note on onchain governance: participation under 0.1%, treasuries held in the protocol’s own token, and quorum rules a small desk can meet.',
-    sources: [
-      {
-        label: 'Coinbase Institutional, Monthly Outlook: Onchain Governance in Theory and Practice (November 2024)',
-        href: 'https://www.coinbase.com/institutional/research-insights/research/monthly-outlook/monthly-outlook-november-2024',
-      },
-    ],
-    blocks: [
-      {
-        kind: 'p',
-        inlines: [
-          'Governance theater is easy to spot and rude to name. There is a forum. There is a vote. There is a number that clears a threshold. There is a treasury. And there is a group of people small enough to fit in a bad restaurant who actually decide. The chain makes the vote visible. It does not make the decision representative. Otherwise it is a group chat with a bank account.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'The turnout is the feature',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Coinbase Institutional’s November 2024 outlook on onchain governance is unusually specific, and it describes a practice rather than a villain. For large protocols, it says, only a small portion of governance-token holders — often less than 0.1% — regularly participate in votes. Forum activity, in the protocols they looked at, sat with a few hundred people or fewer. In one worked example, quorum was 320,000 tokens in favor of the winning option, about 2% of a 14.9 million circulating supply. Quorum is tokens, not people. A small, capitalized desk can meet a threshold that sounds like a constitution. ',
-          a('Coinbase Institutional, November 2024', 'https://www.coinbase.com/institutional/research-insights/research/monthly-outlook/monthly-outlook-november-2024'),
-          '.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Our web3 page cites a separate Snapshot turnout figure and other third-party tallies. Those stay there, with their labels. This note uses Coinbase’s published reading because it separates “tokens voting” from “people showing up,” which is the whole trick.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'The treasury is often the token',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'The same note looks at what the treasury actually holds. Across the protocols in its chart, a treasury is often mostly the governance token itself — from about half, in one case, to 99.9% in another. Grants are frequently written in dollars and paid in that asset, which the recipient then has to sell or hedge. Coinbase’s phrase is dry enough to keep: a large part of treasury “spending” is closer to dilutive issuance than to spending a cash reserve. A community that thinks it is allocating a war chest may be minting attention and calling it a budget. The names are in their note. The habit is the point.',
-        ],
-      },
-      {
-        kind: 'ul',
-        items: [
-          'Participation under a tenth of a percent means the “token holder vote” is a delegation story, whether or not the interface says so.',
-          'A quorum defined in tokens is a capital test. It is not evidence that the people affected were in the room.',
-          'A treasury denominated in the asset the vote can inflate is not the same object as a reserve account.',
-          'A forum post is not a decision record. A transaction hash is not an explanation.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'None of this is a case against chains, or against any one project. It is a case against pretending that a public vote, sparsely attended, over a self-referential treasury, has done the work of an institution.',
-        ],
-      },
-      {
-        kind: 'h2',
-        text: 'The habit, and a better one',
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'The habit is governance theater: a forum, a threshold, and a story that the holders decided. The better path is older than the interface. Write down who may decide what, make the authority expire, and keep a record a newcomer can read without asking the group chat. If the treasury is mostly the token the vote can dilute, say that in the same place as the proposal. Sunlight is not a personality. It is a filing system.',
-        ],
-      },
-      {
-        kind: 'cta',
-        layer: 'NEOS',
-        layerHref: '/governance-platform',
-        inlines: [
-          a('NEOS', 'https://neos.primusneo.com'),
-          ' is agreements and permissions: councils, holons, decision rights, contribution accounting, and a record that still makes sense after the people who were in the thread have left. It is meant to sit next to spatial evidence from AMP and identity from ',
-          a('AZOA', 'https://azoa.ardanova.com'),
-          ', not to replace a securities lawyer. If the treasury question is the one you actually have, the ',
-          a('governance platform', '/governance-platform'),
-          ' and the ',
-          a('web3 governance', '/solutions/web3-governance'),
-          ' page are the two doors. ',
-          a('Contact', '/contact'),
-          ' if you want them in the same conversation as a real cap table.',
-        ],
-      },
-    ],
-  },
-  {
     slug: 'an-agent-without-a-permission',
-    title: 'An agent without a permission',
-    kicker: 'Agents and consent',
+    title: 'An AI assistant that can spend money needs a permission someone can see',
+    kicker: 'AI oversight',
     publishedAt: '2026-11-06',
     excerpt:
       'An agent that can act, spend, or read, without a revocable grant and a log a person can open, is a very fast intern with no manager.',
     description:
-      'What the EU AI Act’s record-keeping rule and the NIST AI Risk Management Framework actually ask for, and why a consent checkbox is not a trail.',
+      'When software can act, spend or read on your behalf, someone should be able to see who allowed it, narrow it and switch it off. What the EU and U.S. frameworks actually ask for.',
     sources: [
       {
         label: 'Regulation (EU) 2024/1689, the Artificial Intelligence Act (EUR-Lex)',
@@ -527,7 +427,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'The current agent demo has a plot. The model gets a goal, calls some tools, and returns with a result and a tone of competence. The missing scene is the boring one: who allowed the tool, what the grant covered, whether it can be revoked while the agent is mid-task, and where a person reads that back on a Tuesday.',
+          'The usual AI assistant demo has a plot. The assistant gets a goal, uses a few tools, and comes back with a result and an air of competence. The missing scene is the boring one: who allowed it to use those tools, how far the permission went, whether anyone could have stopped it halfway, and where a manager can read all of that back on a Tuesday.',
         ],
       },
       {
@@ -610,13 +510,13 @@ export const essays: Essay[] = [
   },
   {
     slug: 'the-plugin-was-already-inside',
-    title: 'The plugin was already inside',
-    kicker: 'Supply chain',
+    title: 'The risk was already inside the building',
+    kicker: 'Vendor risk',
     publishedAt: '2026-11-08',
     excerpt:
       'XZ Utils did not look like an attack. It looked like a compression library. Plugin systems that run whatever arrives have the same plot.',
     description:
-      'CISA’s alert on CVE-2024-3094, NIST’s secure-development and CI/CD supply-chain guidance, and SLSA provenance — applied to plugins that execute, not just packages that install.',
+      'In 2024 a widely used piece of free software shipped with a hidden back door. What that says about every add-on your organization lets in, and who signs off on it.',
     sources: [
       {
         label: 'CISA alert, XZ Utils supply-chain compromise, CVE-2024-3094 (29 March 2024)',
@@ -639,50 +539,27 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'In late March 2024, a compression library became a security incident. XZ Utils versions 5.6.0 and 5.6.1 shipped with malicious code. CISA’s alert is short, which is part of the point: the library “may be present in Linux distributions,” the code “may allow unauthorized access,” and the recommendation was to move back to a known-good release such as 5.4.6, then go looking. Most of the machines that had the library had not chosen an attacker. They had chosen a tarball, or a distro that had chosen a tarball. ',
-          a('CISA alert', 'https://www.cisa.gov/news-events/alerts/2024/03/29/reported-supply-chain-compromise-affecting-xz-utils-data-compression-library-cve-2024-3094'),
-          '.',
+          'In late March 2024, a small, widely used piece of software for compressing files turned into a security incident. Two recent versions of it, called XZ Utils, had been shipped with malicious code hidden inside. The U.S. Cybersecurity and Infrastructure Security Agency\'s alert was short: the software might be on a lot of Linux computers, it might let an outsider in, and the advice was to go back to a known-good version and then go looking. Most of the organizations that had it had never chosen it. They had chosen a supplier who had chosen it.',
         ],
       },
       {
         kind: 'h2',
-        text: 'The dependency was the product',
+        text: 'Your suppliers\' suppliers are your suppliers',
       },
       {
         kind: 'p',
         inlines: [
-          'NIST’s Secure Software Development Framework, SP 800-218, is the unglamorous list: know what you build, know what you take in, protect the build, and be able to say which version a customer is running. SP 800-204D takes that list into CI/CD pipelines for cloud-native applications, where the supply chain is the pipeline itself — source, dependencies, build, package, deploy — and a poisoned step looks like a successful build. The documents do not promise that a framework stops a patient maintainer. They say the artifact should be identifiable, the build should be attestable, and a compromised online key should not be the key everyone ultimately trusts. ',
-          a('SP 800-218', 'https://csrc.nist.gov/pubs/sp/800/218/final'),
-          ', ',
-          a('SP 800-204D (PDF)', 'https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-204D.pdf'),
-          '.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'SLSA, the supply-chain levels spec, is the public vocabulary for the same idea: provenance that says which source, which builder, and which parameters produced an artifact, and verification before the artifact runs. Version 1.0 is the one to cite if you are tired of “we take security seriously” as a build log. ',
-          a('SLSA v1.0', 'https://slsa.dev/spec/v1.0/'),
-          '.',
+          'The U.S. standards agency, NIST, publishes a plain checklist for this: know what you build, know what you take in from others, protect the way it gets put together, and be able to say which version each customer is running. A companion guide applies the same list to the automated assembly line most software now runs on, where a poisoned step can look exactly like a successful one. None of it promises to stop a patient attacker. It does make the question "where did this come from, and who approved it?" answerable, which is what a board will ask first.',
         ],
       },
       {
         kind: 'h2',
-        text: 'A plugin is a supply chain that executes',
+        text: 'An add-on is a supplier you let inside',
       },
       {
         kind: 'p',
         inlines: [
-          'A package that sits on disk is one problem. A plugin that a runtime loads, because a registry said it was fine, is the same problem with a shorter delay. The questions are old. Who signed the manifest. What the plugin is allowed to touch. Whether a failed check means the plugin does not run, or means someone gets an email. Role-gated and sandboxed are adjectives. They count when the default is refusal.',
-        ],
-      },
-      {
-        kind: 'ul',
-        items: [
-          'XZ was not a phishing email. It was a maintained project. Social trust was the vulnerability.',
-          'A hash of the artifact is not a judgment about the artifact. It is how you notice the artifact changed.',
-          'Admission after execution is an incident report. Admission before execution is a policy.',
-          'A plugin marketplace without signatures is a directory of strangers with your process ID.',
+          'A piece of software that sits unused is one problem. An add-on that your systems run automatically, because a marketplace said it was fine, is the same problem with less warning. The questions are old ones: who vouched for it, what it is allowed to touch, and whether a failed check means it doesn\'t run or just means someone gets an email. The safe default is no.',
         ],
       },
       {
@@ -702,15 +579,9 @@ export const essays: Essay[] = [
         layer: 'Fractal Engine, with the shared plugin layer',
         layerHref: '/fractal-engine',
         inlines: [
-          'Fractal Engine is the organizational-memory layer, and it is alpha. The public README is specific: Rhai and WASM plugins sit in sandboxes, the desktop starts the plugin host, and it loads no packages automatically — admission fails closed. Assets are content-addressed with BLAKE3 and move as .hexon files. That is the path. It is not a finished castle. The op-log signature field on older rows is still a placeholder, which we would rather say here than in a footnote nobody opens. See ',
-          a('Fractal Engine', '/fractal-engine'),
-          ', the ',
+          'Fractal Engine is in alpha, and it refuses to load an add-on it has not approved first. One older part of its record still has a placeholder where a signature should be. We would rather say that here than in a footnote. The ',
           a('alpha note', '/newsroom/alpha-is-a-status-not-a-compliment'),
-          ', and ',
-          a('developer ecosystems', '/solutions/developer-ecosystems'),
-          '. ',
-          a('Contact', '/contact'),
-          ' if your current plugin policy is hope.',
+          ' has the details.',
         ],
       },
     ],
@@ -718,7 +589,7 @@ export const essays: Essay[] = [
   {
     slug: 'paid-twice-or-never',
     title: 'Paid twice, or never, is the same bug',
-    kicker: 'Settlement',
+    kicker: 'Payments',
     publishedAt: '2026-11-09',
     excerpt:
       'A timeout is not a decision. Most payout systems treat a missing reply as a reason to try again, which is how the same work gets paid twice, or not at all.',
@@ -738,14 +609,14 @@ export const essays: Essay[] = [
         note: 'Where RFC 9110 §9.2.2 draws the line between PUT/DELETE and unkeyed POST.',
       },
       {
-        label: 'Why durable execution beats optimistic retries',
+        label: 'When a job stops halfway, someone has to know where it stopped',
         href: '/blog/durable-execution-beats-optimistic-retries',
         note: 'Sagas, checkpoints, and crash windows across multi-step workflows.',
       },
     ],
     sources: [
       {
-        label: 'Stripe Docs, Idempotent requests',
+        label: 'Stripe Docs, Idempotent requests. "For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including 500 errors."',
         href: 'https://docs.stripe.com/api/idempotent_requests',
       },
       {
@@ -769,7 +640,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Stripe\'s API documentation is unusually plain about the problem. If a client sends a POST and then loses the reply, it is supposed to retry with the same idempotency key. In Stripe\'s words, "For API v1, Stripe saves the status code and body of the first request made with a given idempotency key after endpoint execution begins. Retries with the same key return the saved response, including 500 errors." The key is not a courtesy header. It is the record of a decision. Stripe also refuses a retry when the parameters do not match the original request, and it prunes keys after at least twenty-four hours, after which the same key is treated as new. The design assumes the client will keep a constant key for as long as it is still asking the same question. That is a test written down in advance: this request, once.',
+          'Stripe is unusually plain about the problem. If your system sends a payment and never hears back, Stripe tells you to send it again with the same reference number, and it promises to return the first answer rather than charge a second time. The reference number is not a courtesy. It is how the payment processor knows the second request is the first one asking again.',
         ],
       },
       {
@@ -837,13 +708,13 @@ export const essays: Essay[] = [
   {
     slug: 'the-file-opened-it-wasnt-the-building',
     title: 'Opening the file is not the same as receiving the building',
-    kicker: 'BIM',
+    kicker: 'Construction handoffs',
     publishedAt: '2026-11-09',
-    dek: 'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
+    dek: 'The construction industry\'s shared file standard was supposed to let a building model leave one team\'s software and arrive intact in another\'s. The standard is real. The handoff between teams often isn\'t.',
     excerpt:
       'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
     description:
-      'IFC was supposed to let a building model leave one tool and arrive intact in another. The format is real, but the handshake between tools often is not.',
+      'A building model that opens in the next team\'s software can still arrive missing beams, walls and the details the first team relied on. Here is where that handoff breaks.',
     layer: 'Fractal Engine',
     layerHref: '/fractal-engine',
     sources: [
@@ -877,7 +748,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Industry Foundation Classes, or IFC, is the usual answer to that assumption. It is a public schema for describing buildings so that architectural, structural, and other models can be exchanged without each team living in the same proprietary tool. In 2018, Huahui Lai and Xueyuan Deng published a paper in the Journal of Civil Engineering and Management that tested bidirectional, IFC-based exchange among architectural, structural, and MEP models. The abstract is not optimistic. The fundamental causes, they wrote, are that "software tools cannot well interpret several objects belonging to other disciplines due to the difference in domain knowledge," and that "software tools have diverse methods to represent the same geometry, properties and relations, leading to inconsistent model data."',
+          'Industry Foundation Classes, or IFC, is the construction industry\'s shared file standard for describing a building. It is a public schema for describing buildings so that architectural, structural, and other models can be exchanged without each team living in the same proprietary tool. In 2018, Huahui Lai and Xueyuan Deng published a paper in the Journal of Civil Engineering and Management that tested bidirectional, IFC-based exchange among architectural, structural, and MEP models. The abstract is not optimistic. The fundamental causes, they wrote, are that "software tools cannot well interpret several objects belonging to other disciplines due to the difference in domain knowledge," and that "software tools have diverse methods to represent the same geometry, properties and relations, leading to inconsistent model data."',
         ],
       },
       {
@@ -1038,12 +909,12 @@ export const essays: Essay[] = [
   {
     slug: "local-first-digital-twin",
     title: "A twin you can only open in their tab is a rental",
-    seoTitle: "Local-first digital twin: yours, not a rental",
-    kicker: "Local-first",
+    seoTitle: "A digital twin you can't take with you is a rental",
+    kicker: "Owning your data",
     publishedAt: "2026-11-09",
     dek: "A digital twin is a working likeness of a place or a process, kept in sync with the thing it represents. The definition does not say the likeness has to live on a vendor's server. If the model disappears when the login does, it was never yours.",
     excerpt: "A digital twin is a working likeness of a place or a process, kept in sync with the thing it represents. The definition does not say the likeness has to live on a vendor's server. If the model disappears when the login does, it was never yours.",
-    description: "A local-first digital twin is a likeness you still have when the login does not. If it only opens in their tab, it was a rental with a nicer name.",
+    description: "A digital twin is a working model of your site. If it disappears when the subscription does, it was a rental with a nicer name.",
     layer: "Fractal Engine",
     layerHref: "/fractal-engine",
     related: [
@@ -1111,7 +982,7 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          "They treat the copy on your device as the primary copy. Servers can still exist, as secondary copies, to help with access from more than one machine. Among their ideals are that the network is optional, that the work should survive in the long term, and that the people who made it \"retain ultimate ownership and control.\" They were writing about documents, drawings, and other files a person makes. The same prior applies to a likeness of a place. If the twin is a working model, it should still be a working model on a day when the wide-area link is down, or when the vendor has changed its terms, or when the contract has ended and the export wizard is a support ticket.",
+          "The software world calls this 'local-first': the copy on your own computers is the real one, and the vendor's servers are a helpful spare. Servers can still exist, as secondary copies, to help with access from more than one machine. Among their ideals are that the network is optional, that the work should survive in the long term, and that the people who made it \"retain ultimate ownership and control.\" They were writing about documents, drawings, and other files a person makes. The same prior applies to a likeness of a place. If the twin is a working model, it should still be a working model on a day when the wide-area link is down, or when the vendor has changed its terms, or when the contract has ended and the export wizard is a support ticket.",
         ],
       },
       {
@@ -1168,11 +1039,6 @@ export const essays: Essay[] = [
         label: "Shared ownership, unshared minutes",
         href: "/blog/shared-ownership-unshared-minutes",
         note: "Housing co-ops, the same principle, and the same missing object: minutes a new member can find.",
-      },
-      {
-        label: "Otherwise it's a group chat with a bank account",
-        href: "/blog/otherwise-its-a-group-chat-with-a-bank-account",
-        note: "Same sentence, different room. That note is token turnout. This one is a cooperative’s bylaws.",
       },
       {
         label: "Why good work goes unbuilt",
@@ -1279,7 +1145,7 @@ export const essays: Essay[] = [
     excerpt:
       'When software produces a recommendation, accountability is not a label on the model. It is a record of who is responsible, what was measured, and how the thing will be watched after it is in use, as two public frameworks already say.',
     description:
-      'Accountability for an automated recommendation is a named record: who is responsible, what was measured, and how it will be watched, per NIST AI RMF and GAO.',
+      'When software makes a recommendation, someone\'s name still belongs on it: who is responsible, what was measured, and how it will be watched. What NIST and the GAO say.',
     layer: 'NEOS',
     layerHref: '/governance-platform',
     related: [
@@ -1394,15 +1260,15 @@ export const essays: Essay[] = [
   },
   {
     slug: 'durable-execution-beats-optimistic-retries',
-    title: 'Why durable execution beats optimistic retries',
-    seoTitle: 'Why durable execution beats optimistic retries',
-    kicker: 'Distributed State',
+    title: 'When a job stops halfway, someone has to know where it stopped',
+    seoTitle: 'Work that stops halfway needs a record of where',
+    kicker: 'Handoffs',
     publishedAt: '2026-11-14',
-    dek: 'In-memory retry queues work right up until a container restarts between two commits. Without persisted step checkpoints and compensating boundaries, optimistic retries either double-apply state or leave multi-party work half-finished.',
+    dek: 'Most multi-step work between two organizations is fine until something interrupts it in the middle. Then the usual fix, trying again, either does the first step twice or leaves the second one undone.',
     excerpt:
       'In-memory retry queues work right up until a container restarts between two commits. How persisted checkpoints, RFC 9110 boundaries, and sagas hold state across crashes.',
     description:
-      'Why in-memory retry loops double-execute across restarts—and how idempotency keys, sagas, and fail-closed checkpoints hold multi-step state.',
+      'Why "just try it again" pays bills twice or leaves work half-done, and the three habits that keep a multi-step handoff accountable.',
     layer: 'AZOA',
     layerHref: '/azoa',
     related: [
@@ -1444,50 +1310,38 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Most coordination bugs do not show up when everything returns HTTP 200 in 40 milliseconds. They appear in the narrow gap between two side effects: your worker reserves an allocation in Postgres or SurrealDB, fires an outbound HTTP POST to settle the second step, and takes a SIGTERM from an orchestrator deploy two hundred milliseconds before the response socket finishes writing.',
+          'Most handoff failures don\'t happen when everything is going well. They happen in the gap between two steps: one team has reserved the money, the next step is to pay the supplier, and the system restarts before anyone hears back. Nobody did anything wrong. The work simply stopped in the one place nobody was writing down.',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'If your workflow state lived only inside an in-memory promise chain or an auto-requeueing job message, the surviving worker only knows the job restarted. Without a persisted per-step transition record and an idempotent boundary on the downstream receiver, that worker either replays step two and creates duplicate state, or assumes step two already failed and leaves step one orphaned forever.',
+          'When the system comes back, all it knows is that the job was interrupted. If it tries again, it may pay the supplier twice. If it assumes the payment failed, the reservation sits there forever. Either way, a person eventually finds out from the ledger, which is the most expensive place to find out anything.',
         ],
       },
-      { kind: 'h2', text: 'Where optimistic queues crack under pressure' },
+      { kind: 'h2', text: 'Trying again is not a plan' },
       {
         kind: 'p',
         inlines: [
-          'Engineers often try to patch that crash window with aggressive queue retries. Yet RFC 9110 (§9.2.2) explicitly separates safe, idempotent methods (GET, PUT, DELETE) from non-idempotent POST operations—and goes so far as to state that a proxy must not automatically retry non-idempotent requests. Retrying blindly at the transport layer moves an uncertainty problem downstream until something with money or custody attached notices twice.',
+          'The tempting fix is to retry harder. The people who write the web\'s own rulebook already said not to: a request that changes something, such as a payment, should not be repeated automatically just because the reply went missing. Stripe handles half of the problem by giving each payment request a reference number, so a repeat returns the first answer instead of charging again. That helps with one step. It doesn\'t help when step one happens in your organization and step three is declined three seconds later in someone else\'s.',
         ],
       },
+      { kind: 'h2', text: 'Write down each step before you take it' },
       {
         kind: 'p',
         inlines: [
-          'Stripe’s API design tackles half the seam with client-supplied idempotency keys cached against request parameters so duplicate POST attempts return the recorded result instead of running twice. Even then, idempotency keys alone do not coordinate multi-step chains where step A commits in one system and step C declines three seconds later inside another organization’s stack.',
+          'Database researchers described the better habit in 1987: break a long piece of work into steps, record each one as it happens, and decide in advance what undoing each step looks like, or where the work simply halts. In business terms it comes down to three habits. Record what you intend to do before you do it. When you don\'t hear back, check what actually happened instead of guessing. And when an approval is unclear, stop rather than wave the work through. The ',
+          a('Paid-Twice simulator', '/demos/paid-twice'),
+          ' shows the difference in about a minute.',
         ],
       },
-      { kind: 'h2', text: 'Sagas and explicit checkpoints' },
+      { kind: 'h2', text: 'What it costs' },
       {
         kind: 'p',
         inlines: [
-          'Back in 1987, Hector Garcia-Molina and Kenneth Salem formalized why long-lived workflows break standard database locks in their paper "Sagas": instead of pretending two independent systems can sit inside one atomic lock, a saga breaks a multi-step flow into persisted sub-transactions where each forward commit pairs with a recorded compensating step—or an explicit halt—if a later stage fails.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'Applied cleanly in application code, durable execution means three unglamorous habits before a workflow touches external state: persist the intent key before dispatching outbound work, reconcile downstream status rather than guessing after timeouts, and fail closed whenever permissions or custody checks come back ambiguous. You can poke directly at how naive retries compare to keyed reconciliation inside our ',
-          a('Paid-Twice interactive simulator', '/demos/paid-twice'),
-          '.',
-        ],
-      },
-      { kind: 'h2', text: 'Trade-offs we leave explicit' },
-      {
-        kind: 'p',
-        inlines: [
-          'Durable workflows carry real engineering overhead. Every step needs deterministic schemas, compensating behavior has to be designed upfront rather than hand-waved in catch blocks, and stuck states require human operator visibility instead of silent retry loops. In ',
+          'This takes more planning up front. Each step needs a defined undo, and work that gets stuck has to land in front of a person instead of retrying quietly in the background. ',
           a('AZOA', '/azoa'),
-          ', workflows persist state graphs in SurrealDB and keep real-value rails switched off under Alpha Gate while production custody adapters remain under review—because gating an unverified bridge beats debugging duplicate transfers after cutover.',
+          ' keeps anything that moves real money switched off while it is still in alpha and under review, because finding out before launch is cheaper than unwinding duplicate payments afterward.',
         ],
       },
       {
@@ -1506,15 +1360,15 @@ export const essays: Essay[] = [
   },
   {
     slug: 'application-file-formats-outlive-vendors',
-    title: 'Application file formats outlive software vendors',
-    seoTitle: 'File formats that outlive software vendors',
-    kicker: 'Custody & Storage',
+    title: 'Your records should outlive the software you keep them in',
+    seoTitle: 'Records that outlive the software vendor',
+    kicker: 'Institutional memory',
     publishedAt: '2026-11-14',
-    dek: 'Land trusts, building handovers, and local stewardship records run on decades-long clocks. Why open, single-file application formats and explicit ADRs protect state long after a cloud vendor sunsets.',
+    dek: 'Land trusts, building handovers and local stewardship records run on clocks measured in decades. The software that holds them usually doesn\'t. Here is how to keep both the records and the reasons behind them.',
     excerpt:
       'Long-lived operational records need storage formats you can still inspect twenty years after a SaaS vendor disappears. Why open schemas and local-first custody hold up.',
     description:
-      'Why county maps, 99-year trust logs, and CAD exports vanish inside proprietary SaaS—and how open application file formats preserve custody.',
+      'Why county maps, 99-year trust records and building drawings go missing when a software vendor changes course, and how an organization keeps its own history.',
     layer: 'AMP',
     layerHref: '/amp',
     related: [
@@ -1556,39 +1410,27 @@ export const essays: Essay[] = [
       {
         kind: 'p',
         inlines: [
-          'Hardware wears out in five to ten years; SaaS companies pivot or shut down even faster. Yet physical infrastructure—a utility pipe map, a residential cooperative’s maintenance history, a 99-year community land lease, or construction inspection geometry built at Tie Town [TX]—outlives almost every web startup hired to host it.',
+          'Equipment wears out in five to ten years, and software companies pivot or shut down even faster. The things they\'re hired to keep track of don\'t. A utility pipe map, a co-op\'s maintenance history, a 99-year community land lease or the inspection record of a building at Tie Town [TX] will outlast almost every startup hired to host it.',
         ],
       },
       {
         kind: 'p',
         inlines: [
-          'When teams store operational memory exclusively inside a multi-tenant cloud workspace with proprietary binary blobs or lossy CSV exports, institutional continuity fails in silence. Five years after handoff, a board changes treasurers, an API token expires, and "export everything" drops the relational links explaining why a culvert easement was amended or which inspector signed off on a structural revision.',
+          'When all of that lives only inside someone else\'s subscription, continuity fails quietly. Five years after the handoff the board has a new treasurer, the login has lapsed, and "export everything" hands back a spreadsheet that has lost the links explaining why an easement was amended or who signed off on a structural change.',
         ],
       },
-      { kind: 'h2', text: 'Why inspectable application formats age gracefully' },
+      { kind: 'h2', text: 'The thirty-year test' },
       {
         kind: 'p',
         inlines: [
-          'The SQLite project’s essay "SQLite As An Application File Format" lays out an unflashy test that most enterprise software still fails: can someone open your artifact thirty years from now using standard tools without booting your defunct application stack? Storing structured operational state inside self-contained, cross-platform, transactional database files—or explicitly pinned open exchange formats—turns backups from a vendor rescue mission into copying one inspectable file.',
+          'The people behind SQLite, one of the most widely used pieces of software in the world, propose a plain test: could someone open your records thirty years from now with ordinary tools, without the original program? Keeping records in a single, self-contained file that any standard tool can read turns a backup from a rescue mission into copying one file. Building projects learned the same lesson: name the exact version of the file standard you\'re using, rather than trusting that "the export" will mean the same thing to the next team.',
         ],
       },
+      { kind: 'h2', text: 'The half nobody writes down: why' },
       {
         kind: 'p',
         inlines: [
-          'That durability model reinforces what Ink & Switch argued in their 2019 local-first software essay: keep the copy on the operator’s own storage canonical while remote servers assist multi-device synchronization. And when teams exchange specialized geometry instead of relational tables, NBIMS-US demonstrates the exact same necessity—pinning schema revisions such as IFC 2X3 instead of trusting generic ".ifc" exports that later parsers misread.',
-        ],
-      },
-      { kind: 'h2', text: 'The hidden half: schema evolution and why decisions were made' },
-      {
-        kind: 'p',
-        inlines: [
-          'Owning raw files does not automatically make data effortless to evolve. Forward-only migrations, conflict merging between disconnected devices, and stamping format metadata (like SQLite’s PRAGMA application_id) all demand clear invariants. Just as critical, as Michael Nygard documented in 2011, engineers inheriting a schema need short Architecture Decision Records explaining why a column or state transition cannot simply be normalized away without breaking field assumptions.',
-        ],
-      },
-      {
-        kind: 'p',
-        inlines: [
-          'None of this eliminates cloud relays, collaborative sync, or audit logs. It simply puts custody back where the operational clock lives—so an organization owns both its state and the plain reasons behind it.',
+          'Owning the files doesn\'t mean anyone will understand them later. The record also needs the reasons. In 2011 Michael Nygard suggested keeping a short note for each significant decision, so whoever inherits the system knows why something is the way it is before they "fix" it. A co-op board or a land trust council can use exactly the same habit.',
         ],
       },
       {
