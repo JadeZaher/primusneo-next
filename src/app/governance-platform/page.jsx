@@ -1,13 +1,18 @@
-import { DreadShape, EcosystemPartnerGrid, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
-import { outcomePillars, platformLayers } from '../_data/ecosystem';
+import Image from 'next/image';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import { ecosystemPartners, outcomePillars, platformLayers } from '../_data/ecosystem';
+
+const governanceTitle = 'NEOS · Decision Rights and Oversight for Organizations';
+const governanceDescription =
+  'NEOS keeps a plain record of who decides what, what was agreed and who contributed, so leaders and boards can see how the organization is running without chasing it down.';
 
 export const metadata = {
-  title: 'NEOS Governance Platform — Councils, Decision Rights, Contribution Accounting',
-  description: 'A governance operating system for software, infrastructure, and asset ecosystems: councils, holons, decision records, contribution accounting, and spatial evidence.',
+  title: { absolute: governanceTitle },
+  description: governanceDescription,
   alternates: { canonical: '/governance-platform' },
   openGraph: {
-    title: 'NEOS Governance Platform | PrimusNeo',
-    description: 'Programmable councils, decision rights, and contribution accounting backed by spatial evidence.',
+    title: { absolute: governanceTitle },
+    description: governanceDescription,
     url: '/governance-platform',
     type: 'website',
   },
@@ -148,7 +153,27 @@ const GovernancePlatformPage = () => {
           <SectionHeader eyebrow="Partner roles" title="Who powers the governance ecosystem">
             PrimusNeo’s updated story makes partner responsibility explicit instead of hiding it behind generic technology claims. Research decisions and their evidence will run through <a href="/elevate-impact" className="text-emerald-300 underline underline-offset-4">Elevate Impact</a>, the research module, once its integration with NEOS (in build) lands.
           </SectionHeader>
-          <EcosystemPartnerGrid />
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
+            {ecosystemPartners.map((partner, i) => (
+              <a key={partner.name} href={partner.href} target="_blank" rel="noreferrer" className={`group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07] ${i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'} ${i === ecosystemPartners.length - 1 && ecosystemPartners.length % 2 === 1 ? 'md:col-span-2 lg:col-span-4' : ''}`}>
+                <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
+                  {partner.image ? (
+                    <Image
+                      src={partner.image}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="rounded-xl object-contain p-2"
+                    />
+                  ) : (
+                    <span className="font-mono text-sm uppercase tracking-[0.22em] text-white/80">{partner.name}</span>
+                  )}
+                </div>
+                <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
+                <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
+                <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 

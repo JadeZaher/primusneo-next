@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { ecosystemPartners } from '../_data/ecosystem';
 
 const Pill = ({ children }) => (
   <span className="border border-white/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-mist">
@@ -96,36 +94,6 @@ export const DreadShape = ({ volume = 1, id = '01', className = '', size = 80 })
     </div>
   );
 };
-
-export const EcosystemPartnerGrid = () => (
-  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
-    {ecosystemPartners.map((partner, i) => (
-      <a
-        key={partner.name}
-        href={partner.href}
-        target="_blank"
-        rel="noreferrer"
-        className={`group rounded-3xl border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-emerald-300/40 hover:bg-white/[0.07] ${i < 4 ? 'lg:col-span-3' : 'lg:col-span-4'} ${i === ecosystemPartners.length - 1 && ecosystemPartners.length % 2 === 1 ? 'md:col-span-2 lg:col-span-4' : ''}`}
-      >
-        <div className="relative mb-5 flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-black/35 p-3">
-          {partner.image ? (
-            <Image
-              src={partner.image}
-              alt={`${partner.name} logo`}
-              fill
-              className="rounded-xl object-contain p-2"
-            />
-          ) : (
-            <span className="font-mono text-sm uppercase tracking-[0.22em] text-white/80">{partner.name}</span>
-          )}
-        </div>
-        <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/80">{partner.role}</div>
-        <h3 className="mb-3 text-2xl font-bold text-white">{partner.name}</h3>
-        <p className="text-sm leading-6 text-gray-300">{partner.body}</p>
-      </a>
-    ))}
-  </div>
-);
 
 export const PillList = ({ items }) => (
   <div className="flex flex-wrap gap-2">

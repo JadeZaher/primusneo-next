@@ -1,8 +1,8 @@
 "use client";
 import { useState } from 'react';
 import Image from 'next/image';
-import { DreadShape, EcosystemPartnerGrid, GradientButton, InsightCard, PillList, SectionHeader } from '../_components/marketing';
-import { platformLayers } from '../_data/ecosystem';
+import { DreadShape, GradientButton, InsightCard, NumberedCard, PillList, SectionHeader } from '../_components/marketing';
+import { ecosystemPartners, platformLayers } from '../_data/ecosystem';
 
 const productOfferings = [
   {
@@ -127,7 +127,7 @@ const OnePager = () => {
                     <div className="border-t border-white/10 p-6 leading-8 text-gray-300">
                       <p>{layer.body}</p>
                       {layer.sites?.map((site) => (
-                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline underline-offset-4">
+                        <a key={site.href} href={site.href} className="mt-3 block text-emerald-300 underline-offset-4 hover:underline">
                           {site.label}
                         </a>
                       ))}
@@ -212,7 +212,17 @@ const OnePager = () => {
       <section className="px-4 pb-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="Partners" title="Who builds with PrimusNeo" />
-          <EcosystemPartnerGrid />
+          <div className="grid gap-6 md:grid-cols-3">
+            <InsightCard title="Elevate Impact">
+              Research module. Patients join as co-designers, never as subjects. <a href="/elevate-impact" className="text-emerald-300 underline-offset-4 hover:underline">Learn more</a>.
+            </InsightCard>
+            <InsightCard title="OVERSEASGENAI">
+              Agentic venture shipyard led by Ahmad Darwish with Escherbridge: idea, grilled, modelled, built, shipped, judged. Carries lab results that justify a company into a venture.
+            </InsightCard>
+            <InsightCard title="OPQPWR">
+              Infrastructure partner for self-service, on-prem, bare-metal deployments: field-deployable racks of power, compute, storage and communications. A starting partnership, not a running deployment.
+            </InsightCard>
+          </div>
         </div>
       </section>
 

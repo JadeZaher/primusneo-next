@@ -16,9 +16,9 @@ type SanityPostRow = { title?: string; slug: string; excerpt?: string };
 type SanityNewsRow = { title?: string; slug: string; excerpt?: string; sourceName?: string };
 
 const platform = [
-  { path: '/one-pager', title: 'Stack Overview', desc: 'The complete PrimusNeo platform at a glance — AMP, NEOS, AZOA, and Fractal Engine.' },
+  { path: '/one-pager', title: 'PrimusNeo at a Glance · Many Timelines, One Line', desc: 'A one-page look at how PrimusNeo helps owners, operators and boards set clear decision rights, ease the friction between teams, turn everyday work into insight, and keep oversight where the responsible people can see it.' },
   { path: '/amp', title: 'AMP — Operational Runtime / Spatial OS', desc: 'Spatial OS / digital twin runtime: 3D maps, telemetry, site coordination.' },
-  { path: '/governance-platform', title: 'NEOS Governance Platform', desc: 'Councils, decision rights, contribution accounting, and programmable voting logic.' },
+  { path: '/governance-platform', title: 'NEOS · Decision Rights and Oversight for Organizations', desc: 'NEOS keeps a plain record of who decides what, what was agreed and who contributed, so leaders and boards can see how the organization is running without chasing it down.' },
   { path: '/azoa', title: 'AZOA — Autonomous Zones of Action', desc: 'Identity & consent, durable quest workflows, and settlement rails across blockchain and fiat.' },
   { path: '/fractal-engine', title: 'Fractal Engine', desc: 'Analytics + spatial intelligence: predictive ops, simulation, ESG/financial signals.' },
   { path: '/elevate-impact', title: 'Elevate Impact', desc: 'Research module: turns questions into expert-checked study designs. Live with the sickle cell community; integration with the four layers is in build.' },
