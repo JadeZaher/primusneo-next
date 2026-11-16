@@ -13,7 +13,7 @@ export const stackIndex = [
     index: 'L—01',
     name: 'AMP',
     tag: 'REMOVING FRICTION',
-    summary: 'One shared picture of a site and the work on it, so the crew on the ground and the people off site see the same thing. Live at Tie Town [TX].',
+    summary: 'One shared picture of a site and the work on it, so the crew on the ground and the people off site see the same thing. Tie Town [TX] is the first live site.',
     href: '/amp',
   },
   {
@@ -96,7 +96,7 @@ export const layerShowcase = [
       'A shared, private view of a real place and the work happening in it. It keeps working when the signal drops, which on a rural site is most afternoons.',
     href: '/amp',
     image: '/images/stack/amp-spatial-os.svg',
-    status: 'Live at Tie Town',
+    status: 'First live site: Tie Town [TX]',
   },
   {
     tab: 'NEOS',
