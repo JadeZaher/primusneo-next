@@ -1,6 +1,5 @@
 export const partnerLogos = {
   escherbridge: '/images/partners/escherbridge-logo.svg',
-  omnione: '/images/partners/omnione-logo.webp',
   azoa: '/images/partners/azoa-logo.png',
   amp: 'https://www.plan-systems.org/wp-content/uploads/2020/08/PLAN_Logo_600px.png',
   ampArchitecture: '/images/partners/amp-architecture.jpg',
@@ -57,7 +56,7 @@ export const platformLayers = [
   {
     eyebrow: 'Layer 02',
     title: 'NEOS — who decides, written down',
-    partner: 'Backend governance ecosystem — OmniOne',
+    partner: 'Decision rights, written down',
     body: 'Who has the authority to decide what, how councils and project charters work, and a fair record of who contributed what. It is written down so it outlasts the people who wrote it.',
     sites: [{ href: 'https://neos.primusneo.com', label: 'NEOS, agreements and decision rights' }],
   },
@@ -155,13 +154,6 @@ export const ecosystemPartners = [
     image: partnerLogos.amp,
     role: 'Shared site view · Delivery',
     body: 'The team behind AMP. They build private, shared views of real places for community networks that run their own sites.',
-  },
-  {
-    name: 'OmniOne / NEOS',
-    href: 'https://www.greenearthvision.org/omnione-1',
-    image: partnerLogos.omnione,
-    role: 'Governance · Delivery',
-    body: 'The NEOS governance ecosystem and E.T.H.O.S. methodology for contribution-oriented organizations.',
   },
   {
     name: 'AZOA',

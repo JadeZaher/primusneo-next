@@ -60,7 +60,7 @@ export const roadmapLayers: RoadmapLayer[] = [
     repo: 'https://github.com/JadeZaher/NEOS',
     links: [{ label: 'NEOS, agreements and permissions', href: 'https://neos.primusneo.com' }],
     now: [
-      'Councils run at Tie Town [TX]. OmniOne, stewarded by Green Earth Vision, is the ecosystem named on the site.',
+      'Councils run at Tie Town [TX].',
       'The operating-system repo is the skill stack: written agreements, authority that is scoped and expires, and decisions by advice, consent, and a reversible test.',
       'On 4 November 2026 the platform repo recorded a deployed public introduction and a member tutorial rollout.',
     ],

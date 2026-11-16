@@ -124,7 +124,6 @@ async function buildBody(): Promise<string> {
     '',
     '## Partners',
     '- PLAN Systems: AMP.',
-    '- OmniOne / Green Earth Vision: NEOS.',
     '- Escherbridge: Fractal Engine steward and engineering.',
     '- Elevate Impact: research module.',
     '- OVERSEASGENAI: agentic venture shipyard.',

@@ -25,7 +25,7 @@ const governanceFlows = [
   },
   {
     title: 'NEOS backend governance',
-    body: 'Use OmniOne’s governance ecosystem as the backend pattern for holonic organization, E.T.H.O.S. alignment, contribution structures, collective accountability, and operational records.',
+    body: 'Use NEOS as the backend pattern for holonic organization, E.T.H.O.S. alignment, contribution structures, collective accountability, and operational records.',
   },
   {
     title: 'Asset and data governance',
@@ -64,7 +64,7 @@ const GovernancePlatformPage = () => {
               Otherwise it is a group chat with a bank account.
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-9 text-mist">
-              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. OmniOne, stewarded by Green Earth Vision, is the first ecosystem on the skills. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
+              <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://neos.primusneo.com">NEOS</a> is agreements and permissions. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/neos-operating-system">operating system</a> is a skill stack: agreements written down, authority that is scoped and expires, decisions by advice, consent, and a reversible test. The <a className="text-paper underline decoration-white/30 underline-offset-4 hover:text-accent" href="https://github.com/JadeZaher/NEOS">platform</a> is the product in front of that. Councils run at Tie Town [TX]. Capital does not purchase the decision. That is a rule, not a toast.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <GradientButton href="/one-pager">Read the one-pager</GradientButton>

@@ -32,11 +32,6 @@ const writingItems = [
   { href: '/futures', label: 'Futures', desc: 'Speculation, labeled as such' },
 ];
 
-const capitalItems = [
-  { href: '/fractionalization', label: 'Fractionalization', desc: 'Asset-backed ownership and participation' },
-  { href: '/ico-marketing', label: 'Capital Design', desc: 'Compliance-first capital design' },
-];
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -70,30 +65,6 @@ const Navbar = () => {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-1 border border-white/10 bg-ink p-4">
                     {platformItems.map((item) => (
-                      <li key={item.href}>
-                        <NavigationMenuLink asChild>
-                          <Link
-                            href={item.href}
-                            className="block px-4 py-3 transition hover:bg-white/[0.05]"
-                          >
-                            <div className="text-sm font-medium text-paper">{item.label}</div>
-                            <p className="text-xs text-mist">{item.desc}</p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* Capital Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent font-mono text-[11px] uppercase tracking-[0.18em] text-mist transition hover:text-paper">
-                  Capital
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[320px] gap-1 border border-white/10 bg-ink p-4">
-                    {capitalItems.map((item) => (
                       <li key={item.href}>
                         <NavigationMenuLink asChild>
                           <Link
@@ -223,15 +194,6 @@ const Navbar = () => {
               <MobileLink href="/azoa" onClick={closeMenu}>AZOA</MobileLink>
               <MobileLink href="/fractal-engine" onClick={closeMenu}>Fractal Engine</MobileLink>
               <MobileLink href="/elevate-impact" onClick={closeMenu}>Elevate Impact</MobileLink>
-            </div>
-          </div>
-
-          {/* Capital group */}
-          <div>
-            <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">Capital</div>
-            <div className="space-y-1">
-              <MobileLink href="/fractionalization" onClick={closeMenu}>Fractionalization</MobileLink>
-              <MobileLink href="/ico-marketing" onClick={closeMenu}>Capital Design</MobileLink>
             </div>
           </div>
 
